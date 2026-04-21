@@ -1,0 +1,77 @@
+# ── BMV Menüdienst – Greatnet Hosting (.htaccess) ──────────────
+# PHP 8.1 via FastCGI aktivieren
+AddHandler php-8.1-fcgid .php
+
+# PHP Einstellungen
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 60
+php_value memory_limit 256M
+php_flag display_errors Off
+php_flag log_errors On
+
+# ── Security Headers ────────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# ── HTTPS + URL Rewrites ────────────────────────────────────────
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# HTTPS erzwingen
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www erzwingen
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# WICHTIG: API, Assets und Systemordner NICHT umleiten
+RewriteRule ^(api|vendor|assets|data)/ - [L]
+
+# Saubere URLs: /seite/ → /seite/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}/index.php -f
+RewriteRule ^(.+?)/?$ $1/index.php [L]
+
+</IfModule>
+
+# ── Caching ─────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png  "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType text/css   "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# ── Gzip ────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/plain application/json
+</IfModule>
+
+# ── Schutz ──────────────────────────────────────────────────────
+# data/ Ordner sperren
+<IfModule mod_rewrite.c>
+    RewriteRule ^data/ - [F,L]
+</IfModule>
+
+# Versteckte Dateien sperren
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# .env sperren
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>

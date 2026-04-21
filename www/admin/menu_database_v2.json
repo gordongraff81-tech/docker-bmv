@@ -1,0 +1,1360 @@
+{
+  "version": 2,
+  "systems": {
+    "kantine": {
+      "label": "Kantine Am Gutshof",
+      "categories": {
+        "kantine_menu1": {
+          "label": "Menü 1",
+          "items": [
+            {
+              "id": 1,
+              "name": "Kohlroulade mit Bratensoße und Kartoffeln",
+              "allergens": "13,18,11"
+            },
+            {
+              "id": 2,
+              "name": "Schaschlik-Pfanne mit Reis",
+              "allergens": "13,18,11"
+            },
+            {
+              "id": 3,
+              "name": "Pikantes Hühnerfrikassee mit Beilage",
+              "allergens": "4,3,9,13"
+            },
+            {
+              "id": 4,
+              "name": "Schinkenknacker auf Grünkohl mit Kartoffeln",
+              "allergens": "13,9,4"
+            },
+            {
+              "id": 5,
+              "name": "Boulette mit Porreerahm",
+              "allergens": "13,9,4"
+            },
+            {
+              "id": 6,
+              "name": "Schnitzel vom Schwein mit Pommes oder Bratkartoffeln",
+              "allergens": "18,13,9,4"
+            },
+            {
+              "id": 7,
+              "name": "Hähnchenschnitzel mit Pommes oder Bratkartoffeln",
+              "allergens": "18,13,9,4"
+            },
+            {
+              "id": 8,
+              "name": "Fischfilet mit Bratkartoffeln und Remouladensoße",
+              "allergens": "11,4,9,16"
+            },
+            {
+              "id": 9,
+              "name": "Gebackener Leberkäse mit Spiegelei und Bratkartoffeln",
+              "allergens": "13,4,2"
+            },
+            {
+              "id": 10,
+              "name": "Königsberger Klopse in Kapernsoße mit Rote Beete",
+              "allergens": "18,4,13,9"
+            },
+            {
+              "id": 11,
+              "name": "Boulette mit Porree-Rahm-Gemüse und Kartoffeln",
+              "allergens": "3,4,13,18,9"
+            },
+            {
+              "id": 12,
+              "name": "Schnitzel mit Letscho und Bratkartoffeln",
+              "allergens": "18,13,9,4"
+            },
+            {
+              "id": 13,
+              "name": "Schinkenknacker auf Grünkohl mit Kartoffeln",
+              "allergens": "13,11"
+            },
+            {
+              "id": 14,
+              "name": "Kassler-Rippchen auf Sauerkraut mit Bärlauchpüree",
+              "allergens": "13,11,3,4,9"
+            },
+            {
+              "id": 15,
+              "name": "Beelitzer Spargel mit Hähnchenschnitzel und Rosmarinkartoffeln",
+              "allergens": "13,4,9,18"
+            },
+            {
+              "id": 16,
+              "name": "Pikantes Hühnerfrikassee mit Kurkumareis",
+              "allergens": "13,4"
+            },
+            {
+              "id": 17,
+              "name": "Hamburger Schnitzel mit Ei, Blumenkohl und Pommes",
+              "allergens": "18,13,9,4"
+            },
+            {
+              "id": 18,
+              "name": "Hähnchenbrust mit Buttergemüse, Soße und Kartoffeln",
+              "allergens": "4,3,13"
+            },
+            {
+              "id": 19,
+              "name": "Hähnchenschnitzel mit Leipziger Allerlei und Pommes",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 20,
+              "name": "Bratwurst mit bayrisch Kraut und Kartoffeln",
+              "allergens": "13,4,12"
+            },
+            {
+              "id": 21,
+              "name": "Boulette mit Mischgemüserahm und Kartoffeln",
+              "allergens": "4,13,18,9"
+            },
+            {
+              "id": 22,
+              "name": "Hamburger Schnitzel mit Rahmchampignon und Pommes",
+              "allergens": "13,18,9,11"
+            },
+            {
+              "id": 23,
+              "name": "Fischstäbchen mit buntem Gemüse, Kräutersoße und Püree",
+              "allergens": "16,13,18,9"
+            },
+            {
+              "id": 24,
+              "name": "Hähnchenschnitzel mit Champignonsoße und Pommes",
+              "allergens": "13,18,4,9"
+            },
+            {
+              "id": 25,
+              "name": "Gefüllte Kohlroulade mit Bratensoße und Kartoffeln",
+              "allergens": "18,4,13"
+            },
+            {
+              "id": 26,
+              "name": "Hähnchenkeule mit Rotkohl, Soße und Kartoffeln",
+              "allergens": "3,4,13"
+            },
+            {
+              "id": 27,
+              "name": "Bratwurst mit Gemüse, Soße und Kartoffeln",
+              "allergens": "13,18,9"
+            }
+          ]
+        },
+        "kantine_menu2": {
+          "label": "Menü 2",
+          "items": [
+            {
+              "id": 1,
+              "name": "2 gekochte Eier in Senfsoße und Kartoffeln",
+              "allergens": "18,4,13,9"
+            },
+            {
+              "id": 2,
+              "name": "Nudeln essen satt – Bolognese und Spirelli",
+              "allergens": "4,13,12,18"
+            },
+            {
+              "id": 3,
+              "name": "Gemüseschnitzel mit Holländischer Soße und Reis",
+              "allergens": "13,18,4,2"
+            },
+            {
+              "id": 4,
+              "name": "Berliner Eisbein mit Sauerkraut und Kartoffeln",
+              "allergens": "13,2,11"
+            },
+            {
+              "id": 5,
+              "name": "Geschmorter Kohl mit Hackfleisch und Püree",
+              "allergens": "13,9"
+            },
+            {
+              "id": 6,
+              "name": "2 gekochte Eier mit Rahmspinat und Frühlingspüree",
+              "allergens": "13,18,4,9"
+            },
+            {
+              "id": 7,
+              "name": "XXL Bockwurst mit Kartoffelsalat",
+              "allergens": "12,9,4,3,2"
+            },
+            {
+              "id": 8,
+              "name": "Blumenkohl-Käse-Medaillon mit Kräuterpüree und Hollandaise",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 9,
+              "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+              "allergens": "4,13,12,18"
+            },
+            {
+              "id": 10,
+              "name": "Spargelsuppe mit Fleischklößchen und frischen Kräutern",
+              "allergens": "13,9"
+            },
+            {
+              "id": 11,
+              "name": "Hausgemachter Hackbraten mit Blumenkohl, Soße und Kartoffeln",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 12,
+              "name": "Spaghetti Bolognese",
+              "allergens": "18,4,13"
+            },
+            {
+              "id": 13,
+              "name": "Buntes Eierfrikassee mit Reis",
+              "allergens": "13,18,2,4"
+            },
+            {
+              "id": 14,
+              "name": "Nudel-Auflauf mit Jagdwurstwürfel und Tomatencreme",
+              "allergens": "13,18,9,12"
+            },
+            {
+              "id": 15,
+              "name": "Gemüse Köttbullar in Paprikasoße und Makkaroni",
+              "allergens": "9,13,4"
+            },
+            {
+              "id": 16,
+              "name": "2 gekochte Eier mit Rahmspinat und Kräuterpüree",
+              "allergens": "13,18,4,9"
+            },
+            {
+              "id": 17,
+              "name": "Nudel-Brokkoli-Auflauf mit Tomatensoße",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 18,
+              "name": "Wurstgulasch mit Nudeln",
+              "allergens": "13,12,4"
+            }
+          ]
+        },
+        "kantine_menu3": {
+          "label": "Menü 3",
+          "items": [
+            {
+              "id": 1,
+              "name": "Frisch gebackene Eierkuchen mit Zucker und Apfelmus",
+              "allergens": "12,13,22"
+            },
+            {
+              "id": 2,
+              "name": "Kräuterquark mit Kartoffeln und Leinöl",
+              "allergens": "2,4,9"
+            },
+            {
+              "id": 3,
+              "name": "Weißkohleintopf mit Fleischeinlage",
+              "allergens": "12,22"
+            },
+            {
+              "id": 4,
+              "name": "Vegetarische Nudelpfanne mit Tomatensoße",
+              "allergens": "9,13,4,2"
+            },
+            {
+              "id": 5,
+              "name": "Grießbrei mit Erdbeeren",
+              "allergens": "13,9"
+            },
+            {
+              "id": 6,
+              "name": "Steckrübeneintopf mit Fleischeinlage",
+              "allergens": "9,13"
+            },
+            {
+              "id": 7,
+              "name": "Möhreneintopf mit Fleischeinlage",
+              "allergens": "22,12"
+            },
+            {
+              "id": 8,
+              "name": "Burger mit Pommes",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 9,
+              "name": "Alt Deutsche Kartoffelsuppe",
+              "allergens": "11,22"
+            },
+            {
+              "id": 10,
+              "name": "Kartoffelsuppe mit Bockwurst",
+              "allergens": "12,22,13"
+            },
+            {
+              "id": 11,
+              "name": "3erlei Gemüse mit Holländischer Soße und Reis",
+              "allergens": "13"
+            },
+            {
+              "id": 12,
+              "name": "Vegetarische Nudelpfanne mit frischem Gemüse und Tomatencreme",
+              "allergens": "13,4,9,18"
+            },
+            {
+              "id": 13,
+              "name": "Eierkuchen mit hausgemachtem Apfelmus",
+              "allergens": "9,13,18"
+            },
+            {
+              "id": 14,
+              "name": "Grüne Bohnen Eintopf",
+              "allergens": "13,22"
+            },
+            {
+              "id": 15,
+              "name": "Brühnudelsuppe mit Hühnchenfleisch",
+              "allergens": "4,22,9"
+            },
+            {
+              "id": 16,
+              "name": "Kohlrübeneintopf mit Fleischeinlage",
+              "allergens": "13,22"
+            },
+            {
+              "id": 17,
+              "name": "4 Hefeklöße mit Früchten",
+              "allergens": "9,13"
+            },
+            {
+              "id": 18,
+              "name": "Grießbrei mit Früchten",
+              "allergens": "9,4,13"
+            }
+          ]
+        }
+      }
+    },
+    "essen_auf_raedern": {
+      "label": "Essen auf Rädern",
+      "categories": {
+        "vollkost": {
+          "label": "Vollkost M1",
+          "items": [
+            {
+              "id": 1,
+              "name": "Rosenkohl-Eintopf mit Fleischeinlage",
+              "allergens": "22,13"
+            },
+            {
+              "id": 2,
+              "name": "Kohlrabisuppe mit Wiener",
+              "allergens": "22,13,12"
+            },
+            {
+              "id": 3,
+              "name": "Weißkohl-Eintopf mit Eisbeinfleisch",
+              "allergens": "11,13,9"
+            },
+            {
+              "id": 4,
+              "name": "Vegetarische Nudelpfanne mit Tomatensoße",
+              "allergens": "13,4,18"
+            },
+            {
+              "id": 5,
+              "name": "Grießbrei mit Erdbeer-Kompott",
+              "allergens": "13,9"
+            },
+            {
+              "id": 6,
+              "name": "Steckrübeneintopf mit Fleischeinlage",
+              "allergens": "13,22"
+            },
+            {
+              "id": 7,
+              "name": "Möhrensuppe mit Fleischeinlage",
+              "allergens": "4,13,12,22"
+            },
+            {
+              "id": 8,
+              "name": "Kartoffelpuffer mit Zucker und Apfelmus",
+              "allergens": "9,4,2"
+            },
+            {
+              "id": 9,
+              "name": "Kartoffelsuppe mit Bockwurstscheiben",
+              "allergens": "22,12,13"
+            },
+            {
+              "id": 10,
+              "name": "Gemüsesuppe mit Wiener",
+              "allergens": "22,18,13"
+            },
+            {
+              "id": 11,
+              "name": "Möhren-Eintopf mit Fleischeinlage",
+              "allergens": "13,22"
+            },
+            {
+              "id": 12,
+              "name": "Grüne Bohnensuppe mit Fleischeinlage",
+              "allergens": "22,11"
+            },
+            {
+              "id": 13,
+              "name": "Brühnudelsuppe mit Hühnerfleisch",
+              "allergens": "22,2"
+            },
+            {
+              "id": 14,
+              "name": "Spargelsuppe mit Fleischklößchen",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 15,
+              "name": "Grüne Bohnen Eintopf mit Kassler",
+              "allergens": "22,13,11"
+            },
+            {
+              "id": 16,
+              "name": "Brühnudelsuppe mit Hähnchenfleisch",
+              "allergens": "22,18,13"
+            },
+            {
+              "id": 17,
+              "name": "Graupensuppe mit Fleischeinlage",
+              "allergens": "22,12,4"
+            },
+            {
+              "id": 18,
+              "name": "Kohlrübeneintopf mit Bauchfleisch",
+              "allergens": "22,13"
+            },
+            {
+              "id": 19,
+              "name": "Gemüsesuppe vegetarisch",
+              "allergens": "13,4,22"
+            },
+            {
+              "id": 20,
+              "name": "Kohlrabi-Eintopf mit Wiener",
+              "allergens": "12,13,22"
+            },
+            {
+              "id": 21,
+              "name": "Grießbrei mit Früchten",
+              "allergens": "9,4,2"
+            },
+            {
+              "id": 22,
+              "name": "Wirsingkohl-Suppe mit Fleischeinlage",
+              "allergens": "22,12"
+            }
+          ]
+        },
+        "leichte_kost": {
+          "label": "Leichte Kost M2",
+          "items": [
+            {
+              "id": 1,
+              "name": "2 gekochte Eier in Senfsoße, Möhren und Püree",
+              "allergens": "18,13,19,9"
+            },
+            {
+              "id": 2,
+              "name": "Spaghetti Bolognese",
+              "allergens": "13,4,2,18"
+            },
+            {
+              "id": 3,
+              "name": "Gemüseschnitzel auf Reisbett mit Holländischer Sauce",
+              "allergens": "13,18,22"
+            },
+            {
+              "id": 4,
+              "name": "Kesselgulasch (Suppe) mit Spätzle und Brötchen",
+              "allergens": "18,13,22"
+            },
+            {
+              "id": 5,
+              "name": "Gemüsebolognese mit Spaghetti",
+              "allergens": "13,22,18,4"
+            },
+            {
+              "id": 6,
+              "name": "Spaghetti-Pfanne mit Hackfleisch, Gemüse und Tomatensoße",
+              "allergens": "4,18,13"
+            },
+            {
+              "id": 7,
+              "name": "Geschnetzeltes mit Zwiebeln und Reis",
+              "allergens": "13,18"
+            },
+            {
+              "id": 8,
+              "name": "2 gekochte Eier in Rahmspinat mit Frühlingspüree",
+              "allergens": "18,13,9"
+            },
+            {
+              "id": 9,
+              "name": "Brokkoli in Hollandaise und Kartoffeln",
+              "allergens": "13,9"
+            },
+            {
+              "id": 10,
+              "name": "Spirelli mit stückiger Tomatensoße und Reibekäse",
+              "allergens": "9,13,18,4"
+            },
+            {
+              "id": 11,
+              "name": "2 Spiegeleier auf Stampfkartoffeln mit Gurkensalat",
+              "allergens": "18,11,4,2"
+            },
+            {
+              "id": 12,
+              "name": "Gegrillte Gemüsemischung mediterran mit Kräuter-Hollandaise",
+              "allergens": "9,4"
+            },
+            {
+              "id": 13,
+              "name": "Bockwurst auf Kartoffelsalat mit Salatbeilage",
+              "allergens": "12,9,4"
+            },
+            {
+              "id": 14,
+              "name": "Hähnchengulasch mit Lauch und Nudeln",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 15,
+              "name": "Brokkoli mit Hollandaise und Kartoffeln",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 16,
+              "name": "Wurstgulasch mit Nudeln",
+              "allergens": "13,4,2,18,12"
+            },
+            {
+              "id": 17,
+              "name": "Kartoffel-Gemüse-Auflauf mit Käsesoße",
+              "allergens": "18,9,4"
+            },
+            {
+              "id": 18,
+              "name": "Käsespätzle mit Röstzwiebeln und Kräutern",
+              "allergens": "9,13,4"
+            },
+            {
+              "id": 19,
+              "name": "Nudeln mit stückiger Tomatensoße und Reibekäse",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 20,
+              "name": "Nudelsalat mit Boulette und süß-saurem Gemüse",
+              "allergens": "9,4,18,13"
+            },
+            {
+              "id": 21,
+              "name": "Grüne Bohnen Eintopf mit Eisbeinfleisch",
+              "allergens": "13,22,11"
+            },
+            {
+              "id": 22,
+              "name": "2 gekochte Eier in Senfsoße mit Möhrenstiften und Kartoffeln",
+              "allergens": "9,13,18,11"
+            },
+            {
+              "id": 23,
+              "name": "3erlei Gemüse in Hollandaise mit Reis",
+              "allergens": "13,9"
+            },
+            {
+              "id": 24,
+              "name": "Gabelspaghetti Bolognese mit Reibekäse",
+              "allergens": "18,13,4,12"
+            },
+            {
+              "id": 25,
+              "name": "Schnitzel mit Kartoffelsalat und Salatbeilage",
+              "allergens": "18,2,9,4,13"
+            },
+            {
+              "id": 26,
+              "name": "Schmorkohl mit Hackfleisch und Püree",
+              "allergens": "13,9"
+            },
+            {
+              "id": 27,
+              "name": "Buntes Eierfrikassee mit Reis",
+              "allergens": "13,4,9,18,11"
+            },
+            {
+              "id": 28,
+              "name": "Stampfkartoffeln mit 2 Spiegeleiern und Gurkensalat",
+              "allergens": "18,11,4"
+            },
+            {
+              "id": 29,
+              "name": "Nudelauflauf mit Jagdwurstwürfeln und Tomatencreme",
+              "allergens": "12,4,13,9"
+            },
+            {
+              "id": 30,
+              "name": "Blumenkohl und Möhren in heller Soße und Püree",
+              "allergens": "9,13"
+            },
+            {
+              "id": 31,
+              "name": "Gemüsemix in holländischer Soße mit Salzkartoffeln",
+              "allergens": "9,13"
+            },
+            {
+              "id": 32,
+              "name": "Steckrübeneintopf mit Fleischeinlage",
+              "allergens": "4,13,12"
+            },
+            {
+              "id": 33,
+              "name": "Gemüsebällchen in Paprikasoße und Makkaroni",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 34,
+              "name": "2 gekochte Eier mit Rahmspinat und Kräuterpüree",
+              "allergens": "11,18,13,9"
+            },
+            {
+              "id": 35,
+              "name": "Pilzragout mit Semmelknödelscheiben",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 36,
+              "name": "Nudel-Auflauf mit Brokkoli und Tomatensoße",
+              "allergens": "9,13,18,4"
+            },
+            {
+              "id": 37,
+              "name": "Gemüseschnitzel auf Reis mit Kräuter-Hollandaise",
+              "allergens": "9,18,4"
+            },
+            {
+              "id": 38,
+              "name": "Wirsingkohleintopf mit Bauchfleisch",
+              "allergens": "13,22"
+            },
+            {
+              "id": 39,
+              "name": "Wurstgulasch mit Nudeln",
+              "allergens": "13,9,18,4"
+            }
+          ]
+        },
+        "premium": {
+          "label": "Premium M3",
+          "items": [
+            {
+              "id": 1,
+              "name": "Schaschlikpfanne mit buntem Reis",
+              "allergens": "13"
+            },
+            {
+              "id": 2,
+              "name": "Pikantes Hühnerfrikassee mit Kartoffeln",
+              "allergens": "2,13,9"
+            },
+            {
+              "id": 3,
+              "name": "Boulette auf Porreerahm mit Kartoffeln",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 4,
+              "name": "Bratwurst mit Sauerkraut, Soße und Kartoffeln",
+              "allergens": "13,3,4,12"
+            },
+            {
+              "id": 5,
+              "name": "Paniertes Schollenfilet auf Stampfkartoffeln",
+              "allergens": "16,13,11,9"
+            },
+            {
+              "id": 6,
+              "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+              "allergens": "4,13,12,18"
+            },
+            {
+              "id": 7,
+              "name": "Hähnchenbrust mit Buttererbsen, Soße und Kartoffeln",
+              "allergens": "13,9"
+            },
+            {
+              "id": 8,
+              "name": "Hähnchen Nuggets mit Mischgemüserahm und Kartoffeln",
+              "allergens": "13,4,9,18"
+            },
+            {
+              "id": 9,
+              "name": "Königsberger Klopse in Kapernsoße mit Kartoffeln und Rote Beete",
+              "allergens": "13,18,11"
+            },
+            {
+              "id": 10,
+              "name": "Schnitzel mit Porreerahm und Kartoffeln",
+              "allergens": "13,4,18"
+            },
+            {
+              "id": 11,
+              "name": "Hacksteak mit Letscho und Reis",
+              "allergens": "13,4,18"
+            },
+            {
+              "id": 12,
+              "name": "Fischfilet auf Püree mit Kräutergemüse",
+              "allergens": "13,18,9,16"
+            },
+            {
+              "id": 13,
+              "name": "Schinkenmettwurst auf Grünkohl mit Kartoffeln",
+              "allergens": "12,13"
+            },
+            {
+              "id": 14,
+              "name": "Putenleber mit Zwiebelsoße, Möhrenstiften und Püree",
+              "allergens": "9,13"
+            },
+            {
+              "id": 15,
+              "name": "Hähnchenkeule mit Mischgemüse, Soße und Kartoffeln",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 16,
+              "name": "Bauernroulade mit Rotkohl, Soße und Kartoffeln",
+              "allergens": "13,18,4,3"
+            },
+            {
+              "id": 17,
+              "name": "Schnitzel mit Ei, Bratkartoffeln und Gewürzgurke",
+              "allergens": "18,13,4,3,11"
+            },
+            {
+              "id": 18,
+              "name": "Rügener Fischpfanne mit Frühlingspüree",
+              "allergens": "16,9,13,22"
+            },
+            {
+              "id": 19,
+              "name": "Putengulasch mit Gemüsereis",
+              "allergens": "13"
+            },
+            {
+              "id": 20,
+              "name": "Kasslerbraten mit Sauerkraut, Soße und Kartoffeln",
+              "allergens": "11,4,3,13"
+            },
+            {
+              "id": 21,
+              "name": "Hack-Paprika-Pfanne mit Nudeln",
+              "allergens": "13,18,4"
+            },
+            {
+              "id": 22,
+              "name": "Frischer Spargelgemüse mit Hähnchenschnitzel und Bärlauchpüree",
+              "allergens": "9,13,18"
+            },
+            {
+              "id": 23,
+              "name": "Pikantes Hühnerfrikassee mit Kartoffeln",
+              "allergens": "13,2,4"
+            },
+            {
+              "id": 24,
+              "name": "Blumenkohl in heller Soße mit Rührei und Kartoffeln",
+              "allergens": "13,12,2"
+            },
+            {
+              "id": 25,
+              "name": "2 kl. Bratwürstchen, Kohlrabigemüse und Kartoffeln",
+              "allergens": "4,18,13,22"
+            },
+            {
+              "id": 26,
+              "name": "Geschnetzeltes mit Pilzen und Reis",
+              "allergens": "13,3,4"
+            },
+            {
+              "id": 27,
+              "name": "Hähnchenschnitzel auf Püree mit Leipziger Allerlei",
+              "allergens": "4,13,18,9,12"
+            },
+            {
+              "id": 28,
+              "name": "2 Bratwürstchen auf Bayrischem Kraut mit Kartoffeln",
+              "allergens": "13,11,12"
+            },
+            {
+              "id": 29,
+              "name": "Boulette mit Mischgemüse in Soße und Kartoffeln",
+              "allergens": "13,2,4,18"
+            },
+            {
+              "id": 30,
+              "name": "Schnitzel mit Rahmchampignon und Kartoffeln",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 31,
+              "name": "Fischstäbchen auf Püree mit buntem Gemüse und Kräutersoße",
+              "allergens": "16,13,9"
+            },
+            {
+              "id": 32,
+              "name": "Jägerschnitzel mit Tomatensoße und Nudeln",
+              "allergens": "13,19,4,12"
+            },
+            {
+              "id": 33,
+              "name": "Spanferkelrollbraten mit Apfel-Rotkohl und Kartoffeln",
+              "allergens": "13,4,2"
+            },
+            {
+              "id": 34,
+              "name": "Hähnchen Nuggets mit Champignonsoße und Kartoffeln",
+              "allergens": "13,4"
+            },
+            {
+              "id": 35,
+              "name": "Gefüllte Kohlroulade mit Specksoße und Kartoffeln",
+              "allergens": "13,18,11"
+            },
+            {
+              "id": 36,
+              "name": "Hähnchenkeule mit Rotkohl, Soße und Kartoffeln",
+              "allergens": "13,4,3"
+            },
+            {
+              "id": 37,
+              "name": "Deftiger Gulasch mit Grünen Bohnen und Kartoffeln",
+              "allergens": "13,9"
+            },
+            {
+              "id": 38,
+              "name": "Schnitzel mit Mischgemüse, Soße und Kartoffeln",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 39,
+              "name": "Bratwurst mit Butterbohnen, Soße und Kartoffeln",
+              "allergens": "13,18,9"
+            },
+            {
+              "id": 40,
+              "name": "Hähnchenbrust mit Mischgemüse, Soße und Kartoffeln",
+              "allergens": "18,13,19,12"
+            }
+          ]
+        },
+        "tagesmenu": {
+          "label": "Tagesmenü M4",
+          "items": [
+            {
+              "id": 1,
+              "name": "3 Eierkuchen mit Zucker und Apfelmus",
+              "allergens": "18,13,4,3"
+            },
+            {
+              "id": 2,
+              "name": "Kräuterquark mit Kartoffeln und Butter",
+              "allergens": "9"
+            },
+            {
+              "id": 3,
+              "name": "Boulette auf Kartoffelsalat mit Salatbeilage",
+              "allergens": "13,18,9,4,3"
+            },
+            {
+              "id": 4,
+              "name": "Sülze mit Bratkartoffeln und Remouladensoße",
+              "allergens": "11,3,4,12,9"
+            },
+            {
+              "id": 5,
+              "name": "Geschmorter Kohl mit Hackfleisch und Kartoffeln",
+              "allergens": "13"
+            },
+            {
+              "id": 6,
+              "name": "Kartoffelsalat mit Backfisch und Rohkost",
+              "allergens": "9,12,4"
+            },
+            {
+              "id": 7,
+              "name": "Nudelsalat mit Boulette und Salatbeilage",
+              "allergens": "4,9,12,18"
+            },
+            {
+              "id": 8,
+              "name": "Backcamembert auf gebutterten Spaghetti mit Kräutersoße",
+              "allergens": "9,18,4"
+            },
+            {
+              "id": 9,
+              "name": "Quarkkeulchen mit Zucker und Apfelmus",
+              "allergens": "13,9"
+            },
+            {
+              "id": 10,
+              "name": "Bärlauch-Kräuterquark mit Kartoffeln und Leinöl",
+              "allergens": "9,4"
+            },
+            {
+              "id": 11,
+              "name": "Kartoffelsalat mit Schinkenröllchen und Bohnensalat",
+              "allergens": "9,4,2,12"
+            },
+            {
+              "id": 12,
+              "name": "Nudelsalat mit Hähnchen Nuggets und Salatbeilage",
+              "allergens": "9,4,18"
+            },
+            {
+              "id": 13,
+              "name": "Wurstgulasch Jäger Art mit Spirelli",
+              "allergens": "13,12,18"
+            },
+            {
+              "id": 14,
+              "name": "3½ Eier und Remouladensoße, Kartoffelsalat",
+              "allergens": "3,4,2,18"
+            },
+            {
+              "id": 15,
+              "name": "Tomaten-Reis-Suppe mit Fleischklößchen",
+              "allergens": "13,18,2,4"
+            },
+            {
+              "id": 16,
+              "name": "Kartoffelsalat mit Schnitzel und Salatbeilage",
+              "allergens": "9,4,16"
+            },
+            {
+              "id": 17,
+              "name": "Kräuterquark mit Salzkartoffeln und Leinöl",
+              "allergens": "9"
+            },
+            {
+              "id": 18,
+              "name": "Bauernsülze mit Bratkartoffeln und Remouladensoße",
+              "allergens": "2,9,4,11"
+            },
+            {
+              "id": 19,
+              "name": "Kartoffelpuffer mit Apfelmus und Zucker",
+              "allergens": "9,13,18,4"
+            },
+            {
+              "id": 20,
+              "name": "3 Hefeklöße mit Früchten",
+              "allergens": "13,9"
+            },
+            {
+              "id": 21,
+              "name": "Nudeln mit Wurstgulasch",
+              "allergens": "9,13,18,4"
+            }
+          ]
+        },
+        "dessert": {
+          "label": "Dessert",
+          "items": [
+            {
+              "id": 1,
+              "name": "Apfelmus",
+              "allergens": ""
+            },
+            {
+              "id": 2,
+              "name": "Quarkspeise",
+              "allergens": "13,9"
+            },
+            {
+              "id": 3,
+              "name": "Banane in Schokosoße",
+              "allergens": "13"
+            },
+            {
+              "id": 4,
+              "name": "Rote Grütze mit Vanillesoße",
+              "allergens": "9"
+            },
+            {
+              "id": 5,
+              "name": "1 Stück Blechkuchen",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 6,
+              "name": "Banane",
+              "allergens": ""
+            },
+            {
+              "id": 7,
+              "name": "Fruchtjoghurt 3,5%",
+              "allergens": "13"
+            },
+            {
+              "id": 8,
+              "name": "Zitronenquark",
+              "allergens": "13,9"
+            },
+            {
+              "id": 9,
+              "name": "Götterspeise mit Sahne",
+              "allergens": "13,9"
+            },
+            {
+              "id": 10,
+              "name": "1 Stück Kokos-Schoko-Kuchen",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 11,
+              "name": "1 Pfannkuchen",
+              "allergens": "13,9,18,4"
+            },
+            {
+              "id": 12,
+              "name": "Frischer Obstsalat",
+              "allergens": ""
+            },
+            {
+              "id": 13,
+              "name": "Götterspeise mit Vanillesoße",
+              "allergens": "9"
+            },
+            {
+              "id": 14,
+              "name": "Schokopudding mit Sahne",
+              "allergens": "13,9"
+            },
+            {
+              "id": 15,
+              "name": "1 Stück Bienenstichtorte",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 16,
+              "name": "Frische Erdbeeren",
+              "allergens": ""
+            },
+            {
+              "id": 17,
+              "name": "Joghurt mit Früchten",
+              "allergens": "13"
+            },
+            {
+              "id": 18,
+              "name": "Obstkompott",
+              "allergens": ""
+            },
+            {
+              "id": 19,
+              "name": "Schokopudding mit Vanillesoße",
+              "allergens": "9"
+            },
+            {
+              "id": 20,
+              "name": "1 Stück Pflaumenkuchen",
+              "allergens": "13,9,18"
+            },
+            {
+              "id": 21,
+              "name": "1 Stück Schoko Muffin",
+              "allergens": "13,9,18"
+            }
+          ]
+        },
+        "rohkost": {
+          "label": "Rohkost",
+          "items": [
+            {
+              "id": 1,
+              "name": "Weißkrautsalat",
+              "allergens": ""
+            },
+            {
+              "id": 2,
+              "name": "Chinakohl mit Pfirsich",
+              "allergens": ""
+            },
+            {
+              "id": 3,
+              "name": "Gurkensalat",
+              "allergens": ""
+            },
+            {
+              "id": 4,
+              "name": "Tomatensalat",
+              "allergens": ""
+            },
+            {
+              "id": 5,
+              "name": "Tomatensalat mit frischer Minze",
+              "allergens": ""
+            },
+            {
+              "id": 6,
+              "name": "Gurken-Tomaten-Salat",
+              "allergens": ""
+            },
+            {
+              "id": 7,
+              "name": "Möhrenrohkost",
+              "allergens": ""
+            },
+            {
+              "id": 8,
+              "name": "Kartoffelsalat 200g",
+              "allergens": "9,4"
+            },
+            {
+              "id": 9,
+              "name": "Chicoree-Salat",
+              "allergens": ""
+            },
+            {
+              "id": 10,
+              "name": "Gurkensalat in Sahne",
+              "allergens": "13"
+            },
+            {
+              "id": 11,
+              "name": "Chinakohl-Salat mit Pfirsich",
+              "allergens": ""
+            }
+          ]
+        },
+        "abendessen": {
+          "label": "Abendessen",
+          "items": [
+            {
+              "id": 1,
+              "name": "2 Wiener mit Butter und Brot, Senf und Salat",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 2,
+              "name": "Eiersalat mit Salatbeilage und Toastbrot",
+              "allergens": "13,9,18,4"
+            },
+            {
+              "id": 3,
+              "name": "2 Bauernschnitten mit Käse und Leberwurst",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 4,
+              "name": "Brathering mit Mischbrot, Zwiebeln, Gewürzgurke und Butter",
+              "allergens": "16,3,13,9"
+            },
+            {
+              "id": 5,
+              "name": "Käseplatte mit 3 Sorten, Butter und Brot",
+              "allergens": "13,9"
+            },
+            {
+              "id": 6,
+              "name": "2 Scheiben Brot mit Leberwurst und Käse, dazu Salat",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 7,
+              "name": "Rührei-Bauernstulle mit Zwiebellauch und Tomatensalat",
+              "allergens": "13,9,18,4"
+            },
+            {
+              "id": 8,
+              "name": "Gebratene Jagdwurst, Salatbeilage, Senf und Kartoffelsalat",
+              "allergens": "12,4,13,9"
+            },
+            {
+              "id": 9,
+              "name": "Hausmacher Blut-/Leberwurst mit ½ Ei, Brot und Butter",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 10,
+              "name": "4 Canapés mit Käse, Mett, Eiersalat und Salami",
+              "allergens": "13,9,12,4"
+            },
+            {
+              "id": 11,
+              "name": "2 Scheiben Brot mit Zwiebelmett und Fleischsalat",
+              "allergens": "13,9,4,12"
+            },
+            {
+              "id": 12,
+              "name": "Schnitzel auf Kartoffelsalat mit Salatbeilage",
+              "allergens": "13,18,9,4"
+            },
+            {
+              "id": 13,
+              "name": "2 kl. Bouletten auf Nudelsalat mit Salatbeilage",
+              "allergens": "13,9,18,4"
+            },
+            {
+              "id": 14,
+              "name": "Matjes Hering Remoulade mit Butter und Vollkornbrot",
+              "allergens": "16,3,13,9"
+            },
+            {
+              "id": 15,
+              "name": "2 kl. Wiener mit Brot und Butter, Senf und Salatbeilage",
+              "allergens": "12,13,9"
+            },
+            {
+              "id": 16,
+              "name": "Schlachteplatte mit Brot, Butter und Salatbeilage",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 17,
+              "name": "2 Matjesfilet mit Remoulade, Brot und Butter",
+              "allergens": "16,3,13,9"
+            },
+            {
+              "id": 18,
+              "name": "Jägerschnitzel auf Kartoffelsalat mit Salatbeilage",
+              "allergens": "13,18,9,4,12"
+            },
+            {
+              "id": 19,
+              "name": "2 Stullen mit Salami und Käse, dazu Gurke und Tomate",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 20,
+              "name": "2 Mischbrotschnitten mit Zwiebelmett, Leberwurst und Garnitur",
+              "allergens": "13,9,4,12"
+            },
+            {
+              "id": 21,
+              "name": "2 Scheiben Brot mit Schinken und Käse, dazu Salat",
+              "allergens": "13,9,12"
+            }
+          ]
+        },
+        "salat": {
+          "label": "Salatteller",
+          "items": [
+            {
+              "id": 1,
+              "name": "Griechischer Bauernsalat mit Feta, Tomate, Paprika, Gurke, Dressing und Brötchen",
+              "allergens": "9,4,13"
+            },
+            {
+              "id": 2,
+              "name": "Gemischter Salat mit Thunfisch, Zwiebeln, Ei, Dressing und Brötchen",
+              "allergens": "4,13,9"
+            },
+            {
+              "id": 3,
+              "name": "Hähnchenschnitzel auf Nudelsalat mit Salatbeilage",
+              "allergens": "13,9,18,4"
+            },
+            {
+              "id": 4,
+              "name": "Salat mit Mozzarella, Fetawürfel, Weintrauben und Mandarinen",
+              "allergens": "13,9"
+            },
+            {
+              "id": 5,
+              "name": "Gemischter Salat mit Käse und Schinken, Dressing und Brötchen",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 6,
+              "name": "Gemischte Salatplatte mit Feta, Ei, Dressing und Brötchen",
+              "allergens": "13,9,4"
+            },
+            {
+              "id": 7,
+              "name": "Gemischter Salat mit Hähnchenbrust, Dressing und Brötchen",
+              "allergens": "13,9,4"
+            },
+            {
+              "id": 8,
+              "name": "Thunfisch-Salat mit Gurke, Tomate und Eisberg, Dressing und Brötchen",
+              "allergens": "4,13,9"
+            },
+            {
+              "id": 9,
+              "name": "Kartoffelsalat mit Schnitzel und Gurkensalat",
+              "allergens": "9,4,16,13,18"
+            },
+            {
+              "id": 10,
+              "name": "Eisbergsalat mit Feta, Ei, Gurke, Tomate, Dressing und Brötchen",
+              "allergens": "9,4,13"
+            },
+            {
+              "id": 11,
+              "name": "Nudelsalat mit Hähnchenbrust und Rohkostsalat",
+              "allergens": "13,9,18,4"
+            },
+            {
+              "id": 12,
+              "name": "Gemischter Salat mit Tomaten, Mozzarella und Balsamico-Dressing",
+              "allergens": "13,9"
+            },
+            {
+              "id": 13,
+              "name": "Bunter Salat mit Gemüsebällchen, Ananas und Baguettescheiben",
+              "allergens": "9,4,13"
+            },
+            {
+              "id": 14,
+              "name": "Gemischter Salat mit Thunfisch, Zwiebelringe und Baguettescheiben",
+              "allergens": "4,13,9"
+            },
+            {
+              "id": 15,
+              "name": "Chop-Salat mit Tomate, Paprika, Gurke, Feta und Dressing",
+              "allergens": "9,4,13"
+            },
+            {
+              "id": 16,
+              "name": "Spargelsalat mit Butterbrötchen",
+              "allergens": "2,13,9"
+            },
+            {
+              "id": 17,
+              "name": "Gemischter Salat mit Käse und Schinken, Dressing und Brötchen",
+              "allergens": "13,9,12"
+            },
+            {
+              "id": 18,
+              "name": "Bunter Sommersalat mit Gurke, Tomate, Paprika, Pfirsich und Lauch",
+              "allergens": ""
+            },
+            {
+              "id": 19,
+              "name": "Gemischter Salat mit Hähnchenstreifen, Dipp und Brötchen",
+              "allergens": "13,9,4"
+            },
+            {
+              "id": 20,
+              "name": "Schweizer Wurstsalat mit Brötchen und Butter",
+              "allergens": "13,9,12"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

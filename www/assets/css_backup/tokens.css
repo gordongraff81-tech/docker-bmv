@@ -1,0 +1,423 @@
+/* ════════════════════════════════════════════════════════════════════
+   BMV DESIGN SYSTEM v3 — TOKEN ARCHITECTURE
+   Layer 1: Raw    — immutable primitives
+   Layer 2: Semantic — role-bound aliases
+   Layer 3: Component — scoped overrides
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── RAW PRIMITIVES (never used directly in components) ─────────── */
+:root {
+  /* Scale */
+  --raw-navy-950: #040f1f;
+  --raw-navy-900: #071526;
+  --raw-navy-800: #0B2A5B;
+  --raw-navy-700: #0d3370;
+  --raw-navy-600: #1046a0;
+  --raw-navy-400: #3b72d4;
+  --raw-navy-200: #a8c4f0;
+  --raw-navy-100: #dce9fb;
+  --raw-navy-50:  #f0f6ff;
+
+  --raw-amber-700: #b84500;
+  --raw-amber-600: #D95A00;
+  --raw-amber-500: #f06800;
+  --raw-amber-400: #ff7a1a;
+  --raw-amber-200: #ffc999;
+  --raw-amber-50:  #fff6ed;
+
+  --raw-green-600: #16a34a;
+  --raw-green-50:  #f0fdf4;
+  --raw-red-600:   #dc2626;
+  --raw-red-50:    #fef2f2;
+  --raw-yellow-500:#eab308;
+
+  --raw-neutral-950: #0a0a0a;
+  --raw-neutral-900: #171717;
+  --raw-neutral-800: #262626;
+  --raw-neutral-600: #525252;
+  --raw-neutral-400: #a3a3a3;
+  --raw-neutral-200: #e5e5e5;
+  --raw-neutral-100: #f5f5f5;
+  --raw-neutral-50:  #fafafa;
+
+  /* Motion primitives */
+  --raw-dur-instant:  50ms;
+  --raw-dur-fast:     150ms;
+  --raw-dur-normal:   250ms;
+  --raw-dur-slow:     400ms;
+  --raw-dur-crawl:    600ms;
+
+  --raw-ease-linear:   linear;
+  --raw-ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --raw-ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --raw-ease-expo:     cubic-bezier(0.16, 1, 0.3, 1);
+  --raw-ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --raw-ease-snap:     cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Spacing scale */
+  --raw-sp-0: 0;
+  --raw-sp-1: .25rem;
+  --raw-sp-2: .5rem;
+  --raw-sp-3: .75rem;
+  --raw-sp-4: 1rem;
+  --raw-sp-5: 1.25rem;
+  --raw-sp-6: 1.5rem;
+  --raw-sp-8: 2rem;
+  --raw-sp-10: 2.5rem;
+  --raw-sp-12: 3rem;
+  --raw-sp-16: 4rem;
+  --raw-sp-20: 5rem;
+  --raw-sp-24: 6rem;
+
+  /* Radius scale */
+  --raw-r-none: 0;
+  --raw-r-xs:   4px;
+  --raw-r-sm:   6px;
+  --raw-r-md:   10px;
+  --raw-r-lg:   16px;
+  --raw-r-xl:   24px;
+  --raw-r-2xl:  32px;
+  --raw-r-full: 9999px;
+
+  /* Type scale */
+  --raw-text-2xs: .6875rem;
+  --raw-text-xs:  .75rem;
+  --raw-text-sm:  .875rem;
+  --raw-text-md:  1rem;
+  --raw-text-lg:  1.125rem;
+  --raw-text-xl:  1.25rem;
+  --raw-text-2xl: 1.5rem;
+  --raw-text-3xl: 1.875rem;
+  --raw-text-4xl: 2.25rem;
+  --raw-text-5xl: 3rem;
+  --raw-text-6xl: 3.75rem;
+  --raw-text-7xl: 4.5rem;
+
+  /* Elevation (z-index) */
+  --raw-z-base:    0;
+  --raw-z-raised:  10;
+  --raw-z-sticky:  100;
+  --raw-z-overlay: 200;
+  --raw-z-modal:   300;
+  --raw-z-toast:   400;
+}
+
+
+/* ── SEMANTIC TOKENS — Light Mode ───────────────────────────────── */
+:root,
+[data-theme="light"] {
+  /* === COLOR ROLES === */
+
+  /* Brand */
+  --color-brand:         var(--raw-navy-800);
+  --color-brand-hover:   var(--raw-navy-700);
+  --color-brand-subtle:  var(--raw-navy-50);
+  --color-brand-border:  var(--raw-navy-200);
+
+  --color-accent:        var(--raw-amber-600);
+  --color-accent-hover:  var(--raw-amber-500);
+  --color-accent-subtle: var(--raw-amber-50);
+  --color-accent-border: var(--raw-amber-200);
+
+  /* Text hierarchy */
+  --color-text-primary:   var(--raw-neutral-950);
+  --color-text-secondary: color-mix(in srgb, var(--raw-neutral-950) 70%, transparent);
+  --color-text-tertiary:  color-mix(in srgb, var(--raw-neutral-950) 40%, transparent);
+  --color-text-disabled:  color-mix(in srgb, var(--raw-neutral-950) 25%, transparent);
+  --color-text-inverse:   #ffffff;
+  --color-text-accent:    var(--raw-amber-600);
+  --color-text-brand:     var(--raw-navy-800);
+  --color-text-link:      var(--raw-navy-600);
+  --color-text-link-hover:var(--raw-navy-800);
+
+  /* Surfaces */
+  --color-surface-base:    #ffffff;
+  --color-surface-raised:  #f8fafd;
+  --color-surface-overlay: #f0f5fc;
+  --color-surface-sunken:  #e4edf8;
+  --color-surface-inverse: var(--raw-navy-900);
+  --color-surface-brand:   var(--raw-navy-800);
+  --color-surface-accent:  var(--raw-amber-600);
+
+  /* Borders */
+  --color-border-default: color-mix(in srgb, var(--raw-neutral-950) 10%, transparent);
+  --color-border-strong:  color-mix(in srgb, var(--raw-neutral-950) 20%, transparent);
+  --color-border-focus:   var(--raw-navy-600);
+  --color-border-brand:   var(--raw-navy-200);
+  --color-border-accent:  var(--raw-amber-200);
+
+  /* Semantic states */
+  --color-success:        var(--raw-green-600);
+  --color-success-subtle: var(--raw-green-50);
+  --color-error:          var(--raw-red-600);
+  --color-error-subtle:   var(--raw-red-50);
+  --color-warning:        var(--raw-yellow-500);
+  --color-warning-subtle: #fefce8;
+  --color-info:           var(--raw-navy-600);
+  --color-info-subtle:    var(--raw-navy-50);
+
+  /* Interactive overlays */
+  --color-hover:   color-mix(in srgb, var(--raw-neutral-950) 5%, transparent);
+  --color-active:  color-mix(in srgb, var(--raw-neutral-950) 10%, transparent);
+  --color-focus-ring: color-mix(in srgb, var(--raw-navy-600) 25%, transparent);
+  --color-scrim:   rgba(4, 15, 31, .6);
+
+  /* === SHADOWS (light-mode specific) === */
+  --shadow-xs:   0 1px 2px  color-mix(in srgb, var(--raw-navy-900) 6%, transparent);
+  --shadow-sm:   0 1px 3px  color-mix(in srgb, var(--raw-navy-900) 8%, transparent),
+                 0 1px 2px  color-mix(in srgb, var(--raw-navy-900) 5%, transparent);
+  --shadow-md:   0 4px 8px  color-mix(in srgb, var(--raw-navy-900) 8%, transparent),
+                 0 2px 4px  color-mix(in srgb, var(--raw-navy-900) 5%, transparent);
+  --shadow-lg:   0 12px 20px color-mix(in srgb, var(--raw-navy-900) 10%, transparent),
+                 0 4px  8px  color-mix(in srgb, var(--raw-navy-900) 6%, transparent);
+  --shadow-xl:   0 24px 32px color-mix(in srgb, var(--raw-navy-900) 10%, transparent),
+                 0 8px  16px color-mix(in srgb, var(--raw-navy-900) 6%, transparent);
+  --shadow-2xl:  0 32px 64px color-mix(in srgb, var(--raw-navy-900) 18%, transparent);
+  --shadow-brand: 0 8px 32px color-mix(in srgb, var(--raw-navy-800) 30%, transparent),
+                  0 2px 8px  color-mix(in srgb, var(--raw-navy-800) 18%, transparent);
+  --shadow-accent:0 8px 32px color-mix(in srgb, var(--raw-amber-600) 35%, transparent),
+                  0 2px 8px  color-mix(in srgb, var(--raw-amber-600) 20%, transparent);
+  --shadow-focus: 0 0 0 3px var(--color-focus-ring);
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --text-2xs: var(--raw-text-2xs);
+  --text-xs:  var(--raw-text-xs);
+  --text-sm:  var(--raw-text-sm);
+  --text-md:  var(--raw-text-md);
+  --text-lg:  var(--raw-text-lg);
+  --text-xl:  var(--raw-text-xl);
+  --text-2xl: var(--raw-text-2xl);
+  --text-3xl: var(--raw-text-3xl);
+  --text-4xl: var(--raw-text-4xl);
+  --text-5xl: var(--raw-text-5xl);
+  --text-6xl: var(--raw-text-6xl);
+  --text-7xl: var(--raw-text-7xl);
+
+  --leading-tight:  1.1;
+  --leading-snug:   1.3;
+  --leading-normal: 1.6;
+  --leading-relaxed:1.75;
+
+  --tracking-tight:  -.03em;
+  --tracking-normal: -.01em;
+  --tracking-wide:   .04em;
+  --tracking-wider:  .08em;
+  --tracking-widest: .12em;
+
+  /* === SPACING === */
+  --sp-0:  var(--raw-sp-0);
+  --sp-1:  var(--raw-sp-1);
+  --sp-2:  var(--raw-sp-2);
+  --sp-3:  var(--raw-sp-3);
+  --sp-4:  var(--raw-sp-4);
+  --sp-5:  var(--raw-sp-5);
+  --sp-6:  var(--raw-sp-6);
+  --sp-8:  var(--raw-sp-8);
+  --sp-10: var(--raw-sp-10);
+  --sp-12: var(--raw-sp-12);
+  --sp-16: var(--raw-sp-16);
+  --sp-20: var(--raw-sp-20);
+  --sp-24: var(--raw-sp-24);
+
+  /* === RADII === */
+  --r-none: var(--raw-r-none);
+  --r-xs:   var(--raw-r-xs);
+  --r-sm:   var(--raw-r-sm);
+  --r-md:   var(--raw-r-md);
+  --r-lg:   var(--raw-r-lg);
+  --r-xl:   var(--raw-r-xl);
+  --r-2xl:  var(--raw-r-2xl);
+  --r-full: var(--raw-r-full);
+
+  /* === MOTION === */
+  --dur-instant: var(--raw-dur-instant);
+  --dur-fast:    var(--raw-dur-fast);
+  --dur-normal:  var(--raw-dur-normal);
+  --dur-slow:    var(--raw-dur-slow);
+  --dur-crawl:   var(--raw-dur-crawl);
+
+  --ease:        var(--raw-ease-out);
+  --ease-expo:   var(--raw-ease-expo);
+  --ease-spring: var(--raw-ease-spring);
+  --ease-snap:   var(--raw-ease-snap);
+
+  /* Component-level motion tokens */
+  --motion-hover:    transform var(--dur-fast) var(--ease-spring),
+                     box-shadow var(--dur-normal) var(--ease-expo);
+  --motion-fade:     opacity var(--dur-normal) var(--ease-expo);
+  --motion-reveal:   opacity var(--dur-slow) var(--ease-expo),
+                     transform var(--dur-slow) var(--ease-expo);
+  --motion-interact: background-color var(--dur-fast) var(--ease),
+                     border-color var(--dur-fast) var(--ease),
+                     color var(--dur-fast) var(--ease);
+
+  /* === LAYOUT === */
+  --max-w:    1280px;
+  --max-w-lg: 1024px;
+  --max-w-md: 768px;
+  --max-w-sm: 640px;
+
+  /* Z-index */
+  --z-base:    var(--raw-z-base);
+  --z-raised:  var(--raw-z-raised);
+  --z-sticky:  var(--raw-z-sticky);
+  --z-overlay: var(--raw-z-overlay);
+  --z-modal:   var(--raw-z-modal);
+  --z-toast:   var(--raw-z-toast);
+}
+
+
+/* ── DARK MODE — full semantic override ─────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-brand:         var(--raw-navy-400);
+    --color-brand-hover:   var(--raw-navy-200);
+    --color-brand-subtle:  color-mix(in srgb, var(--raw-navy-800) 25%, transparent);
+    --color-brand-border:  color-mix(in srgb, var(--raw-navy-400) 35%, transparent);
+
+    --color-accent:        var(--raw-amber-400);
+    --color-accent-hover:  var(--raw-amber-200);
+    --color-accent-subtle: color-mix(in srgb, var(--raw-amber-600) 15%, transparent);
+    --color-accent-border: color-mix(in srgb, var(--raw-amber-400) 30%, transparent);
+
+    --color-text-primary:   rgba(255,255,255,.95);
+    --color-text-secondary: rgba(255,255,255,.7);
+    --color-text-tertiary:  rgba(255,255,255,.45);
+    --color-text-disabled:  rgba(255,255,255,.25);
+    --color-text-inverse:   var(--raw-neutral-950);
+    --color-text-accent:    var(--raw-amber-400);
+    --color-text-brand:     var(--raw-navy-200);
+    --color-text-link:      var(--raw-navy-200);
+    --color-text-link-hover:var(--raw-navy-100);
+
+    --color-surface-base:    #0d1520;
+    --color-surface-raised:  #111c2e;
+    --color-surface-overlay: #162236;
+    --color-surface-sunken:  #0a1119;
+    --color-surface-inverse: #f8fafd;
+    --color-surface-brand:   color-mix(in srgb, var(--raw-navy-800) 60%, #0d1520);
+    --color-surface-accent:  color-mix(in srgb, var(--raw-amber-700) 70%, #0d1520);
+
+    --color-border-default: rgba(255,255,255,.1);
+    --color-border-strong:  rgba(255,255,255,.18);
+    --color-border-focus:   var(--raw-navy-400);
+    --color-border-brand:   color-mix(in srgb, var(--raw-navy-400) 40%, transparent);
+    --color-border-accent:  color-mix(in srgb, var(--raw-amber-400) 35%, transparent);
+
+    --color-hover:   rgba(255,255,255,.06);
+    --color-active:  rgba(255,255,255,.10);
+    --color-focus-ring: color-mix(in srgb, var(--raw-navy-400) 30%, transparent);
+    --color-scrim:   rgba(0, 0, 0, .75);
+
+    --shadow-xs:    0 1px 2px  rgba(0,0,0,.3);
+    --shadow-sm:    0 1px 4px  rgba(0,0,0,.4);
+    --shadow-md:    0 4px 12px rgba(0,0,0,.45);
+    --shadow-lg:    0 12px 24px rgba(0,0,0,.5);
+    --shadow-xl:    0 24px 40px rgba(0,0,0,.55);
+    --shadow-2xl:   0 32px 64px rgba(0,0,0,.65);
+    --shadow-brand: 0 8px 32px rgba(59,114,212,.25);
+    --shadow-accent:0 8px 32px rgba(255,122,26,.2);
+  }
+}
+
+/* Explicit dark theme override */
+[data-theme="dark"] {
+  --color-brand:         var(--raw-navy-400);
+  --color-brand-hover:   var(--raw-navy-200);
+  --color-brand-subtle:  color-mix(in srgb, var(--raw-navy-800) 25%, transparent);
+  --color-brand-border:  color-mix(in srgb, var(--raw-navy-400) 35%, transparent);
+  --color-accent:        var(--raw-amber-400);
+  --color-accent-hover:  var(--raw-amber-200);
+  --color-accent-subtle: color-mix(in srgb, var(--raw-amber-600) 15%, transparent);
+  --color-text-primary:   rgba(255,255,255,.95);
+  --color-text-secondary: rgba(255,255,255,.7);
+  --color-text-tertiary:  rgba(255,255,255,.45);
+  --color-text-inverse:   var(--raw-neutral-950);
+  --color-text-accent:    var(--raw-amber-400);
+  --color-text-brand:     var(--raw-navy-200);
+  --color-surface-base:    #0d1520;
+  --color-surface-raised:  #111c2e;
+  --color-surface-overlay: #162236;
+  --color-surface-sunken:  #0a1119;
+  --color-border-default: rgba(255,255,255,.1);
+  --color-border-strong:  rgba(255,255,255,.18);
+  --color-hover:   rgba(255,255,255,.06);
+  --color-active:  rgba(255,255,255,.10);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.45);
+  --shadow-lg: 0 12px 24px rgba(0,0,0,.5);
+  --shadow-xl: 0 24px 40px rgba(0,0,0,.55);
+}
+
+
+/* ── MULTI-TENANT RUNTIME BRANDING ─────────────────────────────── */
+/* Usage: <html data-tenant="stadtwerke"> or injected via PHP       */
+/* PHP: echo "data-brand-primary=\"{$tenant->primary}\"";           */
+
+[data-tenant] {
+  --color-brand:         var(--tenant-primary,   var(--raw-navy-800));
+  --color-brand-hover:   var(--tenant-primary-d, var(--raw-navy-700));
+  --color-brand-subtle:  var(--tenant-primary-l, var(--raw-navy-50));
+  --color-accent:        var(--tenant-accent,    var(--raw-amber-600));
+  --color-accent-hover:  var(--tenant-accent-d,  var(--raw-amber-500));
+  --font-display:        var(--tenant-font-display, 'DM Serif Display', Georgia, serif);
+  --font-body:           var(--tenant-font-body,    'DM Sans', system-ui, sans-serif);
+}
+
+/* PHP injection point:
+   <style>
+     :root {
+       --tenant-primary:   <?= $brand->primary ?>;
+       --tenant-accent:    <?= $brand->accent ?>;
+       --tenant-font-body: '<?= $brand->font ?>', system-ui, sans-serif;
+     }
+   </style>
+*/
+
+
+/* ── COMPONENT TOKEN LAYER (scoped) ─────────────────────────────── */
+
+/* Button component tokens */
+.c-btn {
+  --btn-bg:           var(--color-brand);
+  --btn-bg-hover:     var(--color-brand-hover);
+  --btn-color:        var(--color-text-inverse);
+  --btn-border:       transparent;
+  --btn-shadow:       var(--shadow-brand);
+  --btn-shadow-hover: var(--shadow-brand);
+  --btn-radius:       var(--r-sm);
+  --btn-pad-x:        var(--sp-6);
+  --btn-pad-y:        .875rem;
+  --btn-font-size:    var(--text-sm);
+  --btn-font-weight:  600;
+  --btn-dur:          var(--dur-fast);
+}
+
+/* Input component tokens */
+.c-input {
+  --input-bg:           var(--color-surface-base);
+  --input-bg-focus:     var(--color-surface-base);
+  --input-border:       var(--color-border-default);
+  --input-border-hover: var(--color-border-strong);
+  --input-border-focus: var(--color-border-focus);
+  --input-color:        var(--color-text-primary);
+  --input-placeholder:  var(--color-text-tertiary);
+  --input-radius:       var(--r-sm);
+  --input-pad-x:        var(--sp-4);
+  --input-pad-y:        .8125rem;
+  --input-shadow-focus: var(--shadow-focus);
+}
+
+/* Card component tokens */
+.c-card {
+  --card-bg:         var(--color-surface-base);
+  --card-border:     var(--color-border-default);
+  --card-radius:     var(--r-lg);
+  --card-shadow:     var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-xl);
+  --card-pad:        var(--sp-6);
+  --card-lift:       -4px;
+}

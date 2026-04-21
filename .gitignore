@@ -1,0 +1,19 @@
+# Umgebungsvariablen (enthält Passwörter)
+.env
+
+# Daten (Speisepläne + Bestellungen)
+www/data/bestellungen/*.json
+www/data/bestellungen/*.log
+www/data/kontakt.log
+
+# Logs
+*.log
+/logs/
+
+# Docker temporär
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+docker-bmv/ 

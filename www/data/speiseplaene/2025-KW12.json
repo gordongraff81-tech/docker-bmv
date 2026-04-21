@@ -1,0 +1,187 @@
+{
+  "year": 2025,
+  "kw": 12,
+  "updated_at": "2025-03-17",
+  "days": [
+    {
+      "date": "2025-03-17",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Rindsroulade mit Rotkohl",
+          "description": "Zarte Rindsroulade mit Speck und Senf, dazu Rotkohl und Kartoffelklöße",
+          "price": 7.50,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Gedünstetes Lachsfilet",
+          "description": "Mit Dillsoße, Petersilienkartoffeln und Gurkensalat",
+          "price": 7.90,
+          "allergens": "D, G",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Gemüse-Auflauf mit Feta",
+          "description": "Zucchini, Paprika und Tomaten überbacken mit Schafskäse, dazu Ciabatta",
+          "price": 6.80,
+          "allergens": "G, L",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch",  "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2025-03-18",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Schweinebraten mit Sauerkraut",
+          "description": "Geschmorter Schweinebraten mit Sauerkraut und Salzkartoffeln",
+          "price": 7.50,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Hühnerfrikassee",
+          "description": "Cremiges Hühnerfrikassee mit Champignons und Spargel, dazu Reis",
+          "price": 7.30,
+          "allergens": "G, L, Ei",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Linsensuppe mit Brot",
+          "description": "Herzhafte rote Linsensuppe mit Suppengemüse und Vollkornbrot",
+          "price": 6.50,
+          "allergens": "G",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch",  "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2025-03-19",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Spaghetti Bolognese",
+          "description": "Klassische Bolognese mit Rinderhack, Tomaten und frischem Parmesan",
+          "price": 7.20,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Schollenfilet mit Gemüse",
+          "description": "Gedünstetes Schollenfilet mit Zitronenbutter, Dampfgemüse und Kartoffeln",
+          "price": 8.10,
+          "allergens": "D, G",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Spinat-Ricotta-Cannelloni",
+          "description": "Gefüllte Nudelröhren in Tomatensauce, überbacken mit Käse",
+          "price": 6.90,
+          "allergens": "G, L, Ei",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch",  "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2025-03-20",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Königsberger Klopse",
+          "description": "Hackfleischbällchen in Kapernsoße mit Salzkartoffeln und Rote Bete",
+          "price": 7.50,
+          "allergens": "G, L, Ei",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Putengeschnetzeltes",
+          "description": "Zartes Putengeschnetzeltes in Rahmsauce mit Champignons und Nudeln",
+          "price": 7.60,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Kartoffel-Möhren-Eintopf",
+          "description": "Deftiger Eintopf mit Lauch und Petersilie, dazu Vollkornbrot",
+          "price": 6.40,
+          "allergens": "G",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch",  "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2025-03-21",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Sauerbraten mit Klößen",
+          "description": "Klassischer Rheinischer Sauerbraten mit Thüringer Klößen und Rotkohl",
+          "price": 7.90,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Forelle Müllerin",
+          "description": "Frisch gebratene Forelle in Butter mit Mandeln, Zitrone und Kartoffeln",
+          "price": 8.40,
+          "allergens": "D, G, N",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Erbsensuppe mit Brot",
+          "description": "Kräftige Erbsensuppe mit Sellerie und geröstetem Brot",
+          "price": 6.50,
+          "allergens": "G",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch",  "price": 1.20 }
+      ]
+    }
+  ]
+}

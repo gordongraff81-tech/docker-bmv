@@ -1,0 +1,95 @@
+{
+    "year": 2026,
+    "kw": 17,
+    "system": "kantine",
+    "published": true,
+    "week_start": "2026-04-20",
+    "saved_at": "2026-04-07T14:59:33+02:00",
+    "data": [
+        {
+            "kantine_menu1": {
+                "name": "Schnitzel mit Letscho und Bratkartoffeln",
+                "allergens": "18,13,9,4",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+                "allergens": "4,13,12,18",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "4 Hefeklöße mit Früchten",
+                "allergens": "9,13",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Schnitzel mit Letscho und Bratkartoffeln",
+                "allergens": "18,13,9,4",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Hausgemachter Hackbraten mit Blumenkohl, Soße und Kartoffeln",
+                "allergens": "13,18,9",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Grüne Bohnen Eintopf",
+                "allergens": "13,22",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Gebackener Leberkäse mit Spiegelei und Bratkartoffeln",
+                "allergens": "13,4,2",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+                "allergens": "4,13,12,18",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Kartoffelsuppe mit Bockwurst",
+                "allergens": "12,22,13",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Gebackener Leberkäse mit Spiegelei und Bratkartoffeln",
+                "allergens": "13,4,2",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Spaghetti Bolognese",
+                "allergens": "18,4,13",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Brühnudelsuppe mit Hühnchenfleisch",
+                "allergens": "4,22,9",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Boulette mit Porreerahm",
+                "allergens": "13,9,4",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Spargelsuppe mit Fleischklößchen und frischen Kräutern",
+                "allergens": "13,9",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Brühnudelsuppe mit Hühnchenfleisch",
+                "allergens": "4,22,9",
+                "price": 0
+            }
+        }
+    ]
+}

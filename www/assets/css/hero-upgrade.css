@@ -1,0 +1,269 @@
+/* =============================================================
+   hero-upgrade.css – BMV-Menüdienst
+   Hero-Bereich: page-hero für alle Unterseiten
+   FIX v4.0: Overlay massiv reduziert, Bild unverfälscht scharf
+   ============================================================= */
+
+/* ── Basis Hero ── */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  background: #071d40;         /* Fallback wenn Bild fehlt */
+  padding: 88px 0 76px;
+  color: #fff;
+}
+
+.page-hero--sm {
+  min-height: 320px;
+  padding: 72px 0 60px;
+}
+
+/* ── Hintergrundbild ─────────────────────────────────────────
+   KEIN filter, KEIN opacity, KEIN blur.
+   Das Bild soll gestochen scharf und satt wirken.
+   ─────────────────────────────────────────────────────────── */
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.page-hero__bg-img {
+  width: 100%;
+  height: 110%;           /* leichter Überschuss für Parallax */
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+
+  /* KEIN filter: brightness — Bild bleibt vollständig satt */
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+
+  /* Schärfe sicherstellen */
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);   /* GPU-Layer für Schärfe auf Retina */
+
+  /* Sanfter Zoom-In beim Laden — nur subtil */
+  animation: heroZoomIn 6s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes heroZoomIn {
+  from { transform: scale(1.04) translateZ(0); }
+  to   { transform: scale(1.00) translateZ(0); }
+}
+
+/* ── Overlay ─────────────────────────────────────────────────
+   VORHER: rgba(7,29,64,0.55) + rgba(7,29,64,0.60) → milchig grau
+   NACHHER: Nur ein leichter diagonaler Gradient, max. 40% links
+            + Verlauf nach unten für Textlesbarkeit
+   ─────────────────────────────────────────────────────────── */
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  /* FIX v5: Overlay stark reduziert — nur 35% opacity links */
+  background: linear-gradient(
+    105deg,
+    rgba(7, 21, 50, 0.35) 0%,
+    rgba(7, 21, 50, 0.15) 40%,
+    rgba(0, 0, 0, 0) 72%,
+    transparent 100%
+  );
+}
+
+/* Sekundär: Boden-Verdunklung — minimal */
+.page-hero__overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(
+    to top,
+    rgba(7, 21, 50, 0.18) 0%,
+    transparent 100%
+  );
+}
+
+/* ── Content z-index ── */
+.page-hero .container,
+.page-hero .c-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Typografie im Hero ─────────────────────────────────────
+   Text-Shadow statt massivem Overlay für Lesbarkeit
+   ─────────────────────────────────────────────────────────── */
+.page-hero__heading,
+.page-hero .heading-lg,
+.page-hero h1 {
+  color: #fff !important;
+  /* FIX v5: Stärkerer Text-Shadow statt Overlay */
+  text-shadow:
+    0 1px 0   rgba(0,0,0,.45),
+    0 2px 14px rgba(0,0,0,.42),
+    0 4px 36px rgba(0,0,0,.26);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin: 10px 0 16px;
+}
+
+.page-hero__heading em,
+.page-hero .heading-lg em,
+.page-hero h1 em {
+  color: #fff !important;
+  font-style: italic;
+}
+
+.page-hero__lead {
+  color: rgba(255, 255, 255, .92) !important;
+  font-size: clamp(.95rem, 1.8vw, 1.1rem);
+  max-width: 580px;
+  line-height: 1.75;
+  /* FIX v5: Stärkerer Text-Shadow */
+  text-shadow:
+    0 1px 4px rgba(0,0,0,.32),
+    0 3px 10px rgba(0,0,0,.24);
+  margin-top: 6px;
+}
+
+.page-hero .eyebrow {
+  color: rgba(255, 255, 255, .75) !important;
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+
+/* Breadcrumb */
+.page-hero .breadcrumb,
+.page-hero .breadcrumb__link,
+.page-hero .breadcrumb__item {
+  color: rgba(255, 255, 255, .75) !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+
+.page-hero .breadcrumb__link:hover {
+  color: #fff !important;
+}
+
+.page-hero .breadcrumb__item--current {
+  color: rgba(255, 255, 255, .9) !important;
+}
+
+/* ── Einlauf-Animationen ── */
+.page-hero__content {
+  animation: heroFadeUp .6s ease-out both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-hero .breadcrumb {
+  animation: heroFadeUp .45s ease-out both;
+}
+
+.page-hero .eyebrow {
+  animation: heroFadeUp .5s .06s ease-out both;
+}
+
+.page-hero__heading,
+.page-hero .heading-lg {
+  animation: heroFadeUp .55s .12s ease-out both;
+}
+
+.page-hero__lead {
+  animation: heroFadeUp .6s .2s ease-out both;
+}
+
+/* ── Fallback: kein Bild ── */
+.page-hero--no-image {
+  background: linear-gradient(135deg, #071d40 0%, #0B2A5B 55%, #1a3f7a 100%);
+}
+
+/* ── Content-Images unterhalb des Hero: sauber begrenzen ── */
+.content-image {
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+}
+
+.content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ── Noise-Textur: nur ganz minimal, 2% ── */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: .02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 280px;
+    padding: 56px 0 48px;
+  }
+
+  .page-hero--sm {
+    min-height: 240px;
+    padding: 48px 0 40px;
+  }
+
+  .page-hero__bg-img {
+    object-position: center center;
+    height: 100%;
+    animation: none; /* Kein Zoom auf Mobile — Performance */
+  }
+
+  /* Auf Mobile etwas mehr Overlay für schmale Screens */
+  .page-hero__overlay {
+    background: linear-gradient(
+      170deg,
+      rgba(7, 21, 50, 0.68) 0%,
+      rgba(7, 21, 50, 0.42) 55%,
+      rgba(7, 21, 50, 0.15) 100%
+    );
+  }
+
+  .content-image {
+    max-height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero__bg-img,
+  .page-hero__content,
+  .page-hero .breadcrumb,
+  .page-hero .eyebrow,
+  .page-hero__heading,
+  .page-hero .heading-lg,
+  .page-hero__lead {
+    animation: none !important;
+  }
+}

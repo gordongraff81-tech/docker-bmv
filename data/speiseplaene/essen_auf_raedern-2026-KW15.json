@@ -1,0 +1,244 @@
+{
+    "year": 2026,
+    "kw": 15,
+    "system": "essen_auf_raedern",
+    "published": true,
+    "week_start": "2026-04-06",
+    "saved_at": "2026-04-07T15:03:36+02:00",
+    "data": [
+        {
+            "vollkost": {
+                "name": "Grießbrei mit Erdbeer-Kompott",
+                "allergens": "13,9",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "Spirelli mit stückiger Tomatensoße und Reibekäse",
+                "allergens": "9,13,18,4",
+                "price": 0
+            },
+            "premium": {
+                "name": "Schinkenmettwurst auf Grünkohl mit Kartoffeln",
+                "allergens": "12,13",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Kartoffelsalat mit Schinkenröllchen und Bohnensalat",
+                "allergens": "9,4,2,12",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Banane in Schokosoße",
+                "allergens": "13",
+                "price": 0
+            },
+            "rohkost": {
+                "name": "Gurkensalat in Sahne",
+                "allergens": "13",
+                "price": 0
+            },
+            "abendessen": {
+                "name": "2 kl. Wiener mit Brot und Butter, Senf und Salatbeilage",
+                "allergens": "12,13,9",
+                "price": 0
+            },
+            "salat": {
+                "name": "Gemischter Salat mit Thunfisch, Zwiebeln, Ei, Dressing und Brötchen",
+                "allergens": "4,13,9",
+                "price": 0
+            }
+        },
+        {
+            "salat": {
+                "name": "Bunter Salat mit Gemüsebällchen, Ananas und Baguettescheiben",
+                "allergens": "9,4,13",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Kartoffelsalat mit Schinkenröllchen und Bohnensalat",
+                "allergens": "9,4,2,12",
+                "price": 0
+            },
+            "premium": {
+                "name": "Hähnchenbrust mit Buttererbsen, Soße und Kartoffeln",
+                "allergens": "13,9",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "Gemüseschnitzel auf Reisbett mit Holländischer Sauce",
+                "allergens": "13,18,22",
+                "price": 0
+            },
+            "vollkost": {
+                "name": "Rosenkohl-Eintopf mit Fleischeinlage",
+                "allergens": "22,13",
+                "price": 0
+            },
+            "rohkost": {
+                "name": "Gurkensalat in Sahne",
+                "allergens": "13",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Zitronenquark",
+                "allergens": "13,9",
+                "price": 0
+            },
+            "abendessen": {
+                "name": "2 Matjesfilet mit Remoulade, Brot und Butter",
+                "allergens": "16,3,13,9",
+                "price": 0
+            }
+        },
+        {
+            "abendessen": {
+                "name": "2 kl. Bouletten auf Nudelsalat mit Salatbeilage",
+                "allergens": "13,9,18,4",
+                "price": 0
+            },
+            "premium": {
+                "name": "Schnitzel mit Porreerahm und Kartoffeln",
+                "allergens": "13,4,18",
+                "price": 0
+            },
+            "vollkost": {
+                "name": "Vegetarische Nudelpfanne mit Tomatensoße",
+                "allergens": "13,4,18",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Nudelsalat mit Hähnchen Nuggets und Salatbeilage",
+                "allergens": "9,4,18",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Schokopudding mit Sahne",
+                "allergens": "13,9",
+                "price": 0
+            },
+            "rohkost": {
+                "name": "Chinakohl-Salat mit Pfirsich",
+                "allergens": "",
+                "price": 0
+            },
+            "salat": {
+                "name": "Spargelsalat mit Butterbrötchen",
+                "allergens": "2,13,9",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "2 Spiegeleier auf Stampfkartoffeln mit Gurkensalat",
+                "allergens": "18,11,4,2",
+                "price": 0
+            }
+        },
+        {
+            "vollkost": {
+                "name": "Gemüsesuppe mit Wiener",
+                "allergens": "22,18,13",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "2 Spiegeleier auf Stampfkartoffeln mit Gurkensalat",
+                "allergens": "18,11,4,2",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Nudelsalat mit Hähnchen Nuggets und Salatbeilage",
+                "allergens": "9,4,18",
+                "price": 0
+            },
+            "premium": {
+                "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+                "allergens": "4,13,12,18",
+                "price": 0
+            },
+            "rohkost": {
+                "name": "Weißkrautsalat",
+                "allergens": "",
+                "price": 0
+            },
+            "abendessen": {
+                "name": "2 Scheiben Brot mit Zwiebelmett und Fleischsalat",
+                "allergens": "13,9,4,12",
+                "price": 0
+            },
+            "salat": {
+                "name": "Chop-Salat mit Tomate, Paprika, Gurke, Feta und Dressing",
+                "allergens": "9,4,13",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Fruchtjoghurt 3,5%",
+                "allergens": "13",
+                "price": 0
+            }
+        },
+        {
+            "rohkost": {
+                "name": "Gurkensalat in Sahne",
+                "allergens": "13",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "Brokkoli in Hollandaise und Kartoffeln",
+                "allergens": "13,9",
+                "price": 0
+            },
+            "vollkost": {
+                "name": "Kartoffelpuffer mit Zucker und Apfelmus",
+                "allergens": "9,4,2",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Bauernsülze mit Bratkartoffeln und Remouladensoße",
+                "allergens": "2,9,4,11",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Rote Grütze mit Vanillesoße",
+                "allergens": "9",
+                "price": 0
+            },
+            "abendessen": {
+                "name": "2 kl. Wiener mit Brot und Butter, Senf und Salatbeilage",
+                "allergens": "12,13,9",
+                "price": 0
+            },
+            "salat": {
+                "name": "Griechischer Bauernsalat mit Feta, Tomate, Paprika, Gurke, Dressing und Brötchen",
+                "allergens": "9,4,13",
+                "price": 0
+            },
+            "premium": {
+                "name": "Hähnchen Nuggets mit Mischgemüserahm und Kartoffeln",
+                "allergens": "13,4,9,18",
+                "price": 0
+            }
+        },
+        {
+            "leichte_kost": {
+                "name": "Spirelli mit stückiger Tomatensoße und Reibekäse",
+                "allergens": "9,13,18,4",
+                "price": 0
+            },
+            "premium": {
+                "name": "Fischfilet auf Püree mit Kräutergemüse",
+                "allergens": "13,18,9,16",
+                "price": 0
+            }
+        },
+        {
+            "leichte_kost": {
+                "name": "Bockwurst auf Kartoffelsalat mit Salatbeilage",
+                "allergens": "12,9,4",
+                "price": 0
+            },
+            "premium": {
+                "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+                "allergens": "4,13,12,18",
+                "price": 0
+            }
+        }
+    ]
+}

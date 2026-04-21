@@ -1,0 +1,119 @@
+{
+    "year": 2026,
+    "kw": 11,
+    "updated_at": "2026-03-13 12:13:17",
+    "days": [
+        {
+            "date": "2026-03-08",
+            "menus": [],
+            "addons": []
+        },
+        {
+            "date": "2026-03-09",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Gemüsesuppe mit Wiener",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "22,18,13",
+                    "available": true
+                },
+                {
+                    "menu_number": 4,
+                    "label": "Tagesmenü",
+                    "title": "Schokoladenmousse",
+                    "description": "",
+                    "price": 6.5,
+                    "allergens": "9,13",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "D",
+                    "name": "Schokoladenmousse",
+                    "price": 1.8
+                }
+            ]
+        },
+        {
+            "date": "2026-03-10",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Kartoffelpuffer mit Zucker und Apfelmus",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "13,18,4,3",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "D",
+                    "name": "fdg",
+                    "price": 1.8
+                }
+            ]
+        },
+        {
+            "date": "2026-03-11",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Möhren-Eintopf mit Fleischeinlage",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "13,22",
+                    "available": true
+                }
+            ],
+            "addons": []
+        },
+        {
+            "date": "2026-03-12",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Grüne Bohnensuppe mit Fleischeinlage",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "22,11",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "R",
+                    "name": "fgdf",
+                    "price": 1.8
+                }
+            ]
+        },
+        {
+            "date": "2026-03-13",
+            "menus": [
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Polentaschnitten mit Tomatensugo",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "9,4,13",
+                    "available": true
+                }
+            ],
+            "addons": []
+        },
+        {
+            "date": "2026-03-14",
+            "menus": [],
+            "addons": []
+        }
+    ]
+}

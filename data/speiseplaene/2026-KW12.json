@@ -1,0 +1,312 @@
+{
+    "year": 2026,
+    "kw": 12,
+    "updated_at": "2026-03-13 11:12:37",
+    "days": [
+        {
+            "date": "2026-03-15",
+            "menus": [],
+            "addons": []
+        },
+        {
+            "date": "2026-03-16",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Gemüsesuppe mit Wiener",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "22,18,13",
+                    "available": true
+                },
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Wurstgulasch mit Nudeln",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "13,4,2,18,12",
+                    "available": true
+                },
+                {
+                    "menu_number": 3,
+                    "label": "Premium",
+                    "title": "Hähnchenkeule mit Mischgemüse, Soße und Kartoffeln",
+                    "description": "",
+                    "price": 9.8,
+                    "allergens": "13,18,4",
+                    "available": true
+                },
+                {
+                    "menu_number": 4,
+                    "label": "Tagesmenü",
+                    "title": "Bärlauch-Kräuterquark mit Kartoffeln und Leinöl",
+                    "description": "",
+                    "price": 6.5,
+                    "allergens": "9,4",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "D",
+                    "name": "Frischer  Obstsalat",
+                    "price": 1.8
+                },
+                {
+                    "code": "R",
+                    "name": "Chinakohl mit Pfirsich",
+                    "price": 1.8
+                },
+                {
+                    "code": "A",
+                    "name": "Schnitzel auf Kartoffelsalat und Salatbeilage",
+                    "price": 5.5
+                },
+                {
+                    "code": "S",
+                    "name": "Nudelsalat  mit Hähnchenbrust und  Rohkostsalat",
+                    "price": 5.5
+                }
+            ]
+        },
+        {
+            "date": "2026-03-17",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Kartoffelpuffer mit Zucker und Apfelmus",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "13,18,4,3",
+                    "available": true
+                },
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Kartoffel-Gemüse-Auflauf mit Käsesoße",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "18,9,4",
+                    "available": true
+                },
+                {
+                    "menu_number": 3,
+                    "label": "Premium",
+                    "title": "Bauernroulade mit Rotkohl, Soße und Kartoffeln",
+                    "description": "",
+                    "price": 9.8,
+                    "allergens": "13,18,4,3",
+                    "available": true
+                },
+                {
+                    "menu_number": 4,
+                    "label": "Tagesmenü",
+                    "title": "Kartoffelsalat mit Schinkenröllchen und Bohnensalat",
+                    "description": "",
+                    "price": 6.5,
+                    "allergens": "9,4,2,12",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "D",
+                    "name": "Götterspeise mit V-Soße",
+                    "price": 1.8
+                },
+                {
+                    "code": "R",
+                    "name": "Gurkensalat",
+                    "price": 1.8
+                },
+                {
+                    "code": "A",
+                    "name": "2 kl. Bouletten auf Nudelsalat und Salatbeilage",
+                    "price": 5.5
+                },
+                {
+                    "code": "S",
+                    "name": "Gem. Salat mit     Tomaten, Mozzarella Balsamico Dressing",
+                    "price": 5.5
+                }
+            ]
+        },
+        {
+            "date": "2026-03-18",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Möhren-Eintopf mit Fleischeinlage",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "13,22",
+                    "available": true
+                },
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Käsespätzle mit Röstzwiebeln und Kräutern",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "9,13,4",
+                    "available": true
+                },
+                {
+                    "menu_number": 3,
+                    "label": "Premium",
+                    "title": "Schnitzel mit Ei, Bratkartoffeln und Gewürzgurke",
+                    "description": "",
+                    "price": 9.8,
+                    "allergens": "18,13,4,3,11",
+                    "available": true
+                },
+                {
+                    "menu_number": 4,
+                    "label": "Tagesmenü",
+                    "title": "Nudelsalat mit Hähnchen-Nuggets und Salatbeilage",
+                    "description": "",
+                    "price": 6.5,
+                    "allergens": "9,4,18",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "D",
+                    "name": "Schokopudding mit Sahne",
+                    "price": 1.8
+                },
+                {
+                    "code": "R",
+                    "name": "Tomatensalat",
+                    "price": 1.8
+                },
+                {
+                    "code": "A",
+                    "name": "Matjes Hering  Remoulade Butter und Vollkornbrot",
+                    "price": 5.5
+                },
+                {
+                    "code": "S",
+                    "name": "Bunter Salat mit  Gemüsebällchen, Ananas dazu Dipp Baguett",
+                    "price": 5.5
+                }
+            ]
+        },
+        {
+            "date": "2026-03-19",
+            "menus": [
+                {
+                    "menu_number": 1,
+                    "label": "Vollkost",
+                    "title": "Grüne Bohnensuppe mit Fleischeinlage",
+                    "description": "",
+                    "price": 7.5,
+                    "allergens": "22,11",
+                    "available": true
+                },
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Nudeln mit stückiger Tomatensoße und Reibekäse",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "13,18,4",
+                    "available": true
+                },
+                {
+                    "menu_number": 3,
+                    "label": "Premium",
+                    "title": "Rügener Fischpfanne mit Frühlingspüree",
+                    "description": "",
+                    "price": 9.8,
+                    "allergens": "16,9,13,22",
+                    "available": true
+                },
+                {
+                    "menu_number": 4,
+                    "label": "Tagesmenü",
+                    "title": "Wurstgulasch Jäger Art mit Spirelli",
+                    "description": "",
+                    "price": 6.5,
+                    "allergens": "13,12,18",
+                    "available": true
+                }
+            ],
+            "addons": [
+                {
+                    "code": "D",
+                    "name": "Stück  Bienenstichtorte",
+                    "price": 2.8
+                },
+                {
+                    "code": "R",
+                    "name": "Gurkensalat",
+                    "price": 1.8
+                },
+                {
+                    "code": "A",
+                    "name": "Käseplatte mit  Bauernbrot ,Butter Salatbeilage",
+                    "price": 5.5
+                },
+                {
+                    "code": "S",
+                    "name": "Gem. Salat mit     Thunfisch, Zwiebeln Baguettescheiben , Dr",
+                    "price": 5.5
+                }
+            ]
+        },
+        {
+            "date": "2026-03-20",
+            "menus": [
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Nudelsalat mit Boulette und süß-saures Gemüse",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "",
+                    "available": true
+                },
+                {
+                    "menu_number": 3,
+                    "label": "Premium",
+                    "title": "Putengulasch mit Gemüsereis",
+                    "description": "",
+                    "price": 9.8,
+                    "allergens": "13",
+                    "available": true
+                }
+            ],
+            "addons": []
+        },
+        {
+            "date": "2026-03-21",
+            "menus": [
+                {
+                    "menu_number": 2,
+                    "label": "Leichte Kost",
+                    "title": "Grüne Bohnen Eintopf mit Eisbeinfleisch",
+                    "description": "",
+                    "price": 7.2,
+                    "allergens": "13,9",
+                    "available": true
+                },
+                {
+                    "menu_number": 3,
+                    "label": "Premium",
+                    "title": "Kaßlerbraten mit Sauerkraut, Soße und Kartoffeln",
+                    "description": "",
+                    "price": 9.8,
+                    "allergens": "11,4,3,13",
+                    "available": true
+                }
+            ],
+            "addons": []
+        }
+    ]
+}

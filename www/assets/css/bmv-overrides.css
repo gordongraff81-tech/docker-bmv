@@ -1,0 +1,474 @@
+/* =============================================================
+   bmv-overrides.css – BMV-Menüdienst
+   LETZTE Datei in der Ladereihenfolge → höchste Priorität.
+   v5: Weißer Header, Hero-Zoom reduziert, Bildqualität gesichert.
+   ============================================================= */
+
+/* ── CI TOKENS ── */
+:root {
+  --cta-primary:   #D95A00;
+  --cta-primary-h: #bf4f00;
+  --body-text:     #1a2535;
+  --body-muted:    #5a6a82;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   SITE HEADER — Weiß, dunkle Schrift, edel & minimalistisch
+   ══════════════════════════════════════════════════════════════ */
+
+.site-header {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid #e8ecf2 !important;
+  box-shadow: 0 1px 8px rgba(11,42,91,.07) !important;
+}
+
+.site-header.scrolled,
+.site-header.is-scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 2px 16px rgba(11,42,91,.10) !important;
+  border-bottom: 1px solid #dde4ef !important;
+}
+
+/* Logo: Farbig auf weißem Hintergrund — kein invert */
+.site-header .site-logo img,
+.site-header img[alt*="BMV"] {
+  filter: none !important;
+}
+
+/* Nav-Links: Dunkel auf Weiß */
+.site-nav__link,
+.primary-nav a {
+  color: #1a2535 !important;
+}
+
+.site-nav__link:hover,
+.primary-nav a:hover {
+  color: #0B2A5B !important;
+  background: rgba(11,42,91,.06) !important;
+}
+
+.site-nav__link.active,
+.primary-nav a.active {
+  color: #0B2A5B !important;
+  background: rgba(11,42,91,.08) !important;
+  font-weight: 600 !important;
+}
+
+/* Unterline-Akzent bei Hover/Active: Orange */
+.site-nav__link::after {
+  background: #D95A00 !important;
+}
+
+/* Hamburger-Striche: Navy auf Weiß */
+.nav-toggle span { background: #0B2A5B !important; }
+.nav-toggle svg  { stroke: #0B2A5B !important; }
+
+/* CTA-Button im Header: Orange bleibt */
+.site-header .btn--primary,
+.site-header .nav-cta .btn,
+.header-inner .nav-cta .btn,
+.site-header .btn--sm {
+  background: #D95A00 !important;
+  color: #ffffff !important;
+  border-color: #D95A00 !important;
+}
+.site-header .btn--primary:hover,
+.site-header .nav-cta .btn:hover {
+  background: #bf4f00 !important;
+}
+
+/* Mobile Nav: Weiß mit dunkler Schrift (konsistent mit Header) */
+.mobile-nav,
+.site-nav.open,
+.site-nav.is-open {
+  background: #ffffff !important;
+  border-top: 1px solid #e8ecf2 !important;
+}
+.mobile-nav a,
+.site-nav.open .site-nav__link,
+.site-nav.is-open .site-nav__link {
+  color: #1a2535 !important;
+  border-bottom-color: #f0f3f8 !important;
+}
+.mobile-nav a:hover,
+.site-nav.open .site-nav__link:hover {
+  color: #0B2A5B !important;
+  background: rgba(11,42,91,.05) !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   HERO STARTSEITE (.hero)
+   Zoom reduziert, kein brightness-Filter, minimaler Overlay.
+   ══════════════════════════════════════════════════════════════ */
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+
+  filter:         none !important;
+  opacity:        1    !important;
+  mix-blend-mode: normal !important;
+
+  backface-visibility: hidden;
+  /* Zoom: von scale(1.03) auf scale(1.00) — kein Zoom, voller Bildausschnitt */
+  transform: scale(1.00) translateZ(0) !important;
+  transition: none !important;
+  will-change: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Kein Zoom-Effekt beim Laden mehr */
+.hero.loaded .hero__bg img {
+  transform: scale(1.00) translateZ(0) !important;
+}
+
+/* Overlay: minimal, nur links für Textlesbarkeit */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    rgba(7, 21, 50, 0.38) 0%,
+    rgba(7, 21, 50, 0.14) 38%,
+    rgba(0, 0, 0, 0)      68%,
+    transparent           100%
+  ) !important;
+}
+
+.hero__glass {
+  backdrop-filter:         none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.hero__title {
+  text-shadow:
+    0 1px 0   rgba(0,0,0,.45),
+    0 2px 16px rgba(0,0,0,.38),
+    0 4px 40px rgba(0,0,0,.22);
+}
+
+.hero__sub,
+.hero__description {
+  text-shadow: 0 1px 8px rgba(0,0,0,.28);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   PAGE-HERO UNTERSEITEN (.page-hero, via hero-upgrade.js)
+   Zoom reduziert, Bildqualität gesichert.
+   ══════════════════════════════════════════════════════════════ */
+
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.page-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+
+  filter:         none   !important;
+  opacity:        1      !important;
+  mix-blend-mode: normal !important;
+
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+  /* Kein Zoom — Bild natürlich, nicht eingezoomt */
+  transform: translateZ(0) !important;
+  animation: none !important;
+  transform-origin: center;
+}
+
+/* Sanfter Overlay für Textlesbarkeit auf Unterseiten */
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    rgba(7, 21, 50, 0.42) 0%,
+    rgba(7, 21, 50, 0.18) 40%,
+    rgba(7, 21, 50, 0.06) 72%,
+    transparent           100%
+  ) !important;
+}
+
+.page-hero__overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(7,21,50,.14) 0%, transparent 100%);
+}
+
+/* Noise-Textur: minimal */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: .015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.page-hero .container,
+.page-hero .c-container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero__heading,
+.page-hero .heading-lg,
+.page-hero h1 {
+  color: #fff !important;
+  text-shadow:
+    0 1px 0   rgba(0,0,0,.45),
+    0 2px 14px rgba(0,0,0,.38),
+    0 4px 36px rgba(0,0,0,.22);
+}
+
+.page-hero__lead {
+  color: rgba(255,255,255,.92) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.28);
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   SERVICE CARD IMAGES — Bildschärfe & natürliche Skalierung
+   ══════════════════════════════════════════════════════════════ */
+
+.service-card__img img,
+.alt-block__visual img,
+.menu-day-card__img img,
+.card__image img,
+.dish-card__img-wrap img {
+  filter:         none !important;
+  opacity:        1    !important;
+  /* Kein übermäßiger Scale — natürliche Darstellung */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Hover-Zoom auf Cards: dezent, nicht abschneidend */
+.service-card:hover .service-card__img img { transform: scale(1.04) translateZ(0) !important; }
+.card:hover .card__image img              { transform: scale(1.04) translateZ(0) !important; }
+.dish-card:hover .dish-card__img-wrap img { transform: scale(1.04) translateZ(0) !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   TRUST BAND
+   ══════════════════════════════════════════════════════════════ */
+
+.trust-band {
+  background: #0B2A5B !important;
+  border-bottom: 2px solid #D95A00 !important;
+  border-top: none !important;
+  padding: 26px 0 !important;
+}
+
+.trust-item,
+.trust-item span { color: #ffffff !important; }
+
+.trust-item__icon {
+  fill: #D95A00 !important;
+  width: 22px !important; height: 22px !important;
+  min-width: 22px !important; min-height: 22px !important;
+  max-width: 22px !important; max-height: 22px !important;
+  flex-shrink: 0; display: block;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   INFO-CARDS — Icon-Größe fix
+   ══════════════════════════════════════════════════════════════ */
+
+.info-card__icon {
+  fill: #1E6FD9 !important;
+  width: 40px !important; height: 40px !important;
+  min-width: 40px !important; min-height: 40px !important;
+  max-width: 40px !important; max-height: 40px !important;
+  margin: 0 auto 16px !important; display: block !important;
+}
+
+.feature-item__icon,
+.contact-detail-item__icon {
+  fill: #1E6FD9 !important;
+  width: 22px !important; height: 22px !important;
+  min-width: 22px !important; min-height: 22px !important;
+  max-width: 22px !important; max-height: 22px !important;
+  flex-shrink: 0; display: block;
+}
+
+.region-card__icon svg {
+  fill: #1E6FD9 !important;
+  width: 24px !important; height: 24px !important;
+  min-width: 24px !important; min-height: 24px !important;
+  max-width: 24px !important; max-height: 24px !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   CTA-BAND + FINAL-CTA — Navy, weiße Schrift
+   ══════════════════════════════════════════════════════════════ */
+
+.cta-band,
+.final-cta {
+  background: linear-gradient(135deg, #0B2A5B 0%, #1a3f7a 100%) !important;
+  position: relative; overflow: hidden;
+}
+
+.cta-band::before,
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(30,111,217,.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-band h2, .cta-band .heading-sm, .cta-band h3,
+.final-cta__title { color: #ffffff !important; }
+
+.cta-band p, .final-cta__sub { color: rgba(255,255,255,.75) !important; }
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER — Navy-Tief, weiße Texte, Orange-Akzente
+   ══════════════════════════════════════════════════════════════ */
+
+.site-footer {
+  background: linear-gradient(180deg, #071526 0%, #020810 100%) !important;
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%, #1046a0 25%, #D95A00 50%, #1046a0 75%, transparent 100%
+  ) !important;
+}
+
+/* Footer-Logo: weiß auf dunklem Hintergrund */
+.site-footer .footer-brand__logo img,
+.site-footer img[alt*="BMV"] {
+  filter: brightness(0) invert(1) !important;
+}
+
+.footer-brand__name    { color: #ffffff !important; }
+.footer-brand__desc    { color: rgba(255,255,255,.62) !important; }
+.footer-col__title     { color: #D95A00 !important; }
+.footer-col__link,
+.footer-nav a          { color: rgba(255,255,255,.62) !important; }
+.footer-col__link:hover,
+.footer-nav a:hover    { color: #ffffff !important; }
+.footer-col__text      { color: rgba(255,255,255,.62) !important; }
+.footer-contact-item svg { fill: #D95A00 !important; }
+.footer-contact-item a   { color: rgba(255,255,255,.88) !important; }
+.footer-bottom__copy   { color: rgba(255,255,255,.45) !important; }
+.footer-bottom__links a { color: rgba(255,255,255,.45) !important; }
+.footer-bottom__links a:hover { color: #ffffff !important; }
+.site-footer .badge--amber {
+  background: rgba(217,90,0,.2) !important;
+  color: #ffb07c !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MENU-PREVIEW (Speiseplan-Section)
+   ══════════════════════════════════════════════════════════════ */
+
+.menu-preview { background: #0B2A5B !important; }
+.menu-preview .section-title,
+.menu-preview h2 { color: #ffffff !important; }
+.menu-preview .section-sub,
+.menu-preview .section-header__eyebrow { color: rgba(255,255,255,.68) !important; }
+.menu-day-card__name,
+.menu-day-card__dish { color: #ffffff !important; }
+.menu-day-card {
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.15) !important;
+}
+.menu-day-card:hover { background: rgba(255,255,255,.14) !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Header bleibt weiß auf Mobile */
+  .site-header {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 1px 8px rgba(11,42,91,.08) !important;
+  }
+
+  /* Hero-Overlay Mobile: etwas stärker für Lesbarkeit */
+  .hero__overlay {
+    background: linear-gradient(
+      170deg,
+      rgba(7, 21, 50, 0.55) 0%,
+      rgba(7, 21, 50, 0.28) 50%,
+      rgba(7, 21, 50, 0.08) 100%
+    ) !important;
+  }
+
+  .page-hero__overlay {
+    background: linear-gradient(
+      170deg,
+      rgba(7, 21, 50, 0.60) 0%,
+      rgba(7, 21, 50, 0.30) 52%,
+      rgba(7, 21, 50, 0.10) 100%
+    ) !important;
+  }
+
+  .trust-band { background: #0B2A5B !important; }
+
+  /* Hero-Bild auf Mobile: object-position angepasst */
+  .hero__bg img {
+    object-position: center 35% !important;
+  }
+  .page-hero__bg-img {
+    object-position: center 35% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__bg img {
+    object-position: 55% 35% !important;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   PRINT
+   ══════════════════════════════════════════════════════════════ */
+
+@media print {
+  .site-header, .trust-band, .cta-band,
+  .final-cta, .menu-preview, .site-footer {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+

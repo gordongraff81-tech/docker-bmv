@@ -1,0 +1,781 @@
+<?php
+/**
+ * index.php – BMV Menüdienst Startseite
+ * Modernes Layout: Hero, Services, Alternating, Speiseplan-Preview, Prozess, CTA
+ */
+$currentKW   = (int)date('W');
+$currentYear = (int)date('Y');
+
+// Aktuelle Speisepläne für Preview laden
+$kwStr   = str_pad($currentKW, 2, '0', STR_PAD_LEFT);
+$newFile = $_SERVER['DOCUMENT_ROOT'] . "/data/speiseplaene/essen_auf_raedern-{$currentYear}-KW{$kwStr}.json";
+$oldFile = $_SERVER['DOCUMENT_ROOT'] . "/data/speiseplaene/{$currentYear}-KW{$kwStr}.json";
+$preview = null;
+if (file_exists($newFile)) {
+    $raw = json_decode(file_get_contents($newFile), true);
+    if ($raw && isset($raw['data'])) $preview = $raw['data'];
+} elseif (file_exists($oldFile)) {
+    $raw = json_decode(file_get_contents($oldFile), true);
+    if ($raw && !empty($raw['days'])) $preview = $raw['days'];
+}
+$dayNames = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essen auf Rädern in Potsdam & Werder – täglich frisch geliefert | BMV Menüdienst</title>
+<meta name="description" content="Täglich warmes Mittagessen direkt an die Haustür – in Potsdam, Werder (Havel) und Umland. Essen auf Rädern, Kantine & Catering von BMV Menüdienst. ☎ 03327 5745066">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.bmv-kantinen.de/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.bmv-kantinen.de/">
+<meta property="og:title" content="Essen auf Rädern Potsdam & Werder – BMV Menüdienst">
+<meta property="og:description" content="Frisches Mittagessen täglich geliefert. Jetzt Speiseplan ansehen.">
+<meta property="og:image" content="https://www.bmv-kantinen.de/assets/images/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/design-system.css">
+<style>
+/* ── Reset & Basis ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2A5B;
+  --navy-light:#1a3f7a;
+  --orange:#D95A00;
+  --orange-light:#f06820;
+  --blue:#1E6FD9;
+  --blue-light:#e8f0fd;
+  --bg:#F4F7FC;
+  --white:#fff;
+  --text:#1a2535;
+  --muted:#5a6a82;
+  --border:#dde4ef;
+  --radius:12px;
+  --radius-lg:20px;
+  --shadow:0 2px 12px rgba(11,42,91,.08);
+  --shadow-lg:0 8px 40px rgba(11,42,91,.14);
+  --font:'Plus Jakarta Sans',sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ── Container ── */
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-family:var(--font);font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap}
+.btn--primary{background:var(--orange);color:#fff}
+.btn--primary:hover{background:var(--orange-light);transform:translateY(-1px);box-shadow:0 6px 24px rgba(217,90,0,.3)}
+.btn--secondary{background:var(--blue);color:#fff}
+.btn--secondary:hover{background:#1560c5;transform:translateY(-1px);box-shadow:0 6px 24px rgba(30,111,217,.3)}
+.btn--ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);backdrop-filter:blur(4px)}
+.btn--ghost:hover{background:rgba(255,255,255,.25)}
+.btn--outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn--outline:hover{background:var(--navy);color:#fff}
+.btn svg{width:18px;height:18px;fill:currentColor}
+
+/* ── Navigation ── */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .2s}
+.site-header.scrolled{box-shadow:var(--shadow-lg)}
+.header-inner{display:flex;align-items:center;gap:32px;height:70px}
+.site-logo{display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:800;color:var(--navy)}
+.site-logo img{height:42px;width:auto}
+.primary-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.primary-nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--muted);transition:all .18s}
+.primary-nav a:hover,.primary-nav a.active{color:var(--navy);background:var(--blue-light)}
+.nav-cta{margin-left:8px;padding:10px 22px;font-size:.9rem}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .2s}
+.mobile-nav{display:none;position:fixed;inset:70px 0 0;background:#fff;padding:24px;flex-direction:column;gap:8px;z-index:99;overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav a{padding:14px 16px;border-radius:10px;font-weight:500;color:var(--text);border-bottom:1px solid var(--border)}
+.mobile-nav a:last-child{border-bottom:none}
+
+/* ── Hero ── */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%,#1a3f7a 60%,#0d3275 100%)}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;opacity:.18;mix-blend-mode:luminosity}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,42,91,.92) 0%,rgba(11,42,91,.7) 100%)}
+.hero__content{position:relative;z-index:2;max-width:600px}
+.hero__badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);padding:8px 16px;border-radius:50px;font-size:.85rem;font-weight:500;margin-bottom:28px;border:1px solid rgba(255,255,255,.2)}
+.hero__badge svg{width:16px;height:16px;fill:currentColor}
+.hero__title{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
+.hero__title span{color:var(--orange)}
+.hero__sub{font-size:1.1rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:36px;max-width:520px}
+.hero__actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero__trust{display:flex;gap:24px;margin-top:48px;flex-wrap:wrap}
+.hero__trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.8);font-size:.88rem;font-weight:500}
+.hero__trust-item svg{width:18px;height:18px;fill:var(--orange)}
+.hero__visual{position:absolute;right:0;top:0;bottom:0;width:50%;z-index:0;pointer-events:none;overflow:hidden}
+.hero__visual img{width:100%;height:100%;object-fit:cover;border-radius:0;opacity:.35;mix-blend-mode:luminosity}
+
+/* ── Stats ── */
+.stats{background:var(--white);padding:64px 0;border-bottom:1px solid var(--border)}
+.stats__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.stat-card{text-align:center;padding:32px 24px;border-radius:var(--radius-lg);border:1px solid var(--border);transition:all .2s}
+.stat-card:hover{border-color:var(--blue);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.stat-card__icon{width:56px;height:56px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.stat-card__icon svg{width:28px;height:28px;fill:var(--blue)}
+.stat-card__number{font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1}
+.stat-card__label{font-size:.9rem;font-weight:600;color:var(--text);margin-top:6px}
+.stat-card__sub{font-size:.82rem;color:var(--muted);margin-top:4px}
+.stat-card__check{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:.82rem;color:var(--muted)}
+.stat-card__check svg{width:16px;height:16px;fill:var(--blue)}
+
+/* ── Section Basis ── */
+.section{padding:80px 0}
+.section--bg{background:var(--bg)}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header__eyebrow{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.15}
+.section-sub{font-size:1.05rem;color:var(--muted);margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* ── Service Cards ── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--blue)}
+.service-card__img{height:200px;overflow:hidden}
+.service-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.service-card:hover .service-card__img img{transform:scale(1.06)}
+.service-card__body{padding:28px;flex:1;display:flex;flex-direction:column}
+.service-card__title{font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:10px}
+.service-card__text{font-size:.9rem;color:var(--muted);line-height:1.7;flex:1}
+.service-card__checks{margin:16px 0;display:flex;flex-direction:column;gap:8px}
+.service-card__check{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--text)}
+.service-card__check svg{width:16px;height:16px;fill:var(--blue);flex-shrink:0}
+.service-card__link{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-size:.9rem;font-weight:600;color:var(--blue)}
+.service-card__link svg{width:16px;height:16px;fill:currentColor;transition:transform .2s}
+.service-card:hover .service-card__link svg{transform:translateX(4px)}
+
+/* ── Alternating Blocks ── */
+.alt-block{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:48px 0}
+.alt-block+.alt-block{border-top:1px solid var(--border)}
+.alt-block--reverse .alt-block__visual{order:-1}
+.alt-block__visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.alt-block__visual img{width:100%;height:360px;object-fit:cover}
+.alt-block__eyebrow{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:12px}
+.alt-block__title{font-size:1.9rem;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:14px;letter-spacing:-.02em}
+.alt-block__text{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.alt-block__checks{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.alt-block__check{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--text)}
+.alt-block__check svg{width:18px;height:18px;fill:var(--blue);flex-shrink:0;margin-top:2px}
+
+/* ── Speiseplan Preview ── */
+.menu-preview{padding:80px 0;background:var(--navy)}
+.menu-preview .section-header{text-align:center;margin-bottom:40px}
+.menu-preview .section-title{color:#fff}
+.menu-preview .section-sub{color:rgba(255,255,255,.7)}
+.menu-scroll{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:36px}
+.menu-day-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-lg);overflow:hidden;transition:all .2s;cursor:pointer}
+.menu-day-card:hover{background:rgba(255,255,255,.14);transform:translateY(-4px)}
+.menu-day-card__header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
+.menu-day-card__name{font-size:.95rem;font-weight:700;color:#fff}
+.menu-day-card__arrow{width:20px;height:20px;fill:rgba(255,255,255,.5)}
+.menu-day-card__img{height:140px;overflow:hidden}
+.menu-day-card__img img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.menu-day-card__img-placeholder{height:140px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center}
+.menu-day-card__img-placeholder svg{width:40px;height:40px;fill:rgba(255,255,255,.2)}
+.menu-day-card__body{padding:16px 18px}
+.menu-day-card__dish{font-size:.92rem;font-weight:600;color:#fff;margin-bottom:4px;line-height:1.3}
+.menu-day-card__more{font-size:.8rem;color:rgba(255,255,255,.55);margin-top:8px;display:flex;align-items:center;gap:4px}
+.menu-day-card__more svg{width:14px;height:14px;fill:currentColor}
+.menu-preview__cta{text-align:center}
+
+/* ── Prozess ── */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:calc(12.5% + 28px);right:calc(12.5% + 28px);height:2px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue-light) 100%);z-index:0}
+.process-step{text-align:center;position:relative;z-index:1}
+.process-step__num{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 16px rgba(30,111,217,.35)}
+.process-step__title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.process-step__text{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+/* ── Final CTA ── */
+.final-cta{background:linear-gradient(135deg,var(--navy) 0%,#1a3f7a 100%);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(30,111,217,.3) 0%,transparent 70%)}
+.final-cta__title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.02em;position:relative}
+.final-cta__sub{font-size:1.05rem;color:rgba(255,255,255,.75);margin-bottom:36px;position:relative}
+.final-cta__actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* ── Footer ── */
+.site-footer{background:#0d1f3c;color:rgba(255,255,255,.7);padding:64px 0 32px}
+.footer-main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand__logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-brand__logo img{height:36px;filter:brightness(0) invert(1)}
+.footer-brand__name{font-size:1rem;font-weight:700;color:#fff}
+.footer-brand__desc{font-size:.88rem;line-height:1.7;margin-bottom:20px}
+.footer-contact-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-contact-item{display:flex;align-items:center;gap:10px;font-size:.88rem}
+.footer-contact-item svg{width:16px;height:16px;fill:var(--orange);flex-shrink:0}
+.footer-contact-item a{color:rgba(255,255,255,.85)}
+.footer-col__title{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:16px}
+.footer-nav{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-nav a{font-size:.88rem;color:rgba(255,255,255,.6);transition:color .15s}
+.footer-nav a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:16px}
+.footer-bottom__copy{font-size:.82rem}
+.footer-bottom__links{display:flex;gap:20px}
+.footer-bottom__links a{font-size:.82rem;color:rgba(255,255,255,.5);transition:color .15s}
+.footer-bottom__links a:hover{color:#fff}
+
+/* ── Animationen ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .hero__visual{display:none}
+  .stats__grid{grid-template-columns:repeat(3,1fr)}
+  .alt-block{grid-template-columns:1fr;gap:32px}
+  .alt-block--reverse .alt-block__visual{order:0}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .process-steps::before{display:none}
+  .footer-main{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .section{padding:56px 0}
+  .primary-nav,.nav-cta{display:none}
+  .nav-toggle{display:flex}
+  .stats__grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .menu-scroll{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr;gap:20px}
+  .footer-main{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .hero__actions{flex-direction:column}
+  .final-cta__actions{flex-direction:column;align-items:center}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":["LocalBusiness","FoodEstablishment"],"@id":"https://www.bmv-kantinen.de/#organization","name":"BMV Menüdienst","url":"https://www.bmv-kantinen.de","telephone":"+4933275745066","email":"info@bmv-kantinen.de","description":"Essen auf Rädern, Catering und Kantine am Gutshof in Potsdam und Werder (Havel).","address":{"@type":"PostalAddress","streetAddress":"Am Gutshof 6","addressLocality":"Werder (Havel)","addressRegion":"Brandenburg","postalCode":"14542","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":"52.3869","longitude":"12.9344"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"14:00"}]}
+</script>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<header class="site-header" id="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <a class="site-logo" href="/" aria-label="BMV Menüdienst Startseite">
+        <img src="/assets/images/BMV_Logo_n.svg" alt="BMV Menüdienst" width="120" height="42" loading="eager">
+      </a>
+      <nav class="primary-nav" role="navigation" aria-label="Hauptnavigation">
+        <a href="/essen-auf-raedern/" class="<?= str_starts_with($_SERVER['REQUEST_URI'],'/essen-auf-raedern') ? 'active' : '' ?>">Essen auf Rädern</a>
+        <a href="/catering/">Catering</a>
+        <a href="/kantine-am-gutshof/">Kantine am Gutshof</a>
+        <a href="/speiseplan/">Speiseplan</a>
+        <a href="/ueber-uns/">Über uns</a>
+      </nav>
+      <a class="btn btn--primary nav-cta" href="/kontakt/">Jetzt bestellen</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+    <a href="/essen-auf-raedern/">Essen auf Rädern</a>
+    <a href="/catering/">Catering</a>
+    <a href="/kantine-am-gutshof/">Kantine am Gutshof</a>
+    <a href="/speiseplan/">Speiseplan</a>
+    <a href="/ueber-uns/">Über uns</a>
+    <a href="/kontakt/">Kontakt</a>
+    <a href="/kontakt/" class="btn btn--primary" style="margin-top:8px;justify-content:center">Jetzt bestellen</a>
+  </nav>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__bg">
+    <img src="/assets/images/hero-bg.jpg" alt="" loading="eager" fetchpriority="high">
+    <div class="hero__bg-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Potsdam &amp; Werder (Havel)
+      </div>
+      <h1 class="hero__title" id="hero-heading">
+        Warmes Mittagessen –<br>
+        <span>täglich an Ihre Tür</span>
+      </h1>
+      <p class="hero__sub">
+        Seit Jahren liefern wir frisch zubereitetes Mittagessen in Potsdam und Werder (Havel).
+        Verlässlich, pünktlich – für Senioren, Familien und Betriebe.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/speiseplan/">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          Speiseplan diese Woche
+        </a>
+        <a class="btn btn--ghost" href="/kontakt/">
+          Kostenlos anfragen
+        </a>
+      </div>
+      <div class="hero__trust">
+        <div class="hero__trust-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Täglich frisch zubereitet
+        </div>
+        <div class="hero__trust-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Pünktlich – Mo bis So
+        </div>
+        <div class="hero__trust-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Keine Mindestlaufzeit
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats ── -->
+<section class="stats" aria-label="Kennzahlen">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stat-card fade-up">
+        <div class="stat-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="stat-card__number">500+</div>
+        <div class="stat-card__label">Kunden täglich</div>
+        <div class="stat-card__sub">In Potsdam & Werder beliefert</div>
+        <div class="stat-card__check">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Potsdam, Werder & Umland
+        </div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:.1s">
+        <div class="stat-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="stat-card__number">100%</div>
+        <div class="stat-card__label">Regional & frisch</div>
+        <div class="stat-card__sub">Täglich neu zubereitet – keine Tiefkühlware</div>
+        <div class="stat-card__check">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Keine Convenience – echte Küche
+        </div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:.2s">
+        <div class="stat-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <div class="stat-card__number">15+</div>
+        <div class="stat-card__label">Jahre Erfahrung</div>
+        <div class="stat-card__sub">Zuverlässig seit über 15 Jahren</div>
+        <div class="stat-card__check">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Geprüfte Hygienestandards
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Unsere Leistungen ── -->
+<section class="section section--bg" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header__eyebrow">Was wir anbieten</div>
+      <h2 class="section-title" id="services-heading">Drei Wege zu gutem Essen</h2>
+      <p class="section-sub">Ob Lieferung nach Hause, Kantine oder Event – wir kochen täglich frisch für Sie.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card fade-up">
+        <div class="service-card__img">
+          <img src="/assets/images/essen-auf-raedern-lieferung.jpg" alt="Essen auf Rädern Lieferung" loading="lazy" width="400" height="200">
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Essen auf Rädern</h3>
+          <p class="service-card__text">Warmes Mittagessen pünktlich an Ihre Tür – auch am Wochenende. Ideal für Senioren, Pflegebedürftige und alle, die sich täglich gut versorgen möchten.</p>
+          <div class="service-card__checks">
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Lieferung auch Sa & So
+            </div>
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Direkte Pflegekassen-Abrechnung
+            </div>
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Täglich 4 Menüs – inkl. Schonkost
+            </div>
+          </div>
+          <a class="service-card__link" href="/essen-auf-raedern/">
+            Jetzt informieren
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="service-card fade-up" style="transition-delay:.1s">
+        <div class="service-card__img">
+          <img src="/assets/images/kantine-gutshof.jpg" alt="Kantine am Gutshof" loading="lazy" width="400" height="200">
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Kantine am Gutshof</h3>
+          <p class="service-card__text">Unser Mittagstisch in Werder (Havel): täglich wechselnde Gerichte, frisch gekocht, faire Preise. Kein Kantinen-Einheitsbrei.</p>
+          <div class="service-card__checks">
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Mo–Fr geöffnet, 08–14 Uhr
+            </div>
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              3 Menüs – auch vegetarisch
+            </div>
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Direkt vor Ort in Werder (Havel)
+            </div>
+          </div>
+          <a class="service-card__link" href="/kantine-am-gutshof/">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="service-card fade-up" style="transition-delay:.2s">
+        <div class="service-card__img">
+          <img src="/assets/images/catering-setup.jpg" alt="Catering Service" loading="lazy" width="400" height="200">
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Catering für Ihr Event</h3>
+          <p class="service-card__text">Firmenlunch, Betriebsfeier oder Meeting – wir liefern und bauen auf. Frisch zubereitet, pünktlich und unkompliziert.</p>
+          <div class="service-card__checks">
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Individuell geplant & abgestimmt
+            </div>
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Lieferung, Aufbau & Abbau
+            </div>
+            <div class="service-card__check">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Potsdam, Werder & Umland
+            </div>
+          </div>
+          <a class="service-card__link" href="/catering/">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Alternating Content ── -->
+<section class="section" aria-labelledby="leistungen-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header__eyebrow">Wie es funktioniert</div>
+      <h2 class="section-title" id="leistungen-heading">Gutes Essen – ohne Aufwand</h2>
+      <p class="section-sub">Sie bestellen, wir kochen und liefern. So einfach ist das.</p>
+    </div>
+
+    <div class="alt-block fade-up">
+      <div class="alt-block__text">
+        <div class="alt-block__eyebrow">Kantinenbetrieb</div>
+        <h3 class="alt-block__title">Frisch gekocht – jeden Tag neu</h3>
+        <p class="alt-block__text">Kein Tiefkühl, kein Aufwärmen. Unsere Köche bereiten täglich frische Gerichte vor – in unserer Küche oder direkt bei Ihnen vor Ort.</p>
+        <div class="alt-block__checks">
+          <div class="alt-block__check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Zutaten täglich frisch angeliefert
+          </div>
+          <div class="alt-block__check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Erfahrene Köche – seit über 15 Jahren
+          </div>
+          <div class="alt-block__check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Menüplan auf Ihre Wünsche abgestimmt
+          </div>
+        </div>
+        <a class="btn btn--secondary" href="/speiseplan/">Aktuellen Speiseplan ansehen</a>
+      </div>
+      <div class="alt-block__visual">
+        <img src="/assets/images/speiseplan-kueche.jpg" alt="Koch bereitet frisches Essen zu" loading="lazy" width="560" height="360">
+      </div>
+    </div>
+
+    <div class="alt-block alt-block--reverse fade-up">
+      <div class="alt-block__text">
+        <div class="alt-block__eyebrow">Speiseplan & Bestellung</div>
+        <h3 class="alt-block__title">Immer wissen, was es gibt</h3>
+        <p class="alt-block__text">Unser Speiseplan steht bis zu 4 Wochen im Voraus online. Sie sehen Gerichte, Allergene und Preise – und können direkt bestellen.</p>
+        <div class="alt-block__checks">
+          <div class="alt-block__check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Speiseplan 4 Wochen voraus einsehbar
+          </div>
+          <div class="alt-block__check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Bestellung per Telefon oder online
+          </div>
+          <div class="alt-block__check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Allergene & Preise klar ausgewiesen
+          </div>
+        </div>
+        <a class="btn btn--outline" href="/speiseplan/">Speiseplan ansehen</a>
+      </div>
+      <div class="alt-block__visual">
+        <img src="/assets/images/menue-auswahl.jpg" alt="Digitale Menüplanung auf Laptop und Smartphone" loading="lazy" width="560" height="360">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Speiseplan Preview ── -->
+<section class="menu-preview" aria-labelledby="speiseplan-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header__eyebrow" style="color:rgba(255,255,255,.6)">KW <?= $currentKW ?>/<?= $currentYear ?></div>
+      <h2 class="section-title" id="speiseplan-heading">Was gibt's diese Woche?</h2>
+      <p class="section-sub">Täglich wechselnde Gerichte – frisch, regional, ohne Einheitsbrei</p>
+    </div>
+    <div class="menu-scroll fade-up">
+      <?php
+      $shown = 0;
+      for ($i = 0; $i < 5 && $shown < 3; $i++):
+        // Versuche Gericht für diesen Tag zu holen
+        $dayTitle = null;
+        if ($preview) {
+          // Neues Format
+          if (isset($preview[$i])) {
+            foreach ($preview[$i] as $catKey => $entry) {
+              if (!empty($entry['name']) && in_array($catKey, ['vollkost','leichte_kost','premium'])) {
+                $dayTitle = $entry['name'];
+                break;
+              }
+            }
+          }
+          // Altes Format
+          if (!$dayTitle && isset($preview[$i]['menus'])) {
+            $dayTitle = $preview[$i]['menus'][0]['title'] ?? null;
+          }
+        }
+        $shown++;
+      ?>
+      <div class="menu-day-card fade-up" style="transition-delay:<?= $i * .1 ?>s" onclick="location.href='/speiseplan/'">
+        <div class="menu-day-card__header">
+          <span class="menu-day-card__name"><?= $dayNames[$i] ?></span>
+          <svg class="menu-day-card__arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+        </div>
+        <?php if ($dayTitle): ?>
+        <div class="menu-day-card__img">
+          <img class="pexels-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='140'%3E%3Crect width='260' height='140' fill='%23ffffff10'/%3E%3C/svg%3E"
+               data-query="<?= htmlspecialchars(substr($dayTitle, 0, 40)) ?> food"
+               alt="<?= htmlspecialchars($dayTitle) ?>" loading="lazy" width="260" height="140">
+        </div>
+        <div class="menu-day-card__body">
+          <div class="menu-day-card__dish"><?= htmlspecialchars($dayTitle) ?></div>
+          <div class="menu-day-card__more">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+            Mehr ansehen
+          </div>
+        </div>
+        <?php else: ?>
+        <div class="menu-day-card__img-placeholder">
+          <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+        </div>
+        <div class="menu-day-card__body">
+          <div class="menu-day-card__dish" style="color:rgba(255,255,255,.4);font-style:italic">Noch kein Menü eingetragen</div>
+        </div>
+        <?php endif; ?>
+      </div>
+      <?php endfor; ?>
+    </div>
+    <div class="menu-preview__cta fade-up">
+      <a class="btn btn--primary" href="/speiseplan/">
+        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        Alle Gerichte ansehen
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── So funktioniert's ── -->
+<section class="section section--bg" aria-labelledby="prozess-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header__eyebrow">In 4 Schritten starten</div>
+      <h2 class="section-title" id="prozess-heading">Heute anrufen – morgen geliefert</h2>
+    </div>
+    <div class="process-steps fade-up">
+      <div class="process-step">
+        <div class="process-step__num">1</div>
+        <h3 class="process-step__title">Anruf oder Anfrage</h3>
+        <p class="process-step__text">Kurzes Gespräch – wir klären Liefergebiet, Wünsche und Starttermin</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">2</div>
+        <h3 class="process-step__title">Menü aussuchen</h3>
+        <p class="process-step__text">Sie wählen aus unserem Speiseplan – täglich oder für die ganze Woche</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">3</div>
+        <h3 class="process-step__title">Wir kochen</h3>
+        <p class="process-step__text">Frisch zubereitet – in unserer Küche, jeden Morgen neu</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">4</div>
+        <h3 class="process-step__title">Lieferung</h3>
+        <p class="process-step__text">Pünktlich an Ihre Tür – mit persönlichem Ansprechpartner</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="final-cta" aria-labelledby="cta-heading">
+  <div class="container">
+    <h2 class="final-cta__title" id="cta-heading">Noch heute anmelden –<br>morgen kommt das Essen</h2>
+    <p class="final-cta__sub">Kostenlose Beratung, keine Mindestlaufzeit. Einfach anrufen.</p>
+    <div class="final-cta__actions">
+      <a class="btn btn--primary" href="tel:+4933275745066">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        03327 5745066
+      </a>
+      <a class="btn btn--ghost" href="/kontakt/">Online anfragen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">
+          <img src="/assets/images/BMV_Logo_n.svg" alt="BMV Menüdienst" width="100" height="36">
+          <span class="footer-brand__name">BMV Menüdienst</span>
+        </div>
+        <p class="footer-brand__desc">Ihr regionaler Partner für Essen auf Rädern, Catering und Mittagstisch in Potsdam und Werder (Havel).</p>
+        <address>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Am Gutshof 6, 14542 Werder (Havel)</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <a href="tel:+4933275745066">+49 3327 5745066</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:info@bmv-kantinen.de">info@bmv-kantinen.de</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+              <span>Mo–Fr 08:00–14:00 Uhr</span>
+            </li>
+          </ul>
+        </address>
+      </div>
+      <nav class="footer-col" aria-label="Essen auf Rädern">
+        <p class="footer-col__title">Essen auf Rädern</p>
+        <ul class="footer-nav">
+          <li><a href="/essen-auf-raedern/">Übersicht</a></li>
+          <li><a href="/essen-auf-raedern/potsdam/">Potsdam</a></li>
+          <li><a href="/essen-auf-raedern/werder-havel/">Werder (Havel)</a></li>
+          <li><a href="/speiseplan/">Speiseplan</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Catering und Kantine">
+        <p class="footer-col__title">Catering &amp; Kantine</p>
+        <ul class="footer-nav">
+          <li><a href="/catering/">Catering Übersicht</a></li>
+          <li><a href="/catering/potsdam/">Catering Potsdam</a></li>
+          <li><a href="/catering/werder-havel/">Catering Werder</a></li>
+          <li><a href="/kantine-am-gutshof/">Kantine am Gutshof</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Unternehmen">
+        <p class="footer-col__title">Unternehmen</p>
+        <ul class="footer-nav">
+          <li><a href="/ueber-uns/">Über uns</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+          <li><a href="/agb/">AGB</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-bottom__copy">&copy; <?= date('Y') ?> BMV Menüdienst · Am Gutshof 6 · 14542 Werder (Havel)</p>
+      <div class="footer-bottom__links">
+        <a href="/agb/">AGB</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="/sitemap/">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Navigation ──
+const toggle  = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const header  = document.getElementById('site-header');
+
+toggle?.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+document.addEventListener('click', e => {
+  if (!toggle?.contains(e.target) && !mobileNav?.contains(e.target)) {
+    mobileNav?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+});
+
+window.addEventListener('scroll', () => {
+  header?.classList.toggle('scrolled', scrollY > 20);
+}, {passive: true});
+
+// ── Fade-up Observer ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── Pexels Bilder ──
+const pexelsCache = {};
+async function fetchPexels(q) {
+  if (pexelsCache[q]) return pexelsCache[q];
+  try {
+    const r = await fetch('/api/pexels_image.php?q=' + encodeURIComponent(q));
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+    pexelsCache[q] = d.url || null;
+    return pexelsCache[q];
+  } catch { pexelsCache[q] = null; return null; }
+}
+
+async function loadImages() {
+  const imgs = document.querySelectorAll('img.pexels-img[data-query]');
+  for (const img of imgs) {
+    const url = await fetchPexels(img.dataset.query);
+    if (url) { img.src = url; img.style.opacity = '1'; }
+    else img.style.display = 'none';
+  }
+}
+document.addEventListener('DOMContentLoaded', loadImages);
+</script>
+</body>
+</html>

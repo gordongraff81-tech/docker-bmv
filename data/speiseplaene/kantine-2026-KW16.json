@@ -1,0 +1,95 @@
+{
+    "year": 2026,
+    "kw": 16,
+    "system": "kantine",
+    "published": true,
+    "week_start": "2026-04-13",
+    "saved_at": "2026-04-07T15:01:26+02:00",
+    "data": [
+        {
+            "kantine_menu1": {
+                "name": "Boulette mit Porreerahm",
+                "allergens": "13,9,4",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "2 gekochte Eier mit Rahmspinat und Frühlingspüree",
+                "allergens": "13,18,4,9",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "3erlei Gemüse mit Holländischer Soße und Reis",
+                "allergens": "13",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Hähnchenschnitzel mit Champignonsoße und Pommes",
+                "allergens": "13,18,4,9",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Nudel-Brokkoli-Auflauf mit Tomatensoße",
+                "allergens": "13,18,4",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Brühnudelsuppe mit Hühnchenfleisch",
+                "allergens": "4,22,9",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Königsberger Klopse in Kapernsoße mit Rote Beete",
+                "allergens": "18,4,13,9",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Hausgemachter Hackbraten mit Blumenkohl, Soße und Kartoffeln",
+                "allergens": "13,18,9",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Kohlrübeneintopf mit Fleischeinlage",
+                "allergens": "13,22",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Beelitzer Spargel mit Hähnchenschnitzel und Rosmarinkartoffeln",
+                "allergens": "13,4,9,18",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+                "allergens": "4,13,12,18",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Brühnudelsuppe mit Hühnchenfleisch",
+                "allergens": "4,22,9",
+                "price": 0
+            }
+        },
+        {
+            "kantine_menu1": {
+                "name": "Pikantes Hühnerfrikassee mit Beilage",
+                "allergens": "4,3,9,13",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Wurstgulasch mit Nudeln",
+                "allergens": "13,12,4",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Vegetarische Nudelpfanne mit Tomatensoße",
+                "allergens": "9,13,4,2",
+                "price": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+# /data/.htaccess – Schützt die Datendateien vor direktem Web-Zugriff
+# WICHTIG: Diese Datei muss im /data/ Verzeichnis liegen.
+
+Order deny,allow
+Deny from all

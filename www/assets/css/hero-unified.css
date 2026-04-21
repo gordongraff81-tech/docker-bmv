@@ -1,0 +1,437 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   UNIFIED HERO SYSTEM v5.1
+   Startseite + Alle Unterseiten (Essen auf Rädern, Catering, Kantine, etc.)
+   
+   Ziel: Visuell konsistent, responsive, hochwertig
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --hero-min-h: 560px;
+  --hero-tall-h: 640px;
+  --hero-full-h: 100svh;
+  
+  --text-shadow-light:   0 1px 0 rgba(0,0,0,.45), 0 2px 16px rgba(0,0,0,.42), 0 4px 40px rgba(0,0,0,.28);
+  --text-shadow-medium:  0 1px 4px rgba(0,0,0,.35), 0 3px 12px rgba(0,0,0,.25);
+  --text-shadow-subtle:  0 1px 4px rgba(0,0,0,.28), 0 2px 8px rgba(0,0,0,.18);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HERO CONTAINER – Basis für alle Hero-Varianten
+   ───────────────────────────────────────────────────────────── */
+.hero,
+.page-hero {
+  position: relative;
+  min-height: var(--hero-min-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #071d40;  /* Fallback */
+  color: #fff;
+}
+
+.hero--tall,
+.page-hero--tall {
+  min-height: var(--hero-tall-h);
+}
+
+.hero--full,
+.page-hero--full {
+  min-height: var(--hero-full-h);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HINTERGRUNDBILD – Sharp + Unfiltered
+   ───────────────────────────────────────────────────────────── */
+.hero__bg,
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__bg img,
+.page-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  
+  /* FIX v5.1: KEINE Filter, KEINE Opacity-Probleme */
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal;
+  
+  /* Performance & Schärfe */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+  image-rendering: auto;
+  
+  /* Subtler Zoom-In auf Desktop */
+  animation: heroZoomIn 7s ease-out forwards;
+}
+
+@keyframes heroZoomIn {
+  from { transform: scale(1.04) translateZ(0); }
+  to   { transform: scale(1.00) translateZ(0); }
+}
+
+/* Mobile: Kein Zoom (Performance) */
+@media (max-width: 768px) {
+  .hero__bg img,
+  .page-hero__bg-img {
+    animation: none;
+    transform: translateZ(0);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   OVERLAY – Minimal, elegant, konsistent
+   ───────────────────────────────────────────────────────────── */
+.hero__overlay,
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  
+  /* Diagonales Gradient: Links 32-35% Navy, rechts transparent */
+  background: linear-gradient(
+    105deg,
+    rgba(7, 21, 50, 0.32) 0%,
+    rgba(7, 21, 50, 0.12) 40%,
+    rgba(0, 0, 0, 0) 75%,
+    transparent 100%
+  );
+}
+
+/* Zusätzlich: Boden-Verlauf für Text-Lesbarkeit */
+.hero__overlay::after,
+.page-hero__overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to top,
+    rgba(7, 21, 50, 0.18) 0%,
+    transparent 100%
+  );
+}
+
+/* Mobile: Stärkerer Overlay */
+@media (max-width: 768px) {
+  .hero__overlay,
+  .page-hero__overlay {
+    background: linear-gradient(
+      170deg,
+      rgba(7, 21, 50, 0.48) 0%,
+      rgba(7, 21, 50, 0.28) 55%,
+      rgba(7, 21, 50, 0.10) 100%
+    );
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTENT CONTAINER – z-index über Overlay
+   ───────────────────────────────────────────────────────────── */
+.hero__content,
+.page-hero__content,
+.hero .container,
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BREADCRUMB / LABEL
+   ───────────────────────────────────────────────────────────── */
+.hero__label,
+.page-hero__label,
+.hero .eyebrow,
+.page-hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f06820;
+  margin-bottom: clamp(16px, 3vw, 28px);
+  text-shadow: var(--text-shadow-subtle);
+  
+  animation: heroFadeUp 0.6s ease-out 0.15s both;
+}
+
+.hero__label::before,
+.page-hero__label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #f06820;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HAUPTTITEL – Konsistent über alle Seiten
+   ───────────────────────────────────────────────────────────── */
+.hero__title,
+.page-hero__title,
+.page-hero__heading,
+.page-hero h1,
+.hero h1 {
+  font-size: clamp(2.0rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
+  
+  /* STARK: Professioneller Text-Shadow statt Overlay */
+  text-shadow: var(--text-shadow-light);
+  
+  animation: heroFadeUp 0.65s ease-out 0.3s both;
+}
+
+/* Orange-Akzent in Title */
+.hero__title em,
+.page-hero__title em,
+.page-hero h1 em {
+  color: #f06820;
+  font-style: italic;
+  text-shadow: var(--text-shadow-light);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BESCHREIBUNG / SUB-TEXT
+   ───────────────────────────────────────────────────────────── */
+.hero__description,
+.page-hero__description,
+.page-hero__lead,
+.page-hero__sub,
+.hero .lead {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 580px;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  
+  text-shadow: var(--text-shadow-medium);
+  
+  animation: heroFadeUp 0.7s ease-out 0.45s both;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CTA BUTTONS & ACTIONS
+   ───────────────────────────────────────────────────────────── */
+.hero__actions,
+.page-hero__actions,
+.hero .actions,
+.page-hero .actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(32px, 4vw, 48px);
+  
+  animation: heroFadeUp 0.75s ease-out 0.6s both;
+}
+
+.hero__actions .btn,
+.page-hero__actions .btn,
+.hero .btn,
+.page-hero .btn {
+  transform: none;
+  transition: all 0.2s ease;
+}
+
+.hero__actions .btn:hover,
+.page-hero__actions .btn:hover,
+.hero .btn:hover,
+.page-hero .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TRUST BAND / FEATURES
+   ───────────────────────────────────────────────────────────── */
+.hero__trust,
+.page-hero__trust,
+.hero .trust,
+.page-hero .trust {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  flex-wrap: wrap;
+  
+  animation: heroFadeUp 0.8s ease-out 0.75s both;
+}
+
+.hero__trust-item,
+.page-hero__trust-item,
+.hero .trust-item,
+.page-hero .trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: var(--text-shadow-subtle);
+}
+
+.hero__trust-item svg,
+.page-hero__trust-item svg,
+.hero .trust-item svg,
+.page-hero .trust-item svg {
+  width: 20px;
+  height: 20px;
+  fill: #f06820;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ANIMATIONEN
+   ───────────────────────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respektiere prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__label,
+  .hero__title,
+  .hero__description,
+  .hero__actions,
+  .hero__trust,
+  .page-hero__label,
+  .page-hero__title,
+  .page-hero__description,
+  .page-hero__actions,
+  .page-hero__trust {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE: Desktop → Tablet → Mobile
+   ───────────────────────────────────────────────────────────── */
+
+/* Tablet (768px – 1024px) */
+@media (max-width: 1024px) {
+  .hero,
+  .page-hero {
+    min-height: 480px;
+    padding: 60px 20px;
+  }
+
+  .hero__title,
+  .page-hero__title,
+  .page-hero h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .hero,
+  .page-hero {
+    min-height: 360px;
+    padding: 40px 16px;
+  }
+
+  .hero--tall,
+  .page-hero--tall {
+    min-height: 420px;
+  }
+
+  .hero__actions,
+  .page-hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn,
+  .page-hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__trust,
+  .page-hero__trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero__label,
+  .page-hero__label {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+
+  .hero__title,
+  .page-hero__title,
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 12px;
+  }
+
+  .hero__description,
+  .page-hero__description {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero__trust-item,
+  .page-hero__trust-item {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .hero,
+  .page-hero {
+    min-height: 300px;
+    padding: 32px 12px;
+  }
+
+  .hero__title,
+  .page-hero__title {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    margin-bottom: 8px;
+  }
+
+  .hero__trust {
+    margin-top: 16px;
+    padding-top: 12px;
+    gap: 8px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PRINT
+   ───────────────────────────────────────────────────────────── */
+@media print {
+  .hero,
+  .page-hero {
+    display: none !important;
+  }
+}
