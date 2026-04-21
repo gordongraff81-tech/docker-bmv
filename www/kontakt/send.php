@@ -97,10 +97,10 @@ try {
     $mail->isSMTP();
     $mail->Host       = getenv('MAIL_HOST')     ?: 'server11.greatnet.de';
     $mail->Port       = (int)(getenv('MAIL_PORT') ?: 587);
-    $mail->SMTPAuth   = true;
+    $mail->SMTPAuth   = false;
     $mail->Username   = getenv('MAIL_USERNAME') ?: '';
     $mail->Password   = getenv('MAIL_PASSWORD') ?: '';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->SMTPSecure = '';
     $mail->CharSet    = 'UTF-8';
 
     $mail->setFrom(

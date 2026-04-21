@@ -119,7 +119,7 @@ if (!defined('BMV_NAME')) {
           <h2 class="section-title" id="form-heading">Anfrage-Formular</h2>
           <p class="section-sub">Schreiben Sie uns – wir melden uns schnell bei Ihnen.</p>
         </div>
-        <form method="post" action="/api/kontakt.php" novalidate style="margin-top:40px;" class="fade-up">
+        <form method="post" action="/kontakt/send.php" novalidate style="margin-top:40px;" class="fade-up">
           <div style="margin-bottom:24px;">
             <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="name">Ihr Name *</label>
             <input type="text" name="name" id="name" required style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;" placeholder="Max Mustermann">
@@ -129,12 +129,12 @@ if (!defined('BMV_NAME')) {
             <input type="email" name="email" id="email" required style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;" placeholder="max@beispiel.de">
           </div>
           <div style="margin-bottom:24px;">
-            <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="phone">Telefonnummer</label>
-            <input type="tel" name="phone" id="phone" style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;" placeholder="+49 ...">
+            <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="telefon">Telefonnummer</label>
+            <input type="tel" name="telefon" id="telefon" style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;" placeholder="+49 ...">
           </div>
           <div style="margin-bottom:24px;">
-            <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="subject">Anliegen *</label>
-            <select name="subject" id="subject" required style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;">
+            <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="betreff">Anliegen *</label>
+            <select name="betreff" id="betreff" required style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;">
               <option value="">Bitte wählen …</option>
               <option value="essen-auf-raedern">Essen auf Rädern anfragen</option>
               <option value="catering">Catering-Anfrage</option>
@@ -144,9 +144,15 @@ if (!defined('BMV_NAME')) {
             </select>
           </div>
           <div style="margin-bottom:24px;">
-            <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="message">Nachricht *</label>
-            <textarea name="message" id="message" required rows="6" style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;resize:vertical;" placeholder="Ihre Nachricht …"></textarea>
+            <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="nachricht">Nachricht *</label>
+            <textarea name="nachricht" id="nachricht" required rows="6" style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;resize:vertical;" placeholder="Ihre Nachricht …"></textarea>
           </div>
+		  <div style="margin-bottom:24px;display:flex;align-items:flex-start;gap:12px;">
+  <input type="checkbox" name="datenschutz" id="datenschutz" required style="margin-top:4px;width:18px;height:18px;cursor:pointer;accent-color:#D95A00;">
+  <label for="datenschutz" style="color:#5a6a82;font-size:0.95rem;line-height:1.5;">
+    Ich habe die <a href="/datenschutz/" style="color:#D95A00;text-decoration:underline;">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
+  </label>
+</div>
           <button type="submit" style="display:inline-block;padding:14px 32px;background:#D95A00;color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s;">Nachricht senden</button>
         </form>
       </div>
