@@ -31,6 +31,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Dynamische XML-Sitemaps
+RewriteRule ^(sitemap|sitemap_index)\.xml$ sitemap.php?sitemap=sitemap [L,QSA,NC]
+RewriteRule ^(pages|locations|image|blog|services)-sitemap\.xml$ sitemap.php?sitemap=$1 [L,QSA,NC]
+
 # WICHTIG: API, Assets und Systemordner NICHT umleiten
 RewriteRule ^(api|vendor|assets|data)/ - [L]
 

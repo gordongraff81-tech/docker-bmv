@@ -1,5 +1,5 @@
 # ── Build Stage ──────────────────────────────────────────────
-FROM php:8.3-fpm-alpine AS builder
+FROM php:8.1-fpm-alpine AS builder
 
 # Install build dependencies
 RUN apk add --no-cache --virtual .build-deps \
@@ -25,7 +25,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 RUN pip3 install --break-system-packages --no-cache-dir reportlab
 
 # ── Runtime Stage ────────────────────────────────────────────
-FROM php:8.3-fpm-alpine
+FROM php:8.1-fpm-alpine
 
 # Copy PHP extensions from builder
 COPY --from=builder /usr/local/lib/php/extensions /usr/local/lib/php/extensions

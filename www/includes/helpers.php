@@ -288,3 +288,30 @@ function fetchApiWithCache(string $url, string $cacheFile, int $ttl = 900): ?arr
         return null;
     }
 }
+
+// ── Bild-HTML standardisiert ausgeben ───────────────────────────────────────
+function bmv_img(string $src, string $alt, int $width, int $height, bool $above_fold = false, string $class = ''): string {
+    $attributes = [
+        'src' => htmlspecialchars($src, ENT_QUOTES, 'UTF-8'),
+        'alt' => htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'),
+        'width' => (string)$width,
+        'height' => (string)$height,
+        'loading' => $above_fold ? 'eager' : 'lazy',
+        'decoding' => 'async',
+    ];
+
+    if ($above_fold) {
+        $attributes['fetchpriority'] = 'high';
+    }
+
+    if ($class !== '') {
+        $attributes['class'] = htmlspecialchars($class, ENT_QUOTES, 'UTF-8');
+    }
+
+    $parts = [];
+    foreach ($attributes as $name => $value) {
+        $parts[] = sprintf('%s="%s"', $name, $value);
+    }
+
+    return '<img ' . implode(' ', $parts) . '>';
+}

@@ -1,8 +1,7 @@
 <?php
 /**
  * includes/header.php
- * BMV Menüdienst — Shared Header v3.2
- * v3.2: Dropdown-Navigation für Essen auf Rädern und Catering
+ * Shared document shell + premium navigation.
  */
 
 if (!defined('BMV_NAME')) {
@@ -21,6 +20,7 @@ $meta_description ??= BMV_NAME . ': Frisches Mittagessen täglich geliefert in P
 $active_nav       ??= 'home';
 $canonical        ??= BMV_URL . '/';
 $schema_extra     ??= '';
+$meta_robots      ??= 'index, follow';
 
 if (!headers_sent()) {
     header('X-Content-Type-Options: nosniff');
@@ -45,7 +45,7 @@ if (!function_exists('bmv_nav_class')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="<?= htmlspecialchars($meta_robots) ?>">
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
 
   <!-- Open Graph -->
@@ -69,11 +69,10 @@ if (!function_exists('bmv_nav_class')) {
   <link rel="icon"             href="/assets/images/Favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/images/Favicon.png">
 
-  <!-- Fonts: DM Sans + DM Serif Display -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,700" rel="stylesheet">
 
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/design-system.css">
   <link rel="stylesheet" href="/assets/css/hero-unified.css">
@@ -130,13 +129,14 @@ if (!function_exists('bmv_nav_class')) {
 <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
 
 <header class="site-header" id="site-header" role="banner">
-  <div class="container">
+  <div class="container site-header__inner">
 
     <a href="/" class="site-logo" aria-label="<?= BMV_NAME ?> – Startseite">
-      <img src="/assets/images/BMV_Logo_n.png"
-           alt="<?= BMV_NAME ?> Logo"
-           width="120" height="36"
-           loading="eager">
+      <span class="site-logo__mark" aria-hidden="true">BMV</span>
+      <span class="site-logo__text">
+        <strong>BMV Menüdienst</strong>
+        <span>Frisch kochen. Verlässlich liefern.</span>
+      </span>
     </a>
 
     <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
@@ -174,7 +174,7 @@ if (!function_exists('bmv_nav_class')) {
       <a href="/kontakt/"            class="<?= bmv_nav_class('kontakt',   $active_nav) ?>">Kontakt</a>
 
       <div class="nav-cta">
-        <a href="/kontakt/" class="btn btn--primary btn--sm">Jetzt bestellen</a>
+        <a href="/kontakt/" class="btn btn--primary btn--sm">Beratung anfragen</a>
       </div>
     </nav>
 

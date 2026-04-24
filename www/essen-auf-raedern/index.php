@@ -1,146 +1,88 @@
 <?php
-// Page variables
-$page_title       = 'Essen auf Rädern Potsdam & Werder – täglich frisch geliefert | BMV-Menüdienst';
-$meta_description = 'Essen auf Rädern in Potsdam und Werder (Havel): Täglich frisch zubereitete Mittagsmahlzeiten für Senioren. Mo–So, Pflegekassen-Abrechnung, keine Mindestlaufzeit.';
-$active_nav       = 'ears';
-$canonical        = 'https://www.bmv-kantinen.de/essen-auf-raedern/';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/location-pages.php';
 
-if (!defined('BMV_NAME')) {
-    define('BMV_NAME',  'BMV-Menüdienst');
-    define('BMV_TEL',   '+4933275745066');
-    define('BMV_TEL_DISPLAY', '+49 3327 5745066');
-    define('BMV_EMAIL', 'info@bmv-kantinen.de');
-    define('BMV_URL',   'https://www.bmv-kantinen.de');
-}
+$page_title = 'Essen auf Rädern in Potsdam, Werder und Umland | BMV Menüdienst';
+$meta_description = 'Warmes Mittagessen zuverlässig nach Hause geliefert. BMV versorgt Potsdam, Werder (Havel) und das Umland mit frischen Menüs an sieben Tagen pro Woche.';
+$active_nav = 'ears';
+$canonical = 'https://www.bmv-kantinen.de/essen-auf-raedern/';
+$page_scripts = ['/assets/js/index.js'];
+$locationPages = bmv_location_pages();
+
+include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= htmlspecialchars($page_title) ?></title>
-  <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
-  <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/design-system.css">
-  <link rel="stylesheet" href="/assets/css/hero-unified.css">
-  <link rel="stylesheet" href="/assets/css/bmv-ci.css">
-  <style>
-    .skip-link { position: absolute; top: -9999px; left: -9999px; z-index: 999; }
-    .skip-link:focus { top: 0; left: 0; }
-    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
-  </style>
-</head>
-<body>
-
-<a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
-
-<header class="site-header" id="site-header" role="banner">
-  <div class="container">
-    <a href="/" class="site-logo" aria-label="<?= BMV_NAME ?> – Startseite">
-      <img src="/assets/images/BMV_Logo_n.png" alt="<?= BMV_NAME ?> Logo" width="120" height="36" loading="eager">
-    </a>
-    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
-      <a href="/" class="site-nav__link">Startseite</a>
-      <a href="/speiseplan/" class="site-nav__link">Speiseplan</a>
-      <a href="/essen-auf-raedern/" class="site-nav__link active">Essen auf Rädern</a>
-      <a href="/kantine-am-gutshof/" class="site-nav__link">Kantine am Gutshof</a>
-      <a href="/catering/" class="site-nav__link">Catering</a>
-      <a href="/ueber-uns/" class="site-nav__link">Über uns</a>
-      <a href="/kontakt/" class="site-nav__link">Kontakt</a>
-      <div class="nav-cta"><a href="/kontakt/" class="btn btn--primary btn--sm">Jetzt bestellen</a></div>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menü öffnen">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/>
-      </svg>
-    </button>
-  </div>
-</header>
-
 <main id="main-content" role="main">
-
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero__bg">
-      <img src="/assets/images/essen-auf-raedern-lieferung.jpg" alt="Essen auf Rädern Lieferung" loading="eager" fetchpriority="high" width="1400" height="800" decoding="async">
-      <div class="hero__overlay"></div>
+  <section class="page-hero page-hero--sm" aria-labelledby="hero-heading">
+    <div class="page-hero__bg">
+      <?= bmv_img('/assets/images/essen-auf-raedern-lieferung.jpg', 'BMV liefert Essen auf Rädern in Potsdam und Werder aus', 1600, 900, true, 'page-hero__bg-img') ?>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
     </div>
     <div class="container">
-      <div class="hero__content">
-        <div class="hero__badge">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-          Potsdam & Werder (Havel)
-        </div>
-        <h1 class="hero__title" id="hero-heading">
-          Essen auf Rädern –<br>
-          <span style="color:#ff7a1a;">täglich frisch an Ihre Tür</span>
-        </h1>
-        <p class="hero__sub">
-          Warmes Mittagessen pünktlich geliefert – vom Montag bis Sonntag, für Senioren, Pflegebedürftige und alle, die sich täglich gut versorgen möchten.
+      <div class="page-hero__content" data-reveal>
+        <span class="page-hero__label">Essen auf Rädern</span>
+        <h1 class="page-hero__heading" id="hero-heading">Frisch gekocht. Persönlich geliefert. Alltag spürbar leichter.</h1>
+        <p class="page-hero__lead">
+          BMV versorgt Menschen in Potsdam, Werder (Havel) und dem Umland mit warmem Mittagessen,
+          das zuverlässig ankommt und nicht nach Kompromiss schmeckt.
         </p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="/kontakt/">Kostenlos anfragen</a>
-          <a class="btn btn--ghost" href="#services">Mehr erfahren</a>
+        <div class="page-hero__actions">
+          <a class="btn btn--primary" href="/kontakt/">Unverbindlich anfragen</a>
+          <a class="btn btn--ghost" href="/speiseplan/">Aktuellen Speiseplan öffnen</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="services-heading">
+  <section class="section" aria-labelledby="benefits-heading">
     <div class="container">
-      <div class="section-header fade-up">
-        <div class="section-header__eyebrow">Unsere Leistung</div>
-        <h2 class="section-title" id="services-heading">Essen auf Rädern in Potsdam &amp; Werder</h2>
-        <p class="section-sub">Täglich frisch zubereitet, pünktlich angeliefert – mit voller Flexibilität und ohne Mindestlaufzeit.</p>
+      <div class="section-header" data-reveal>
+        <span class="section-header__eyebrow">Leistungsversprechen</span>
+        <h2 class="section-title" id="benefits-heading">Die Versorgung soll entlasten, nicht zusätzlich Organisation erzeugen.</h2>
+        <p class="section-sub">
+          Deshalb ist unser Modell bewusst einfach: klare Menüs, berechenbare Lieferung und ein
+          Ansprechpartner, der nicht hinter einer Plattform verschwindet.
+        </p>
       </div>
+
       <div class="services-grid">
-        <article class="service-card fade-up">
+        <article class="service-card" data-reveal>
           <div class="service-card__img img-wrap">
-            <img src="/assets/images/potsdam-lieferung.jpg" alt="Lieferfahrzeug BMV-Menüdienst" loading="lazy" decoding="async" width="400" height="200">
+            <?= bmv_img('/assets/images/potsdam-lieferung.jpg', 'Auslieferung von Menüs in Potsdam', 720, 450) ?>
           </div>
           <div class="service-card__body">
-            <h3 class="service-card__title">Täglich Mo–So</h3>
-            <p class="service-card__text">Mittagessen wird auch am Wochenende und an Feiertagen geliefert. Sie bestimmen, an welchen Tagen Sie Essen wünschen – flexibel und jederzeit anpassbar.</p>
+            <h3 class="service-card__title">Sieben Tage pro Woche</h3>
+            <p class="service-card__text">Auch am Wochenende und an Feiertagen planbar. Das ist für viele Familien der entscheidende Unterschied.</p>
             <div class="service-card__checks">
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Lieferung auch Sa &amp; So</div>
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Pünktlich zwischen 11–13 Uhr</div>
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Persönlicher Kontakt zum Fahrer</div>
+              <div class="service-card__check">Konstante Lieferlogik statt Sonderfälle</div>
+              <div class="service-card__check">Verlässliche Tagesstruktur im Alltag</div>
             </div>
           </div>
         </article>
 
-        <article class="service-card fade-up" style="transition-delay:.1s">
+        <article class="service-card" data-reveal>
           <div class="service-card__img img-wrap">
-            <img src="/assets/images/speiseplan-kueche.jpg" alt="Frische Zubereitung in der Küche" loading="lazy" decoding="async" width="400" height="200">
+            <?= bmv_img('/assets/images/speiseplan-kueche.jpg', 'Frische Küche von BMV Menüdienst', 720, 450) ?>
           </div>
           <div class="service-card__body">
-            <h3 class="service-card__title">4 Menüs täglich</h3>
-            <p class="service-card__text">Täglich vier verschiedene Menüs zur Auswahl: Vollkost, Leichte Kost, Premium und unser Tagesmenü. Alle frisch gekocht, keine Tiefkühlware.</p>
+            <h3 class="service-card__title">Täglich frisch gekocht</h3>
+            <p class="service-card__text">Vier Menülinien, klare Kennzeichnung und eine Küche, die nicht auf Tiefkühl-Komfort setzt.</p>
             <div class="service-card__checks">
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Schonkost &amp; vegetarische Optionen</div>
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Allergien &amp; Unverträglichkeiten berücksichtigt</div>
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Zusatzkarte: Dessert, Rohkost, Salat</div>
+              <div class="service-card__check">Vollkost, leichte Kost, Premium und Tagesmenü</div>
+              <div class="service-card__check">Zusatzkarte mit Dessert, Rohkost, Abendessen und Salat</div>
             </div>
           </div>
         </article>
 
-        <article class="service-card fade-up" style="transition-delay:.2s">
+        <article class="service-card" data-reveal>
           <div class="service-card__img img-wrap">
-            <img src="/assets/images/menue-auswahl.jpg" alt="Menüplan und Bestellung" loading="lazy" decoding="async" width="400" height="200">
+            <?= bmv_img('/assets/images/umland-lieferung.jpg', 'Liefergebiet im Umland von Potsdam-Mittelmark', 720, 450) ?>
           </div>
           <div class="service-card__body">
-            <h3 class="service-card__title">Flexibel &amp; einfach</h3>
-            <p class="service-card__text">Keine Mindestlaufzeit, keine versteckten Gebühren. Sie bestellen für die Woche, den Monat oder so lange Sie möchten – jederzeit änderbar.</p>
+            <h3 class="service-card__title">Flexibel im Ablauf</h3>
+            <p class="service-card__text">Keine unnötige Bindung. Lieferbeginn, Liefertage und Pausen lassen sich mit dem Team direkt abstimmen.</p>
             <div class="service-card__checks">
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Pflegekassen-Abrechnung möglich</div>
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Bestellung per Telefon oder online</div>
-              <div class="service-card__check"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Speiseplan 4 Wochen voraus</div>
+              <div class="service-card__check">Geeignet für dauerhafte oder temporäre Versorgung</div>
+              <div class="service-card__check">Pflegekassen-Themen können direkt besprochen werden</div>
             </div>
           </div>
         </article>
@@ -148,96 +90,120 @@ if (!defined('BMV_NAME')) {
     </div>
   </section>
 
-  <section class="section section--bg" aria-labelledby="gebiete-heading">
+  <section class="section section--bg" aria-labelledby="regions-heading">
     <div class="container">
-      <div class="section-header fade-up">
-        <div class="section-header__eyebrow">Lieferbereiche</div>
-        <h2 class="section-title" id="gebiete-heading">Wir liefern in Ihrem Gebiet</h2>
-        <p class="section-sub">Essen auf Rädern in ganz Potsdam, Werder (Havel) und zahlreichen Gemeinden in Potsdam-Mittelmark.</p>
+      <div class="section-header" data-reveal>
+        <span class="section-header__eyebrow">Liefergebiete</span>
+        <h2 class="section-title" id="regions-heading">Regional organisiert statt anonym verteilt.</h2>
       </div>
-      <div class="services-grid">
-        <div class="service-card fade-up">
+      <div class="region-grid">
+        <article class="region-card" data-reveal>
           <div class="service-card__body">
-            <h3 class="service-card__title">Potsdam</h3>
-            <p class="service-card__text">Alle Stadtteile von Potsdam werden von uns regelmäßig beliefert – von Babelsberg bis zur Innenstadt.</p>
-            <a class="service-card__link" href="/essen-auf-raedern/potsdam/">Mehr zu Potsdam<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+            <h3 class="region-card__title">Potsdam</h3>
+            <p>Alle wichtigen Stadtteile werden regelmäßig beliefert. Ideal für private Haushalte und Angehörige, die aus der Ferne mitorganisieren.</p>
+            <div class="service-card__checks">
+              <div class="service-card__check">Kurze Reaktionswege</div>
+              <div class="service-card__check">Direkte Abstimmung mit dem Team</div>
+            </div>
+            <a class="service-card__link" href="/essen-auf-raedern/potsdam/">Seite für Potsdam</a>
           </div>
-        </div>
-        <div class="service-card fade-up" style="transition-delay:.1s">
+        </article>
+        <article class="region-card" data-reveal>
           <div class="service-card__body">
-            <h3 class="service-card__title">Werder (Havel)</h3>
-            <p class="service-card__text">Von unserem Standort aus versorgen wir Werder und die direkt angrenzenden Ortschaften täglich.</p>
-            <a class="service-card__link" href="/essen-auf-raedern/werder-havel/">Mehr zu Werder<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+            <h3 class="region-card__title">Werder (Havel)</h3>
+            <p>Vom Standort aus besonders nah betreut. Hier verbinden sich Küche, Kantine und Lieferlogistik besonders effizient.</p>
+            <div class="service-card__checks">
+              <div class="service-card__check">Starker lokaler Bezug</div>
+              <div class="service-card__check">Kürzere operative Wege</div>
+            </div>
+            <a class="service-card__link" href="/essen-auf-raedern/werder-havel/">Seite für Werder</a>
           </div>
-        </div>
-        <div class="service-card fade-up" style="transition-delay:.2s">
+        </article>
+        <article class="region-card" data-reveal>
           <div class="service-card__body">
-            <h3 class="service-card__title">Umland &amp; Gemeinden</h3>
-            <p class="service-card__text">Auch in vielen Gemeinden von Potsdam-Mittelmark bieten wir Essen auf Rädern an. Fragen Sie uns!</p>
-            <a class="service-card__link" href="/essen-auf-raedern/umland/">Mehr zum Umland<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+            <h3 class="region-card__title">Umland</h3>
+            <p>Auch Gemeinden rund um Potsdam-Mittelmark werden versorgt. Am besten kurz anfragen, damit wir das Gebiet direkt bestätigen können.</p>
+            <div class="service-card__checks">
+              <div class="service-card__check">Klare Gebietsauskunft ohne Umwege</div>
+              <div class="service-card__check">Geeignet für Familien im Berliner Umland</div>
+            </div>
+            <a class="service-card__link" href="/essen-auf-raedern/umland/">Seite für das Umland</a>
           </div>
-        </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="locations-heading">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-header__eyebrow">Lokale SEO-Landingpages</span>
+        <h2 class="section-title" id="locations-heading">Standortseiten für Städte und Regionen im erweiterten Lieferumfeld</h2>
+        <p class="section-sub">Jede Seite bündelt Angebot, Region und Suchintention auf einer kanonischen URL. Das ist für lokale Rankings deutlich sauberer als eine generische Sammelseite.</p>
+      </div>
+      <div class="region-grid">
+        <?php foreach ($locationPages as $slug => $locationPage): ?>
+          <article class="region-card" data-reveal>
+            <div class="service-card__body">
+              <h3 class="region-card__title"><?= htmlspecialchars($locationPage['name']) ?></h3>
+              <p><?= htmlspecialchars($locationPage['meta_description']) ?></p>
+              <a class="service-card__link" href="<?= htmlspecialchars($locationPage['canonical_path']) ?>">Standortseite öffnen</a>
+            </div>
+          </article>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
 
   <section class="section" aria-labelledby="faq-heading">
     <div class="container container--narrow">
-      <div class="section-header fade-up">
-        <div class="section-header__eyebrow">Häufige Fragen</div>
-        <h2 class="section-title" id="faq-heading">Alles zum Thema Essen auf Rädern</h2>
+      <div class="section-header" data-reveal>
+        <span class="section-header__eyebrow">Häufige Fragen</span>
+        <h2 class="section-title" id="faq-heading">Was Angehörige und Kunden zuerst wissen wollen</h2>
       </div>
-      <div class="faq-list" role="list">
-        <div class="faq-item fade-up" role="listitem">
-          <button class="faq-item__question" aria-expanded="false">Wie wird das Essen angeliefert?</button>
-          <div class="faq-item__answer" role="region">
-            <p>Das Essen kommt in isolierten Behältern, um die Wärme zu bewahren. Es wird täglich zwischen 11:00 und 13:00 Uhr angeliefert. Sie müssen nicht anwesend sein – der Fahrer kann die Mahlzeit auch in einer Transportbox vor der Tür deponieren.</p>
+      <div class="faq-list">
+        <div class="faq-item" data-reveal>
+          <button class="faq-item__question" type="button" aria-expanded="false">Wie startet die Versorgung?</button>
+          <div class="faq-item__answer">
+            <p>Nach dem Erstgespräch stimmen wir Liefergebiet, Starttermin und die gewünschte Menülogik ab. Danach läuft die Versorgung planbar an.</p>
           </div>
         </div>
-        <div class="faq-item fade-up" role="listitem">
-          <button class="faq-item__question" aria-expanded="false">Kann die Pflegekasse zahlen?</button>
-          <div class="faq-item__answer" role="region">
-            <p>Ja. Essen auf Rädern kann unter dem Pflegebedarf „Entlastung von Pflegepersonen" über die Pflegekasse abgerechnet werden. Wir helfen Ihnen gerne bei der Antragstellung und begleiten den Prozess.</p>
+        <div class="faq-item" data-reveal>
+          <button class="faq-item__question" type="button" aria-expanded="false">Gibt es eine Mindestlaufzeit?</button>
+          <div class="faq-item__answer">
+            <p>Nein. Die Lösung soll entlasten, nicht binden. Änderungen oder Pausen lassen sich direkt mit dem Team abstimmen.</p>
           </div>
         </div>
-        <div class="faq-item fade-up" role="listitem">
-          <button class="faq-item__question" aria-expanded="false">Wie lange bin ich gebunden?</button>
-          <div class="faq-item__answer" role="region">
-            <p>Gar nicht. Es gibt keine Mindestlaufzeit. Sie können Ihre Bestellung jederzeit beenden oder anpassen. Auch einzelne Tage können Sie überspringen – völlige Flexibilität.</p>
+        <div class="faq-item" data-reveal>
+          <button class="faq-item__question" type="button" aria-expanded="false">Wie sieht der Speiseplan aus?</button>
+          <div class="faq-item__answer">
+            <p>Vier Menülinien plus Zusatzkarte. Allergene und Preise sind sichtbar, der Wochenplan steht online zur Verfügung.</p>
           </div>
         </div>
-        <div class="faq-item fade-up" role="listitem">
-          <button class="faq-item__question" aria-expanded="false">Was passiert bei Allergien oder Unverträglichkeiten?</button>
-          <div class="faq-item__answer" role="region">
-            <p>Wir nehmen Allergien und Unverträglichkeiten ernst. Bei der Bestellung geben Sie alle Einschränkungen an, und unsere Küche berücksichtigt diese. Alle Menüs sind entsprechend gekennzeichnet.</p>
-          </div>
-        </div>
-        <div class="faq-item fade-up" role="listitem">
-          <button class="faq-item__question" aria-expanded="false">Kann ich einen Tag aussetzen?</button>
-          <div class="faq-item__answer" role="region">
-            <p>Selbstverständlich. Sie können beliebig viele Tage auswählen oder aussparen – zum Beispiel wenn Sie im Urlaub sind oder Besuch haben, der für Sie kocht.</p>
+        <div class="faq-item" data-reveal>
+          <button class="faq-item__question" type="button" aria-expanded="false">Unterstützt BMV beim Thema Pflegekasse?</button>
+          <div class="faq-item__answer">
+            <p>Ja. Gerade bei Essen auf Rädern ist diese Einordnung oft relevant. Das kann im Beratungsgespräch direkt geklärt werden.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--bg" aria-labelledby="cta-heading">
-    <div class="container">
-      <div style="text-align:center;">
-        <h2 class="section-title" id="cta-heading">Jetzt Essen auf Rädern anfragen</h2>
-        <p class="section-sub" style="max-width:600px;margin:0 auto;">Kostenlos beraten lassen, Speiseplan anschauen, gleich starten. Rufen Sie uns an oder füllen Sie das Online-Formular aus.</p>
-        <div style="margin-top:var(--space-8);display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a class="btn btn--primary" href="tel:<?= BMV_TEL ?>"><?= BMV_TEL_DISPLAY ?></a>
-          <a class="btn btn--secondary" href="/kontakt/">Online anfragen</a>
-        </div>
+  <section class="section final-cta" aria-labelledby="cta-heading">
+    <div class="container container--narrow">
+      <div class="section-header" data-reveal>
+        <span class="section-header__eyebrow">Jetzt starten</span>
+        <h2 class="section-title" id="cta-heading">Wenn Versorgung zuverlässig laufen muss, ist ein kurzes Gespräch der schnellste Weg.</h2>
+        <p class="section-sub">Wir klären Liefergebiet, Bedarf und den sinnvollsten Start ohne komplizierten Vorlauf.</p>
+      </div>
+      <div class="final-cta__actions" data-reveal>
+        <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen</a>
+        <a class="btn btn--ghost" href="tel:+4933275745066">+49 3327 5745066</a>
       </div>
     </div>
   </section>
-
 </main>
-
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
-<script src="/assets/js/hero-upgrade.js" defer></script>
 </body>
 </html>
