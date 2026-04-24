@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="92" viewBox="0 0 320 92" role="img" aria-labelledby="title desc">
+  <title id="title">BMV Menüdienst Logo</title>
+  <desc id="desc">Wortmarke von BMV Menüdienst in Blau und Gold.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D3068"/>
+      <stop offset="100%" stop-color="#081B42"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="8" width="74" height="74" rx="18" fill="url(#panel)"/>
+  <text x="37" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">BMV</text>
+  <text x="94" y="40" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#0D3068">BMV Menüdienst</text>
+  <text x="94" y="63" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#C4A96A">Frisch kochen. Verlässlich liefern.</text>
+</svg>

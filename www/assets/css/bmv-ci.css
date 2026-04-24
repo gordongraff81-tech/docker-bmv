@@ -1,0 +1,47 @@
+.hero--home .hero__content {
+  max-width: 760px;
+}
+
+.hero--home .hero__title {
+  max-width: 12ch;
+}
+
+.trust-bar__item {
+  padding: var(--space-6) 0;
+}
+
+.contact-card--accent .section-title,
+.contact-card--accent .section-sub {
+  max-width: 100%;
+}
+
+.category-tag.fleisch {
+  background: var(--color-tag-meat);
+  color: var(--color-tag-meat-text);
+}
+
+.category-tag.vegetarisch {
+  background: var(--color-tag-veg);
+  color: var(--color-tag-veg-text);
+}
+
+.category-tag.vegan {
+  background: var(--color-tag-vegan);
+  color: var(--color-tag-vegan-text);
+}
+
+.category-tag.fisch {
+  background: var(--color-tag-fish);
+  color: var(--color-tag-fish-text);
+}
+
+.trust-band {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.trust-band .trust-item,
+.trust-band .trust-item span,
+.trust-band .trust-item-label {
+  color: var(--color-text-on-dark-muted);
+}

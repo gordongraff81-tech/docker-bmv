@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /data/
+Disallow: /home/
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /backup_php
+
+Sitemap: https://www.bmv-kantinen.de/sitemap.xml
