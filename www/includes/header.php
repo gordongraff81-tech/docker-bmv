@@ -132,9 +132,9 @@ if (!function_exists('bmv_nav_class')) {
   <div class="container site-header__inner">
 
     <a href="/" class="site-logo" aria-label="<?= BMV_NAME ?> – Startseite">
-      <span class="site-logo__mark" aria-hidden="true">BMV</span>
+      <img src="/assets/images/BMV_Logo_n.png" alt="BMV Logo" loading="eager" decoding="async">
       <span class="site-logo__text">
-        <strong>BMV Menüdienst</strong>
+        <span class="site-logo__wordmark">BMV Menüdienst</span>
         <span>Frisch kochen. Verlässlich liefern.</span>
       </span>
     </a>

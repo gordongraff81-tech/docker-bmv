@@ -223,6 +223,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);}
       <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
       Speichern  <kbd style="opacity:.6;font-size:.75rem;">Ctrl+S</kbd>
     </button>
+    <button class="btn btn--teal" onclick="openDishCrud()">
+      🍽️ Gerichte
+    </button>
     <div class="toolbar__status">
       <span class="status-badge status-badge--loading" id="status-badge">Laden…</span>
     </div>
@@ -281,6 +284,93 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);}
     <div class="modal-actions">
       <button class="btn btn--ghost" onclick="closeConfirm()">Abbrechen</button>
       <button class="btn btn--danger" id="confirm-ok">Ja</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Gerichte-CRUD Modal ── -->
+<div class="modal-backdrop" id="dish-crud-modal">
+  <div class="modal" style="width:min(980px,96vw);max-height:88vh;overflow:auto;padding:22px 24px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <h3 style="margin:0;flex:1;">Gerichte verwalten</h3>
+      <button class="btn btn--ghost" onclick="closeDishCrud()">Schließen</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;">
+      <div style="background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:14px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;">
+          <div style="font-weight:700;color:var(--navy);">Neues / Bearbeiten</div>
+          <span style="font-size:.8rem;color:var(--muted);" id="dish-form-mode">Neu</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 140px;gap:10px;">
+          <div>
+            <label style="font-size:.82rem;font-weight:700;color:var(--label);display:block;margin-bottom:4px;">Name *</label>
+            <input class="inp" id="dish-name" type="text" placeholder="z. B. Rindsroulade mit Rotkohl">
+          </div>
+          <div>
+            <label style="font-size:.82rem;font-weight:700;color:var(--label);display:block;margin-bottom:4px;">Preis (€) *</label>
+            <input class="inp" id="dish-price" type="number" min="0" step="0.01" placeholder="7.50">
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-end;margin-top:10px;">
+          <div style="flex:1;">
+            <label style="font-size:.82rem;font-weight:700;color:var(--label);display:block;margin-bottom:4px;">Kategorie *</label>
+            <select class="inp" id="dish-category"></select>
+          </div>
+          <button class="btn btn--ghost" onclick="openAddCategoryModal()">+ Kategorie</button>
+        </div>
+
+        <div style="margin-top:10px;">
+          <label style="font-size:.82rem;font-weight:700;color:var(--label);display:block;margin-bottom:4px;">Allergene (Tags)</label>
+          <input class="inp" id="dish-allergen-input" type="text" placeholder='Enter oder "," zum Hinzufügen'>
+          <div id="dish-allergen-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;"></div>
+        </div>
+
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px;">
+          <button class="btn btn--ghost" onclick="resetDishForm()">Zurücksetzen</button>
+          <button class="btn btn--save" onclick="saveDish()">Speichern</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px;">
+          <input class="inp" id="dish-search" type="text" placeholder="Suchen…" oninput="renderDishList()" style="flex:1;min-width:220px;">
+          <select class="inp" id="dish-filter-category" onchange="renderDishList()" style="min-width:220px;"></select>
+          <button class="btn btn--ghost" onclick="refreshDishStore()">Refresh</button>
+        </div>
+        <div id="dish-list" style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Kategorie hinzufügen Modal ── -->
+<div class="modal-backdrop" id="add-category-modal">
+  <div class="modal">
+    <h3>Neue Kategorie</h3>
+    <p style="margin-bottom:10px;">Wird dynamisch gespeichert und steht sofort im Select zur Verfügung.</p>
+    <div style="display:grid;gap:10px;">
+      <div>
+        <label style="font-size:.82rem;font-weight:600;display:block;margin-bottom:4px">System</label>
+        <select class="inp" id="cat-system">
+          <option value="essen_auf_raedern">Essen auf Rädern</option>
+          <option value="kantine">Kantine</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:.82rem;font-weight:600;display:block;margin-bottom:4px">Name *</label>
+        <input class="inp" id="cat-label" type="text" placeholder="z. B. Vegetarisch">
+      </div>
+      <div>
+        <label style="font-size:.82rem;font-weight:600;display:block;margin-bottom:4px">Key (optional)</label>
+        <input class="inp" id="cat-key" type="text" placeholder="z. B. vegetarisch">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn--ghost" onclick="closeAddCategoryModal()">Abbrechen</button>
+      <button class="btn btn--navy" onclick="createCategory()">Anlegen</button>
     </div>
   </div>
 </div>
@@ -356,7 +446,7 @@ function doLogin() {
   document.getElementById('app').classList.add('visible');
   updateKWLabel();
   loadWeek();
-  loadDbData();
+  loadDishStore().catch(() => {});
 }
 
 function doLogout() {
@@ -682,55 +772,75 @@ async function copyPrevWeek() {
 // ═══════════════════════════════════════════════════════
 // GERICHTEDATENBANK
 // ═══════════════════════════════════════════════════════
-let DB_DATA = null;
-let dbTarget = null; // { id, catKey }
+let DISH_STORE = null;
+let dbTarget = null; // { cellId, catKey }
 
-async function loadDbData() {
-  if (DB_DATA) return DB_DATA;
-  const paths = ['/admin/menu_database_v2.json', '/admin/menu_database.json', 'menu_database_v2.json'];
-  for (const p of paths) {
-    try {
-      const r = await fetch(p);
-      if (!r.ok) continue;
-      const d = await r.json();
-      // Unterstütze beide Formate (v1: {categories:{}}, v2: {systems:{...}})
-      if (d.systems) {
-        // v2: flach zusammenführen für schnellen Zugriff
-        DB_DATA = d;
-        return DB_DATA;
-      } else if (d.categories) {
-        // v1 in v2-Struktur konvertieren
-        DB_DATA = { systems: { essen_auf_raedern: { label:'Essen auf Rädern', categories: d.categories }, kantine: { label:'Kantine', categories:{} } } };
-        return DB_DATA;
-      }
-    } catch(e) {}
+function apiHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'X-Admin-Key':  getAdminKey(),
+  };
+}
+
+async function fetchJson(url, opts) {
+  const r = await fetch(url, opts);
+  const data = await r.json().catch(() => null);
+  if (!r.ok) {
+    const msg = (data && data.message) ? data.message : ('HTTP ' + r.status);
+    throw new Error(msg);
   }
-  DB_DATA = { systems: { essen_auf_raedern:{ categories:{} }, kantine:{ categories:{} } } };
-  return DB_DATA;
+  return data;
+}
+
+function allergensToText(arr) {
+  if (!arr) return '';
+  if (Array.isArray(arr)) return arr.filter(Boolean).join(', ');
+  return String(arr || '');
+}
+
+async function loadDishStore(force=false) {
+  if (DISH_STORE && !force) return DISH_STORE;
+  const data = await fetchJson(API_BASE + '/dishes.php', { method: 'GET' });
+  const categories = data.categories || [];
+  const dishes     = data.dishes || [];
+
+  const catById = {};
+  const catBySystemKey = {}; // `${system}::${key}` -> category
+  categories.forEach(c => {
+    if (c && c.id) catById[c.id] = c;
+    if (c && c.system && c.key) catBySystemKey[c.system + '::' + c.key] = c;
+  });
+
+  DISH_STORE = { dishes, categories, catById, catBySystemKey, updatedAt: data.updatedAt || null };
+  return DISH_STORE;
 }
 
 async function openDb(cellId, catKey) {
   dbTarget = { cellId, catKey };
-  const data = await loadDbData();
+  const store = await loadDishStore();
 
-  // Kategorien des aktuellen Systems im Dropdown anzeigen
-  const sysData = data.systems[state.system];
   const sel = document.getElementById('db-cat-select');
   sel.innerHTML = '';
 
-  if (sysData && sysData.categories) {
-    for (const [key, cat] of Object.entries(sysData.categories)) {
-      const opt = document.createElement('option');
-      opt.value = key;
-      opt.textContent = cat.label + ' (' + (cat.items||[]).length + ')';
-      if (key === catKey) opt.selected = true;
-      sel.appendChild(opt);
-    }
-  }
+  const catsForSystem = store.categories
+    .filter(c => c.system === state.system)
+    .sort((a,b) => (a.label||'').localeCompare((b.label||''), 'de'));
+
+  const defaultCat = store.catBySystemKey[state.system + '::' + catKey] || catsForSystem[0] || null;
+  const defaultCatId = defaultCat ? defaultCat.id : '';
+
+  catsForSystem.forEach(cat => {
+    const count = store.dishes.filter(d => d.category === cat.id).length;
+    const opt = document.createElement('option');
+    opt.value = cat.id;
+    opt.textContent = (cat.label || cat.key) + ' (' + count + ')';
+    if (cat.id === defaultCatId) opt.selected = true;
+    sel.appendChild(opt);
+  });
 
   document.getElementById('db-search').value = '';
   document.getElementById('db-modal-title').textContent =
-    'Gericht wählen – ' + (sysData?.categories?.[catKey]?.label || catKey);
+    'Gericht wählen – ' + (defaultCat ? (defaultCat.label || defaultCat.key) : catKey);
   document.getElementById('db-modal').classList.add('open');
   renderDbList();
   document.getElementById('db-search').focus();
@@ -741,17 +851,15 @@ function closeDb() {
 }
 
 function renderDbList() {
-  if (!DB_DATA) return;
-  const catKey = document.getElementById('db-cat-select').value;
+  if (!DISH_STORE) return;
+  const categoryId = document.getElementById('db-cat-select').value;
   const query  = document.getElementById('db-search').value.toLowerCase().trim();
-  const sysData = DB_DATA.systems[state.system];
-  if (!sysData) return;
-  const cat = sysData.categories[catKey];
-  if (!cat) return;
 
-  const items = (cat.items||[]).filter(item =>
-    !query || item.name.toLowerCase().includes(query)
-  );
+  const items = (DISH_STORE.dishes || []).filter(d => {
+    if (categoryId && d.category !== categoryId) return false;
+    if (query && !(String(d.name||'').toLowerCase().includes(query))) return false;
+    return true;
+  });
 
   document.getElementById('db-count').textContent = items.length + ' Gerichte';
   const list = document.getElementById('db-list');
@@ -760,8 +868,9 @@ function renderDbList() {
   items.forEach(item => {
     const div = document.createElement('div');
     div.className = 'db-item';
-    div.innerHTML = `<span class="db-item__name">${item.name}</span>` +
-      (item.allergens ? `<span class="db-item__alg">(${item.allergens})</span>` : '');
+    const algText = allergensToText(item.allergens);
+    div.innerHTML = `<span class="db-item__name">${esc(item.name)}</span>` +
+      (algText ? `<span class="db-item__alg">(${esc(algText)})</span>` : '');
     div.onclick = () => selectDbItem(item);
     list.appendChild(div);
   });
@@ -775,25 +884,336 @@ function selectDbItem(item) {
   if (!dbTarget) return;
   const { cellId } = dbTarget;
 
-  // Name-Feld setzen
   const nameEl = document.getElementById(cellId + '-name');
   if (nameEl) nameEl.value = item.name;
 
-  // Allergene setzen
   const algEl = document.getElementById(cellId + '-alg');
-  if (algEl && item.allergens) algEl.value = item.allergens;
+  const algText = allergensToText(item.allergens);
+  if (algEl) algEl.value = algText;
 
-  // State aktualisieren
   const parts  = cellId.split('-');
   const dayIdx = parseInt(parts[1]);
   const catKey = parts.slice(2).join('-');
   if (!state.data[state.system][dayIdx]) state.data[state.system][dayIdx] = {};
   if (!state.data[state.system][dayIdx][catKey]) state.data[state.system][dayIdx][catKey] = {};
   state.data[state.system][dayIdx][catKey].name      = item.name;
-  state.data[state.system][dayIdx][catKey].allergens = item.allergens || '';
+  state.data[state.system][dayIdx][catKey].allergens = algText || '';
 
   markModified();
   closeDb();
+}
+
+// ═══════════════════════════════════════════════════════
+// DISH CRUD UI
+// ═══════════════════════════════════════════════════════
+let dishForm = {
+  mode: 'create',     // create | edit
+  editingId: null,
+  allergens: [],
+};
+
+function openDishCrud() {
+  document.getElementById('dish-crud-modal').classList.add('open');
+  resetDishForm();
+  refreshDishStore();
+  const sysSel = document.getElementById('cat-system');
+  if (sysSel) sysSel.value = state.system;
+  const allergenInput = document.getElementById('dish-allergen-input');
+  if (allergenInput) allergenInput.focus();
+}
+
+function closeDishCrud() {
+  document.getElementById('dish-crud-modal').classList.remove('open');
+}
+
+function refreshDishStore() {
+  loadDishStore(true)
+    .then(() => {
+      hydrateDishCategorySelects();
+      renderDishList();
+    })
+    .catch(e => toast('Fehler: ' + e.message, 'err'));
+}
+
+function hydrateDishCategorySelects() {
+  const store = DISH_STORE;
+  if (!store) return;
+
+  const catsForSystem = store.categories
+    .filter(c => c.system === state.system)
+    .sort((a,b) => (a.label||'').localeCompare((b.label||''), 'de'));
+
+  const sel = document.getElementById('dish-category');
+  const filterSel = document.getElementById('dish-filter-category');
+
+  if (sel) {
+    sel.innerHTML = '<option value="">Bitte wählen…</option>';
+    catsForSystem.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.id;
+      opt.textContent = cat.label || cat.key;
+      sel.appendChild(opt);
+    });
+  }
+
+  if (filterSel) {
+    filterSel.innerHTML = '<option value="">Alle Kategorien</option>';
+    catsForSystem.forEach(cat => {
+      const count = store.dishes.filter(d => d.category === cat.id).length;
+      const opt = document.createElement('option');
+      opt.value = cat.id;
+      opt.textContent = (cat.label || cat.key) + ' (' + count + ')';
+      filterSel.appendChild(opt);
+    });
+  }
+}
+
+function renderDishList() {
+  const store = DISH_STORE;
+  if (!store) return;
+
+  const q = (document.getElementById('dish-search')?.value || '').toLowerCase().trim();
+  const catId = document.getElementById('dish-filter-category')?.value || '';
+
+  let items = store.dishes.slice();
+  if (catId) items = items.filter(d => d.category === catId);
+  if (q) items = items.filter(d => String(d.name||'').toLowerCase().includes(q));
+
+  // Neueste zuerst
+  items.sort((a,b) => String(b.updatedAt||'').localeCompare(String(a.updatedAt||'')));
+
+  const list = document.getElementById('dish-list');
+  if (!list) return;
+  list.innerHTML = '';
+
+  if (items.length === 0) {
+    list.innerHTML = '<div style="padding:14px;color:var(--muted);text-align:center;">Keine Gerichte gefunden</div>';
+    return;
+  }
+
+  items.forEach(d => {
+    const cat = store.catById[d.category] || {};
+    const alg = allergensToText(d.allergens);
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid #f0f4fa;';
+    row.innerHTML = `
+      <div style="flex:1;min-width:0;">
+        <div style="font-weight:700;color:var(--navy);line-height:1.25;">${esc(d.name)}</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:2px;">
+          ${(cat.label || cat.key || '—')} · € ${Number(d.price||0).toFixed(2)}
+          ${alg ? ' · Allergene: ' + esc(alg) : ''}
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-shrink:0;">
+        <button class="btn btn--ghost" style="padding:6px 10px;font-size:.8rem;" onclick="editDish('${d.id}')">Bearbeiten</button>
+        <button class="btn btn--danger" style="padding:6px 10px;font-size:.8rem;" onclick="deleteDish('${d.id}')">Löschen</button>
+      </div>
+    `;
+    list.appendChild(row);
+  });
+}
+
+function resetDishForm() {
+  dishForm = { mode: 'create', editingId: null, allergens: [] };
+  document.getElementById('dish-form-mode').textContent = 'Neu';
+  const name = document.getElementById('dish-name'); if (name) name.value = '';
+  const price = document.getElementById('dish-price'); if (price) price.value = '';
+  const cat = document.getElementById('dish-category'); if (cat) cat.value = '';
+  const inp = document.getElementById('dish-allergen-input'); if (inp) inp.value = '';
+  renderAllergenTags();
+}
+
+function renderAllergenTags() {
+  const wrap = document.getElementById('dish-allergen-tags');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  dishForm.allergens.forEach((a, idx) => {
+    const t = document.createElement('span');
+    t.className = 'badge badge--gray';
+    t.style.cssText = 'display:inline-flex;gap:6px;align-items:center;';
+    t.innerHTML = `${esc(a)} <button style="border:none;background:none;cursor:pointer;color:inherit;font-weight:700;" onclick="removeAllergen(${idx})">×</button>`;
+    wrap.appendChild(t);
+  });
+}
+
+function addAllergenFromInput() {
+  const el = document.getElementById('dish-allergen-input');
+  if (!el) return;
+  const raw = el.value.trim();
+  if (!raw) return;
+  const parts = raw.split(',').map(s => s.trim()).filter(Boolean);
+  parts.forEach(p => {
+    if (!dishForm.allergens.includes(p)) dishForm.allergens.push(p);
+  });
+  el.value = '';
+  renderAllergenTags();
+}
+
+function removeAllergen(idx) {
+  dishForm.allergens.splice(idx, 1);
+  renderAllergenTags();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.target && e.target.id === 'dish-allergen-input') {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      addAllergenFromInput();
+    }
+  }
+});
+
+function editDish(id) {
+  const store = DISH_STORE;
+  const dish = store?.dishes?.find(d => d.id === id);
+  if (!dish) return;
+  dishForm.mode = 'edit';
+  dishForm.editingId = id;
+  dishForm.allergens = Array.isArray(dish.allergens) ? dish.allergens.slice() : [];
+  document.getElementById('dish-form-mode').textContent = 'Bearbeiten';
+  document.getElementById('dish-name').value = dish.name || '';
+  document.getElementById('dish-price').value = dish.price ?? '';
+  document.getElementById('dish-category').value = dish.category || '';
+  renderAllergenTags();
+}
+
+async function saveDish() {
+  const name = (document.getElementById('dish-name').value || '').trim();
+  const price = parseFloat(document.getElementById('dish-price').value);
+  const category = document.getElementById('dish-category').value;
+  const allergens = dishForm.allergens.slice();
+
+  // UI-Validierung
+  if (!name) return toast('Name ist erforderlich.', 'err');
+  if (!price || price <= 0) return toast('Preis muss > 0 sein.', 'err');
+  if (!category) return toast('Kategorie ist erforderlich.', 'err');
+
+  const isEdit = dishForm.mode === 'edit' && dishForm.editingId;
+  const tempId = 'tmp-' + Date.now();
+
+  if (!DISH_STORE) await loadDishStore();
+
+  if (!isEdit) {
+    const optimistic = {
+      id: tempId,
+      name,
+      price: Math.round(price * 100) / 100,
+      category,
+      allergens,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    DISH_STORE.dishes.unshift(optimistic);
+    resetDishForm();
+    hydrateDishCategorySelects();
+    renderDishList();
+    toast('Speichern…', 'warn');
+
+    try {
+      const res = await fetchJson(API_BASE + '/dishes.php', {
+        method: 'POST',
+        headers: apiHeaders(),
+        body: JSON.stringify({ action:'create', name, price, category, allergens }),
+      });
+      const saved = res.dish;
+      const idx = DISH_STORE.dishes.findIndex(d => d.id === tempId);
+      if (idx >= 0) DISH_STORE.dishes[idx] = saved;
+      hydrateDishCategorySelects();
+      renderDishList();
+      toast('Gericht gespeichert ✓', 'ok');
+    } catch (e) {
+      DISH_STORE.dishes = DISH_STORE.dishes.filter(d => d.id !== tempId);
+      hydrateDishCategorySelects();
+      renderDishList();
+      toast('Fehler: ' + e.message, 'err');
+    }
+    return;
+  }
+
+  const id = dishForm.editingId;
+  const prev = DISH_STORE.dishes.find(d => d.id === id);
+  if (!prev) return toast('Gericht nicht gefunden.', 'err');
+
+  // optimistic update
+  Object.assign(prev, { name, price: Math.round(price*100)/100, category, allergens, updatedAt: new Date().toISOString() });
+  renderDishList();
+  toast('Speichern…', 'warn');
+
+  try {
+    const res = await fetchJson(API_BASE + '/dishes.php', {
+      method: 'POST',
+      headers: apiHeaders(),
+      body: JSON.stringify({ action:'update', id, name, price, category, allergens }),
+    });
+    const saved = res.dish;
+    const idx = DISH_STORE.dishes.findIndex(d => d.id === id);
+    if (idx >= 0) DISH_STORE.dishes[idx] = saved;
+    resetDishForm();
+    hydrateDishCategorySelects();
+    renderDishList();
+    toast('Gericht gespeichert ✓', 'ok');
+  } catch (e) {
+    toast('Fehler: ' + e.message, 'err');
+    refreshDishStore();
+  }
+}
+
+function deleteDish(id) {
+  openConfirm('Gericht löschen?', 'Dieses Gericht wird dauerhaft gelöscht.', async () => {
+    if (!DISH_STORE) return;
+    const idx = DISH_STORE.dishes.findIndex(d => d.id === id);
+    if (idx < 0) return;
+    const removed = DISH_STORE.dishes[idx];
+    DISH_STORE.dishes.splice(idx, 1);
+    hydrateDishCategorySelects();
+    renderDishList();
+    toast('Löschen…', 'warn');
+    try {
+      await fetchJson(API_BASE + '/dishes.php', {
+        method: 'POST',
+        headers: apiHeaders(),
+        body: JSON.stringify({ action:'delete', id }),
+      });
+      toast('Gelöscht ✓', 'ok');
+    } catch (e) {
+      DISH_STORE.dishes.splice(idx, 0, removed);
+      hydrateDishCategorySelects();
+      renderDishList();
+      toast('Fehler: ' + e.message, 'err');
+    }
+  });
+}
+
+function openAddCategoryModal() {
+  document.getElementById('cat-system').value = state.system;
+  document.getElementById('cat-label').value = '';
+  document.getElementById('cat-key').value = '';
+  document.getElementById('add-category-modal').classList.add('open');
+  document.getElementById('cat-label').focus();
+}
+
+function closeAddCategoryModal() {
+  document.getElementById('add-category-modal').classList.remove('open');
+}
+
+async function createCategory() {
+  const system = document.getElementById('cat-system').value;
+  const label  = (document.getElementById('cat-label').value || '').trim();
+  const key    = (document.getElementById('cat-key').value || '').trim();
+  if (!label) return toast('Kategorie-Name ist erforderlich.', 'err');
+  try {
+    await fetchJson(API_BASE + '/categories.php', {
+      method: 'POST',
+      headers: apiHeaders(),
+      body: JSON.stringify({ system, label, key }),
+    });
+    closeAddCategoryModal();
+    toast('Kategorie gespeichert ✓', 'ok');
+    await loadDishStore(true);
+    hydrateDishCategorySelects();
+  } catch (e) {
+    toast('Fehler: ' + e.message, 'err');
+  }
 }
 
 // ═══════════════════════════════════════════════════════
@@ -851,7 +1271,7 @@ if (getAdminKey()) {
   document.getElementById('app').classList.add('visible');
   updateKWLabel();
   loadWeek();
-  loadDbData();
+  loadDishStore().catch(() => {});
 }
 </script>
 </body>

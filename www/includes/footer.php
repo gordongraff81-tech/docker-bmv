@@ -18,7 +18,7 @@ if (!defined('BMV_EMAIL')) define('BMV_EMAIL', 'info@bmv-kantinen.de');
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="footer-brand__logo-link" aria-label="<?= BMV_NAME ?> – Startseite">
-          <span class="site-logo__mark" aria-hidden="true">BMV</span>
+          <img src="/assets/images/BMV_Logo_n.png" alt="BMV Logo" loading="lazy" decoding="async" style="height:36px;width:auto;">
           <span>
             <strong>BMV Menüdienst</strong><br>
             <span>Seit 15+ Jahren in Potsdam, Werder und Umland</span>

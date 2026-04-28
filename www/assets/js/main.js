@@ -14,6 +14,9 @@
   var header = document.getElementById('site-header');
   if (header) {
     window.addEventListener('scroll', function () {
+      // CSS nutzt aktuell ".site-header.scrolled"
+      header.classList.toggle('scrolled', window.scrollY > 20);
+      // Backwards-compat (falls irgendwo noch ".is-scrolled" gestyled wird)
       header.classList.toggle('is-scrolled', window.scrollY > 20);
     }, { passive: true });
   }
