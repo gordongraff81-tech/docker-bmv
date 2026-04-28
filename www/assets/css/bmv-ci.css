@@ -1,47 +1,16 @@
-.hero--home .hero__content {
-  max-width: 760px;
-}
+/* =============================================================
+   bmv-ci.css — BMV-Menüdienst CI Overrides
+   Wird in includes/header.php als LETZTE Stylesheet-Datei geladen.
+   Importiert bmv-overrides.css (höchste Kaskaden-Priorität).
+   ============================================================= */
+@import url('./bmv-overrides.css');
 
-.hero--home .hero__title {
-  max-width: 12ch;
-}
-
-.trust-bar__item {
-  padding: var(--space-6) 0;
-}
-
-.contact-card--accent .section-title,
-.contact-card--accent .section-sub {
-  max-width: 100%;
-}
-
-.category-tag.fleisch {
-  background: var(--color-tag-meat);
-  color: var(--color-tag-meat-text);
-}
-
-.category-tag.vegetarisch {
-  background: var(--color-tag-veg);
-  color: var(--color-tag-veg-text);
-}
-
-.category-tag.vegan {
-  background: var(--color-tag-vegan);
-  color: var(--color-tag-vegan-text);
-}
-
-.category-tag.fisch {
-  background: var(--color-tag-fish);
-  color: var(--color-tag-fish-text);
-}
-
-.trust-band {
-  background: var(--color-bg-dark);
-  color: var(--color-text-on-dark);
-}
-
-.trust-band .trust-item,
-.trust-band .trust-item span,
-.trust-band .trust-item-label {
-  color: var(--color-text-on-dark-muted);
-}
+/* ── Dropdown Navigation ─────────────────────────────────── */
+.site-nav__dropdown { position: relative; display: inline-flex; align-items: center; }
+.site-nav__dropdown-toggle { display: inline-flex; align-items: center; gap: 4px; }
+.site-nav__chevron { transition: transform .2s ease; flex-shrink: 0; }
+.site-nav__dropdown:hover .site-nav__chevron { transform: rotate(180deg); }
+.site-nav__dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: #0B2A5B; border: 1px solid rgba(255,255,255,.15); border-radius: 6px; min-width: 180px; padding: 6px 0; list-style: none; margin: 0; z-index: 200; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.site-nav__dropdown:hover .site-nav__dropdown-menu { display: block; }
+.site-nav__dropdown-link { display: block; padding: 8px 16px; color: #fff; text-decoration: none; font-size: .9rem; white-space: nowrap; transition: background .15s; }
+.site-nav__dropdown-link:hover { background: rgba(255,255,255,.12); color: #D95A00; }

@@ -1,0 +1,17 @@
+APP_ENV=local
+APP_DEBUG=true
+
+BMV_ADMIN_KEY=bmv-admin-2025
+
+MAIL_DRIVER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_ENCRYPTION=null
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_FROM=info@bmv-kantinen.de
+MAIL_FROM_NAME=BMV Kantinen
+MAIL_TO=info@bmv-kantinen.de
+
+PEXELS_API_KEY=
+OPENAI_API_KEY=

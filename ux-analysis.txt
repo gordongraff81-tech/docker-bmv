@@ -1,0 +1,111 @@
+Executive Summary
+The frontend has a strong direction at the marketing-layer level: the homepage, service pages, contact page, and local landing pages share a recognizable visual language, clear CTAs, and a usable content hierarchy. The likely business intent is clear: generate leads for Essen auf Rädern, Catering, and Kantine, while supporting returning operational users through the weekly menu and internal staff through the admin UI.
+
+The UX health is mixed. The public marketing experience is broadly coherent, but there are a few high-impact issues that materially hurt trust and conversion. The most serious are a likely broken contact submission flow, visible navigation links to nonexistent pages, and a split frontend architecture where some pages use the new design system while others still ship legacy or invalid document structures. Assumption: this is a code-based audit, not a live browser test, so responsiveness and runtime behavior are inferred from markup, CSS, and JS.
+
+Key Problems
+
+The main conversion flow is likely broken: the contact form at kontakt/index.php posts directly to kontakt/send.php, which returns JSON, but there is no frontend JS handling that response.
+The primary nav exposes dead-end destinations: the catering dropdown in includes/header.php links to /catering/potsdam/ and /catering/werder-havel/, but those route folders are empty.
+The frontend architecture is inconsistent: most pages use the shared shell, but speiseplan/index.php, impressum/index.php, and the subdomain shells wrap header.php inside their own document markup, which creates invalid nested HTML structures.
+Navigation is visually polished but not fully accessible: desktop dropdowns depend on hover in main.v2.css, so keyboard users may not reliably reach submenu links.
+The Speiseplan experience functions like a separate app, but it is visually, structurally, and technically disconnected from the rest of the site.
+Detailed Analysis
+
+1. UX Overview
+
+Purpose of the UI: market BMV’s services, build trust, and drive direct contact for meal delivery, catering, and canteen use.
+Likely users: seniors and relatives arranging meal delivery, office/facility decision-makers, event organizers, local canteen visitors, and internal staff managing weekly menus.
+Main user flows:
+Homepage to service page to contact.
+Local landing page to contact or weekly menu.
+Homepage or service page to Speiseplan.
+Returning operational user directly to Speiseplan.
+Internal staff to /admin/ for plan maintenance.
+2. Navigation & Structure
+
+The main nav is simple and service-led, which is good for first-time users.
+Important actions are generally easy to find because CTAs are repeated consistently across the homepage and service pages.
+The structure becomes confusing in two places:
+The catering dropdown offers routes that do not appear to exist.
+The site contains 11 local meal-delivery landing pages, but only 3 are exposed directly in navigation, so the information architecture is only partially surfaced to users.
+The homepage flow is strong and linear. Inner pages are shallower and less explanatory, especially the location pages generated from location-template.php.
+3. UI Consistency
+
+The shared system is solid: tokens.css, main.v2.css, design-system.css, and shared header/footer produce a consistent premium look on the main public pages.
+Reusable patterns are good: hero sections, service cards, trust blocks, final CTAs, and form fields are standardized.
+Consistency breaks hard on legacy/special pages:
+speiseplan/index.php has its own large inline CSS/JS system.
+impressum/index.php uses a different font source and older styling conventions.
+The subdomain shell pages are structurally inconsistent and effectively placeholders.
+4. Usability Issues
+
+Highest-friction point: the contact journey is generic and likely broken at submit time.
+The CTA strategy is strong visually, but the action model is repetitive: almost every path ends at the same generic contact page, regardless of whether the user is a relative, a caterer lead, or a canteen visitor.
+The local landing pages are easy to scan but feel templated; they lack locality-specific reassurance such as delivery specifics, local proof, or differentiated next steps.
+Speiseplan is information-dense and task-oriented, but for first-time users it risks cognitive overload due to many cards, popups, print logic, pricing, add-ons, and multiple menu systems on one screen.
+5. Accessibility (A11y)
+
+Good foundations:
+Skip link exists in header.php.
+Reduced-motion handling exists in design-system.css.
+Forms have explicit labels.
+Mobile nav supports Escape close in main.js.
+Critical issues:
+Desktop dropdown navigation is not clearly keyboard-first.
+There is no consistent :focus-visible styling for links, buttons, cards, and FAQ controls in the shared CSS; forms have focus states, but most other interactive elements do not.
+The homepage menu preview uses clickable div cards with role="button" instead of actual links in index.php, which weakens semantics.
+Invalid nested document structures on speiseplan, impressum, and the subdomain shells are risky for assistive technologies and DOM predictability.
+6. Responsiveness
+
+The main marketing site is generally well-prepared for responsive behavior. The shared CSS has sensible breakpoints and collapses grids progressively.
+Mobile navigation appears intentionally designed and likely works better than many desktop-only sites.
+The biggest responsive concern is Speiseplan: it uses a separate layout system, hides the add-on section entirely below 768px, and packs a lot of dense, card-based information into small screens.
+The canteen/meal-delivery marketing pages are likely fine on mobile; the menu application is where the mobile experience is most fragile.
+7. Performance Perception
+
+Positive signals:
+Shared images use dimensions through bmv_img() in helpers.php, which reduces layout shift.
+Image wrappers have shimmer placeholders in design-system.css.
+Hero areas have stable height, which helps perceived polish.
+Weak points:
+Homepage and menu imagery depend on client-side Pexels fetching in assets/js/index.js and speiseplan/index.php, which can delay image completion and create visual inconsistency.
+The contact form has no loading, success, or failure UX state.
+Multiple stylesheet layers and legacy assets increase frontend complexity, even if they are not all actively used.
+8. Frontend Code Quality (UX-relevant)
+
+Strong points:
+Shared header/footer and tokenized styling are a solid base.
+Reusable UI classes cover most marketing pages well.
+Weak points:
+The project has multiple parallel frontend systems: shared public UI, legacy legal pages, a monolithic Speiseplan, and a separate admin UI.
+Speiseplan and Admin are monoliths with UI, logic, and styling tightly coupled in single PHP files.
+The active asset stack is not cleanly bounded: main.css imports other styles, while header.php also links several stylesheet layers directly.
+9. Design System
+
+There is a real design system, not just ad hoc styling. Tokens, spacing, card patterns, heroes, and form primitives are present.
+What is missing is enforcement and coverage:
+No standardized success/error/empty-state components.
+No standardized accessible dropdown pattern.
+No consistent breadcrumb/orientation pattern across inner pages.
+No shared pattern for task-heavy pages like Speiseplan.
+The design system is strong for marketing content, but weak for application-style interactions.
+Prioritized UX Improvements
+
+High Impact
+
+Fix the contact conversion flow so kontakt/index.php has a real submission UX with inline validation, pending state, success state, and error rendering from kontakt/send.php.
+Remove or implement the dead catering submenu targets in includes/header.php.
+Normalize the document shell across speiseplan/index.php, impressum/index.php, and the subdomain shell pages so the frontend is structurally valid and predictable.
+Make the desktop dropdown navigation keyboard-accessible, or simplify it into flat links.
+Medium Impact
+
+Refactor Speiseplan into the same design and interaction language as the rest of the site, especially for mobile.
+Differentiate the local landing pages with location-specific proof, stronger service detail, and a more targeted CTA path.
+Add consistent focus-visible states for all shared interactive elements.
+Introduce service-specific contact entry points instead of routing all intent through one generic form.
+Low Impact
+
+Reduce the number of legacy CSS/JS paths and clarify which files are authoritative.
+Add orientation aids such as breadcrumbs or local “you are here” patterns on deeper service/location pages.
+Replace dynamic Pexels swaps with curated imagery or a more controlled image strategy to improve trust and visual consistency.

@@ -1,172 +1,227 @@
+/**
+ * main.js – BMV Menüdienst
+ * Enthält: Mobile Nav, Sticky Header, FAQ Accordion, Fade-up Observer,
+ *          Kontaktformular-Handling, Footer Jahr
+ */
 (function () {
   'use strict';
 
-  var body = document.body;
-  var header = document.querySelector('.site-header');
-  var toggle = document.querySelector('.nav-toggle');
-  var nav = document.querySelector('.site-nav');
+  /* ── Footer: Aktuelles Jahr ──────────────────────────────── */
+  var yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  function setHeaderState() {
-    if (!header) {
-      return;
-    }
-    header.classList.toggle('scrolled', window.scrollY > 20);
-  }
-
-  function closeNav() {
-    if (!toggle || !nav) {
-      return;
-    }
-
-    nav.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    body.style.overflow = '';
-  }
-
-  function openNav() {
-    if (!toggle || !nav) {
-      return;
-    }
-
-    nav.classList.add('is-open');
-    toggle.setAttribute('aria-expanded', 'true');
-    body.style.overflow = 'hidden';
-  }
-
+  /* ── Sticky Header Scroll-Effekt ─────────────────────────── */
+  var header = document.getElementById('site-header');
   if (header) {
-    window.addEventListener('scroll', setHeaderState, { passive: true });
-    setHeaderState();
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 20);
+    }, { passive: true });
   }
 
-  if (toggle && nav) {
+  /* ── Mobile Navigation Toggle ────────────────────────────── */
+  var toggle  = document.getElementById('nav-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+
+  if (toggle && mobileNav) {
     toggle.addEventListener('click', function () {
-      if (nav.classList.contains('is-open')) {
-        closeNav();
-      } else {
-        openNav();
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.classList.toggle('is-open', !expanded);
+      mobileNav.setAttribute('aria-hidden', String(expanded));
+      document.body.style.overflow = expanded ? '' : 'hidden';
+    });
+
+    // Schließen bei Klick außerhalb
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('is-open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
       }
     });
 
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        closeNav();
+    // Schließen bei Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('is-open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        toggle.focus();
       }
     });
+  }
 
-    document.addEventListener('click', function (event) {
-      if (!nav.classList.contains('is-open')) {
-        return;
-      }
+  /* ── FAQ Accordion ───────────────────────────────────────── */
+  var faqButtons = document.querySelectorAll('.faq-item__question');
+  if (faqButtons.length) {
+    faqButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var answerId = btn.getAttribute('aria-controls');
+        var answer   = document.getElementById(answerId);
 
-      if (nav.contains(event.target) || toggle.contains(event.target)) {
-        return;
-      }
+        // Alle schließen
+        faqButtons.forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+          var aId = b.getAttribute('aria-controls');
+          var a   = document.getElementById(aId);
+          if (a) a.classList.remove('is-open');
+        });
 
-      closeNav();
-    });
-
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        if (window.matchMedia('(max-width: 900px)').matches) {
-          closeNav();
+        // Angeklicktes togglen
+        if (!expanded && answer) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('is-open');
         }
       });
     });
   }
 
-  document.querySelectorAll('.site-nav__dropdown-toggle').forEach(function (toggleLink) {
-    toggleLink.addEventListener('click', function (event) {
-      if (!window.matchMedia('(max-width: 900px)').matches) {
-        return;
-      }
-
-      var parent = toggleLink.closest('.site-nav__dropdown');
-      if (!parent) {
-        return;
-      }
-
-      event.preventDefault();
-      var open = !parent.classList.contains('is-open');
-      parent.classList.toggle('is-open', open);
-      toggleLink.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
-
-  document.querySelectorAll('[data-reveal], .fade-up').forEach(function (element) {
+  /* ── Fade-up Intersection Observer ───────────────────────── */
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if (fadeEls.length) {
     if (!('IntersectionObserver' in window)) {
-      element.classList.add('revealed');
-      element.classList.add('is-visible');
-      return;
+      // Fallback: alle sofort sichtbar
+      fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      fadeEls.forEach(function (el) { observer.observe(el); });
     }
-  });
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        entry.target.classList.add('revealed');
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    document.querySelectorAll('[data-reveal], .fade-up').forEach(function (element) {
-      observer.observe(element);
-    });
   }
 
-  document.querySelectorAll('.img-wrap').forEach(function (wrap) {
-    var image = wrap.querySelector('img');
+  /* ── Kontaktformular ─────────────────────────────────────── */
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    if (!image) {
-      return;
-    }
+      var submitBtn = contactForm.querySelector('[type="submit"]');
+      var originalText = submitBtn ? submitBtn.textContent : '';
 
-    function markLoaded() {
-      wrap.classList.add('img-loaded');
-      image.classList.add('is-loaded');
-    }
+      // Validierung
+      var required = contactForm.querySelectorAll('[required]');
+      var valid = true;
+      required.forEach(function (field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#DC2626';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
 
-    if (image.complete && image.naturalWidth > 0) {
-      markLoaded();
-      return;
-    }
-
-    image.addEventListener('load', markLoaded, { once: true });
-    image.addEventListener('error', function () {
-      wrap.classList.add('img-loaded');
-    }, { once: true });
-  });
-
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var button = item.querySelector('.faq-item__question');
-    var answer = item.querySelector('.faq-item__answer');
-
-    if (!button || !answer) {
-      return;
-    }
-
-    button.addEventListener('click', function () {
-      var open = !item.classList.contains('is-open');
-      item.classList.toggle('is-open', open);
-      button.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
-
-  document.querySelectorAll('.menu-day-card[role="button"]').forEach(function (card) {
-    card.addEventListener('keydown', function (event) {
-      if (event.key !== 'Enter' && event.key !== ' ') {
+      if (!valid) {
+        showToast('Bitte füllen Sie alle Pflichtfelder aus.', 'error');
         return;
       }
 
-      event.preventDefault();
-      card.click();
+      // Absenden
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet…';
+      }
+
+      var formData = new FormData(contactForm);
+
+      fetch(contactForm.action || '/kontakt/send.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+        if (data.success) {
+          showToast('Vielen Dank! Wir melden uns in Kürze bei Ihnen.', 'success');
+          contactForm.reset();
+        } else {
+          showToast(data.message || 'Fehler beim Senden. Bitte rufen Sie uns an.', 'error');
+        }
+      })
+      .catch(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+        showToast('Verbindungsfehler. Bitte rufen Sie uns an: +49 3327 5745066', 'error');
+      });
     });
+  }
+
+  /* ── Toast Notification ──────────────────────────────────── */
+  function showToast(message, type) {
+    var existing = document.getElementById('bmv-toast');
+    if (existing) existing.remove();
+
+    var toast = document.createElement('div');
+    toast.id = 'bmv-toast';
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+    toast.style.cssText = [
+      'position:fixed',
+      'bottom:1.5rem',
+      'right:1.5rem',
+      'z-index:9999',
+      'padding:.85rem 1.4rem',
+      'border-radius:10px',
+      'box-shadow:0 4px 20px rgba(0,0,0,.2)',
+      'font-weight:600',
+      'font-size:.95rem',
+      'display:flex',
+      'align-items:center',
+      'gap:.5rem',
+      'max-width:380px',
+      'transform:translateY(100px)',
+      'opacity:0',
+      'transition:all .35s cubic-bezier(.34,1.56,.64,1)',
+      'font-family:inherit',
+      type === 'error'
+        ? 'background:#DC2626;color:#fff'
+        : 'background:#16a34a;color:#fff'
+    ].join(';');
+
+    var icon = type === 'error'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>';
+
+    toast.innerHTML = icon + '<span>' + message + '</span>';
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+      });
+    });
+
+    setTimeout(function () {
+      toast.style.transform = 'translateY(100px)';
+      toast.style.opacity = '0';
+      setTimeout(function () { if (toast.parentNode) toast.remove(); }, 400);
+    }, 4500);
+  }
+
+  /* ── Active Nav Link ─────────────────────────────────────── */
+  var currentPath = window.location.pathname;
+  var navLinks = document.querySelectorAll('.primary-nav__link');
+  navLinks.forEach(function (link) {
+    var href = link.getAttribute('href');
+    if (href && href !== '/' && currentPath.indexOf(href) === 0) {
+      link.classList.add('primary-nav__link--active');
+      link.setAttribute('aria-current', 'page');
+    }
   });
+
 })();
