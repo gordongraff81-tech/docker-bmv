@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - link "Zum Hauptinhalt springen" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "BMV-Menüdienst – Startseite" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "BMV Logo" [ref=e6]
+        - generic [ref=e7]: BMV Menüdienst Frisch kochen. Verlässlich liefern.
+      - navigation "Hauptnavigation" [ref=e8]:
+        - link "Startseite" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Speiseplan" [ref=e10] [cursor=pointer]:
+          - /url: /speiseplan/
+        - link "Essen auf Rädern" [ref=e12] [cursor=pointer]:
+          - /url: /essen-auf-raedern/
+          - text: Essen auf Rädern
+          - img [ref=e13]
+        - link "Kantine am Gutshof" [ref=e15] [cursor=pointer]:
+          - /url: /kantine-am-gutshof/
+        - link "Catering" [ref=e17] [cursor=pointer]:
+          - /url: /catering/
+          - text: Catering
+          - img [ref=e18]
+        - link "Über uns" [ref=e20] [cursor=pointer]:
+          - /url: /ueber-uns/
+        - link "Kontakt" [ref=e21] [cursor=pointer]:
+          - /url: /kontakt/
+        - link "Beratung anfragen" [ref=e23] [cursor=pointer]:
+          - /url: /kontakt/
+  - main [ref=e24]:
+    - region "Firmen-Catering mit Hands-on-Mentalität statt Veranstaltungsnebel." [ref=e25]:
+      - img "Catering-Aufbau für eine Firmenveranstaltung durch BMV" [ref=e27]
+      - generic [ref=e30]:
+        - text: Catering
+        - heading "Firmen-Catering mit Hands-on-Mentalität statt Veranstaltungsnebel." [level=1] [ref=e31]
+        - paragraph [ref=e32]: "Von Arbeitslunch bis Betriebsfeier: BMV liefert ein Catering, das frisch wirkt, sauber getaktet ist und auf Kundenseite keine Zusatzkoordination produziert."
+        - generic [ref=e33]:
+          - link "Anfrage senden" [ref=e34] [cursor=pointer]:
+            - /url: /kontakt/
+          - link "Direkt anrufen" [ref=e35] [cursor=pointer]:
+            - /url: tel:+4933275745066
+    - region "Für Meetings, Belegschaft und Anlässe mit Anspruch." [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - text: Formate
+          - heading "Für Meetings, Belegschaft und Anlässe mit Anspruch." [level=2] [ref=e39]
+        - generic [ref=e40]:
+          - article [ref=e41]:
+            - img "Business Lunch Catering von BMV" [ref=e43]
+            - generic [ref=e44]:
+              - heading "Business Lunch" [level=3] [ref=e45]
+              - paragraph [ref=e46]: Für Teams, Jour-fixe-Runden und Gäste im Haus. Pünktlich, übersichtlich und ohne unnötigen Event-Look.
+              - generic [ref=e47]:
+                - generic [ref=e48]: Geeignet für kleine bis mittlere Gruppen
+                - generic [ref=e49]: Klar kalkulierbar im Ablauf
+          - article [ref=e50]:
+            - img "Catering-Buffet für Firmenveranstaltung" [ref=e52]
+            - generic [ref=e53]:
+              - heading "Betriebsfeier" [level=3] [ref=e54]
+              - paragraph [ref=e55]: Buffet, Ausgabe oder Mischformat. Wir planen entlang des tatsächlichen Ablaufs Ihrer Veranstaltung.
+              - generic [ref=e56]:
+                - generic [ref=e57]: Lieferung, Aufbau und Timing aus einer Hand
+                - generic [ref=e58]: Passend für Innen- und Außenflächen
+          - article [ref=e59]:
+            - img "Frische Produktion in der Küche von BMV" [ref=e61]
+            - generic [ref=e62]:
+              - heading "Meeting & Seminar" [level=3] [ref=e63]
+              - paragraph [ref=e64]: Verpflegung für halbe oder ganze Tage mit dem Fokus auf reibungslose Integration in Ihren Ablauf.
+              - generic [ref=e65]:
+                - generic [ref=e66]: Planbar für Vorträge, Workshops und Schulungen
+                - generic [ref=e67]: Auf Wunsch mit mehreren Servicemomenten
+    - region "Catering ist dann gut, wenn es im Hintergrund professionell wirkt und im Vordergrund entspannt." [ref=e68]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]: Der Unterschied
+          - heading "Catering ist dann gut, wenn es im Hintergrund professionell wirkt und im Vordergrund entspannt." [level=2] [ref=e73]
+          - generic [ref=e74]:
+            - paragraph [ref=e75]: Viele Anfragen scheitern nicht am Essen, sondern an unklarer Abstimmung. BMV bringt hier die operative Stärke eines eingespielten Küchenteams mit.
+            - paragraph [ref=e76]: Deshalb ist unser Catering besonders dann stark, wenn ein Unternehmen Verlässlichkeit, Regionalität und einen greifbaren Ansprechpartner wichtiger findet als Showeffekte.
+          - generic [ref=e77]:
+            - generic [ref=e78]: Frischproduktion statt austauschbarer Standardplatten
+            - generic [ref=e79]: Klare Kommunikation vor dem Termin
+            - generic [ref=e80]: Saubere Lieferung und realistische Zusagen
+        - img "Ansprechend angerichtetes Catering von BMV" [ref=e82]
+    - region "Wenn Sie ein Catering brauchen, das organisatorisch mitdenkt, sprechen wir am besten direkt." [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - text: Anfrage
+          - heading "Wenn Sie ein Catering brauchen, das organisatorisch mitdenkt, sprechen wir am besten direkt." [level=2] [ref=e86]
+          - paragraph [ref=e87]: Kurz Anlass, Personenanzahl und Termin nennen. Den Rest strukturieren wir gemeinsam.
+        - generic [ref=e88]:
+          - link "Catering anfragen" [ref=e89] [cursor=pointer]:
+            - /url: /kontakt/
+          - link "+49 3327 5745066" [ref=e90] [cursor=pointer]:
+            - /url: tel:+4933275745066
+  - contentinfo [ref=e91]:
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - generic [ref=e94]:
+          - link "BMV-Menüdienst – Startseite" [ref=e95] [cursor=pointer]:
+            - /url: /
+            - img "BMV Logo" [ref=e96]
+            - generic [ref=e97]:
+              - strong [ref=e98]: BMV Menüdienst
+              - text: Seit 15+ Jahren in Potsdam, Werder und Umland
+          - paragraph [ref=e99]: "Premium-Betriebsgastronomie mit regionaler Verlässlichkeit: Essen auf Rädern, Kantine und Catering aus einer Hand."
+          - paragraph [ref=e100]:
+            - strong [ref=e101]: Mo–Fr 07:00–15:00 Uhr
+          - link "BMV-Menüdienst anrufen" [ref=e103] [cursor=pointer]:
+            - /url: tel:+4933275745066
+            - text: +49 3327 5745066
+        - navigation "Service-Navigation" [ref=e104]:
+          - generic [ref=e105]: Service
+          - generic [ref=e106]:
+            - link "Essen auf Rädern" [ref=e107] [cursor=pointer]:
+              - /url: /essen-auf-raedern/
+            - link "Kantine am Gutshof" [ref=e108] [cursor=pointer]:
+              - /url: /kantine-am-gutshof/
+            - link "Speiseplan" [ref=e109] [cursor=pointer]:
+              - /url: /speiseplan/
+            - link "Catering" [ref=e110] [cursor=pointer]:
+              - /url: /catering/
+        - navigation "Unternehmens-Navigation" [ref=e111]:
+          - generic [ref=e112]: Unternehmen
+          - generic [ref=e113]:
+            - link "Über uns" [ref=e114] [cursor=pointer]:
+              - /url: /ueber-uns/
+            - link "Kontakt" [ref=e115] [cursor=pointer]:
+              - /url: /kontakt/
+            - link "Impressum" [ref=e116] [cursor=pointer]:
+              - /url: /impressum/
+            - link "Datenschutz" [ref=e117] [cursor=pointer]:
+              - /url: /datenschutz/
+        - generic [ref=e118]:
+          - generic [ref=e119]: Kontakt
+          - paragraph [ref=e120]:
+            - text: BMV-Menüdienst
+            - text: Am Gutshof 6
+            - text: 14542 Werder (Havel)
+            - text: Brandenburg
+          - paragraph [ref=e121]:
+            - link "+49 3327 5745066" [ref=e122] [cursor=pointer]:
+              - /url: tel:+4933275745066
+            - link "info@bmv-kantinen.de" [ref=e123] [cursor=pointer]:
+              - /url: mailto:info@bmv-kantinen.de
+          - paragraph [ref=e124]:
+            - generic [ref=e125]: Mo–Fr 07:00–15:00 Uhr
+      - generic [ref=e126]:
+        - paragraph [ref=e127]: © 2026 BMV-Menüdienst · Am Gutshof 6 · 14542 Werder (Havel)
+        - navigation "Rechtliche Links" [ref=e128]:
+          - link "Impressum" [ref=e129] [cursor=pointer]:
+            - /url: /impressum/
+          - link "Datenschutz" [ref=e130] [cursor=pointer]:
+            - /url: /datenschutz/

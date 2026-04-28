@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - link "Zum Hauptinhalt springen" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "BMV-Menüdienst – Startseite" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "BMV Logo" [ref=e6]
+        - generic [ref=e7]: BMV Menüdienst Frisch kochen. Verlässlich liefern.
+      - navigation "Hauptnavigation" [ref=e8]:
+        - link "Startseite" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Speiseplan" [ref=e10] [cursor=pointer]:
+          - /url: /speiseplan/
+        - link "Essen auf Rädern" [ref=e12] [cursor=pointer]:
+          - /url: /essen-auf-raedern/
+          - text: Essen auf Rädern
+          - img [ref=e13]
+        - link "Kantine am Gutshof" [ref=e15] [cursor=pointer]:
+          - /url: /kantine-am-gutshof/
+        - link "Catering" [ref=e17] [cursor=pointer]:
+          - /url: /catering/
+          - text: Catering
+          - img [ref=e18]
+        - link "Über uns" [ref=e20] [cursor=pointer]:
+          - /url: /ueber-uns/
+        - link "Kontakt" [ref=e21] [cursor=pointer]:
+          - /url: /kontakt/
+        - link "Beratung anfragen" [ref=e23] [cursor=pointer]:
+          - /url: /kontakt/
+  - navigation [ref=e24]:
+    - link "← Vorherige Woche" [ref=e25] [cursor=pointer]:
+      - /url: "?year=2026&kw=17"
+    - generic [ref=e26]:
+      - generic [ref=e27]: KW 18 / 2026
+      - generic [ref=e28]: 27.04. – 03.05.2026
+    - button "🖨️ Drucken" [ref=e29]
+    - link "Nächste Woche →" [ref=e30] [cursor=pointer]:
+      - /url: "?year=2026&kw=19"
+  - main [ref=e31]:
+    - generic [ref=e32]:
+      - heading "Kein Speiseplan vorhanden" [level=2] [ref=e33]
+      - paragraph [ref=e34]: Für KW 18/2026 wurde noch kein Speiseplan eingetragen.
+  - contentinfo [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - link "BMV-Menüdienst – Startseite" [ref=e39] [cursor=pointer]:
+            - /url: /
+            - img "BMV Logo" [ref=e40]
+            - generic [ref=e41]:
+              - strong [ref=e42]: BMV Menüdienst
+              - text: Seit 15+ Jahren in Potsdam, Werder und Umland
+          - paragraph [ref=e43]: "Premium-Betriebsgastronomie mit regionaler Verlässlichkeit: Essen auf Rädern, Kantine und Catering aus einer Hand."
+          - paragraph [ref=e44]:
+            - strong [ref=e45]: Mo–Fr 07:00–15:00 Uhr
+          - link "BMV-Menüdienst anrufen" [ref=e47] [cursor=pointer]:
+            - /url: tel:+4933275745066
+            - text: +49 3327 5745066
+        - navigation "Service-Navigation" [ref=e48]:
+          - generic [ref=e49]: Service
+          - generic [ref=e50]:
+            - link "Essen auf Rädern" [ref=e51] [cursor=pointer]:
+              - /url: /essen-auf-raedern/
+            - link "Kantine am Gutshof" [ref=e52] [cursor=pointer]:
+              - /url: /kantine-am-gutshof/
+            - link "Speiseplan" [ref=e53] [cursor=pointer]:
+              - /url: /speiseplan/
+            - link "Catering" [ref=e54] [cursor=pointer]:
+              - /url: /catering/
+        - navigation "Unternehmens-Navigation" [ref=e55]:
+          - generic [ref=e56]: Unternehmen
+          - generic [ref=e57]:
+            - link "Über uns" [ref=e58] [cursor=pointer]:
+              - /url: /ueber-uns/
+            - link "Kontakt" [ref=e59] [cursor=pointer]:
+              - /url: /kontakt/
+            - link "Impressum" [ref=e60] [cursor=pointer]:
+              - /url: /impressum/
+            - link "Datenschutz" [ref=e61] [cursor=pointer]:
+              - /url: /datenschutz/
+        - generic [ref=e62]:
+          - generic [ref=e63]: Kontakt
+          - paragraph [ref=e64]:
+            - text: BMV-Menüdienst
+            - text: Am Gutshof 6
+            - text: 14542 Werder (Havel)
+            - text: Brandenburg
+          - paragraph [ref=e65]:
+            - link "+49 3327 5745066" [ref=e66] [cursor=pointer]:
+              - /url: tel:+4933275745066
+            - link "info@bmv-kantinen.de" [ref=e67] [cursor=pointer]:
+              - /url: mailto:info@bmv-kantinen.de
+          - paragraph [ref=e68]:
+            - generic [ref=e69]: Mo–Fr 07:00–15:00 Uhr
+      - generic [ref=e70]:
+        - paragraph [ref=e71]: © 2026 BMV-Menüdienst · Am Gutshof 6 · 14542 Werder (Havel)
+        - navigation "Rechtliche Links" [ref=e72]:
+          - link "Impressum" [ref=e73] [cursor=pointer]:
+            - /url: /impressum/
+          - link "Datenschutz" [ref=e74] [cursor=pointer]:
+            - /url: /datenschutz/

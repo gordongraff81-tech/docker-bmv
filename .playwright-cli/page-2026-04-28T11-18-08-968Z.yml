@@ -1,0 +1,303 @@
+- generic [active] [ref=e1]:
+  - link "Zum Hauptinhalt springen" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "BMV-Menüdienst – Startseite" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "BMV-Menüdienst Logo" [ref=e6]
+      - button "Menü öffnen" [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+  - main [ref=e9]:
+    - region "Warmes Mittagessen – täglich an Ihre Tür" [ref=e10]:
+      - img "Frisches Essen auf Rädern – Lieferung in Potsdam" [ref=e12]
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - img [ref=e17]
+          - text: Potsdam & Werder (Havel)
+        - heading "Warmes Mittagessen – täglich an Ihre Tür" [level=1] [ref=e19]:
+          - text: Warmes Mittagessen –
+          - text: täglich an Ihre Tür
+        - paragraph [ref=e20]: Seit Jahren liefern wir frisch zubereitetes Mittagessen in Potsdam und Werder (Havel). Verlässlich, pünktlich – für Senioren, Familien und Betriebe.
+        - generic [ref=e21]:
+          - link "Speiseplan diese Woche" [ref=e22] [cursor=pointer]:
+            - /url: /speiseplan/
+            - img [ref=e23]
+            - text: Speiseplan diese Woche
+          - link "Kostenlos anfragen" [ref=e25] [cursor=pointer]:
+            - /url: /kontakt/
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - img [ref=e28]
+            - text: Täglich frisch zubereitet
+          - generic [ref=e30]:
+            - img [ref=e31]
+            - text: Pünktlich – Mo bis So
+          - generic [ref=e33]:
+            - img [ref=e34]
+            - text: Keine Mindestlaufzeit
+    - region "Kennzahlen" [ref=e36]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - img [ref=e41]
+          - generic [ref=e43]: 500+
+          - generic [ref=e44]: Kunden täglich
+          - generic [ref=e45]: In Potsdam & Werder beliefert
+          - generic [ref=e46]:
+            - img [ref=e47]
+            - text: Potsdam, Werder & Umland
+        - generic [ref=e49]:
+          - img [ref=e51]
+          - generic [ref=e53]: 100%
+          - generic [ref=e54]: Regional & frisch
+          - generic [ref=e55]: Täglich neu zubereitet – keine Tiefkühlware
+          - generic [ref=e56]:
+            - img [ref=e57]
+            - text: Keine Convenience – echte Küche
+        - generic [ref=e59]:
+          - img [ref=e61]
+          - generic [ref=e63]: 15+
+          - generic [ref=e64]: Jahre Erfahrung
+          - generic [ref=e65]: Zuverlässig seit über 15 Jahren
+          - generic [ref=e66]:
+            - img [ref=e67]
+            - text: Geprüfte Hygienestandards
+    - region "Drei Wege zu gutem Essen" [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]: Was wir anbieten
+          - heading "Drei Wege zu gutem Essen" [level=2] [ref=e73]
+          - paragraph [ref=e74]: Ob Lieferung nach Hause, Kantine oder Event – wir kochen täglich frisch für Sie.
+        - generic [ref=e75]:
+          - article [ref=e76]:
+            - img "Essen auf Rädern Lieferung von BMV-Menüdienst" [ref=e78]
+            - generic [ref=e79]:
+              - heading "Essen auf Rädern" [level=3] [ref=e80]
+              - paragraph [ref=e81]: Warmes Mittagessen pünktlich an Ihre Tür – auch am Wochenende. Ideal für Senioren, Pflegebedürftige und alle, die sich täglich gut versorgen möchten.
+              - generic [ref=e82]:
+                - generic [ref=e83]:
+                  - img [ref=e84]
+                  - text: Lieferung auch Sa & So
+                - generic [ref=e86]:
+                  - img [ref=e87]
+                  - text: Direkte Pflegekassen-Abrechnung
+                - generic [ref=e89]:
+                  - img [ref=e90]
+                  - text: Täglich 4 Menüs – inkl. Schonkost
+              - link "Jetzt informieren" [ref=e92] [cursor=pointer]:
+                - /url: /essen-auf-raedern/
+                - text: Jetzt informieren
+                - img [ref=e93]
+          - article [ref=e95]:
+            - img "Kantine am Gutshof Werder von BMV-Menüdienst" [ref=e97]
+            - generic [ref=e98]:
+              - heading "Kantine am Gutshof" [level=3] [ref=e99]
+              - paragraph [ref=e100]: "Unser Mittagstisch in Werder (Havel): täglich wechselnde Gerichte, frisch gekocht, faire Preise. Kein Kantinen-Einheitsbrei."
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - img [ref=e103]
+                  - text: Mo–Fr 07:00–15:00 Uhr
+                - generic [ref=e105]:
+                  - img [ref=e106]
+                  - text: 3 Menüs – auch vegetarisch
+                - generic [ref=e108]:
+                  - img [ref=e109]
+                  - text: Direkt vor Ort in Werder (Havel)
+              - link "Mehr erfahren" [ref=e111] [cursor=pointer]:
+                - /url: /kantine-am-gutshof/
+                - text: Mehr erfahren
+                - img [ref=e112]
+          - article [ref=e114]:
+            - img "Catering Service BMV-Menüdienst für Firmen und Events" [ref=e116]
+            - generic [ref=e117]:
+              - heading "Catering für Ihr Event" [level=3] [ref=e118]
+              - paragraph [ref=e119]: Firmenlunch, Betriebsfeier oder Meeting – wir liefern und bauen auf. Frisch zubereitet, pünktlich und unkompliziert.
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - img [ref=e122]
+                  - text: Individuell geplant & abgestimmt
+                - generic [ref=e124]:
+                  - img [ref=e125]
+                  - text: Lieferung, Aufbau & Abbau
+                - generic [ref=e127]:
+                  - img [ref=e128]
+                  - text: Potsdam, Werder & Umland
+              - link "Mehr erfahren" [ref=e130] [cursor=pointer]:
+                - /url: /catering/
+                - text: Mehr erfahren
+                - img [ref=e131]
+    - region "Gutes Essen – ohne Aufwand" [ref=e133]:
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]: Wie es funktioniert
+          - heading "Gutes Essen – ohne Aufwand" [level=2] [ref=e137]
+          - paragraph [ref=e138]: Sie bestellen, wir kochen und liefern. So einfach ist das.
+        - generic [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]: Kantinenbetrieb
+            - heading "Frisch gekocht – jeden Tag neu" [level=3] [ref=e142]
+            - paragraph [ref=e143]: Kein Tiefkühl, kein Aufwärmen. Unsere Köche bereiten täglich frische Gerichte vor – in unserer Küche oder direkt bei Ihnen vor Ort.
+            - generic [ref=e144]:
+              - generic [ref=e145]:
+                - img [ref=e146]
+                - text: Zutaten täglich frisch angeliefert
+              - generic [ref=e148]:
+                - img [ref=e149]
+                - text: Erfahrene Köche – seit über 15 Jahren
+              - generic [ref=e151]:
+                - img [ref=e152]
+                - text: Menüplan auf Ihre Wünsche abgestimmt
+            - link "Aktuellen Speiseplan ansehen" [ref=e154] [cursor=pointer]:
+              - /url: /speiseplan/
+          - img "Koch bereitet frisches Essen bei BMV-Menüdienst zu" [ref=e156]
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - generic [ref=e159]: Speiseplan & Bestellung
+            - heading "Immer wissen, was es gibt" [level=3] [ref=e160]
+            - paragraph [ref=e161]: Unser Speiseplan steht bis zu 4 Wochen im Voraus online. Sie sehen Gerichte, Allergene und Preise – und können direkt bestellen.
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - img [ref=e164]
+                - text: Speiseplan 4 Wochen voraus einsehbar
+              - generic [ref=e166]:
+                - img [ref=e167]
+                - text: Bestellung per Telefon oder online
+              - generic [ref=e169]:
+                - img [ref=e170]
+                - text: Allergene & Preise klar ausgewiesen
+            - link "Speiseplan ansehen" [ref=e172] [cursor=pointer]:
+              - /url: /speiseplan/
+          - img "Menüauswahl BMV-Menüdienst auf Laptop und Smartphone" [ref=e174]
+    - region "Was gibt's diese Woche?" [ref=e175]:
+      - generic [ref=e176]:
+        - generic [ref=e177]:
+          - generic [ref=e178]: KW 18/2026
+          - heading "Was gibt's diese Woche?" [level=2] [ref=e179]
+          - paragraph [ref=e180]: Täglich wechselnde Gerichte – frisch, regional, ohne Einheitsbrei
+        - generic [ref=e181]:
+          - button "Speiseplan Montag" [ref=e182] [cursor=pointer]:
+            - generic [ref=e183]:
+              - generic [ref=e184]: Montag
+              - img [ref=e186]
+            - img [ref=e189]
+            - generic [ref=e192]: Noch kein Menü eingetragen
+          - button "Speiseplan Dienstag" [ref=e193] [cursor=pointer]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: Dienstag
+              - img [ref=e197]
+            - img [ref=e200]
+            - generic [ref=e203]: Noch kein Menü eingetragen
+          - button "Speiseplan Mittwoch" [ref=e204] [cursor=pointer]:
+            - generic [ref=e205]:
+              - generic [ref=e206]: Mittwoch
+              - img [ref=e208]
+            - img [ref=e211]
+            - generic [ref=e214]: Noch kein Menü eingetragen
+          - button "Speiseplan Donnerstag" [ref=e215] [cursor=pointer]:
+            - generic [ref=e216]:
+              - generic [ref=e217]: Donnerstag
+              - img [ref=e219]
+            - img [ref=e222]
+            - generic [ref=e225]: Noch kein Menü eingetragen
+          - button "Speiseplan Freitag" [ref=e226] [cursor=pointer]:
+            - generic [ref=e227]:
+              - generic [ref=e228]: Freitag
+              - img [ref=e230]
+            - img [ref=e233]
+            - generic [ref=e236]: Noch kein Menü eingetragen
+        - link "Alle Gerichte ansehen" [ref=e238] [cursor=pointer]:
+          - /url: /speiseplan/
+          - img [ref=e239]
+          - text: Alle Gerichte ansehen
+    - region "Heute anrufen – morgen geliefert" [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - generic [ref=e244]: In 4 Schritten starten
+          - heading "Heute anrufen – morgen geliefert" [level=2] [ref=e245]
+        - generic [ref=e246]:
+          - generic [ref=e247]:
+            - generic [ref=e248]: "1"
+            - heading "Anruf oder Anfrage" [level=3] [ref=e249]
+            - paragraph [ref=e250]: Kurzes Gespräch – wir klären Liefergebiet, Wünsche und Starttermin
+          - generic [ref=e251]:
+            - generic [ref=e252]: "2"
+            - heading "Menü aussuchen" [level=3] [ref=e253]
+            - paragraph [ref=e254]: Sie wählen aus unserem Speiseplan – täglich oder für die ganze Woche
+          - generic [ref=e255]:
+            - generic [ref=e256]: "3"
+            - heading "Wir kochen" [level=3] [ref=e257]
+            - paragraph [ref=e258]: Frisch zubereitet – in unserer Küche, jeden Morgen neu
+          - generic [ref=e259]:
+            - generic [ref=e260]: "4"
+            - heading "Lieferung" [level=3] [ref=e261]
+            - paragraph [ref=e262]: Pünktlich an Ihre Tür – mit persönlichem Ansprechpartner
+    - region "Noch heute anmelden – morgen kommt das Essen" [ref=e263]:
+      - generic [ref=e264]:
+        - heading "Noch heute anmelden – morgen kommt das Essen" [level=2] [ref=e265]
+        - paragraph [ref=e266]: Kostenlose Beratung, keine Mindestlaufzeit. Einfach anrufen.
+        - generic [ref=e267]:
+          - link "+49 3327 5745066" [ref=e268] [cursor=pointer]:
+            - /url: tel:+4933275745066
+            - img [ref=e269]
+            - text: +49 3327 5745066
+          - link "Online anfragen" [ref=e271] [cursor=pointer]:
+            - /url: /kontakt/
+  - contentinfo [ref=e272]:
+    - generic [ref=e273]:
+      - generic [ref=e274]:
+        - generic [ref=e275]:
+          - link "BMV-Menüdienst – Startseite" [ref=e276] [cursor=pointer]:
+            - /url: /
+            - img "BMV Logo" [ref=e277]
+            - generic [ref=e278]:
+              - strong [ref=e279]: BMV Menüdienst
+              - text: Seit 15+ Jahren in Potsdam, Werder und Umland
+          - paragraph [ref=e280]: "Premium-Betriebsgastronomie mit regionaler Verlässlichkeit: Essen auf Rädern, Kantine und Catering aus einer Hand."
+          - paragraph [ref=e281]:
+            - strong [ref=e282]: Mo–Fr 07:00–15:00 Uhr
+          - link "BMV-Menüdienst anrufen" [ref=e284] [cursor=pointer]:
+            - /url: tel:+4933275745066
+            - text: +49 3327 5745066
+        - navigation "Service-Navigation" [ref=e285]:
+          - generic [ref=e286]: Service
+          - generic [ref=e287]:
+            - link "Essen auf Rädern" [ref=e288] [cursor=pointer]:
+              - /url: /essen-auf-raedern/
+            - link "Kantine am Gutshof" [ref=e289] [cursor=pointer]:
+              - /url: /kantine-am-gutshof/
+            - link "Speiseplan" [ref=e290] [cursor=pointer]:
+              - /url: /speiseplan/
+            - link "Catering" [ref=e291] [cursor=pointer]:
+              - /url: /catering/
+        - navigation "Unternehmens-Navigation" [ref=e292]:
+          - generic [ref=e293]: Unternehmen
+          - generic [ref=e294]:
+            - link "Über uns" [ref=e295] [cursor=pointer]:
+              - /url: /ueber-uns/
+            - link "Kontakt" [ref=e296] [cursor=pointer]:
+              - /url: /kontakt/
+            - link "Impressum" [ref=e297] [cursor=pointer]:
+              - /url: /impressum/
+            - link "Datenschutz" [ref=e298] [cursor=pointer]:
+              - /url: /datenschutz/
+        - generic [ref=e299]:
+          - generic [ref=e300]: Kontakt
+          - paragraph [ref=e301]:
+            - text: BMV-Menüdienst
+            - text: Am Gutshof 6
+            - text: 14542 Werder (Havel)
+            - text: Brandenburg
+          - paragraph [ref=e302]:
+            - link "+49 3327 5745066" [ref=e303] [cursor=pointer]:
+              - /url: tel:+4933275745066
+            - link "info@bmv-kantinen.de" [ref=e304] [cursor=pointer]:
+              - /url: mailto:info@bmv-kantinen.de
+          - paragraph [ref=e305]:
+            - generic [ref=e306]: Mo–Fr 07:00–15:00 Uhr
+      - generic [ref=e307]:
+        - paragraph [ref=e308]: © 2026 BMV-Menüdienst · Am Gutshof 6 · 14542 Werder (Havel)
+        - navigation "Rechtliche Links" [ref=e309]:
+          - link "Impressum" [ref=e310] [cursor=pointer]:
+            - /url: /impressum/
+          - link "Datenschutz" [ref=e311] [cursor=pointer]:
+            - /url: /datenschutz/

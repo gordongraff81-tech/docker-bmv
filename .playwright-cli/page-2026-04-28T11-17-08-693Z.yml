@@ -1,0 +1,215 @@
+- generic [active] [ref=e1]:
+  - link "Zum Hauptinhalt springen" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "BMV-Menüdienst – Startseite" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "BMV-Menüdienst Logo" [ref=e6]
+      - navigation "Hauptnavigation" [ref=e7]:
+        - link "Startseite" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Speiseplan" [ref=e9] [cursor=pointer]:
+          - /url: /speiseplan/
+        - link "Essen auf Rädern" [ref=e10] [cursor=pointer]:
+          - /url: /essen-auf-raedern/
+        - link "Kantine am Gutshof" [ref=e11] [cursor=pointer]:
+          - /url: /kantine-am-gutshof/
+        - link "Catering" [ref=e12] [cursor=pointer]:
+          - /url: /catering/
+        - link "Über uns" [ref=e13] [cursor=pointer]:
+          - /url: /ueber-uns/
+        - link "Kontakt" [ref=e14] [cursor=pointer]:
+          - /url: /kontakt/
+        - link "Jetzt bestellen" [ref=e16] [cursor=pointer]:
+          - /url: /kontakt/
+  - main [ref=e17]:
+    - region "Essen auf Rädern – täglich frisch an Ihre Tür" [ref=e18]:
+      - img "Essen auf Rädern Lieferung" [ref=e20]
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Potsdam & Werder (Havel)
+        - heading "Essen auf Rädern – täglich frisch an Ihre Tür" [level=1] [ref=e27]:
+          - text: Essen auf Rädern –
+          - text: täglich frisch an Ihre Tür
+        - paragraph [ref=e28]: Warmes Mittagessen pünktlich geliefert – vom Montag bis Sonntag, für Senioren, Pflegebedürftige und alle, die sich täglich gut versorgen möchten.
+        - generic [ref=e29]:
+          - link "Kostenlos anfragen" [ref=e30] [cursor=pointer]:
+            - /url: /kontakt/
+          - link "Mehr erfahren" [ref=e31] [cursor=pointer]:
+            - /url: "#services"
+    - region "Essen auf Rädern in Potsdam & Werder" [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e35]: Unsere Leistung
+          - heading "Essen auf Rädern in Potsdam & Werder" [level=2] [ref=e36]
+          - paragraph [ref=e37]: Täglich frisch zubereitet, pünktlich angeliefert – mit voller Flexibilität und ohne Mindestlaufzeit.
+        - generic [ref=e38]:
+          - article [ref=e39]:
+            - img "Lieferfahrzeug BMV-Menüdienst" [ref=e41]
+            - generic [ref=e42]:
+              - heading "Täglich Mo–So" [level=3] [ref=e43]
+              - paragraph [ref=e44]: Mittagessen wird auch am Wochenende und an Feiertagen geliefert. Sie bestimmen, an welchen Tagen Sie Essen wünschen – flexibel und jederzeit anpassbar.
+              - generic [ref=e45]:
+                - generic [ref=e46]:
+                  - img [ref=e47]
+                  - text: Lieferung auch Sa & So
+                - generic [ref=e49]:
+                  - img [ref=e50]
+                  - text: Pünktlich zwischen 11–13 Uhr
+                - generic [ref=e52]:
+                  - img [ref=e53]
+                  - text: Persönlicher Kontakt zum Fahrer
+          - article [ref=e55]:
+            - img "Frische Zubereitung in der Küche" [ref=e57]
+            - generic [ref=e58]:
+              - heading "4 Menüs täglich" [level=3] [ref=e59]
+              - paragraph [ref=e60]: "Täglich vier verschiedene Menüs zur Auswahl: Vollkost, Leichte Kost, Premium und unser Tagesmenü. Alle frisch gekocht, keine Tiefkühlware."
+              - generic [ref=e61]:
+                - generic [ref=e62]:
+                  - img [ref=e63]
+                  - text: Schonkost & vegetarische Optionen
+                - generic [ref=e65]:
+                  - img [ref=e66]
+                  - text: Allergien & Unverträglichkeiten berücksichtigt
+                - generic [ref=e68]:
+                  - img [ref=e69]
+                  - text: "Zusatzkarte: Dessert, Rohkost, Salat"
+          - article [ref=e71]:
+            - img "Menüplan und Bestellung" [ref=e73]
+            - generic [ref=e74]:
+              - heading "Flexibel & einfach" [level=3] [ref=e75]
+              - paragraph [ref=e76]: Keine Mindestlaufzeit, keine versteckten Gebühren. Sie bestellen für die Woche, den Monat oder so lange Sie möchten – jederzeit änderbar.
+              - generic [ref=e77]:
+                - generic [ref=e78]:
+                  - img [ref=e79]
+                  - text: Pflegekassen-Abrechnung möglich
+                - generic [ref=e81]:
+                  - img [ref=e82]
+                  - text: Bestellung per Telefon oder online
+                - generic [ref=e84]:
+                  - img [ref=e85]
+                  - text: Speiseplan 4 Wochen voraus
+    - region "Wir liefern in Ihrem Gebiet" [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]: Lieferbereiche
+          - heading "Wir liefern in Ihrem Gebiet" [level=2] [ref=e91]
+          - paragraph [ref=e92]: Essen auf Rädern in ganz Potsdam, Werder (Havel) und zahlreichen Gemeinden in Potsdam-Mittelmark.
+        - generic [ref=e93]:
+          - generic [ref=e95]:
+            - heading "Potsdam" [level=3] [ref=e96]
+            - paragraph [ref=e97]: Alle Stadtteile von Potsdam werden von uns regelmäßig beliefert – von Babelsberg bis zur Innenstadt.
+            - link "Mehr zu Potsdam" [ref=e98] [cursor=pointer]:
+              - /url: /essen-auf-raedern/potsdam/
+              - text: Mehr zu Potsdam
+              - img [ref=e99]
+          - generic [ref=e102]:
+            - heading "Werder (Havel)" [level=3] [ref=e103]
+            - paragraph [ref=e104]: Von unserem Standort aus versorgen wir Werder und die direkt angrenzenden Ortschaften täglich.
+            - link "Mehr zu Werder" [ref=e105] [cursor=pointer]:
+              - /url: /essen-auf-raedern/werder-havel/
+              - text: Mehr zu Werder
+              - img [ref=e106]
+          - generic [ref=e109]:
+            - heading "Umland & Gemeinden" [level=3] [ref=e110]
+            - paragraph [ref=e111]: Auch in vielen Gemeinden von Potsdam-Mittelmark bieten wir Essen auf Rädern an. Fragen Sie uns!
+            - link "Mehr zum Umland" [ref=e112] [cursor=pointer]:
+              - /url: /essen-auf-raedern/umland/
+              - text: Mehr zum Umland
+              - img [ref=e113]
+    - region "Alles zum Thema Essen auf Rädern" [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - generic [ref=e118]: Häufige Fragen
+          - heading "Alles zum Thema Essen auf Rädern" [level=2] [ref=e119]
+        - list [ref=e120]:
+          - listitem [ref=e121]:
+            - button "Wie wird das Essen angeliefert?" [ref=e122]
+            - region [ref=e123]:
+              - paragraph [ref=e124]: Das Essen kommt in isolierten Behältern, um die Wärme zu bewahren. Es wird täglich zwischen 11:00 und 13:00 Uhr angeliefert. Sie müssen nicht anwesend sein – der Fahrer kann die Mahlzeit auch in einer Transportbox vor der Tür deponieren.
+          - listitem [ref=e125]:
+            - button "Kann die Pflegekasse zahlen?" [ref=e126]
+            - region [ref=e127]:
+              - paragraph [ref=e128]: Ja. Essen auf Rädern kann unter dem Pflegebedarf „Entlastung von Pflegepersonen" über die Pflegekasse abgerechnet werden. Wir helfen Ihnen gerne bei der Antragstellung und begleiten den Prozess.
+          - listitem [ref=e129]:
+            - button "Wie lange bin ich gebunden?" [ref=e130]
+            - region [ref=e131]:
+              - paragraph [ref=e132]: Gar nicht. Es gibt keine Mindestlaufzeit. Sie können Ihre Bestellung jederzeit beenden oder anpassen. Auch einzelne Tage können Sie überspringen – völlige Flexibilität.
+          - listitem [ref=e133]:
+            - button "Was passiert bei Allergien oder Unverträglichkeiten?" [ref=e134]
+            - region [ref=e135]:
+              - paragraph [ref=e136]: Wir nehmen Allergien und Unverträglichkeiten ernst. Bei der Bestellung geben Sie alle Einschränkungen an, und unsere Küche berücksichtigt diese. Alle Menüs sind entsprechend gekennzeichnet.
+          - listitem [ref=e137]:
+            - button "Kann ich einen Tag aussetzen?" [ref=e138]
+            - region [ref=e139]:
+              - paragraph [ref=e140]: Selbstverständlich. Sie können beliebig viele Tage auswählen oder aussparen – zum Beispiel wenn Sie im Urlaub sind oder Besuch haben, der für Sie kocht.
+    - region "Jetzt Essen auf Rädern anfragen" [ref=e141]:
+      - generic [ref=e143]:
+        - heading "Jetzt Essen auf Rädern anfragen" [level=2] [ref=e144]
+        - paragraph [ref=e145]: Kostenlos beraten lassen, Speiseplan anschauen, gleich starten. Rufen Sie uns an oder füllen Sie das Online-Formular aus.
+        - generic [ref=e146]:
+          - link "+49 3327 5745066" [ref=e147] [cursor=pointer]:
+            - /url: tel:+4933275745066
+          - link "Online anfragen" [ref=e148] [cursor=pointer]:
+            - /url: /kontakt/
+  - contentinfo [ref=e149]:
+    - generic [ref=e150]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - link "BMV-Menüdienst – Startseite" [ref=e153] [cursor=pointer]:
+            - /url: /
+            - img "BMV Logo" [ref=e154]
+            - generic [ref=e155]:
+              - strong [ref=e156]: BMV Menüdienst
+              - text: Seit 15+ Jahren in Potsdam, Werder und Umland
+          - paragraph [ref=e157]: "Premium-Betriebsgastronomie mit regionaler Verlässlichkeit: Essen auf Rädern, Kantine und Catering aus einer Hand."
+          - paragraph [ref=e158]:
+            - strong [ref=e159]: Mo–Fr 07:00–15:00 Uhr
+          - link "BMV-Menüdienst anrufen" [ref=e161] [cursor=pointer]:
+            - /url: tel:+4933275745066
+            - text: +49 3327 5745066
+        - navigation "Service-Navigation" [ref=e162]:
+          - generic [ref=e163]: Service
+          - generic [ref=e164]:
+            - link "Essen auf Rädern" [ref=e165] [cursor=pointer]:
+              - /url: /essen-auf-raedern/
+            - link "Kantine am Gutshof" [ref=e166] [cursor=pointer]:
+              - /url: /kantine-am-gutshof/
+            - link "Speiseplan" [ref=e167] [cursor=pointer]:
+              - /url: /speiseplan/
+            - link "Catering" [ref=e168] [cursor=pointer]:
+              - /url: /catering/
+        - navigation "Unternehmens-Navigation" [ref=e169]:
+          - generic [ref=e170]: Unternehmen
+          - generic [ref=e171]:
+            - link "Über uns" [ref=e172] [cursor=pointer]:
+              - /url: /ueber-uns/
+            - link "Kontakt" [ref=e173] [cursor=pointer]:
+              - /url: /kontakt/
+            - link "Impressum" [ref=e174] [cursor=pointer]:
+              - /url: /impressum/
+            - link "Datenschutz" [ref=e175] [cursor=pointer]:
+              - /url: /datenschutz/
+        - generic [ref=e176]:
+          - generic [ref=e177]: Kontakt
+          - paragraph [ref=e178]:
+            - text: BMV-Menüdienst
+            - text: Am Gutshof 6
+            - text: 14542 Werder (Havel)
+            - text: Brandenburg
+          - paragraph [ref=e179]:
+            - link "+49 3327 5745066" [ref=e180] [cursor=pointer]:
+              - /url: tel:+4933275745066
+            - link "info@bmv-kantinen.de" [ref=e181] [cursor=pointer]:
+              - /url: mailto:info@bmv-kantinen.de
+          - paragraph [ref=e182]:
+            - generic [ref=e183]: Mo–Fr 07:00–15:00 Uhr
+      - generic [ref=e184]:
+        - paragraph [ref=e185]: © 2026 BMV-Menüdienst · Am Gutshof 6 · 14542 Werder (Havel)
+        - navigation "Rechtliche Links" [ref=e186]:
+          - link "Impressum" [ref=e187] [cursor=pointer]:
+            - /url: /impressum/
+          - link "Datenschutz" [ref=e188] [cursor=pointer]:
+            - /url: /datenschutz/

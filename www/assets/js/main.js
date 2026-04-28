@@ -23,7 +23,7 @@
 
   /* ── Mobile Navigation Toggle ────────────────────────────── */
   var toggle  = document.getElementById('nav-toggle');
-  var mobileNav = document.getElementById('mobile-nav');
+  var mobileNav = document.getElementById('site-nav');
 
   if (toggle && mobileNav) {
     toggle.addEventListener('click', function () {

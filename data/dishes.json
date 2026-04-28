@@ -1,0 +1,3336 @@
+{
+    "version": 1,
+    "updatedAt": "2026-04-28T13:07:27+02:00",
+    "dishes": [
+        {
+            "id": "2f4e53c4-cacc-47a2-bf17-7eec00233bcf",
+            "name": "Testgericht Persist",
+            "price": 7.55,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "Gluten",
+                "Nuesse"
+            ],
+            "createdAt": "2026-04-28T13:07:27+02:00",
+            "updatedAt": "2026-04-28T13:07:27+02:00"
+        },
+        {
+            "id": "326502d8-8558-438c-bcde-6eebfd9fe5e8",
+            "name": "Kohlroulade mit Bratensoße und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "18",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5e5eeaf6-5b3b-4c50-874f-2a396b2e7597",
+            "name": "Schaschlik-Pfanne mit Reis",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "18",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8ca09988-8023-4e2e-8455-0b570cd375e5",
+            "name": "Pikantes Hühnerfrikassee mit Beilage",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "4",
+                "3",
+                "9",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "aa5dbcc2-2794-4e21-a163-150a0ca2254d",
+            "name": "Schinkenknacker auf Grünkohl mit Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b33562ae-5097-401b-a5e2-38c4902e4833",
+            "name": "Boulette mit Porreerahm",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9cafc9ca-c1fe-46a9-8d35-edaee109ba09",
+            "name": "Schnitzel vom Schwein mit Pommes oder Bratkartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "18",
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c473758d-09f5-4ed8-ab13-0cbce0f1e6b4",
+            "name": "Hähnchenschnitzel mit Pommes oder Bratkartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "18",
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2b77df70-de0b-41ca-9b02-e4c009a5ceee",
+            "name": "Fischfilet mit Bratkartoffeln und Remouladensoße",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "11",
+                "4",
+                "9",
+                "16"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "de473a63-3b40-4a19-b826-e7a89eb67a46",
+            "name": "Gebackener Leberkäse mit Spiegelei und Bratkartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "98e197ea-b72b-47e3-a25c-52c605d2e95a",
+            "name": "Königsberger Klopse in Kapernsoße mit Rote Beete",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "18",
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "45c4a7df-e3a0-4785-bf76-90820288ca7a",
+            "name": "Boulette mit Porree-Rahm-Gemüse und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "3",
+                "4",
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "32d13254-0505-47a7-a91f-337ed6f4f84d",
+            "name": "Schnitzel mit Letscho und Bratkartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "18",
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1ee437b9-5994-4089-9b17-9b37ce05be54",
+            "name": "Schinkenknacker auf Grünkohl mit Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a9dac9f7-2cdd-4352-a9f2-4564ed2db610",
+            "name": "Kassler-Rippchen auf Sauerkraut mit Bärlauchpüree",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "11",
+                "3",
+                "4",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2243cddf-7155-41d8-b45b-c49aff4f8343",
+            "name": "Beelitzer Spargel mit Hähnchenschnitzel und Rosmarinkartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "4",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "dd65a8c4-2eb5-4d98-aef9-f97d92ba08b8",
+            "name": "Pikantes Hühnerfrikassee mit Kurkumareis",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d18253fc-f973-457f-83b7-477d60b7738a",
+            "name": "Hamburger Schnitzel mit Ei, Blumenkohl und Pommes",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "18",
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "dc476e04-e414-4230-92b1-025b8267cb95",
+            "name": "Hähnchenbrust mit Buttergemüse, Soße und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "4",
+                "3",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ca735477-d4d4-42d1-bcbc-e811451375eb",
+            "name": "Hähnchenschnitzel mit Leipziger Allerlei und Pommes",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "7ee7de30-bf56-4ee4-ac3b-d8f5752bf1f1",
+            "name": "Bratwurst mit bayrisch Kraut und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "af3b5a97-aeb6-49ed-a52b-517777a83c09",
+            "name": "Boulette mit Mischgemüserahm und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "4",
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ad06bba9-4fc2-4cbe-ab5c-61735feb2889",
+            "name": "Hamburger Schnitzel mit Rahmchampignon und Pommes",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "18",
+                "9",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "fce4e86f-5964-46a5-8dbb-e41391132ba3",
+            "name": "Fischstäbchen mit buntem Gemüse, Kräutersoße und Püree",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "16",
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "74768941-1e01-4ea0-aae9-4ed9d401d06e",
+            "name": "Hähnchenschnitzel mit Champignonsoße und Pommes",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "18",
+                "4",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c7b6f8fa-0f19-428a-974e-bdd4d1fba18f",
+            "name": "Gefüllte Kohlroulade mit Bratensoße und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "18",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2a9a8cf6-7b6d-4705-8c60-9b453be852d1",
+            "name": "Hähnchenkeule mit Rotkohl, Soße und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "3",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9f8586ba-fb5b-4e2e-904a-abe8579b5946",
+            "name": "Bratwurst mit Gemüse, Soße und Kartoffeln",
+            "price": 0.01,
+            "category": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8ba03bb4-39a1-4a3f-aab2-71dfd0044da4",
+            "name": "2 gekochte Eier in Senfsoße und Kartoffeln",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "18",
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9dee1942-ca25-4ef9-a468-5e40b98e2dac",
+            "name": "Nudeln essen satt – Bolognese und Spirelli",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "4",
+                "13",
+                "12",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "3d12eacb-2d0f-4454-8d98-2b523bfdfadc",
+            "name": "Gemüseschnitzel mit Holländischer Soße und Reis",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c7874068-1719-4fb4-a186-bee766299233",
+            "name": "Berliner Eisbein mit Sauerkraut und Kartoffeln",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "2",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "77b32446-cea2-4eb2-adcd-044abddef608",
+            "name": "Geschmorter Kohl mit Hackfleisch und Püree",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "16101cc7-33f2-4964-af98-9e264af49099",
+            "name": "2 gekochte Eier mit Rahmspinat und Frühlingspüree",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "4",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b1670bbf-1be6-4c60-9883-47c1a28db786",
+            "name": "XXL Bockwurst mit Kartoffelsalat",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "12",
+                "9",
+                "4",
+                "3",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4c10dc96-8db6-4915-9438-c2f8d2502d55",
+            "name": "Blumenkohl-Käse-Medaillon mit Kräuterpüree und Hollandaise",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f68955b3-4412-4df4-ae93-a0df3389bfcc",
+            "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "4",
+                "13",
+                "12",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1111f5a8-0039-4ee6-84d5-3b3162908932",
+            "name": "Spargelsuppe mit Fleischklößchen und frischen Kräutern",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2b758d40-8e7d-4737-8fde-922029e9df3e",
+            "name": "Hausgemachter Hackbraten mit Blumenkohl, Soße und Kartoffeln",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "38c38bd2-0432-49fb-a8b7-e2690b8f7929",
+            "name": "Spaghetti Bolognese",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "18",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "602dc02b-0837-4132-9925-e57e06704863",
+            "name": "Buntes Eierfrikassee mit Reis",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "2",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "34ba3cae-f722-454b-9606-a46dc7478d84",
+            "name": "Nudel-Auflauf mit Jagdwurstwürfel und Tomatencreme",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "067f08a9-a60b-489b-b692-c8a693259e2b",
+            "name": "Gemüse Köttbullar in Paprikasoße und Makkaroni",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "9",
+                "13",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "0614e900-eae9-4acd-902f-5a20bf3942c6",
+            "name": "2 gekochte Eier mit Rahmspinat und Kräuterpüree",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "4",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2486f216-9cf1-4184-a293-251e4ac06807",
+            "name": "Nudel-Brokkoli-Auflauf mit Tomatensoße",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "91be812e-5811-4a8e-a019-726acca02dce",
+            "name": "Wurstgulasch mit Nudeln",
+            "price": 0.01,
+            "category": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "allergens": [
+                "13",
+                "12",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1d838eec-5c71-42f2-a6f6-5bd71bb9fc2b",
+            "name": "Frisch gebackene Eierkuchen mit Zucker und Apfelmus",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "12",
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2083fd67-bb47-43a4-a90d-53632251c0f8",
+            "name": "Kräuterquark mit Kartoffeln und Leinöl",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "2",
+                "4",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "eb7b1b00-e3d4-413f-9b33-1376c899ba3c",
+            "name": "Weißkohleintopf mit Fleischeinlage",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "12",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "22d7c58d-9a00-4563-99d4-a78722a6157f",
+            "name": "Vegetarische Nudelpfanne mit Tomatensoße",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "9",
+                "13",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "62346a2c-abae-40e1-9c74-fcfe57afadd6",
+            "name": "Grießbrei mit Erdbeeren",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "25a409c5-5cc9-4fab-b77a-cf9ac0820d5e",
+            "name": "Steckrübeneintopf mit Fleischeinlage",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "9",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b18306f1-3541-42c7-834d-d2e55ccef18a",
+            "name": "Möhreneintopf mit Fleischeinlage",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "22",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b89248dd-eac6-4991-be62-d37d1c62954e",
+            "name": "Burger mit Pommes",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a8520706-bd34-40ef-a5a5-1aa8f11113d2",
+            "name": "Alt Deutsche Kartoffelsuppe",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "11",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1b3b3ed1-e816-4637-8b50-25b61a399348",
+            "name": "Kartoffelsuppe mit Bockwurst",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "12",
+                "22",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "988d9a0a-bdf2-4ef1-84a2-1165e900d3f7",
+            "name": "3erlei Gemüse mit Holländischer Soße und Reis",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "95a52f7f-7c73-441d-b3b9-6e568a133d71",
+            "name": "Vegetarische Nudelpfanne mit frischem Gemüse und Tomatencreme",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "13",
+                "4",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e12f599f-4d0a-4777-a445-5cbe34808ca3",
+            "name": "Eierkuchen mit hausgemachtem Apfelmus",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "9",
+                "13",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e1c60fbb-bc17-4c43-851a-df672633a17a",
+            "name": "Grüne Bohnen Eintopf",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a7f4a884-c592-4940-9597-aebb8b3a8e20",
+            "name": "Brühnudelsuppe mit Hühnchenfleisch",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "4",
+                "22",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "de01b067-bd97-4097-93be-d8cc1a09307d",
+            "name": "Kohlrübeneintopf mit Fleischeinlage",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "90346d10-b564-4b58-bc4a-85513eafe7bf",
+            "name": "4 Hefeklöße mit Früchten",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "9",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8d47393d-6c07-452d-8006-e41a0b662a81",
+            "name": "Grießbrei mit Früchten",
+            "price": 0.01,
+            "category": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "allergens": [
+                "9",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "48d15cc9-5b03-431c-9377-8a428cf413c3",
+            "name": "Rosenkohl-Eintopf mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "803e2be1-f895-4a57-a347-86a2e498a76c",
+            "name": "Kohlrabisuppe mit Wiener",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "13",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "de128931-6a95-484e-8536-6ab7bea56a2f",
+            "name": "Weißkohl-Eintopf mit Eisbeinfleisch",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "11",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "3dffee7e-4963-4e51-9a76-83a96bda283a",
+            "name": "Vegetarische Nudelpfanne mit Tomatensoße",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "13",
+                "4",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2b4062ca-1864-4157-85b0-1218a6bb9f51",
+            "name": "Grießbrei mit Erdbeer-Kompott",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "3ee14f9b-75a4-4173-9ba5-e052b80fdc3f",
+            "name": "Steckrübeneintopf mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9f34debd-663f-4f1b-8c3c-7bd29ee48ad4",
+            "name": "Möhrensuppe mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "4",
+                "13",
+                "12",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2b2aeb8a-d99d-4bca-b98f-0a96d22e385e",
+            "name": "Kartoffelpuffer mit Zucker und Apfelmus",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "9",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "121c2ade-b47b-41e5-b28a-e2bd09f2413b",
+            "name": "Kartoffelsuppe mit Bockwurstscheiben",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "12",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9b7bc1aa-99b9-4f47-9410-704aeca98229",
+            "name": "Gemüsesuppe mit Wiener",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "18",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "fa5903d0-8e11-4a80-a9f2-7ce67b7aac15",
+            "name": "Möhren-Eintopf mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e3a84a54-8688-4b46-8934-2cc341a166ec",
+            "name": "Grüne Bohnensuppe mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "bb33bf74-2603-472c-8230-7f8565877b97",
+            "name": "Brühnudelsuppe mit Hühnerfleisch",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "465a03fc-2b26-49f5-a484-99592008c039",
+            "name": "Spargelsuppe mit Fleischklößchen",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "bf87acb9-4f5b-4e59-bdd2-0e2326473cc5",
+            "name": "Grüne Bohnen Eintopf mit Kassler",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "13",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "644dd989-12e7-4cba-91ce-48f9b9b8b3d0",
+            "name": "Brühnudelsuppe mit Hähnchenfleisch",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "18",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a24457a7-75f0-42cf-b36c-b148ff4dd9f2",
+            "name": "Graupensuppe mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "12",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b5591d0d-bf19-49a0-b941-b2b08ab9822b",
+            "name": "Kohlrübeneintopf mit Bauchfleisch",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2fbbfcac-5b56-45d2-8a8d-5f244f0c90fa",
+            "name": "Gemüsesuppe vegetarisch",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "13",
+                "4",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "fccdcd3d-fa52-4e26-b696-749013785f7d",
+            "name": "Kohlrabi-Eintopf mit Wiener",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "12",
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1fe9109b-e619-44e1-9df5-10a260dc0961",
+            "name": "Grießbrei mit Früchten",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "9",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5b5dd54f-de51-4b04-9176-42a97bbe438a",
+            "name": "Wirsingkohl-Suppe mit Fleischeinlage",
+            "price": 7.5,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "14317f81-541f-4137-939f-8d115e728d30",
+            "name": "2 gekochte Eier in Senfsoße, Möhren und Püree",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "13",
+                "19",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1b179065-4954-433f-a06f-9c8183f07d80",
+            "name": "Spaghetti Bolognese",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "4",
+                "2",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "39f3b097-335a-4365-a542-6d2ee0faa37e",
+            "name": "Gemüseschnitzel auf Reisbett mit Holländischer Sauce",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "18",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8d5dc5da-62dd-49c0-86fb-c9c1a7e38a4c",
+            "name": "Kesselgulasch (Suppe) mit Spätzle und Brötchen",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "983189db-7e1a-4c38-b6f5-f1b1127b4aeb",
+            "name": "Gemüsebolognese mit Spaghetti",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "22",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "cac6900d-3ce1-46d0-8ea9-f82e1e25a526",
+            "name": "Spaghetti-Pfanne mit Hackfleisch, Gemüse und Tomatensoße",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "4",
+                "18",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4d21664e-d668-4008-bcd3-60d4b503c47a",
+            "name": "Geschnetzeltes mit Zwiebeln und Reis",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ba42d2a9-471e-4909-ac6e-4de857ed715d",
+            "name": "2 gekochte Eier in Rahmspinat mit Frühlingspüree",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e788bd68-fe50-4740-a7d3-a721cfc5e0fb",
+            "name": "Brokkoli in Hollandaise und Kartoffeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5349b7b9-ef26-4632-b614-bc1a180e215e",
+            "name": "Spirelli mit stückiger Tomatensoße und Reibekäse",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2949c75f-7ac1-40e2-bd0b-514f117eb941",
+            "name": "2 Spiegeleier auf Stampfkartoffeln mit Gurkensalat",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "11",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9220180f-a076-43fd-9790-5e7a7ee4d1cd",
+            "name": "Gegrillte Gemüsemischung mediterran mit Kräuter-Hollandaise",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "677cd406-6542-4192-b692-87ad074eb4d0",
+            "name": "Bockwurst auf Kartoffelsalat mit Salatbeilage",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "12",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "93952692-3161-4407-8373-ef419ed64db0",
+            "name": "Hähnchengulasch mit Lauch und Nudeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f09d9644-4c9b-42e4-8e17-40afc9d53d06",
+            "name": "Brokkoli mit Hollandaise und Kartoffeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "7e51069e-b752-4830-a93a-5d183d21b432",
+            "name": "Wurstgulasch mit Nudeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "4",
+                "2",
+                "18",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "81dd2546-2e07-4022-9981-8236a8156a07",
+            "name": "Kartoffel-Gemüse-Auflauf mit Käsesoße",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4b709a31-5dd8-48fa-8a37-332857cdf912",
+            "name": "Käsespätzle mit Röstzwiebeln und Kräutern",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "13",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a22aa092-b0bb-4ca6-8a77-1fd51d7d12fc",
+            "name": "Nudeln mit stückiger Tomatensoße und Reibekäse",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "80ac7496-1449-4d45-b464-a5516543f42c",
+            "name": "Nudelsalat mit Boulette und süß-saurem Gemüse",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "4",
+                "18",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "724133d1-dabd-400c-8028-2af5dbd2ceb0",
+            "name": "Grüne Bohnen Eintopf mit Eisbeinfleisch",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "22",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d0cfcec4-6437-47e8-8592-4829e6f607f2",
+            "name": "2 gekochte Eier in Senfsoße mit Möhrenstiften und Kartoffeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "13",
+                "18",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f9ffcb18-fb30-4d03-902d-aaf277994602",
+            "name": "3erlei Gemüse in Hollandaise mit Reis",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "09141198-7f1f-4a1d-93f1-f334ce50ccd9",
+            "name": "Gabelspaghetti Bolognese mit Reibekäse",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "13",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "755f7876-5307-4e4c-a178-b89ffd13162a",
+            "name": "Schnitzel mit Kartoffelsalat und Salatbeilage",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "2",
+                "9",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "73770cb8-2c09-4795-8a35-12b73458518c",
+            "name": "Schmorkohl mit Hackfleisch und Püree",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "acd278bd-e87e-487f-b8d0-38c77f310031",
+            "name": "Buntes Eierfrikassee mit Reis",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "4",
+                "9",
+                "18",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f210581d-0b2b-4c96-b835-4fdd343d7b08",
+            "name": "Stampfkartoffeln mit 2 Spiegeleiern und Gurkensalat",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "18",
+                "11",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "30c98b60-aadd-4c3a-8d8e-e10350905706",
+            "name": "Nudelauflauf mit Jagdwurstwürfeln und Tomatencreme",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "12",
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d99dcf8f-714b-4861-ad41-1b2b16cf400d",
+            "name": "Blumenkohl und Möhren in heller Soße und Püree",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "000ffc5c-c2de-4d15-adde-7c616ae66084",
+            "name": "Gemüsemix in holländischer Soße mit Salzkartoffeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8aebb598-b841-4068-8e8b-d6972a0de8af",
+            "name": "Steckrübeneintopf mit Fleischeinlage",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "4",
+                "13",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "0ced2743-9ce6-4560-8d3c-aae134d95995",
+            "name": "Gemüsebällchen in Paprikasoße und Makkaroni",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "0d1b8b54-8583-4ec5-91bb-88da963bc25f",
+            "name": "2 gekochte Eier mit Rahmspinat und Kräuterpüree",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "11",
+                "18",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "6495157b-c49b-4688-aaff-f94d6397eb62",
+            "name": "Pilzragout mit Semmelknödelscheiben",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "dea8bbe8-c9a4-4da5-81aa-d7842df7c877",
+            "name": "Nudel-Auflauf mit Brokkoli und Tomatensoße",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "96b5dffb-dc77-4f1b-a90b-dcc48d225c1d",
+            "name": "Gemüseschnitzel auf Reis mit Kräuter-Hollandaise",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "03a34f3a-b48e-4de4-b8d8-f0d1089ea9f1",
+            "name": "Wirsingkohleintopf mit Bauchfleisch",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b718465e-2f7a-4b30-8dae-55a6b8bf845b",
+            "name": "Wurstgulasch mit Nudeln",
+            "price": 7.2,
+            "category": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c62e4847-8285-4f8b-bdd4-8b407777aadc",
+            "name": "Schaschlikpfanne mit buntem Reis",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "acf4dd85-36ed-4e88-b595-c3f1c02e1922",
+            "name": "Pikantes Hühnerfrikassee mit Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "2",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "88dc4e98-293f-4c7e-b220-06b8372f7b25",
+            "name": "Boulette auf Porreerahm mit Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "791ca44a-1ac3-4449-89c3-1c1e24a6fa50",
+            "name": "Bratwurst mit Sauerkraut, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "3",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4a2974dc-815f-41cb-a07b-1b0a42326199",
+            "name": "Paniertes Schollenfilet auf Stampfkartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "16",
+                "13",
+                "11",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b734f120-45de-4995-b866-72994c6222b1",
+            "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "4",
+                "13",
+                "12",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "7cbf2f29-48b5-4013-9169-3b361d15416d",
+            "name": "Hähnchenbrust mit Buttererbsen, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ea56521d-1c38-4417-bc44-9f5febff95a7",
+            "name": "Hähnchen Nuggets mit Mischgemüserahm und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "4",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "6fb669f7-2a11-4521-8a54-c6b97f24bbb4",
+            "name": "Königsberger Klopse in Kapernsoße mit Kartoffeln und Rote Beete",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8e712103-9492-42d9-9291-04f40712c36a",
+            "name": "Schnitzel mit Porreerahm und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "4",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "3799336d-b451-410f-bb95-4c1e5d4e4907",
+            "name": "Hacksteak mit Letscho und Reis",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "4",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "224dd397-da88-448f-961e-f4bd0f7146e8",
+            "name": "Fischfilet auf Püree mit Kräutergemüse",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "9",
+                "16"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "3e5213d9-0dd9-4b05-9ad1-abe664bd7a7d",
+            "name": "Schinkenmettwurst auf Grünkohl mit Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "12",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "0be9d013-4924-4d63-9a6b-ccd4dd614ff0",
+            "name": "Putenleber mit Zwiebelsoße, Möhrenstiften und Püree",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "9",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "172996a4-551a-41b0-950e-1d1cf9ec2b89",
+            "name": "Hähnchenkeule mit Mischgemüse, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "13178131-1300-40a6-927a-be8331c37564",
+            "name": "Bauernroulade mit Rotkohl, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "4",
+                "3"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5ef2d215-3ffb-4383-9706-5400703ba4d0",
+            "name": "Schnitzel mit Ei, Bratkartoffeln und Gewürzgurke",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "18",
+                "13",
+                "4",
+                "3",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "51e7d74c-df68-42fc-a688-c30a6337c64d",
+            "name": "Rügener Fischpfanne mit Frühlingspüree",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "16",
+                "9",
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ef608784-e76e-4437-8672-d00ed58642ec",
+            "name": "Putengulasch mit Gemüsereis",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2e2f554d-0e23-4e59-81e0-4dd6f8c207f2",
+            "name": "Kasslerbraten mit Sauerkraut, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "11",
+                "4",
+                "3",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "15ae633d-76ca-495e-bcea-33c4c7f0e2a3",
+            "name": "Hack-Paprika-Pfanne mit Nudeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1ca4e8fa-d55e-4eac-8487-860509b9247f",
+            "name": "Frischer Spargelgemüse mit Hähnchenschnitzel und Bärlauchpüree",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "9",
+                "13",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "261d4e45-45f8-4768-8d3a-8abd446d9eac",
+            "name": "Pikantes Hühnerfrikassee mit Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "2",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "18db0522-a265-458f-825f-42a1222c4b57",
+            "name": "Blumenkohl in heller Soße mit Rührei und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "12",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "710e34f1-7551-4fcb-af2f-2c2c669e1782",
+            "name": "2 kl. Bratwürstchen, Kohlrabigemüse und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "4",
+                "18",
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "603a52dc-3c4b-4fde-9282-2579e20e3cbb",
+            "name": "Geschnetzeltes mit Pilzen und Reis",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "3",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "bb97b2fe-c85c-446f-b747-eeb71d92f9ed",
+            "name": "Hähnchenschnitzel auf Püree mit Leipziger Allerlei",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "4",
+                "13",
+                "18",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9735ccb5-1525-4161-ba74-451eafb6fb5e",
+            "name": "2 Bratwürstchen auf Bayrischem Kraut mit Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "11",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "81389b81-6ef5-4a8e-963d-f64d0279e2f2",
+            "name": "Boulette mit Mischgemüse in Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "2",
+                "4",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c0826c15-9e99-41ff-9258-51ff45c20442",
+            "name": "Schnitzel mit Rahmchampignon und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "475ac048-a633-4a84-a2a0-2b06e35b8ee1",
+            "name": "Fischstäbchen auf Püree mit buntem Gemüse und Kräutersoße",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "16",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "75cfaedc-55b2-49f2-9a34-429f95f92c45",
+            "name": "Jägerschnitzel mit Tomatensoße und Nudeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "19",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "988b8571-81e6-47de-a4de-31bb161c251d",
+            "name": "Spanferkelrollbraten mit Apfel-Rotkohl und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "4",
+                "2"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1cbb20a9-1645-4e74-b802-1c0e11569537",
+            "name": "Hähnchen Nuggets mit Champignonsoße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8f1710f0-bca6-45a6-beca-d72b1ce516d6",
+            "name": "Gefüllte Kohlroulade mit Specksoße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2cc7b10d-5c3d-43ff-9eef-636787ac5616",
+            "name": "Hähnchenkeule mit Rotkohl, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "4",
+                "3"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2c1d06c7-07f4-48cd-a7fd-69104bd774c2",
+            "name": "Deftiger Gulasch mit Grünen Bohnen und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "25876088-9e15-463c-900f-1899c5d477e0",
+            "name": "Schnitzel mit Mischgemüse, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5f58335a-33f0-41c0-8def-046b976d5dd9",
+            "name": "Bratwurst mit Butterbohnen, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "13",
+                "18",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "68e25c9a-88d2-4307-9793-29400bef3267",
+            "name": "Hähnchenbrust mit Mischgemüse, Soße und Kartoffeln",
+            "price": 9.8,
+            "category": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "allergens": [
+                "18",
+                "13",
+                "19",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "51e05eb0-2920-4993-bbc8-3d658e33c5ea",
+            "name": "3 Eierkuchen mit Zucker und Apfelmus",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "18",
+                "13",
+                "4",
+                "3"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8970fd72-2abf-48e4-86ac-732837e95b61",
+            "name": "Kräuterquark mit Kartoffeln und Butter",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ce29f7a5-15dd-40dd-9519-9d635f9a0df4",
+            "name": "Boulette auf Kartoffelsalat mit Salatbeilage",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "13",
+                "18",
+                "9",
+                "4",
+                "3"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b6e4b47b-ca33-4cc1-a829-6f8ff44b04a8",
+            "name": "Sülze mit Bratkartoffeln und Remouladensoße",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "11",
+                "3",
+                "4",
+                "12",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5df7d81b-588c-47cb-ade2-50b0a060e61a",
+            "name": "Geschmorter Kohl mit Hackfleisch und Kartoffeln",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d5875d90-5a08-474d-8207-c09df2048e17",
+            "name": "Kartoffelsalat mit Backfisch und Rohkost",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "12",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d5682f4a-3c7e-42dc-ab0c-851a973e508a",
+            "name": "Nudelsalat mit Boulette und Salatbeilage",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "4",
+                "9",
+                "12",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "585eea7b-c23c-448f-ac9e-d482aa5ea1db",
+            "name": "Backcamembert auf gebutterten Spaghetti mit Kräutersoße",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1699d3b7-0846-4f60-a2fe-ff365ba97b21",
+            "name": "Quarkkeulchen mit Zucker und Apfelmus",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1db1d17d-c346-4095-a2ce-3d274ec90901",
+            "name": "Bärlauch-Kräuterquark mit Kartoffeln und Leinöl",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "19dc2d7b-a402-40e5-b27a-5c8893ec9b54",
+            "name": "Kartoffelsalat mit Schinkenröllchen und Bohnensalat",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "4",
+                "2",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5a52ff10-946a-41c8-8e6e-61afcd6ba365",
+            "name": "Nudelsalat mit Hähnchen Nuggets und Salatbeilage",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "4",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "390ae062-2a62-4986-ab33-8784a2f43568",
+            "name": "Wurstgulasch Jäger Art mit Spirelli",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "13",
+                "12",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8912d5d3-170e-457c-b6d7-83b8a9e58732",
+            "name": "3½ Eier und Remouladensoße, Kartoffelsalat",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "3",
+                "4",
+                "2",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "689492b7-0bad-48dd-bc10-f6085f460027",
+            "name": "Tomaten-Reis-Suppe mit Fleischklößchen",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "13",
+                "18",
+                "2",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c01b1c5d-789a-4c2b-a0d6-aec6b26fb060",
+            "name": "Kartoffelsalat mit Schnitzel und Salatbeilage",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "4",
+                "16"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a542f519-06fc-4fff-bf95-21f4ed14ac66",
+            "name": "Kräuterquark mit Salzkartoffeln und Leinöl",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5360d576-e7f0-4a57-a2d5-61281ea022c4",
+            "name": "Bauernsülze mit Bratkartoffeln und Remouladensoße",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "2",
+                "9",
+                "4",
+                "11"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "853a58dc-0934-496c-9cf2-da4a15c7ccee",
+            "name": "Kartoffelpuffer mit Apfelmus und Zucker",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "6e39d7af-0ce4-4e42-9e49-228c0cec9968",
+            "name": "3 Hefeklöße mit Früchten",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "42c197c3-c5fb-4795-8483-15748cbcd376",
+            "name": "Nudeln mit Wurstgulasch",
+            "price": 6.5,
+            "category": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "allergens": [
+                "9",
+                "13",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "32dcc17d-7fc6-4517-9d57-337d39c98dfe",
+            "name": "Apfelmus",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "26a097f3-d4af-4597-9d6e-55d2a5d145ec",
+            "name": "Quarkspeise",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ae6917df-752c-4f26-ae59-a9e4bfa77fd8",
+            "name": "Banane in Schokosoße",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9e1ff59d-29c8-4a2b-a08e-d7e029a4a577",
+            "name": "Rote Grütze mit Vanillesoße",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "cdbc3ed6-8654-44b1-9475-0cc58024b8c8",
+            "name": "1 Stück Blechkuchen",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9c4e5652-287a-4977-82c6-ee454f23bcf6",
+            "name": "Banane",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "dddd089d-5040-4f1d-af66-aee5a6ce35b6",
+            "name": "Fruchtjoghurt 3,5%",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "950ece07-84b4-41fa-8181-e9822d280a52",
+            "name": "Zitronenquark",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "67ebf7c4-7204-4eb1-9dd7-275f2712f748",
+            "name": "Götterspeise mit Sahne",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ccdd2cfc-9486-408b-9a64-8ed21cd50224",
+            "name": "1 Stück Kokos-Schoko-Kuchen",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "86c2e627-3e3a-4306-a6dc-d5a0798bb5c9",
+            "name": "1 Pfannkuchen",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "cd86fcff-0827-4f6f-800c-364ea86cd079",
+            "name": "Frischer Obstsalat",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e8d73c13-ee23-4370-8b88-caa897d8aeed",
+            "name": "Götterspeise mit Vanillesoße",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "fd116dde-12b2-4cd3-9e76-45187277e721",
+            "name": "Schokopudding mit Sahne",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d425cf19-59b2-4f06-9b2f-6c1b3b523f01",
+            "name": "1 Stück Bienenstichtorte",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a0c743ba-ff7c-49f3-bb22-014737c3f155",
+            "name": "Frische Erdbeeren",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ab42b2f8-57d4-4cf6-a6d9-e2b93bcfd36c",
+            "name": "Joghurt mit Früchten",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "aa87efdd-b2bd-416f-88da-914da394811a",
+            "name": "Obstkompott",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ec5ce4d4-a53d-4412-a72a-99b5e7bc05d3",
+            "name": "Schokopudding mit Vanillesoße",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "72a3e7f0-b4b1-40e9-9fec-35b291a5d3e2",
+            "name": "1 Stück Pflaumenkuchen",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "bb4bd33c-5463-468a-b9a7-551dabb62370",
+            "name": "1 Stück Schoko Muffin",
+            "price": 1.8,
+            "category": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "allergens": [
+                "13",
+                "9",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ab752766-45c5-4065-be2d-da9be2c92a30",
+            "name": "Weißkrautsalat",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "d9085851-b272-4f65-ad78-6bcdc7a92160",
+            "name": "Chinakohl mit Pfirsich",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a26d0463-e6ec-42ab-b2f6-3347a937841d",
+            "name": "Gurkensalat",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4312cf4d-d858-4f79-97f8-b0ba9d803830",
+            "name": "Tomatensalat",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "442bbad0-06ab-4ada-85d4-682893b3e8d6",
+            "name": "Tomatensalat mit frischer Minze",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9a8b871c-6d0c-447e-8b84-4f6c5d85585f",
+            "name": "Gurken-Tomaten-Salat",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "878b99cc-c2de-45af-b1a7-0236d02dcc18",
+            "name": "Möhrenrohkost",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "7c943a78-4468-48f3-9e63-a728cf58529d",
+            "name": "Kartoffelsalat 200g",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9578668f-3c3a-4ce7-aa8f-732930bbdc12",
+            "name": "Chicoree-Salat",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "51a19810-6af3-4c66-93f5-92e9dfd9cfdf",
+            "name": "Gurkensalat in Sahne",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "028cf7dd-135f-4586-b8b8-ddb342c28277",
+            "name": "Chinakohl-Salat mit Pfirsich",
+            "price": 1.8,
+            "category": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "86ef2c5d-ea8f-4cb7-9342-1ce45e4c1356",
+            "name": "2 Wiener mit Butter und Brot, Senf und Salat",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "6734e39b-dd0e-4970-8f11-d2817a62c014",
+            "name": "Eiersalat mit Salatbeilage und Toastbrot",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "61bb46a6-a271-4154-8f86-9dda8e891c06",
+            "name": "2 Bauernschnitten mit Käse und Leberwurst",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "51cbcc29-280f-49b5-b818-cf06ba5df20f",
+            "name": "Brathering mit Mischbrot, Zwiebeln, Gewürzgurke und Butter",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "16",
+                "3",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "cd8bbfec-143a-4cbd-9b0a-abdcf545b272",
+            "name": "Käseplatte mit 3 Sorten, Butter und Brot",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "9158dc70-8902-4161-b18b-2447dcc13702",
+            "name": "2 Scheiben Brot mit Leberwurst und Käse, dazu Salat",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "619d9d66-c14d-455e-a671-7e712121de70",
+            "name": "Rührei-Bauernstulle mit Zwiebellauch und Tomatensalat",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "dcfe6cb6-00ed-42da-983a-2001be8f8ec8",
+            "name": "Gebratene Jagdwurst, Salatbeilage, Senf und Kartoffelsalat",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "12",
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f80f0660-b7a3-4aba-82f9-7cfaf627fcac",
+            "name": "Hausmacher Blut-\/Leberwurst mit ½ Ei, Brot und Butter",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f6d3a845-1fa7-4783-979e-d15504b53ba0",
+            "name": "4 Canapés mit Käse, Mett, Eiersalat und Salami",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4b890c86-dec6-47d8-96d8-8e8add70fa15",
+            "name": "2 Scheiben Brot mit Zwiebelmett und Fleischsalat",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "808ff4d3-6d8e-4e62-b5a5-0878ed12cf8b",
+            "name": "Schnitzel auf Kartoffelsalat mit Salatbeilage",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "18",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "cc71ce14-7c00-47aa-9534-cc5997fa6ce7",
+            "name": "2 kl. Bouletten auf Nudelsalat mit Salatbeilage",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "a8fe90ef-75b4-4809-adf6-03d50949c808",
+            "name": "Matjes Hering Remoulade mit Butter und Vollkornbrot",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "16",
+                "3",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "3fb01a29-5f47-4394-a20d-55e80b082d24",
+            "name": "2 kl. Wiener mit Brot und Butter, Senf und Salatbeilage",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "12",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "471df06a-49d6-4d3e-98c4-e6717e7ce034",
+            "name": "Schlachteplatte mit Brot, Butter und Salatbeilage",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ebb19ced-b6ff-4111-9a32-551b2749ae21",
+            "name": "2 Matjesfilet mit Remoulade, Brot und Butter",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "16",
+                "3",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c294c015-5efc-41c0-9b7c-ab6c515dbd43",
+            "name": "Jägerschnitzel auf Kartoffelsalat mit Salatbeilage",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "18",
+                "9",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b9b5875d-debf-47c4-bc94-1743f0487924",
+            "name": "2 Stullen mit Salami und Käse, dazu Gurke und Tomate",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "45ea9aa2-7a5c-4015-b1ec-10ce434e4f87",
+            "name": "2 Mischbrotschnitten mit Zwiebelmett, Leberwurst und Garnitur",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "4",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "1d10ae89-9e7b-4372-9a74-ea121626b595",
+            "name": "2 Scheiben Brot mit Schinken und Käse, dazu Salat",
+            "price": 5.5,
+            "category": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e3827510-d71c-401b-bc69-1b3162760240",
+            "name": "Griechischer Bauernsalat mit Feta, Tomate, Paprika, Gurke, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "9",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "fb0fba4f-e53b-4bb9-85a3-4f593029ecd8",
+            "name": "Gemischter Salat mit Thunfisch, Zwiebeln, Ei, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "452851f1-3fb4-4768-be9d-7da92ea8485b",
+            "name": "Hähnchenschnitzel auf Nudelsalat mit Salatbeilage",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "26771e83-98cf-46ad-9d72-fec7b4dfd03d",
+            "name": "Salat mit Mozzarella, Fetawürfel, Weintrauben und Mandarinen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "b55e1548-f7cf-4a2b-b7c7-42034265fbd3",
+            "name": "Gemischter Salat mit Käse und Schinken, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "57018032-090e-43cb-8888-729722ce4859",
+            "name": "Gemischte Salatplatte mit Feta, Ei, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "60540885-0399-4f3f-b1b7-ff701a229aec",
+            "name": "Gemischter Salat mit Hähnchenbrust, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "dee7ab7d-1d51-4700-9aef-cfb5fa99dc83",
+            "name": "Thunfisch-Salat mit Gurke, Tomate und Eisberg, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "05a2a1cd-8f13-4daf-a380-e0d93b5112d1",
+            "name": "Kartoffelsalat mit Schnitzel und Gurkensalat",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "9",
+                "4",
+                "16",
+                "13",
+                "18"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "87471620-e4c8-4cba-98ce-cd69159eb4be",
+            "name": "Eisbergsalat mit Feta, Ei, Gurke, Tomate, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "9",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "ecfe747e-4547-48fe-b988-c1cef7eeb095",
+            "name": "Nudelsalat mit Hähnchenbrust und Rohkostsalat",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "18",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "288ca813-8a6a-40be-9987-cce361c760be",
+            "name": "Gemischter Salat mit Tomaten, Mozzarella und Balsamico-Dressing",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "2062a481-d750-4547-827a-b627c4a823cc",
+            "name": "Bunter Salat mit Gemüsebällchen, Ananas und Baguettescheiben",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "9",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "543506cc-255c-4bcd-a808-5f4a013fbad1",
+            "name": "Gemischter Salat mit Thunfisch, Zwiebelringe und Baguettescheiben",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "4",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "000edd4c-2167-4ba9-bfeb-60dd8dac3b1e",
+            "name": "Chop-Salat mit Tomate, Paprika, Gurke, Feta und Dressing",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "9",
+                "4",
+                "13"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "834db881-2d79-44b7-9a99-5f25564fda05",
+            "name": "Spargelsalat mit Butterbrötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "2",
+                "13",
+                "9"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "5b122d38-da96-4353-b79b-9273845abb8a",
+            "name": "Gemischter Salat mit Käse und Schinken, Dressing und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "42726ac3-b7cd-4b43-ac1d-fa2f54db614f",
+            "name": "Bunter Sommersalat mit Gurke, Tomate, Paprika, Pfirsich und Lauch",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "19e2a57b-4dd2-41ef-8960-09966405f1ae",
+            "name": "Gemischter Salat mit Hähnchenstreifen, Dipp und Brötchen",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "4"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4ad9f3e1-b6e6-4a3a-8541-53db9401a236",
+            "name": "Schweizer Wurstsalat mit Brötchen und Butter",
+            "price": 5.5,
+            "category": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "allergens": [
+                "13",
+                "9",
+                "12"
+            ],
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        }
+    ],
+    "seededFrom": "admin\/menu_database_v2.json"
+}

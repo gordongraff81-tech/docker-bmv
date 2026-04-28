@@ -1,0 +1,95 @@
+{
+    "version": 1,
+    "updatedAt": "2026-04-28T12:31:13+02:00",
+    "categories": [
+        {
+            "id": "d8f942c0-4128-47c8-b44d-4d5956b03614",
+            "system": "kantine",
+            "key": "kantine_menu1",
+            "label": "Menü 1",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e000fbd3-dd6e-491f-b0f3-9d3000c978bf",
+            "system": "kantine",
+            "key": "kantine_menu2",
+            "label": "Menü 2",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "434871fc-7d1d-49b0-bb58-4fb2ff361b5b",
+            "system": "kantine",
+            "key": "kantine_menu3",
+            "label": "Menü 3",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "system": "essen_auf_raedern",
+            "key": "vollkost",
+            "label": "Vollkost M1",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "e6282f1f-9ec9-4633-92db-a22f2370cf8d",
+            "system": "essen_auf_raedern",
+            "key": "leichte_kost",
+            "label": "Leichte Kost M2",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "7e767215-2321-4aa5-acd3-eb0f3c886350",
+            "system": "essen_auf_raedern",
+            "key": "premium",
+            "label": "Premium M3",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "4fe155a0-4e6c-451c-afbb-15bd9639324f",
+            "system": "essen_auf_raedern",
+            "key": "tagesmenu",
+            "label": "Tagesmenü M4",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "c4c25b50-41ae-40c7-8807-3ed8e7b37ced",
+            "system": "essen_auf_raedern",
+            "key": "dessert",
+            "label": "Dessert",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "f5226921-6cce-4243-b2e8-39de7e3dc294",
+            "system": "essen_auf_raedern",
+            "key": "rohkost",
+            "label": "Rohkost",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "8da7d04f-5a41-4ee7-b98e-9dabaccb0f65",
+            "system": "essen_auf_raedern",
+            "key": "abendessen",
+            "label": "Abendessen",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        },
+        {
+            "id": "6e920a07-e7ec-42f9-9a4c-c7db0e40d656",
+            "system": "essen_auf_raedern",
+            "key": "salat",
+            "label": "Salatteller",
+            "createdAt": "2026-04-28T12:31:13+02:00",
+            "updatedAt": "2026-04-28T12:31:13+02:00"
+        }
+    ],
+    "seededFrom": "admin\/menu_database_v2.json"
+}
