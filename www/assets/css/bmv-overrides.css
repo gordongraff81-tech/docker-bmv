@@ -10,6 +10,23 @@
   --cta-primary-h: #bf4f00;
   --body-text:     #1a2535;
   --body-muted:    #5a6a82;
+
+  /* Aliasse für ältere Template-Referenzen */
+  --color-primary:   var(--brand-primary);  /* = #0B1F4D */
+  --color-secondary: var(--brand-accent);   /* = #FF6B00 */
+  --font-heading:    var(--font-display);   /* Bricolage Grotesque */
+
+  /* Aliasse für Legacy Legal-Pages (altes Design System) */
+  --clr-primary:       var(--navy-800);
+  --clr-primary-light: var(--navy-100);
+  --clr-accent:        var(--orange-500);
+  --clr-accent-dark:   var(--orange-600);
+  --clr-accent-light:  var(--orange-50);
+  --clr-text-meta:     var(--color-text-muted);
+  --clr-text-light:    var(--color-text-light);
+  --clr-border:        var(--color-border);
+  --clr-bg-section:    var(--neutral-50);
+  --radius-md:         0.5rem;
 }
 
 

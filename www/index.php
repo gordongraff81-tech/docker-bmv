@@ -68,6 +68,7 @@ $dayNames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/css/bmv-premium.css">
+  <link rel="stylesheet" href="/assets/css/bmv-overrides.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":["LocalBusiness","FoodEstablishment"],"@id":"<?= BMV_URL ?>/#organization","name":"<?= BMV_NAME ?>","url":"<?= BMV_URL ?>","telephone":"<?= BMV_TEL ?>","email":"<?= BMV_EMAIL ?>","address":{"@type":"PostalAddress","streetAddress":"Am Gutshof 6","addressLocality":"Werder (Havel)","postalCode":"14542","addressRegion":"Brandenburg","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":52.3869,"longitude":12.9344},"openingHours":"Mo-Fr 07:00-15:00","priceRange":"€€","logo":"<?= BMV_URL ?>/assets/images/BMV_Logo_n.png"}
   </script>
@@ -585,42 +586,14 @@ $dayNames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag
   </div>
 </footer>
 
+<script src="/assets/js/main.js" defer></script>
 <script>
+// Zusätzliches Pexels-Lazy-Load für Startseite
 (function(){
-  'use strict';
-  var header=document.getElementById('site-header');
-  if(header){window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>32);},{passive:true});}
-
-  var toggle=document.getElementById('nav-toggle'),nav=document.getElementById('site-nav');
-  if(toggle&&nav){
-    toggle.addEventListener('click',function(){var e=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!e));nav.classList.toggle('is-open',!e);document.body.style.overflow=e?'':'hidden';});
-    document.addEventListener('click',function(e){if(!toggle.contains(e.target)&&!nav.contains(e.target)){toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');document.body.style.overflow='';}});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open')){toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');document.body.style.overflow='';toggle.focus();}});
-  }
-
-  document.querySelectorAll('.site-nav__dropdown').forEach(function(dd){
-    var t=dd.querySelector('.site-nav__dropdown-toggle');
-    if(!t)return;
-    t.addEventListener('click',function(e){if(window.innerWidth<769){e.preventDefault();dd.classList.toggle('is-open');t.setAttribute('aria-expanded',dd.classList.contains('is-open')?'true':'false');}});
-  });
-
-  var els=document.querySelectorAll('.fade-up,.fade-in');
-  if(els.length){
-    if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('is-visible');});}
-    else{var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el);});}
-  }
-
-  document.querySelectorAll('.img-wrap').forEach(function(el){
-    var img=el.querySelector('img');if(!img)return;
-    if(img.complete&&img.naturalWidth){el.classList.add('img-loaded');}
-    else{img.addEventListener('load',function(){el.classList.add('img-loaded');});img.addEventListener('error',function(){el.classList.add('img-loaded');});}
-  });
-
   var pc=Object.create(null);
   function fetchP(q){if(q in pc)return Promise.resolve(pc[q]);return fetch('/api/pexels_image.php?q='+encodeURIComponent(q)).then(function(r){return r.ok?r.json():Promise.reject();}).then(function(d){return(pc[q]=d.url||null);}).catch(function(){return(pc[q]=null);});}
   function loadMenuImgs(){Array.prototype.slice.call(document.querySelectorAll('img.pexels-img[data-query]')).forEach(function(img){fetchP(img.dataset.query).then(function(url){if(!url)return;var w=img.closest('.img-wrap');img.onload=function(){img.classList.add('loaded');if(w)w.classList.add('img-loaded');};img.src=url;});});}
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',loadMenuImgs);}else{loadMenuImgs();}
-
   document.querySelectorAll('.menu-day-card').forEach(function(c){c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();location.href='/speiseplan/';}});});
 })();
 </script>

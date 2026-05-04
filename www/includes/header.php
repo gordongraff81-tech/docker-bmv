@@ -63,8 +63,9 @@ if (!function_exists('bmv_nav_class')) {
   <link rel="apple-touch-icon" href="/assets/images/Favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Single consolidated premium stylesheet -->
+  <!-- Design System: Premium-Basis + Brand-Overrides -->
   <link rel="stylesheet" href="/assets/css/bmv-premium.css">
+  <link rel="stylesheet" href="/assets/css/bmv-overrides.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -94,6 +95,7 @@ if (!function_exists('bmv_nav_class')) {
   }
   </script>
   <?php if (!empty($schema_extra)): ?><?= $schema_extra ?><?php endif; ?>
+  <?php if (!empty($head_extra)): ?><?= $head_extra ?><?php endif; ?>
 </head>
 <body>
 

@@ -11,7 +11,12 @@
  * Gibt ein Array mit 7 DateTimeImmutable-Objekten zurück (Mo–So der gegebenen KW).
  */
 function kwDates(int $year, int $kw): array {
+    $kw   = max(1, min(53, $kw));
+    $year = max(2000, min(2099, $year));
     $base = DateTimeImmutable::createFromFormat('o-W-N', "$year-$kw-1");
+    if ($base === false) {
+        $base = new DateTimeImmutable();
+    }
     $days = [];
     for ($i = 0; $i < 7; $i++) {
         $days[] = $base->modify("+$i days");
@@ -27,9 +32,19 @@ function kwDates(int $year, int $kw): array {
  * @return array{0: int, 1: int}  [$year, $kw]
  */
 function addKW(int $year, int $kw, int $delta): array {
+    // Eingabe defensiv bereinigen: KW muss zwischen 1 und 53 liegen
+    $kw   = max(1, min(53, $kw));
+    $year = max(2000, min(2099, $year));
+
+    $dt = DateTimeImmutable::createFromFormat('o-W-N', "$year-$kw-1");
+    if ($dt === false) {
+        // Fallback: aktuelles Datum verwenden
+        $dt = new DateTimeImmutable();
+    }
+
     $sign = $delta >= 0 ? '+' : '';
-    $dt   = DateTimeImmutable::createFromFormat('o-W-N', "$year-$kw-1")
-                             ->modify("{$sign}{$delta} weeks");
+    $dt   = $dt->modify("{$sign}{$delta} weeks");
+
     return [(int)$dt->format('o'), (int)$dt->format('W')];
 }
 

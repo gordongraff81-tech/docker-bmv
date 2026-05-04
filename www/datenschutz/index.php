@@ -2,34 +2,14 @@
 /**
  * datenschutz/index.php – BMV Menüdienst
  */
-?>
-<!DOCTYPE html>
-<html lang="de" prefix="og: https://ogp.me/ns#">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datenschutzerklärung – BMV Menüdienst</title>
-  <meta name="description" content="Datenschutzerklärung des BMV Menüdienst gemäß DSGVO. Informationen zur Erhebung, Verarbeitung und Nutzung personenbezogener Daten.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://www.bmv-kantinen.de/datenschutz/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.bmv-kantinen.de/datenschutz/">
-  <meta property="og:title" content="Datenschutzerklärung – BMV Menüdienst">
-  <meta property="og:description" content="Datenschutzerklärung des BMV Menüdienst gemäß DSGVO. Informationen zur Erhebung, Verarbeitung und Nutzung personenbezogener Daten.">
-  <meta property="og:image" content="https://www.bmv-kantinen.de/assets/og-image.jpg">
-  <meta property="og:locale" content="de_DE">
-  <meta property="og:site_name" content="BMV Menüdienst">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/design-system.css">
-  <link rel="stylesheet" href="/assets/css/hero-upgrade.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Datenschutz","item":"https://www.bmv-kantinen.de/datenschutz/"}]}
-  </script>
-  <style>
+$page_title       = 'Datenschutzerklärung – BMV Menüdienst';
+$meta_description = 'Datenschutzerklärung des BMV Menüdienst gemäß DSGVO. Informationen zur Erhebung, Verarbeitung und Nutzung personenbezogener Daten.';
+$active_nav       = '';
+$canonical        = 'https://www.bmv-kantinen.de/datenschutz/';
+$meta_robots      = 'noindex, follow';
+$schema_extra     = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Datenschutz","item":"https://www.bmv-kantinen.de/datenschutz/"}]}<\/script>';
+
+$head_extra = '<style>
     .legal-content h2 { font-size: 1.5rem; color: var(--clr-primary); margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--clr-primary-light); padding-bottom: .5rem; }
     .legal-content h3 { font-size: 1.125rem; color: var(--clr-primary); margin: 1.75rem 0 .75rem; }
     .legal-content p  { color: var(--clr-text-meta); line-height: 1.8; margin-bottom: 1rem; }
@@ -42,11 +22,11 @@
     .legal-content a { color: var(--clr-accent); font-weight: 500; }
     .legal-content .highlight-box { background: var(--clr-accent-light); border-left: 4px solid var(--clr-accent); padding: 1rem 1.5rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 1.5rem; }
     .legal-content .highlight-box p { color: var(--clr-accent-dark); margin: 0; font-weight: 500; }
-  </style>
-</head>
-<body>
-  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
-  <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'; ?>
+  </style>';
+
+include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
+?>
+
 
   <main id="main-content" role="main">
     <section class="page-hero page-hero--sm" aria-labelledby="page-hero-heading">
@@ -125,7 +105,5 @@
   </main>
 
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
-  <script src="/assets/js/main.js" defer></script>
-  <script src="/assets/js/hero-upgrade.js" defer></script>
 </body>
 </html>

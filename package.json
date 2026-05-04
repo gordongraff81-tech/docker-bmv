@@ -1,0 +1,25 @@
+{
+  "name": "docker-bmv",
+  "version": "1.0.0",
+  "description": "Docker-Setup zum lokalen Testen des kompletten BMV-Webprojekts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gordongraff81-tech/docker-bmv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gordongraff81-tech/docker-bmv/issues"
+  },
+  "homepage": "https://github.com/gordongraff81-tech/docker-bmv#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "playwright": "^1.59.1"
+  }
+}

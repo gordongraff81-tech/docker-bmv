@@ -1,145 +1,67 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+/**
+ * speiseplan/index.php – Wochenspeiseplan
+ * Nutzt helpers.php für alle Hilfsfunktionen (keine Duplikate)
+ */
+require_once __DIR__ . '/../includes/helpers.php';
 
 $currentYear = (int)date('Y');
 $currentKW   = (int)date('W');
 $year = isset($_GET['year']) ? (int)$_GET['year'] : $currentYear;
 $kw   = isset($_GET['kw'])   ? (int)$_GET['kw']   : $currentKW;
 
-// Max 4 Wochen in der Zukunft
-$maxKW = $currentKW + 4;
-$maxYear = $currentYear;
-if ($maxKW > 52) { $maxKW -= 52; $maxYear++; }
-
-function kwDates(int $year, int $kw): array {
-    $dto = new DateTime();
-    $dto->setISODate($year, $kw, 1);
-    $days = [];
-    for ($i = 0; $i < 7; $i++) {
-        $days[] = clone $dto;
-        $dto->modify('+1 day');
-    }
-    return $days;
-}
-
-$days = kwDates($year, $kw);
-$dayNames = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
-$dayShort = ['Mo','Di','Mi','Do','Fr','Sa','So'];
-
-// Prev/Next KW berechnen
-function addKW(int $year, int $kw, int $delta): array {
-    $dto = new DateTime();
-    $dto->setISODate($year, $kw, 1);
-    $dto->modify(($delta > 0 ? '+' : '').$delta.' weeks');
-    return [(int)$dto->format('o'), (int)$dto->format('W')];
-}
+// Navigations-Grenzen (aus helpers.php)
 [$prevYear, $prevKW] = addKW($year, $kw, -1);
 [$nextYear, $nextKW] = addKW($year, $kw, +1);
+$bounds   = kwNavBounds($year, $kw, $currentYear, $currentKW, 4);
+$isAtMin  = $bounds['isAtMin'];
+$isAtMax  = $bounds['isAtMax'];
 
-$isAtMax = ($nextYear > $maxYear || ($nextYear === $maxYear && $nextKW > $maxKW));
-$isAtMin = ($prevYear < $currentYear || ($prevYear === $currentYear && $prevKW < 1));
-
-// ── Feiertage Brandenburg ──────────────────────────────────────
-function getFeiertage(int $year): array {
-    // Ostersonntag (Gauss-Algorithmus)
-    $a = $year % 19; $b = (int)($year/100); $c = $year % 100;
-    $d = (int)($b/4); $e = $b % 4; $f = (int)(($b+8)/25);
-    $g = (int)(($b-$f+1)/3); $h = (19*$a+$b-$d-$g+15) % 30;
-    $i = (int)($c/4); $k = $c % 4;
-    $l = (32+2*$e+2*$i-$h-$k) % 7;
-    $m = (int)(($a+11*$h+22*$l)/451);
-    $monat = (int)(($h+$l-7*$m+114)/31);
-    $tag   = (($h+$l-7*$m+114) % 31)+1;
-    $ostern = new DateTime("$year-$monat-$tag");
-
-    $feiertage = [];
-    // Feste Feiertage
-    foreach ([
-        '01-01' => 'Neujahr',
-        '05-01' => 'Tag der Arbeit',
-        '10-03' => 'Tag der Deutschen Einheit',
-        '10-31' => 'Reformationstag',
-        '12-25' => '1. Weihnachtstag',
-        '12-26' => '2. Weihnachtstag',
-    ] as $md => $name) {
-        $feiertage["$year-$md"] = $name;
-    }
-    // Bewegliche Feiertage
-    $beweglich = [
-        -2 => 'Karfreitag',
-         1 => 'Ostermontag',
-        39 => 'Christi Himmelfahrt',
-        50 => 'Pfingstmontag',
-    ];
-    foreach ($beweglich as $offset => $name) {
-        $d = clone $ostern;
-        $d->modify("$offset days");
-        $feiertage[$d->format('Y-m-d')] = $name;
-    }
-    return $feiertage;
-}
+$days      = kwDates($year, $kw);
+$dayNames  = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+$dayShort  = ['Mo','Di','Mi','Do','Fr','Sa','So'];
 $feiertage = getFeiertage($year);
 
-// ── Daten laden: neues Format (essen_auf_raedern-YYYY-KWxx.json) ──
-// Fallback auf altes Format (YYYY-KWxx.json)
+// ── Daten laden ──────────────────────────────────────────────────
 $kwStr   = str_pad($kw, 2, '0', STR_PAD_LEFT);
 $docRoot = $_SERVER['DOCUMENT_ROOT'];
 $newFile = "$docRoot/data/speiseplaene/essen_auf_raedern-{$year}-KW{$kwStr}.json";
 $oldFile = "$docRoot/data/speiseplaene/{$year}-KW{$kwStr}.json";
 
-$plan     = null;
+$plan      = null;
 $newFormat = false;
 
 if (file_exists($newFile)) {
     $raw = json_decode(file_get_contents($newFile), true);
-    if ($raw && isset($raw['data'])) {
-        $plan      = $raw;
-        $newFormat = true;
-    }
+    if ($raw && isset($raw['data'])) { $plan = $raw; $newFormat = true; }
 } elseif (file_exists($oldFile)) {
     $plan = json_decode(file_get_contents($oldFile), true);
 }
 
 // ── Daten normalisieren → einheitliches $dayMap ──────────────────
-// $dayMap[0..6] = [ 'menus'=>[], 'addons'=>[] ]
-// menus: [ ['menu_number'=>1,'title'=>'...','allergens'=>'...','price'=>7.50], ... ]
-// addons: [ ['code'=>'D','name'=>'...','price'=>1.80], ... ]
 $dayMap  = [];
 $prices  = [1=>7.50, 2=>7.20, 3=>9.80, 4=>6.50];
 $aprices = ['D'=>1.80,'R'=>1.80,'A'=>5.50,'S'=>5.50];
 
-$catToMenu = ['vollkost'=>1,'leichte_kost'=>2,'premium'=>3,'tagesmenu'=>4];
+$catToMenu  = ['vollkost'=>1,'leichte_kost'=>2,'premium'=>3,'tagesmenu'=>4];
 $catToAddon = ['dessert'=>'D','rohkost'=>'R','abendessen'=>'A','salat'=>'S'];
 
 if ($plan) {
     if ($newFormat) {
-        // Neues Format: data[dayIdx][catKey] = {name,allergens,price}
         foreach ($plan['data'] as $dayIdx => $cats) {
             $dayIdx = (int)$dayIdx;
-            $menus  = [];
-            $addons = [];
+            $menus  = []; $addons = [];
             foreach ($cats as $catKey => $entry) {
                 if (!($entry['name'] ?? '')) continue;
                 if (isset($catToMenu[$catKey])) {
-                    $menus[] = [
-                        'menu_number' => $catToMenu[$catKey],
-                        'title'       => $entry['name'],
-                        'allergens'   => $entry['allergens'] ?? '',
-                        'price'       => (float)($entry['price'] ?? $prices[$catToMenu[$catKey]]),
-                        'available'   => true,
-                    ];
+                    $menus[] = ['menu_number'=>$catToMenu[$catKey],'title'=>$entry['name'],'allergens'=>$entry['allergens']??'','price'=>(float)($entry['price']??$prices[$catToMenu[$catKey]]),'available'=>true];
                 } elseif (isset($catToAddon[$catKey])) {
-                    $addons[] = [
-                        'code'  => $catToAddon[$catKey],
-                        'name'  => $entry['name'],
-                        'price' => (float)($entry['price'] ?? $aprices[$catToAddon[$catKey]]),
-                    ];
+                    $addons[] = ['code'=>$catToAddon[$catKey],'name'=>$entry['name'],'price'=>(float)($entry['price']??$aprices[$catToAddon[$catKey]])];
                 }
             }
             $dayMap[$dayIdx] = ['menus'=>$menus,'addons'=>$addons];
         }
     } else {
-        // Altes Format: days[].date + menus[] + addons[]
         if (!empty($plan['days'])) {
             foreach ($plan['days'] as $d) {
                 $dow = (int)(new DateTime($d['date']))->format('N') - 1;
@@ -150,73 +72,19 @@ if ($plan) {
         $aprices = $plan['addon_prices'] ?? $aprices;
     }
 }
-
-// Hilfsfunktionen
-function getMenu(?array $day, int $n): ?array {
-    if (!$day) return null;
-    foreach ($day['menus'] ?? [] as $m) {
-        if ((int)$m['menu_number'] === $n) return $m;
-    }
-    return null;
-}
-function getAddon(?array $day, string $code): ?array {
-    if (!$day) return null;
-    foreach ($day['addons'] ?? [] as $a) {
-        if ($a['code'] === $code) return $a;
-    }
-    return null;
-}
-// Deutsches Gericht → englischer Pexels-Suchbegriff
-function dishSearchQuery(string $name): string {
-    static $map = [
-        'suppe'=>'soup bowl','eintopf'=>'hearty stew','braten'=>'roast meat german',
-        'schnitzel'=>'schnitzel breaded','hähnchen'=>'roasted chicken','hühnchen'=>'chicken dish',
-        'frikassee'=>'chicken fricassee','hähnchenb'=>'grilled chicken breast',
-        'fisch'=>'fish fillet plate','lachs'=>'salmon fillet','forelle'=>'trout fillet',
-        'zander'=>'white fish fillet','hering'=>'herring fish','matjes'=>'herring salad',
-        'nudel'=>'pasta dish','spätzle'=>'spaetzle german pasta','spaghetti'=>'spaghetti bolognese',
-        'lasagne'=>'lasagna baked','nudeln'=>'noodle dish',
-        'kartoffel'=>'potato dish','püree'=>'mashed potato','klöße'=>'potato dumplings',
-        'knödel'=>'dumplings german','puffer'=>'potato pancake',
-        'gulasch'=>'goulash stew','roulade'=>'beef roulade','rind'=>'beef dish',
-        'schweine'=>'pork roast','pute'=>'turkey roast','leber'=>'liver onions',
-        'wurst'=>'sausage plate','bratwurst'=>'bratwurst grilled','kassler'=>'smoked pork chop',
-        'salat'=>'salad fresh bowl','rohkost'=>'raw vegetables fresh','gurke'=>'cucumber salad',
-        'tomate'=>'tomato salad','möhren'=>'carrot dish','rotkohl'=>'red cabbage',
-        'sauerkraut'=>'sauerkraut dish','gemüse'=>'vegetables plate','brokkoli'=>'broccoli dish',
-        'spinat'=>'spinach dish','pilz'=>'mushroom cream sauce','champignon'=>'mushroom dish',
-        'kuchen'=>'cake slice','torte'=>'layer cake','pudding'=>'pudding dessert cream',
-        'mousse'=>'chocolate mousse','eis'=>'ice cream dessert','grütze'=>'berry compote',
-        'milchreis'=>'rice pudding','grieß'=>'semolina pudding','obst'=>'fresh fruit bowl',
-        'apfel'=>'apple dessert','schokolade'=>'chocolate dessert','beere'=>'berry dessert',
-        'pfannkuchen'=>'pancakes stack','eierkuchen'=>'crepes french','quark'=>'curd cheese fresh',
-        'ei'=>'egg dish','rührei'=>'scrambled eggs','käse'=>'cheese plate',
-        'reis'=>'rice dish','curry'=>'curry dish','couscous'=>'couscous bowl',
-        'paprika'=>'stuffed bell pepper','kohl'=>'cabbage roll','wirsing'=>'stuffed cabbage',
-        'toast'=>'toast plate','brot'=>'bread plate','aufschnitt'=>'cold cuts deli',
-    ];
-    $lower = mb_strtolower($name);
-    foreach ($map as $key => $val) {
-        if (str_contains($lower, $key)) return $val;
-    }
-    // Fallback: Gerichtsname direkt (Klammern entfernen)
-    return preg_replace('/\s*\(.*?\)\s*/', ' ', $name) . ' food dish';
-}
 ?>
 <?php
-// Shared Header mit Seiten-Variablen
-$page_title = 'Wochenspeiseplan KW ' . $kw . '/' . $year . ' – BMV-Menüdienst';
+// ── Seiten-Variablen für header.php ──────────────────────────────
+$page_title       = 'Wochenspeiseplan KW ' . $kw . '/' . $year . ' – BMV-Menüdienst';
 $meta_description = 'Wochenspeiseplan KW ' . $kw . '/' . $year . ' von BMV-Menüdienst. Frische Menüs für Potsdam und Werder (Havel).';
-$active_nav = 'speiseplan';
-$canonical = 'https://www.bmv-kantinen.de/speiseplan/?year=' . $year . '&kw=' . $kw;
-include __DIR__ . '/../includes/header.php';
+$active_nav       = 'speiseplan';
+$canonical        = 'https://www.bmv-kantinen.de/speiseplan/?year=' . $year . '&kw=' . $kw;
+require_once __DIR__ . '/../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
 <style>
 /* ═══════════════════════════════════════════════════
-   VARIABLEN & RESET
+   SPEISEPLAN-SPEZIFISCHE STYLES
+   (nur seitenspezifisch — globale Styles kommen aus bmv-premium.css + bmv-overrides.css)
 ═══════════════════════════════════════════════════ */
 :root {
   --navy:    #0B2A5B;
@@ -229,19 +97,11 @@ include __DIR__ . '/../includes/header.php';
   --text:    #1a2535;
   --muted:   #5a6a82;
   --green:   #16a34a;
-  --serif:   'Source Serif 4', Georgia, serif;
+  --serif:   'Bricolage Grotesque', Georgia, serif;
   --sans:    'DM Sans', system-ui, sans-serif;
   --r:       16px;
   --sh:      0 2px 8px rgba(11,42,91,.10);
   --sh2:     0 8px 32px rgba(11,42,91,.14);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 18px; scroll-behavior: smooth; }
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -964,11 +824,9 @@ body {
 /* Drucklayout nur bei Druck sichtbar */
 .print-layout { display: none; }
 </style>
-</head>
-<body>
 
 <!-- ═══════════════════════════════════════════════
-     HEADER (Screen)
+     SPEISEPLAN CONTENT
 ═══════════════════════════════════════════════════ -->
 <!-- ═══════════════════════════════════════════════
      WOCHENNAVIGATION (Screen)
@@ -1544,6 +1402,4 @@ function doPrint() {
 }
 </script>
 
-<?php include __DIR__ . '/../includes/footer.php'; ?>
-</body>
-</html>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
