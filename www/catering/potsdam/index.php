@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title       = 'Catering Potsdam – Firmenessen & Betriebsfeste';
 $meta_description = 'Catering in Potsdam: Firmenlunch, Betriebsfeste, Veranstaltungen von BMV-Menüdienst. Frisch, professionell, vor Ort.';
 $active_nav       = 'catering';
@@ -19,6 +19,14 @@ if (!defined('BMV_NAME')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:title"       content="Catering Potsdam – Firmenessen & Betriebsfeste">
+  <meta property="og:description" content="Catering in Potsdam von BMV-MenÜdienst. Firmenlunch, Betriebsfeste und Veranstaltungen. Frisch, professionell.">
+  <meta property="og:image"       content="https://www.bmv-kantinen.de/assets/images/catering-setup.jpg">
+  <meta property="og:locale"      content="de_DE">
+  <meta property="og:site_name"   content="BMV MenÜdienst">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Catering","item":"https://www.bmv-kantinen.de/catering/"},{"@type":"ListItem","position":3,"name":"Potsdam","item":"https://www.bmv-kantinen.de/catering/potsdam/"}]}</script>
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
   <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">

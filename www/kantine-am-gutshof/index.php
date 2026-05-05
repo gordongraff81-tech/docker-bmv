@@ -19,6 +19,14 @@ if (!defined('BMV_NAME')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:title"       content="Kantine am Gutshof Werder (Havel) – Täglicher Mittagstisch">
+  <meta property="og:description" content="Betriebskantine am Gutshof Werder (Havel). Frisch gekochter Mittagstisch fÜr Mitarbeiter und Gäste.">
+  <meta property="og:image"       content="https://www.bmv-kantinen.de/assets/images/kantine-gutshof.jpg">
+  <meta property="og:locale"      content="de_DE">
+  <meta property="og:site_name"   content="BMV MenÜdienst">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Kantine am Gutshof","item":"https://www.bmv-kantinen.de/kantine-am-gutshof/"}]}</script>
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
   <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -852,7 +852,8 @@ require_once __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════
      HAUPTINHALT (Screen)
 ═══════════════════════════════════════════════════ -->
-<main class="main screen-only">
+<h1 class="sr-only">Wochenspeiseplan BMV-MenÜdienst</h1>
+  <main class="main screen-only">
 
 <?php if (!$plan): ?>
 <div class="no-data">

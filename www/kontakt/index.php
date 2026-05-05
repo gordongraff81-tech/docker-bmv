@@ -19,6 +19,14 @@ if (!defined('BMV_NAME')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:title"       content="Kontakt – BMV-MenÜdienst Werder (Havel)">
+  <meta property="og:description" content="Kontaktieren Sie BMV-MenÜdienst: Telefon, E-Mail oder Anfrageformular. Wir melden uns schnell zurÜck.">
+  <meta property="og:image"       content="https://www.bmv-kantinen.de/assets/og-image.jpg">
+  <meta property="og:locale"      content="de_DE">
+  <meta property="og:site_name"   content="BMV MenÜdienst">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Kontakt","item":"https://www.bmv-kantinen.de/kontakt/"}]}</script>
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
   <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,7 +125,9 @@ if (!defined('BMV_NAME')) {
           <h2 class="section-title" id="form-heading">Anfrage-Formular</h2>
           <p class="section-sub">Schreiben Sie uns – wir melden uns schnell bei Ihnen.</p>
         </div>
-        <form method="post" action="/kontakt/send.php" novalidate style="margin-top:40px;" class="fade-up">
+      <div id="form-message" class="form-message" hidden role="alert" aria-live="polite"></div>
+
+        <form id="kontakt-form" method="post" action="/kontakt/send.php" novalidate style="margin-top:40px;" class="fade-up">
           <div style="margin-bottom:24px;">
             <label style="display:block;margin-bottom:8px;color:#0B2A5B;font-weight:600;" for="name">Ihr Name *</label>
             <input type="text" name="name" id="name" required style="width:100%;padding:12px 16px;border:1px solid #dde4ef;border-radius:8px;font-family:inherit;font-size:1rem;" placeholder="Max Mustermann">
@@ -198,6 +208,9 @@ if (!defined('BMV_NAME')) {
     </div>
   </section>
 
+<script>
+(function(){var form=document.getElementById('kontakt-form');if(!form)return;var btn=form.querySelector('button[type="submit"]');var box=document.getElementById('form-message');form.addEventListener('submit',function(e){e.preventDefault();btn.disabled=true;btn.textContent='Wird gesendet\u2026';fetch('/kontakt/send.php',{method:'POST',body:new FormData(form)}).then(function(r){return r.json()}).then(function(d){if(d.success){form.reset();box.className='form-message form-message--success';box.textContent=d.message||'Vielen Dank! Wir melden uns in K\u00fcrze.'}else{box.className='form-message form-message--error';box.textContent=d.message||'Ein Fehler ist aufgetreten.';btn.disabled=false;btn.textContent='Nachricht senden'}box.hidden=false;box.scrollIntoView({behavior:'smooth',block:'nearest'})}).catch(function(){box.className='form-message form-message--error';box.textContent='Verbindungsfehler.';box.hidden=false;btn.disabled=false;btn.textContent='Nachricht senden'})})})();
+</script>
 </main>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>

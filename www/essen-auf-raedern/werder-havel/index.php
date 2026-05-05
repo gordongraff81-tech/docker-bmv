@@ -19,6 +19,14 @@ if (!defined('BMV_NAME')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:title"       content="Essen auf Rädern Werder (Havel) – von hier geliefert">
+  <meta property="og:description" content="Mittagessen-Lieferdienst direkt aus Werder (Havel). Täglich frisch fÜr Senioren, Familien und Betriebe.">
+  <meta property="og:image"       content="https://www.bmv-kantinen.de/assets/images/essen-auf-raedern-lieferung.jpg">
+  <meta property="og:locale"      content="de_DE">
+  <meta property="og:site_name"   content="BMV MenÜdienst">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Essen auf Radern","item":"https://www.bmv-kantinen.de/essen-auf-raedern/"},{"@type":"ListItem","position":3,"name":"Werder (Havel)","item":"https://www.bmv-kantinen.de/essen-auf-raedern/werder-havel/"}]}</script>
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
   <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">

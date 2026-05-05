@@ -21,6 +21,14 @@ if (!defined('BMV_NAME')) {
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($meta_description) ?>">
   <meta name="robots" content="index, follow">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:title"       content="Essen auf Rädern Potsdam & Werder – täglich frisch geliefert">
+  <meta property="og:description" content="Warmes Mittagessen täglich an Ihre TÜr. BMV-MenÜdienst liefert in Potsdam, Werder (Havel) und Umland.">
+  <meta property="og:image"       content="https://www.bmv-kantinen.de/assets/images/essen-auf-raedern-lieferung.jpg">
+  <meta property="og:locale"      content="de_DE">
+  <meta property="og:site_name"   content="BMV MenÜdienst">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bmv-kantinen.de/"},{"@type":"ListItem","position":2,"name":"Essen auf Radern","item":"https://www.bmv-kantinen.de/essen-auf-raedern/"}]}</script>
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
   <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
