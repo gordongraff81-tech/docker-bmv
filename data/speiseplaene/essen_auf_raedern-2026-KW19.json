@@ -1,0 +1,17 @@
+{
+    "year": 2026,
+    "kw": 19,
+    "system": "essen_auf_raedern",
+    "published": true,
+    "week_start": "2026-05-04",
+    "saved_at": "2026-05-05T11:05:26+02:00",
+    "data": [
+        {
+            "vollkost": {
+                "name": "Möhrensuppe mit Fleischeinlage",
+                "allergens": "4, 13, 12, 22",
+                "price": 6.4
+            }
+        }
+    ]
+}

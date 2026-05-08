@@ -1,7 +1,56 @@
 {
     "version": 1,
-    "updatedAt": "2026-04-28T13:07:27+02:00",
+    "updatedAt": "2026-05-05T11:02:04+02:00",
     "dishes": [
+        {
+            "id": "e190b311-83d5-4136-8bb3-a8d6d95b397c",
+            "name": "Kartoffelsuppe mit Wursteinlage",
+            "price": 6.4,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "12",
+                "13",
+                "22"
+            ],
+            "createdAt": "2026-05-05T10:45:47+02:00",
+            "updatedAt": "2026-05-05T10:45:47+02:00"
+        },
+        {
+            "id": "c8cdcdbd-8116-4175-a431-b36d92831804",
+            "name": "Milchreis mit Apfelmus,  Zimt Zucker",
+            "price": 6.4,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "9"
+            ],
+            "createdAt": "2026-05-05T10:41:09+02:00",
+            "updatedAt": "2026-05-05T10:41:09+02:00"
+        },
+        {
+            "id": "b5b532fd-4037-4c03-8ebe-e285c0883588",
+            "name": "Möhren Eintopf mit Wiener",
+            "price": 6.4,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "13",
+                "11"
+            ],
+            "createdAt": "2026-05-05T10:38:17+02:00",
+            "updatedAt": "2026-05-05T10:38:17+02:00"
+        },
+        {
+            "id": "21c4080e-b0b9-499d-89b5-02d80bcf4f64",
+            "name": "Brühnudelsuppe mit Hähnchenfleisch",
+            "price": 6.4,
+            "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
+            "allergens": [
+                "22",
+                "9"
+            ],
+            "createdAt": "2026-05-05T10:35:07+02:00",
+            "updatedAt": "2026-05-05T10:39:57+02:00"
+        },
         {
             "id": "2f4e53c4-cacc-47a2-bf17-7eec00233bcf",
             "name": "Testgericht Persist",
@@ -850,19 +899,19 @@
         {
             "id": "48d15cc9-5b03-431c-9377-8a428cf413c3",
             "name": "Rosenkohl-Eintopf mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
                 "13"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:51:59+02:00"
         },
         {
             "id": "803e2be1-f895-4a57-a347-86a2e498a76c",
             "name": "Kohlrabisuppe mit Wiener",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
@@ -870,12 +919,12 @@
                 "12"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:52:29+02:00"
         },
         {
             "id": "de128931-6a95-484e-8536-6ab7bea56a2f",
             "name": "Weißkohl-Eintopf mit Eisbeinfleisch",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "11",
@@ -883,12 +932,12 @@
                 "9"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:53:12+02:00"
         },
         {
             "id": "3dffee7e-4963-4e51-9a76-83a96bda283a",
             "name": "Vegetarische Nudelpfanne mit Tomatensoße",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "13",
@@ -896,36 +945,36 @@
                 "18"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:54:02+02:00"
         },
         {
             "id": "2b4062ca-1864-4157-85b0-1218a6bb9f51",
             "name": "Grießbrei mit Erdbeer-Kompott",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "13",
                 "9"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:54:29+02:00"
         },
         {
             "id": "3ee14f9b-75a4-4173-9ba5-e052b80fdc3f",
             "name": "Steckrübeneintopf mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "13",
                 "22"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:55:24+02:00"
         },
         {
             "id": "9f34debd-663f-4f1b-8c3c-7bd29ee48ad4",
             "name": "Möhrensuppe mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "4",
@@ -934,12 +983,12 @@
                 "22"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:56:09+02:00"
         },
         {
             "id": "2b2aeb8a-d99d-4bca-b98f-0a96d22e385e",
             "name": "Kartoffelpuffer mit Zucker und Apfelmus",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "9",
@@ -947,12 +996,12 @@
                 "2"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:58:19+02:00"
         },
         {
             "id": "121c2ade-b47b-41e5-b28a-e2bd09f2413b",
             "name": "Kartoffelsuppe mit Bockwurstscheiben",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
@@ -960,12 +1009,12 @@
                 "13"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:58:49+02:00"
         },
         {
             "id": "9b7bc1aa-99b9-4f47-9410-704aeca98229",
             "name": "Gemüsesuppe mit Wiener",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
@@ -973,48 +1022,50 @@
                 "13"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:43:17+02:00"
         },
         {
             "id": "fa5903d0-8e11-4a80-a9f2-7ce67b7aac15",
             "name": "Möhren-Eintopf mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "13",
                 "22"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T11:01:14+02:00"
         },
         {
             "id": "e3a84a54-8688-4b46-8934-2cc341a166ec",
             "name": "Grüne Bohnensuppe mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
-                "11"
+                "4",
+                "12",
+                "13"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:48:11+02:00"
         },
         {
             "id": "bb33bf74-2603-472c-8230-7f8565877b97",
             "name": "Brühnudelsuppe mit Hühnerfleisch",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
                 "2"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T11:01:38+02:00"
         },
         {
             "id": "465a03fc-2b26-49f5-a484-99592008c039",
             "name": "Spargelsuppe mit Fleischklößchen",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "13",
@@ -1022,12 +1073,12 @@
                 "18"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T11:02:04+02:00"
         },
         {
             "id": "bf87acb9-4f5b-4e59-bdd2-0e2326473cc5",
             "name": "Grüne Bohnen Eintopf mit Kassler",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
@@ -1035,12 +1086,12 @@
                 "11"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T11:00:50+02:00"
         },
         {
             "id": "644dd989-12e7-4cba-91ce-48f9b9b8b3d0",
             "name": "Brühnudelsuppe mit Hähnchenfleisch",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
@@ -1048,12 +1099,12 @@
                 "13"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T11:00:25+02:00"
         },
         {
             "id": "a24457a7-75f0-42cf-b36c-b148ff4dd9f2",
             "name": "Graupensuppe mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
@@ -1061,24 +1112,24 @@
                 "4"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T11:00:07+02:00"
         },
         {
             "id": "b5591d0d-bf19-49a0-b941-b2b08ab9822b",
             "name": "Kohlrübeneintopf mit Bauchfleisch",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
                 "13"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:59:46+02:00"
         },
         {
             "id": "2fbbfcac-5b56-45d2-8a8d-5f244f0c90fa",
             "name": "Gemüsesuppe vegetarisch",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "13",
@@ -1086,12 +1137,12 @@
                 "22"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:59:22+02:00"
         },
         {
             "id": "fccdcd3d-fa52-4e26-b696-749013785f7d",
             "name": "Kohlrabi-Eintopf mit Wiener",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "12",
@@ -1099,12 +1150,12 @@
                 "22"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:57:50+02:00"
         },
         {
             "id": "1fe9109b-e619-44e1-9df5-10a260dc0961",
             "name": "Grießbrei mit Früchten",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "9",
@@ -1112,19 +1163,19 @@
                 "2"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:49:36+02:00"
         },
         {
             "id": "5b5dd54f-de51-4b04-9176-42a97bbe438a",
             "name": "Wirsingkohl-Suppe mit Fleischeinlage",
-            "price": 7.5,
+            "price": 6.4,
             "category": "590f55c2-c787-49e7-a38b-829bda7ccbed",
             "allergens": [
                 "22",
                 "12"
             ],
             "createdAt": "2026-04-28T12:31:13+02:00",
-            "updatedAt": "2026-04-28T12:31:13+02:00"
+            "updatedAt": "2026-05-05T10:50:52+02:00"
         },
         {
             "id": "14317f81-541f-4137-939f-8d115e728d30",

@@ -1,0 +1,17 @@
+{
+    "year": 2026,
+    "kw": 19,
+    "system": "kantine",
+    "published": true,
+    "week_start": "2026-05-04",
+    "saved_at": "2026-05-05T11:05:26+02:00",
+    "data": [
+        {
+            "kantine_menu1": {
+                "name": "Hähnchenschnitzel mit Pommes oder Bratkartoffeln",
+                "allergens": "18, 13, 9, 4",
+                "price": 0
+            }
+        }
+    ]
+}
