@@ -1,8 +1,7 @@
 <?php
 /**
  * _bootstrap.php – BMV Menüdienst API
- * Phase 7 Security Upgrade: CSP, Security Headers, CORS fix
- * Phase 3 Refactor: Rate limiting, Input hardening
+ * Security Hardened: kein Hardcode-Fallback, Payload-Limit, Brute-Force-Schutz
  */
 
 /* ── Fehlerbehandlung ──────────────────────────────────────── */
@@ -16,19 +15,18 @@ set_error_handler(function ($severity, $msg, $file, $line) {
     throw new ErrorException($msg, 0, $severity, $file, $line);
 });
 
-/* ── Security Headers (Phase 7) ────────────────────────────── */
+/* ── Security Headers ───────────────────────────────────────── */
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('X-XSS-Protection: 1; mode=block');
 header('Referrer-Policy: strict-origin-when-cross-origin');
 header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
 
-/* ── CORS (alle lokalen Ports + Produktion) ─────────────────── */
+/* ── CORS ───────────────────────────────────────────────────── */
 $allowed_origins = [
     'https://www.bmv-kantinen.de',
     'https://bestellen.bmv-kantinen.de',
     'https://kantinen-speiseplan.bmv-kantinen.de',
-    // Lokale Entwicklung
     'http://localhost',
     'http://localhost:8080',
     'http://localhost:8081',
@@ -56,39 +54,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-/* ── Pfade ─────────────────────────────────────────────────── */
+/* ── Pfade ──────────────────────────────────────────────────── */
 define('DATA_DIR',       $_SERVER['DOCUMENT_ROOT'] . '/data');
 define('SPEISEPLAN_DIR', DATA_DIR . '/speiseplaene');
 define('BESTELLUNG_DIR', DATA_DIR . '/bestellungen');
 define('LOG_FILE',       DATA_DIR . '/bestellungen.log');
 
-/* ── E-Mail ────────────────────────────────────────────────── */
-define('MAIL_TO',   'info@bmv-kantinen.de');
-define('MAIL_FROM', 'bestellung@bmv-kantinen.de');
+/* ── E-Mail ─────────────────────────────────────────────────── */
+define('MAIL_TO',   getenv('MAIL_TO')   ?: 'info@bmv-kantinen.de');
+define('MAIL_FROM', getenv('MAIL_FROM') ?: 'bestellung@bmv-kantinen.de');
 define('MAIL_NAME', 'BMV Menüdienst Bestellsystem');
 define('SITE_NAME', 'BMV Menüdienst');
+
+/* ── Payload-Limit ──────────────────────────────────────────── */
+define('MAX_PAYLOAD_BYTES', 512 * 1024); // 512 KB
 
 /* ── Admin-Key Validierung ──────────────────────────────────── */
 function validate_admin_key(): void
 {
-    $key = $_SERVER['HTTP_X_ADMIN_KEY']
-        ?? $_SERVER['HTTP_X_REQUESTED_WITH']
-        ?? '';
-    // Auch aus POST-Body lesen (Fallback für altes Admin-Panel)
-    if (empty($key)) {
-        $body = json_decode(file_get_contents('php://input'), true) ?? [];
-        $key  = $body['admin_key'] ?? '';
-        // Body-Pointer zurücksetzen
-        // Hinweis: php://input ist nach read_json_body nicht mehr lesbar,
-        // daher Admin-Key immer per Header senden
+    $key      = $_SERVER['HTTP_X_ADMIN_KEY'] ?? '';
+    $expected = getenv('BMV_ADMIN_KEY');
+
+    if (empty($expected)) {
+        // Kein Admin-Key in ENV konfiguriert – Zugriff verweigern
+        api_error('Admin-Zugang nicht konfiguriert.', 503);
     }
-    $expected = getenv('BMV_ADMIN_KEY') ?: 'bmv-admin-2025';
-    if (!hash_equals($expected, $key)) {
+
+    if (!hash_equals((string)$expected, (string)$key)) {
+        usleep(200_000); // 200 ms Verzögerung gegen Brute-Force
         api_error('Nicht autorisiert.', 401);
     }
 }
 
-/* ── Hilfsfunktionen ───────────────────────────────────────── */
+/* ── Hilfsfunktionen ────────────────────────────────────────── */
 function api_json(array $data, int $status = 200): void
 {
     http_response_code($status);
@@ -127,10 +125,22 @@ function require_post(): void
 
 function read_json_body(): array
 {
-    $raw = file_get_contents('php://input');
+    $contentLength = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+    if ($contentLength > MAX_PAYLOAD_BYTES) {
+        api_error('Request-Body zu groß.', 413);
+    }
+
+    $handle = fopen('php://input', 'r');
+    $raw    = stream_get_contents($handle, MAX_PAYLOAD_BYTES + 1);
+    fclose($handle);
+
     if (empty($raw)) {
         api_error('Kein Request-Body gefunden.', 400);
     }
+    if (strlen($raw) > MAX_PAYLOAD_BYTES) {
+        api_error('Request-Body zu groß.', 413);
+    }
+
     $data = json_decode($raw, true);
     if (json_last_error() !== JSON_ERROR_NONE) {
         api_error('Ungültiges JSON: ' . json_last_error_msg(), 400);
@@ -154,11 +164,16 @@ function save_speiseplan(int $year, int $kw, array $data): bool
 {
     if (!is_dir(SPEISEPLAN_DIR)) mkdir(SPEISEPLAN_DIR, 0750, true);
     $file = sprintf('%s/%04d-KW%02d.json', SPEISEPLAN_DIR, $year, $kw);
-    return file_put_contents(
-        $file,
+
+    // Atomares Schreiben: temp file + rename
+    $tmp = $file . '.tmp.' . getmypid();
+    $written = file_put_contents(
+        $tmp,
         json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT),
         LOCK_EX
-    ) !== false;
+    );
+    if ($written === false) return false;
+    return rename($tmp, $file);
 }
 
 function current_iso_week(): array
@@ -180,21 +195,21 @@ function send_order_mail(array $order): bool
     $created_at = $order['created_at'] ?? date('d.m.Y H:i');
 
     $name    = sanitize(($c['firstname'] ?? '') . ' ' . ($c['lastname'] ?? ''));
-    $phone   = sanitize($c['phone']    ?? '');
-    $email   = sanitize($c['email']    ?? '');
-    $address = sanitize($c['address']  ?? '');
-    $start   = sanitize($c['startdate']?? '');
-    $days    = sanitize($c['days']     ?? '');
-    $notes   = sanitize($c['notes']    ?? '', 1000);
+    $phone   = sanitize($c['phone']     ?? '');
+    $email   = sanitize($c['email']     ?? '');
+    $address = sanitize($c['address']   ?? '');
+    $start   = sanitize($c['startdate'] ?? '');
+    $days    = sanitize($c['days']      ?? '');
+    $notes   = sanitize($c['notes']     ?? '', 1000);
     $pflege  = !empty($c['pflegekasse']) ? 'Ja' : 'Nein';
 
     $sel_lines = '';
     ksort($selections);
     foreach ($selections as $date => $sel) {
         if (empty($sel['menuNumber'])) continue;
-        $dt        = date_create($date);
-        $date_fmt  = $dt ? $dt->format('d.m.Y') : $date;
-        $addons    = !empty($sel['addons']) ? ' + ' . implode(', ', $sel['addons']) : '';
+        $dt       = date_create($date);
+        $date_fmt = $dt ? $dt->format('d.m.Y') : $date;
+        $addons   = !empty($sel['addons']) ? ' + ' . implode(', ', $sel['addons']) : '';
         $sel_lines .= "  {$date_fmt}: Menü {$sel['menuNumber']}{$addons}\n";
     }
     if (empty($sel_lines)) $sel_lines = "  (keine Menüauswahl)\n";
@@ -234,13 +249,19 @@ TEXT;
 function log_order(array $order): void
 {
     if (!is_dir(BESTELLUNG_DIR)) mkdir(BESTELLUNG_DIR, 0750, true);
+
     $order_id = $order['order_id'] ?? 'unknown';
     $file     = sprintf('%s/%s.json', BESTELLUNG_DIR, sanitize_filename($order_id));
+
+    // Atomares Schreiben
+    $tmp = $file . '.tmp.' . getmypid();
     file_put_contents(
-        $file,
+        $tmp,
         json_encode($order, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT),
         LOCK_EX
     );
+    rename($tmp, $file);
+
     $log_line = sprintf(
         "[%s] #%s %s %s <%s> Addr: %s Start: %s Sel: %d\n",
         date('Y-m-d H:i:s'),

@@ -26,7 +26,7 @@ services:
       - ./www:/var/www/html:rw
       - ./data:/var/www/html/data:rw
     environment:
-      BMV_ADMIN_KEY: "${BMV_ADMIN_KEY:-bmv-admin-2025}"
+      BMV_ADMIN_KEY: "${BMV_ADMIN_KEY}"
       MAIL_HOST: mailhog
       MAIL_PORT: "1025"
       PEXELS_API_KEY: "${PEXELS_API_KEY}"

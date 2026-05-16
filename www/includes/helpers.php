@@ -3,7 +3,6 @@
  * includes/helpers.php – Gemeinsame Hilfsfunktionen für BMV-Menüdienst
  *
  * Einbinden mit: require_once __DIR__ . '/../includes/helpers.php';
- * (Pfad ggf. anpassen, je nach Dateitiefe)
  */
 
 // ── Tage einer ISO-Kalenderwoche ──────────────────────────────────────────────
@@ -13,10 +12,10 @@
 function kwDates(int $year, int $kw): array {
     $kw   = max(1, min(53, $kw));
     $year = max(2000, min(2099, $year));
-    $base = DateTimeImmutable::createFromFormat('o-W-N', "$year-$kw-1");
-    if ($base === false) {
-        $base = new DateTimeImmutable();
-    }
+    
+    // Sicherere Initialisierung via setISODate
+    $base = (new DateTimeImmutable())->setISODate($year, $kw, 1)->setTime(0, 0, 0);
+    
     $days = [];
     for ($i = 0; $i < 7; $i++) {
         $days[] = $base->modify("+$i days");
@@ -27,47 +26,32 @@ function kwDates(int $year, int $kw): array {
 // ── Vorherige / nächste Kalenderwoche ─────────────────────────────────────────
 /**
  * Berechnet year/KW nach Addition von $delta Wochen.
- * Nutzt ISO-Jahresformat 'o' damit KW53 korrekt behandelt wird.
  *
  * @return array{0: int, 1: int}  [$year, $kw]
  */
 function addKW(int $year, int $kw, int $delta): array {
-    // Eingabe defensiv bereinigen: KW muss zwischen 1 und 53 liegen
     $kw   = max(1, min(53, $kw));
     $year = max(2000, min(2099, $year));
 
-    $dt = DateTimeImmutable::createFromFormat('o-W-N', "$year-$kw-1");
-    if ($dt === false) {
-        // Fallback: aktuelles Datum verwenden
-        $dt = new DateTimeImmutable();
-    }
-
-    $sign = $delta >= 0 ? '+' : '';
-    $dt   = $dt->modify("{$sign}{$delta} weeks");
+    $dt = (new DateTimeImmutable())->setISODate($year, $kw, 1)->setTime(0, 0, 0);
+    $dt = $dt->modify("$delta weeks");
 
     return [(int)$dt->format('o'), (int)$dt->format('W')];
 }
 
-// ── Maximale KW korrekt ermitteln (ISO: manche Jahre haben KW 53) ─────────────
+// ── Maximale KW korrekt ermitteln ─────────────────────────────────────────────
 /**
  * Gibt die maximale gültige KW-Nummer für ein gegebenes Jahr zurück (52 oder 53).
  */
 function maxKWOfYear(int $year): int {
-    // Der 28. Dezember liegt immer in der letzten KW des ISO-Jahres
     return (int)(new DateTimeImmutable("$year-12-28"))->format('W');
 }
 
 // ── Grenzen für die Navigation berechnen ─────────────────────────────────────
-/**
- * Gibt zurück, ob Vor/Zurück-Navigation erlaubt ist.
- *
- * @return array{isAtMin: bool, isAtMax: bool}
- */
 function kwNavBounds(int $year, int $kw, int $currentYear, int $currentKW, int $maxWeeksAhead = 4): array {
     [$prevYear, $prevKW] = addKW($year, $kw, -1);
     [$nextYear, $nextKW] = addKW($year, $kw, +1);
 
-    // Max = aktuelle KW + $maxWeeksAhead (ISO-korrekt über Jahreswechsel)
     [$maxYear, $maxKW] = addKW($currentYear, $currentKW, $maxWeeksAhead);
 
     $isAtMin = $prevYear < $currentYear || ($prevYear === $currentYear && $prevKW < $currentKW);
@@ -77,12 +61,7 @@ function kwNavBounds(int $year, int $kw, int $currentYear, int $currentKW, int $
 }
 
 // ── Deutsche Feiertage (Brandenburg) ─────────────────────────────────────────
-/**
- * Gibt ein assoziatives Array zurück: ['Y-m-d' => 'Feiertagsname']
- * Enthält bewegliche Feiertage (Ostern-basiert) + Fixfeiertage für Brandenburg.
- */
 function getFeiertage(int $year): array {
-    // Gaußsche Osterformel
     $a = $year % 19;
     $b = intdiv($year, 100);
     $c = $year % 100;
@@ -98,11 +77,9 @@ function getFeiertage(int $year): array {
     $monat = intdiv($h + $l - 7 * $m + 114, 31);
     $tag   = (($h + $l - 7 * $m + 114) % 31) + 1;
 
-    $ostern = new DateTimeImmutable("$year-$monat-$tag");
+    $ostern = (new DateTimeImmutable())->setDate($year, $monat, $tag)->setTime(0, 0, 0);
 
     $feiertage = [];
-
-    // Fixfeiertage
     foreach ([
         '01-01' => 'Neujahr',
         '05-01' => 'Tag der Arbeit',
@@ -114,7 +91,6 @@ function getFeiertage(int $year): array {
         $feiertage["$year-$md"] = $name;
     }
 
-    // Bewegliche Feiertage (Offset in Tagen von Ostersonntag)
     foreach ([
         -2  => 'Karfreitag',
         0   => 'Ostersonntag',
@@ -123,8 +99,7 @@ function getFeiertage(int $year): array {
         49  => 'Pfingstsonntag',
         50  => 'Pfingstmontag',
     ] as $offset => $name) {
-        $sign = $offset >= 0 ? '+' : '';
-        $dt   = $ostern->modify("{$sign}{$offset} days");
+        $dt = $ostern->modify("$offset days");
         $feiertage[$dt->format('Y-m-d')] = $name;
     }
 
@@ -150,83 +125,50 @@ function getAddon(?array $day, string $code): ?array {
 }
 
 // ── Deutsches Gericht → englischer Pexels-Suchbegriff ────────────────────────
-/**
- * Vollständige Keyword-Map (aus speiseplan_index.php übernommen und bereinigt).
- */
 function dishSearchQuery(string $name): string {
     static $map = [
-        'suppe'       => 'soup bowl',
-        'eintopf'     => 'hearty stew',
-        'braten'      => 'roast meat german',
-        'schnitzel'   => 'schnitzel breaded',
-        'hähnchen'    => 'roasted chicken',
-        'hühnchen'    => 'chicken dish',
-        'frikassee'   => 'chicken fricassee',
-        'hähnchenb'   => 'grilled chicken breast',
-        'fisch'       => 'fish fillet plate',
-        'lachs'       => 'salmon fillet',
-        'forelle'     => 'trout fillet',
-        'zander'      => 'white fish fillet',
-        'hering'      => 'herring fish',
-        'matjes'      => 'herring salad',
-        'nudel'       => 'pasta dish',
-        'spätzle'     => 'spaetzle german pasta',
-        'spaghetti'   => 'spaghetti bolognese',
-        'lasagne'     => 'lasagna baked',
-        'nudeln'      => 'noodle dish',
-        'kartoffel'   => 'potato dish',
-        'püree'       => 'mashed potato',
-        'klöße'       => 'potato dumplings',
-        'knödel'      => 'dumplings german',
-        'puffer'      => 'potato pancake',
-        'gulasch'     => 'goulash stew',
-        'roulade'     => 'beef roulade',
-        'rind'        => 'beef dish',
-        'schweine'    => 'pork roast',
-        'pute'        => 'turkey roast',
-        'leber'       => 'liver onions',
-        'wurst'       => 'sausage plate',
-        'bratwurst'   => 'bratwurst grilled',
-        'kassler'     => 'smoked pork chop',
-        'salat'       => 'salad fresh bowl',
-        'rohkost'     => 'raw vegetables fresh',
-        'gurke'       => 'cucumber salad',
-        'tomate'      => 'tomato salad',
-        'möhren'      => 'carrot dish',
-        'rotkohl'     => 'red cabbage',
-        'sauerkraut'  => 'sauerkraut dish',
-        'gemüse'      => 'vegetables plate',
-        'brokkoli'    => 'broccoli dish',
-        'spinat'      => 'spinach dish',
-        'pilz'        => 'mushroom cream sauce',
-        'champignon'  => 'mushroom dish',
-        'kuchen'      => 'cake slice',
-        'torte'       => 'layer cake',
-        'pudding'     => 'pudding dessert cream',
-        'mousse'      => 'chocolate mousse',
-        'eis'         => 'ice cream dessert',
-        'grütze'      => 'berry compote',
-        'milchreis'   => 'rice pudding',
-        'grieß'       => 'semolina pudding',
-        'obst'        => 'fresh fruit bowl',
-        'apfel'       => 'apple dessert',
-        'schokolade'  => 'chocolate dessert',
-        'beere'       => 'berry dessert',
-        'pfannkuchen' => 'pancakes stack',
-        'eierkuchen'  => 'crepes french',
-        'quark'       => 'curd cheese fresh',
-        'ei'          => 'egg dish',
-        'rührei'      => 'scrambled eggs',
-        'käse'        => 'cheese plate',
-        'reis'        => 'rice dish',
-        'curry'       => 'curry dish',
-        'couscous'    => 'couscous bowl',
-        'paprika'     => 'stuffed bell pepper',
-        'kohl'        => 'cabbage roll',
-        'wirsing'     => 'stuffed cabbage',
-        'toast'       => 'toast plate',
-        'brot'        => 'bread plate',
-        'aufschnitt'  => 'cold cuts deli',
+        'klopse'          => 'meatballs white sauce',
+        'königsberger'    => 'meatballs capers',
+        'roulade'         => 'beef roulade german',
+        'gulasch'         => 'goulash stew',
+        'schnitzel'       => 'schnitzel breaded',
+        'braten'          => 'roast meat',
+        'kassler'         => 'smoked pork chop',
+        'hähnchen'        => 'roasted chicken',
+        'frikassee'       => 'chicken fricassee',
+        'frikadelle'      => 'meat patty',
+        'leberkäse'       => 'meatloaf german',
+        'currywurst'      => 'currywurst fries',
+        'bauernfrühstück' => 'german omelette potato',
+        'geschnetzeltes'  => 'meat strips cream sauce',
+        'hack'            => 'ground meat dish',
+        'fisch'           => 'fish fillet plate',
+        'lachs'           => 'salmon grilled',
+        'zander'          => 'white fish fillet',
+        'forelle'         => 'trout fish',
+        'backfisch'       => 'fried fish',
+        'scholle'         => 'plaice fish fillet',
+        'nudel'           => 'pasta dish',
+        'spätzle'         => 'spaetzle pasta',
+        'kartoffel'       => 'potato side dish',
+        'püree'           => 'mashed potatoes',
+        'klöße'           => 'dumplings',
+        'knödel'          => 'dumplings',
+        'reis'            => 'rice bowl',
+        'gemüse'          => 'mixed vegetables',
+        'eintopf'         => 'hearty stew',
+        'suppe'           => 'soup bowl',
+        'salat'           => 'fresh salad',
+        'reispfanne'      => 'rice skillet vegetable',
+        'eierkuchen'      => 'pancakes',
+        'pfannkuchen'     => 'pancakes',
+        'milchreis'       => 'rice pudding',
+        'grieß'           => 'semolina pudding',
+        'pudding'         => 'custard dessert',
+        'quark'           => 'curd cheese fruit',
+        'kompott'         => 'fruit compote',
+        'kuchen'          => 'cake slice',
+        'obst'            => 'fruit salad bowl',
     ];
 
     $lower = mb_strtolower($name);
@@ -234,72 +176,42 @@ function dishSearchQuery(string $name): string {
         if (str_contains($lower, $key)) return $val;
     }
 
-    // Fallback: Klammerzusätze entfernen, Rest als Suchbegriff
-    return trim(preg_replace('/\s*\(.*?\)\s*/', ' ', $name)) . ' food dish';
+    // KORREKTUR: Einfache Backslashes im Regex
+    $cleanName = trim(preg_replace('/\s*\(.*?\)\s*/', ' ', $name));
+    return $cleanName . ' food dish';
 }
 
 // ── Speiseplan-JSON sicher laden ──────────────────────────────────────────────
-/**
- * Lädt eine JSON-Datei mit Größenlimit und strikter Fehlerbehandlung.
- *
- * @param  string   $path      Absoluter Dateipfad
- * @param  int      $maxBytes  Maximale Dateigröße in Bytes (Standard: 512 KB)
- * @return array|null          Dekodiertes Array oder null bei Fehler
- */
 function loadJsonFile(string $path, int $maxBytes = 524288): ?array {
     if (!file_exists($path)) return null;
     if (filesize($path) > $maxBytes) {
-        error_log("BMV helpers.php: JSON-Datei zu groß (>$maxBytes Bytes): $path");
+        error_log("BMV helpers.php: JSON-Datei zu groß: $path");
         return null;
     }
     $raw = file_get_contents($path);
-    if ($raw === false) {
-        error_log("BMV helpers.php: Konnte Datei nicht lesen: $path");
-        return null;
-    }
+    if ($raw === false) return null;
     try {
         return json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-    } catch (\JsonException $e) {
+    } catch (\JsonException $e) { // KORREKTUR: Globaler Namespace \
         error_log("BMV helpers.php: JSON-Fehler in $path — " . $e->getMessage());
         return null;
     }
 }
 
 // ── API-Response mit Caching laden ───────────────────────────────────────────
-/**
- * Ruft eine interne API-URL auf, cached das Ergebnis als JSON-Datei.
- *
- * @param  string $url       Vollständige URL (z.B. http://localhost/api/...)
- * @param  string $cacheFile Absoluter Pfad zur Cache-Datei
- * @param  int    $ttl       Cache-Gültigkeitsdauer in Sekunden (Standard: 15 min)
- * @return array|null        Dekodiertes Array oder null
- */
 function fetchApiWithCache(string $url, string $cacheFile, int $ttl = 900): ?array {
-    // Cache frisch genug?
     if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $ttl) {
         return loadJsonFile($cacheFile);
     }
-
-    $ctx = stream_context_create(['http' => [
-        'timeout'        => 3,
-        'ignore_errors'  => false,
-    ]]);
-
+    $ctx = stream_context_create(['http' => ['timeout' => 3, 'ignore_errors' => false]]);
     $raw = @file_get_contents($url, false, $ctx);
-
     if ($raw === false) {
-        error_log("BMV helpers.php: API nicht erreichbar: $url");
-        // Stale Cache als Fallback zurückgeben, falls vorhanden
         return file_exists($cacheFile) ? loadJsonFile($cacheFile) : null;
     }
-
-    // Cache schreiben
     file_put_contents($cacheFile, $raw, LOCK_EX);
-
     try {
         return json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-    } catch (\JsonException $e) {
-        error_log("BMV helpers.php: Ungültige API-Antwort von $url — " . $e->getMessage());
+    } catch (\JsonException $e) { // KORREKTUR: Globaler Namespace \
         return null;
     }
 }
@@ -314,19 +226,12 @@ function bmv_img(string $src, string $alt, int $width, int $height, bool $above_
         'loading' => $above_fold ? 'eager' : 'lazy',
         'decoding' => 'async',
     ];
-
-    if ($above_fold) {
-        $attributes['fetchpriority'] = 'high';
-    }
-
-    if ($class !== '') {
-        $attributes['class'] = htmlspecialchars($class, ENT_QUOTES, 'UTF-8');
-    }
+    if ($above_fold) $attributes['fetchpriority'] = 'high';
+    if ($class !== '') $attributes['class'] = htmlspecialchars($class, ENT_QUOTES, 'UTF-8');
 
     $parts = [];
     foreach ($attributes as $name => $value) {
         $parts[] = sprintf('%s="%s"', $name, $value);
     }
-
     return '<img ' . implode(' ', $parts) . '>';
 }

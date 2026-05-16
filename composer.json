@@ -1,0 +1,27 @@
+{
+    "name": "gordo/docker-bmv",
+    "description": "Modernisiertes Bestellsystem für den BMV Menüdienst v3.0",
+    "type": "project",
+    "authors": [
+        {
+            "name": "BMV Menüdienst",
+            "email": "info@bmv-kantinen.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        },
+        "vendor-dir": "www/vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "www/"
+        }
+    }
+}

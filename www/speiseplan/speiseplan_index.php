@@ -3,7 +3,7 @@
  * speiseplan_index.php – Druckversion Wochenspeiseplan
  * Gemeinsame Funktionen: includes/helpers.php
  */
-require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/../includes/helpers.php';
 
 $currentYear = (int)date('Y');
 $currentKW   = (int)date('W');
@@ -15,7 +15,7 @@ $dayNames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag
 $dayShort = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
 
 // Navigation (ISO-korrekt, inkl. KW-53-Jahre)
-$nav     = kwNavBounds($year, $kw, $currentYear, $currentKW, maxWeeksAhead: 4);
+$nav     = kwNavBounds($year, $kw, $currentYear, $currentKW, 4);
 $isAtMin = $nav['isAtMin'];
 $isAtMax = $nav['isAtMax'];
 $prevYear = $nav['prevYear']; $prevKW = $nav['prevKW'];
@@ -26,7 +26,7 @@ $cacheDir  = sys_get_temp_dir() . '/bmv_cache';
 if (!is_dir($cacheDir)) mkdir($cacheDir, 0750, true);
 $cacheFile = "$cacheDir/week_{$year}_kw{$kw}.json";
 $apiUrl    = "http://localhost/api/get_week.php?year={$year}&kw={$kw}";
-$plan      = fetchApiWithCache($apiUrl, $cacheFile, ttl: 900);
+$plan      = fetchApiWithCache($apiUrl, $cacheFile, 900);
 
 // Tage indizieren
 $dayMap = [];
@@ -399,10 +399,6 @@ body {
 
 /* ═══════════════════════════════════════════════════
    DRUCKLAYOUT – DIN A4 Querformat
-   Nutzfläche: 285mm x 198mm (Rand 6mm rundum)
-   Hauptteil: 232mm | Bestellung: 47mm | Gap: 3mm
-   Vertikale Aufteilung: Header 13mm + Titel 7mm +
-   Haupttabelle ~72mm + Addon 50mm + Footer 11mm = ~153mm
 ═══════════════════════════════════════════════════ */
 @media print {
   @page {
@@ -444,7 +440,7 @@ body {
     width: 285mm;
   }
 
-  /* ── Header: 13mm hoch ── */
+  /* ── Header ── */
   .print-header {
     display: flex;
     justify-content: space-between;
@@ -474,7 +470,7 @@ body {
     text-align: right; line-height: 1.6;
   }
 
-  /* ── KW-Titel: 7mm ── */
+  /* ── KW-Titel ── */
   .print-week-title {
     text-align: center;
     font-size: 10pt; font-weight: 700;
@@ -483,7 +479,7 @@ body {
     line-height: 1.1;
   }
 
-  /* ── Flex-Container: Hauptteil + Bestellung ── */
+  /* ── Flex-Container ── */
   .print-container {
     display: flex;
     gap: 3mm;
@@ -491,7 +487,7 @@ body {
   }
   .print-main { flex: 1; min-width: 0; }
 
-  /* ── Tabellen allgemein ── */
+  /* ── Tabellen ── */
   .print-table {
     width: 100%;
     border-collapse: collapse;
@@ -537,18 +533,6 @@ body {
     vertical-align: middle;
   }
 
-  /* Spaltenbreiten Haupttabelle: Tag 11mm + 4x ~55mm */
-  .print-table.main-table th:nth-child(1),
-  .print-table.main-table td:nth-child(1) { width: 11mm; }
-
-  /* Spaltenbreiten Addon-Tabelle: Tag 11mm + 4x ~55mm */
-  .print-table.addon-table th:nth-child(1),
-  .print-table.addon-table td:nth-child(1) { width: 11mm; }
-  .print-table.addon-table th {
-    background: #D95A00 !important;
-    border-color: #D95A00;
-  }
-
   .print-dish { font-weight: 700; color: #000; }
   .print-alg  { font-size: 5pt; color: #777; display: block; margin-top: .3mm; }
   .print-price-cell {
@@ -557,7 +541,6 @@ body {
   }
   .print-veg { color: #16a34a !important; font-size: 5pt; font-weight: 700; }
 
-  /* ── Zusatztabelle Titel ── */
   .print-addon-title {
     font-size: 6.5pt; font-weight: 700;
     color: #D95A00 !important;
@@ -597,7 +580,7 @@ body {
     line-height: 1.5;
   }
 
-  /* ── Bestellabschnitt: 47mm breit ── */
+  /* ── Bestellabschnitt ── */
   .print-order {
     width: 47mm;
     flex-shrink: 0;
@@ -617,11 +600,6 @@ body {
     font-size: 8pt; color: #0B2A5B !important;
     text-transform: uppercase; letter-spacing: .3mm;
     margin-bottom: 1mm;
-  }
-  .print-order-sub {
-    text-align: center; font-size: 5pt;
-    color: #D95A00 !important; font-style: italic;
-    margin-bottom: 2mm;
   }
   .print-order-table {
     width: 100%; border-collapse: collapse; margin-bottom: 1.5mm;
@@ -644,35 +622,13 @@ body {
     font-weight: 700; color: #0B2A5B !important;
     width: 7mm; vertical-align: middle;
   }
-  .print-divider {
-    border-top: .8pt solid #0B2A5B;
-    margin: 2mm 0 1.5mm;
-    position: relative;
-  }
-  .print-divider::after {
-    content: '✂';
-    position: absolute; left: 50%; top: -2.5mm;
-    transform: translateX(-50%);
-    background: #fff; padding: 0 1mm;
-    color: #D95A00 !important; font-size: 8pt;
-  }
   .print-cust { margin-top: 1.5mm; font-size: 5.5pt; }
-  .print-cust-field { margin-bottom: 1.5mm; }
   .print-cust-label {
     font-weight: 700; display: block;
     color: #0B2A5B !important; font-size: 5.5pt;
     margin-bottom: .4mm;
   }
   .print-cust-line { border-bottom: .8pt solid #333; height: 4mm; }
-  .print-notes { margin-top: 1.5mm; }
-  .print-notes-label {
-    font-weight: 700; color: #0B2A5B !important;
-    font-size: 5.5pt; display: block; margin-bottom: .8mm;
-  }
-  .print-notes-area {
-    border: .5pt solid #ccc; height: 7mm;
-    border-radius: 1mm; background: #fafafa !important;
-  }
   .print-addr {
     margin-top: 2mm; font-size: 5pt; line-height: 1.5;
     padding: 1.5mm;
@@ -685,61 +641,40 @@ body {
   }
   .print-addr .org { color: #D95A00 !important; font-weight: 700; }
 
-  /* Alle Bilder ausblenden */
   img.menu-img, .menu-img-placeholder,
   .popup-overlay img { display: none !important; }
 }
 
-/* Drucklayout nur bei Druck sichtbar */
 .print-layout { display: none; }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     HEADER (Screen)
-═══════════════════════════════════════════════════ -->
 <header class="site-header screen-only">
   <div class="logo">
-    <img src="/assets/images/BMV_Logo_n.png" alt="BMV"
-         onerror="this.style.display='none'">
+    <img src="/assets/images/BMV_Logo_n.png" alt="BMV" onerror="this.style.display='none'">
     <div>
       <div class="logo-text">BMV Menüdienst</div>
       <div class="logo-sub">Frisch · Regional · Gesund</div>
     </div>
   </div>
   <div class="contact">
-    <a href="tel:+493327574506603327 – 57 45 066</a><br>
+    <a href="tel:+4933275745066">03327 – 57 45 066</a><br>
     info@bmv-kantinen.de
   </div>
   <button class="print-btn" onclick="window.print()">🖨️ Speiseplan drucken</button>
 </header>
 
-<!-- ═══════════════════════════════════════════════
-     WOCHENNAVIGATION (Screen)
-═══════════════════════════════════════════════════ -->
 <nav class="week-nav screen-only">
-  <a href="?year=<?= $prevYear ?>&kw=<?= $prevKW ?>"
-     class="week-nav-btn <?= $isAtMin ? 'disabled' : '' ?>">
-    ← Vorherige Woche
-  </a>
+  <a href="?year=<?= $prevYear ?>&kw=<?= $prevKW ?>" class="week-nav-btn <?= $isAtMin ? 'disabled' : '' ?>">← Vorherige Woche</a>
   <div class="week-info">
     <div class="kw-label">Kalenderwoche <?= $kw ?> / <?= $year ?></div>
-    <div class="date-range">
-      <?= $days[0]->format('d.m.Y') ?> – <?= $days[6]->format('d.m.Y') ?>
-    </div>
+    <div class="date-range"><?= $days[0]->format('d.m.Y') ?> – <?= $days[6]->format('d.m.Y') ?></div>
   </div>
-  <a href="?year=<?= $nextYear ?>&kw=<?= $nextKW ?>"
-     class="week-nav-btn <?= $isAtMax ? 'disabled' : '' ?>">
-    Nächste Woche →
-  </a>
+  <a href="?year=<?= $nextYear ?>&kw=<?= $nextKW ?>" class="week-nav-btn <?= $isAtMax ? 'disabled' : '' ?>">Nächste Woche →</a>
 </nav>
 
-<!-- ═══════════════════════════════════════════════
-     HAUPTINHALT (Screen)
-═══════════════════════════════════════════════════ -->
 <main class="main screen-only">
-
 <?php if (!$plan): ?>
 <div class="no-data">
   <h2>Kein Speiseplan vorhanden</h2>
@@ -747,17 +682,15 @@ body {
 </div>
 <?php else: ?>
 
-<!-- Tageskarten -->
 <div class="days-grid">
 <?php for ($i = 0; $i < 7; $i++):
   $day = $dayMap[$i] ?? null;
   $hasData = $day && (!empty($day['menus']) || !empty($day['addons']));
-  $dateStr = $days[$i]->format('d.m.Y');
 ?>
 <div class="day-card <?= !$hasData ? 'empty' : '' ?>">
   <div class="day-header">
     <span class="day-name"><?= $dayNames[$i] ?></span>
-    <span class="day-date"><?= $dateStr ?></span>
+    <span class="day-date"><?= $days[$i]->format('d.m.Y') ?></span>
   </div>
   <div class="menu-list">
   <?php
@@ -773,23 +706,18 @@ body {
     $alg   = $m['allergens'] ?? '';
     $price = isset($m['price']) ? $m['price'] : $def['price'];
     $veg   = !empty($m['vegetarian']);
-    $imgQ  = $title ? dishSearchQuery($title) : 'food dish';
     $empty = !$title;
   ?>
-  <div class="menu-item" <?= !$empty ? "onclick=\"openPopup(".json_encode([
+  <div class="menu-item" <?= !$empty ? "onclick='openPopup(".json_encode([
     'badge' => $def['label'].' – '.$def['name'],
     'title' => $title,
-    'price' => number_format($price,2,',','.').' €',
+    'price' => number_format((float)$price,2,',','.').' €',
     'alg'   => $alg,
-    'img'   => $imgQ,
+    'img'   => dishSearchQuery($title ?? ''),
     'veg'   => $veg,
-  ]).")"" : '' ?>>
+  ], JSON_HEX_APOS).")'" : "" ?>>
     <?php if ($title): ?>
-    <img class="menu-img pexels-img" loading="lazy"
-         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23edf1f9'/%3E%3C/svg%3E"
-         data-query="<?= htmlspecialchars(dishSearchQuery($title)) ?>"
-         alt="<?= htmlspecialchars($title) ?>"
-         onerror="this.style.opacity='.3'">
+    <img class="menu-img pexels-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23edf1f9'/%3E%3C/svg%3E" data-query="<?= htmlspecialchars(dishSearchQuery($title)) ?>" alt="<?= htmlspecialchars($title) ?>">
     <?php else: ?>
     <div class="menu-img-placeholder">—</div>
     <?php endif; ?>
@@ -800,7 +728,7 @@ body {
         <?php if ($veg): ?><span class="veg-badge">veg.</span><?php endif; ?>
       </div>
       <?php if ($title): ?>
-      <div class="menu-price"><?= number_format($price,2,',','.').' €' ?></div>
+      <div class="menu-price"><?= number_format((float)$price,2,',','.').' €' ?></div>
       <?php if ($alg): ?><div class="menu-alg">(<?= htmlspecialchars($alg) ?>)</div><?php endif; ?>
       <?php endif; ?>
     </div>
@@ -814,37 +742,30 @@ body {
     'A' => ['label'=>'Ab','name'=>'Abendessen',  'price'=>$aprices['A']??5.50, 'icon'=>'🍽️'],
     'S' => ['label'=>'Sa','name'=>'Salatteller', 'price'=>$aprices['S']??5.50, 'icon'=>'🥙'],
   ];
-  if ($i < 5): // Addons nur Mo–Fr
+  if ($i < 5): // Addons Mo-Fr
   foreach ($addonDefs as $code => $def):
     $a = getAddon($day, $code);
     $title = $a['name'] ?? null;
     $price = $a['price'] ?? $def['price'];
-    $imgQ  = $title ? dishSearchQuery($title) : 'food dish';
   ?>
-  <div class="menu-item addon" <?= $title ? "onclick=\"openPopup(".json_encode([
+  <div class="menu-item addon" <?= $title ? "onclick='openPopup(".json_encode([
     'badge' => $def['icon'].' '.$def['name'],
     'title' => $title,
-    'price' => number_format($price,2,',','.').' €',
+    'price' => number_format((float)$price,2,',','.').' €',
     'alg'   => '',
-    'img'   => $imgQ,
+    'img'   => dishSearchQuery($title ?? ''),
     'veg'   => false,
-  ]).")"" : '' ?>>
+  ], JSON_HEX_APOS).")'" : "" ?>>
     <?php if ($title): ?>
-    <img class="menu-img pexels-img" loading="lazy"
-         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23edf1f9'/%3E%3C/svg%3E"
-         data-query="<?= htmlspecialchars(dishSearchQuery($title)) ?>"
-         alt="<?= htmlspecialchars($title) ?>"
-         onerror="this.style.opacity='.3'">
+    <img class="menu-img pexels-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23edf1f9'/%3E%3C/svg%3E" data-query="<?= htmlspecialchars(dishSearchQuery($title)) ?>" alt="<?= htmlspecialchars($title) ?>">
     <?php else: ?>
     <div class="menu-img-placeholder"><?= $def['icon'] ?></div>
     <?php endif; ?>
     <div class="menu-content">
       <div class="menu-badge addon-badge"><?= $def['label'] ?></div>
-      <div class="menu-title <?= !$title ? 'empty-title' : '' ?>">
-        <?= $title ? htmlspecialchars($title) : $def['name'].' nicht verfügbar' ?>
-      </div>
+      <div class="menu-title <?= !$title ? 'empty-title' : '' ?>"><?= $title ? htmlspecialchars($title) : $def['name'].' nicht verfügbar' ?></div>
       <?php if ($title): ?>
-      <div class="menu-price"><?= number_format($price,2,',','.').' €' ?></div>
+      <div class="menu-price"><?= number_format((float)$price,2,',','.').' €' ?></div>
       <?php endif; ?>
     </div>
   </div>
@@ -852,14 +773,10 @@ body {
   </div>
 </div>
 <?php endfor; ?>
-</div><!-- .days-grid -->
-
+</div>
 <?php endif; ?>
 </main>
 
-<!-- ═══════════════════════════════════════════════
-     POPUP
-═══════════════════════════════════════════════════ -->
 <div class="popup-overlay screen-only" id="popup" onclick="if(event.target===this)closePopup()">
   <div class="popup-box">
     <img class="popup-img" id="popup-img" src="" alt="">
@@ -867,17 +784,13 @@ body {
       <div class="popup-badge" id="popup-badge"></div>
       <div class="popup-title" id="popup-title"></div>
       <div class="popup-price" id="popup-price"></div>
-      <div class="popup-alg"  id="popup-alg"  style="display:none"></div>
+      <div class="popup-alg"  id="popup-alg" style="display:none"></div>
       <button class="popup-close" onclick="closePopup()">Schließen</button>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     DRUCKLAYOUT (nur beim Drucken sichtbar)
-═══════════════════════════════════════════════════ -->
 <div class="print-layout">
-
   <div class="print-header">
     <div class="print-header-left">
       <img class="print-logo" src="/assets/images/BMV_Logo_n.png" alt="BMV">
@@ -886,60 +799,39 @@ body {
         <div class="print-company-sub">Frisch · Regional · Gesund</div>
       </div>
     </div>
-    <div class="print-header-right">
-      Tel.: 03327 – 57 45 066<br>
-      info@bmv-kantinen.de<br>
-      www.bmv-kantinen.de
-    </div>
+    <div class="print-header-right">Tel.: 03327 – 57 45 066<br>info@bmv-kantinen.de<br>www.bmv-kantinen.de</div>
   </div>
-
-  <div class="print-week-title">
-    Wochenspeiseplan – KW <?= $kw ?>/<?= $year ?>
-    (<?= $days[0]->format('d.m.') ?> – <?= $days[6]->format('d.m.Y') ?>)
-  </div>
-
+  <div class="print-week-title">Wochenspeiseplan – KW <?= $kw ?>/<?= $year ?> (<?= $days[0]->format('d.m.') ?> – <?= $days[6]->format('d.m.Y') ?>)</div>
   <div class="print-container">
     <div class="print-main">
-
-      <!-- Haupttabelle -->
       <table class="print-table main-table">
         <thead>
           <tr>
             <th>Tag</th>
             <th>Vollkost M1<br><span class="price-sub"><?= number_format($prices[1]??6.20,2,',','.').' €' ?></span></th>
-            <th style="width:11%">Leichte Kost M2<br><span class="price-sub"><?= number_format($prices[2]??6.40,2,',','.').' €' ?></span></th>
-            <th style="width:11%">Premium M3<br><span class="price-sub"><?= number_format($prices[3]??7.20,2,',','.').' €' ?></span></th>
-            <th style="width:11%">Tagesmenü M4</th>
+            <th>Leichte Kost M2<br><span class="price-sub"><?= number_format($prices[2]??6.40,2,',','.').' €' ?></span></th>
+            <th>Premium M3<br><span class="price-sub"><?= number_format($prices[3]??7.20,2,',','.').' €' ?></span></th>
+            <th>Tagesmenü M4</th>
           </tr>
         </thead>
         <tbody>
-          <?php for ($i = 0; $i < 7; $i++):
-            $day = $dayMap[$i] ?? null; ?>
+          <?php for ($i = 0; $i < 7; $i++): $day = $dayMap[$i] ?? null; ?>
           <tr>
             <td class="day-col"><?= $dayNames[$i] ?></td>
-            <?php for ($n = 1; $n <= 4; $n++):
+            <?php for ($n = 1; $n <= 4; $n++): 
               $m = getMenu($day, $n);
-              $title = $m['title'] ?? null;
-              $alg   = $m['allergens'] ?? '';
-              $p     = isset($m['price']) ? number_format($m['price'],2,',','.').' €' : '';
-              $veg   = !empty($m['vegetarian']); ?>
-            <?php if ($title): ?>
-            <td>
-              <span class="print-dish"><?= htmlspecialchars($title) ?></span>
-              <?php if ($veg): ?><span class="print-veg"> veg.</span><?php endif; ?>
-              <?php if ($alg): ?><br><span class="print-alg">(<?= htmlspecialchars($alg) ?>)</span><?php endif; ?>
-              <?php if ($p): ?><br><span class="print-price-cell"><?= $p ?></span><?php endif; ?>
-            </td>
-            <?php else: ?>
-            <td class="na">—</td>
-            <?php endif; ?>
+              if ($m && !empty($m['title'])): ?>
+              <td>
+                <span class="print-dish"><?= htmlspecialchars($m['title']) ?></span>
+                <?php if(!empty($m['vegetarian'])): ?><span class="print-veg"> veg.</span><?php endif; ?>
+                <?php if(!empty($m['allergens'])): ?><br><span class="print-alg">(<?= htmlspecialchars($m['allergens']) ?>)</span><?php endif; ?>
+              </td>
+            <?php else: ?><td class="na">—</td><?php endif; ?>
             <?php endfor; ?>
           </tr>
           <?php endfor; ?>
         </tbody>
       </table>
-
-      <!-- Zusatztabelle -->
       <div class="print-addon-title">Zusatzkarte</div>
       <table class="print-table addon-table">
         <thead>
@@ -952,197 +844,64 @@ body {
           </tr>
         </thead>
         <tbody>
-          <?php for ($i = 0; $i < 5; $i++):
-            $day = $dayMap[$i] ?? null; ?>
+          <?php for ($i = 0; $i < 5; $i++): $day = $dayMap[$i] ?? null; ?>
           <tr>
             <td class="day-col"><?= $dayNames[$i] ?></td>
-            <?php foreach (['D','R','A','S'] as $code):
-              $a = getAddon($day, $code);
-              $n = $a['name'] ?? null;
-              $p = isset($a['price']) ? number_format($a['price'],2,',','.').' €' : ''; ?>
-            <?php if ($n): ?>
-            <td>
-              <span class="print-dish"><?= htmlspecialchars($n) ?></span>
-              <?php if ($p): ?><br><span class="print-price-cell"><?= $p ?></span><?php endif; ?>
-            </td>
-            <?php else: ?><td class="na">—</td><?php endif; ?>
+            <?php foreach(['D','R','A','S'] as $c): $a = getAddon($day, $c); ?>
+              <td><?= ($a && !empty($a['name'])) ? '<span class="print-dish">'.htmlspecialchars($a['name']).'</span>' : '—' ?></td>
             <?php endforeach; ?>
           </tr>
           <?php endfor; ?>
         </tbody>
       </table>
-
-      <!-- Footer -->
-      <div class="print-footer">
-        <div class="print-footer-box">
-          <strong>Zusatzstoffe:</strong>
-          1) Geschmacksverstärker · 2) Antioxidationsmittel · 3) Süßungsmittel · 4) Konservierungsmittel · 5) Farbstoff · 9) Milch/Sahne · 10) Formfleisch · 11) Nitritpökelsalz · 12) Phosphat
-        </div>
-        <div class="print-footer-box">
-          <strong>Allergene:</strong>
-          13) Getreide/Weizen · 16) Fisch · 18) Eier · 19) Senf · 21) Soja · 22) Sellerie · 23) Schalenfrüchte · 24) Erdnüsse · 25) Schwefeldioxid
-        </div>
-        <div class="print-footer-legal">
-          <strong>Bestellmodalitäten:</strong>
-          Telefonische Bestellung Mo.–Fr. 9–15 Uhr &nbsp;|&nbsp; Menüs zum Verzehr am Liefertag &nbsp;|&nbsp; Keine Bestellung an Sonn-/Feiertagen &nbsp;|&nbsp; Reklamationen nur am Liefertag &nbsp;|&nbsp; AGB: www.bmv-kantinen.de
-        </div>
-      </div>
-
-    </div><!-- .print-main -->
-
-    <!-- Bestellabschnitt -->
+    </div>
     <div class="print-order">
       <span class="print-scissors">✂</span>
       <div class="print-order-title">Bestellung</div>
-      <div class="print-order-sub">Abtrennen und Fahrer mitgeben</div>
-
       <table class="print-order-table">
-        <thead>
-          <tr><th></th><th>M1</th><th>M2</th><th>M3</th><th>M4</th></tr>
-        </thead>
-        <tbody>
-          <?php for ($i=0;$i<7;$i++): ?>
-          <tr>
-            <td class="day-col"><?= $dayShort[$i] ?></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <?php endfor; ?>
-        </tbody>
+        <thead><tr><th></th><th>M1</th><th>M2</th><th>M3</th><th>M4</th></tr></thead>
+        <tbody><?php for ($i=0;$i<7;$i++): ?><tr><td class="day-col"><?= $dayShort[$i] ?></td><td></td><td></td><td></td><td></td></tr><?php endfor; ?></tbody>
       </table>
-
-      <div class="print-divider"></div>
-
-      <table class="print-order-table">
-        <thead>
-          <tr><th colspan="5">Zusatzkarte</th></tr>
-          <tr><th></th><th>De</th><th>Ro</th><th>Ab</th><th>Sa</th></tr>
-        </thead>
-        <tbody>
-          <?php for ($i=0;$i<5;$i++): ?>
-          <tr>
-            <td class="day-col"><?= $dayShort[$i] ?></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <?php endfor; ?>
-        </tbody>
-      </table>
-
       <div class="print-cust">
-        <div class="print-cust-field">
-          <span class="print-cust-label">Name:</span>
-          <div class="print-cust-line"></div>
-        </div>
-        <div class="print-cust-field">
-          <span class="print-cust-label">Kundennummer:</span>
-          <div class="print-cust-line"></div>
-        </div>
-        <div class="print-cust-field">
-          <span class="print-cust-label">Telefon:</span>
-          <div class="print-cust-line"></div>
-        </div>
+        <span class="print-cust-label">Name:</span><div class="print-cust-line"></div>
+        <span class="print-cust-label">Kundennummer:</span><div class="print-cust-line"></div>
       </div>
-      <div class="print-notes">
-        <span class="print-notes-label">Besondere Wünsche:</span>
-        <div class="print-notes-area"></div>
-      </div>
-      <div class="print-addr">
-        <strong>BMV Menüdienst</strong>
-        Am Gutshof 6 · 14542 Werder (Havel)<br>
-        <span class="org">Tel.: 03327 – 57 45 066</span><br>
-        info@bmv-kantinen.de
-      </div>
-    </div><!-- .print-order -->
+    </div>
+  </div>
+</div>
 
-  </div><!-- .print-container -->
-</div><!-- .print-layout -->
-
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════════ -->
 <script>
 (function () {
   'use strict';
-
-  /* ── Pexels Bildersuche ─────────────────────────────
-     Cache im IIFE-Scope – kein globales const-Leak     */
   const cache = Object.create(null);
-
-  async function fetchPexelsImg(query, width, height) {
-    const key = query + '_' + width + 'x' + height;
-    if (key in cache) return cache[key];
+  async function fetchPexelsImg(query) {
+    if (cache[query]) return cache[query];
     try {
       const res = await fetch('/api/pexels_image.php?q=' + encodeURIComponent(query));
-      if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
-      return (cache[key] = data.url || null);
-    } catch (e) {
-      return (cache[key] = null);
-    }
+      return (cache[query] = data.url || null);
+    } catch (e) { return null; }
   }
-
-  /* ── Lazy-Load aller Kartenbilder ── */
   async function loadAllCardImages() {
     const imgs = [...document.querySelectorAll('img.pexels-img[data-query]')];
-    for (let i = 0; i < imgs.length; i += 6) {
-      await Promise.all(imgs.slice(i, i + 6).map(async img => {
-        if (!img.dataset.query) return;
-        const url = await fetchPexelsImg(img.dataset.query, 80, 80);
-        if (url) {
-          img.onload = () => img.classList.add('loaded');
-          img.src = url;
-        } else {
-          img.style.display = 'none';
-        }
-      }));
+    for (let img of imgs) {
+      const url = await fetchPexelsImg(img.dataset.query);
+      if (url) img.src = url;
     }
   }
-
-  /* ── Popup öffnen ── */
-  function openPopup(data) {
+  window.openPopup = function(data) {
     document.getElementById('popup-badge').textContent = data.badge;
-    document.getElementById('popup-title').textContent = data.title || '—';
+    document.getElementById('popup-title').textContent = data.title;
     document.getElementById('popup-price').textContent = data.price;
     const algEl = document.getElementById('popup-alg');
     algEl.style.display = data.alg ? 'block' : 'none';
-    if (data.alg) algEl.textContent = 'Allergene: ' + data.alg;
-
+    if(data.alg) algEl.textContent = 'Allergene: ' + data.alg;
     const img = document.getElementById('popup-img');
-    img.src = '';
-    img.style.opacity = '0';
-    img.style.display = 'block';
-
-    fetchPexelsImg(data.img || data.title || 'food dish', 560, 220).then(url => {
-      if (url) {
-        img.onload = () => { img.style.opacity = '1'; };
-        img.src = url;
-        img.style.transition = 'opacity .3s';
-      } else {
-        img.style.display = 'none';
-      }
-    });
-
-    img.onerror = () => { img.style.display = 'none'; };
+    fetchPexelsImg(data.img).then(url => { img.src = url || ''; img.style.display = url ? 'block' : 'none'; });
     document.getElementById('popup').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePopup() {
-    document.getElementById('popup').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
-
-  // Globals für onclick-Handler im HTML
-  window.openPopup  = openPopup;
-  window.closePopup = closePopup;
-
-  /* ── Init ── */
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadAllCardImages);
-  } else {
-    loadAllCardImages();
-  }
+  };
+  window.closePopup = function() { document.getElementById('popup').classList.remove('open'); };
+  document.addEventListener('DOMContentLoaded', loadAllCardImages);
 })();
 </script>
 </body>

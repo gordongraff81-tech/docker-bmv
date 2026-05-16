@@ -3,7 +3,7 @@
  * speiseplan-index.php – Hauptansicht Wochenspeiseplan
  * Gemeinsame Funktionen: includes/helpers.php
  */
-require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/../includes/helpers.php';
 
 $currentYear = (int)date('Y');
 $currentKW   = (int)date('W');

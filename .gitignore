@@ -1,19 +1,57 @@
-# Umgebungsvariablen (enthält Passwörter)
+# ── Umgebung ────────────────────────────────────────────────────
 .env
+.env.production
+.env.local
 
-# Daten (Speisepläne + Bestellungen)
-www/data/bestellungen/*.json
-www/data/bestellungen/*.log
+# ── Abhängigkeiten ───────────────────────────────────────────────
+vendor/
+node_modules/
+www/vendor/
+
+# ── Laufzeit-Daten (werden nicht versioniert) ────────────────────
+www/data/speiseplaene/
+www/data/bestellungen/
+www/data/bestellungen.log
 www/data/kontakt.log
+www/admin/menu_database.json
+www/admin/menu_database_v2.json
 
-# Logs
-*.log
-/logs/
+# ── Build-Artefakte ──────────────────────────────────────────────
+output/
+dist/
 
-# Docker temporär
-.docker/
+# ── Docker ───────────────────────────────────────────────────────
+# (docker-compose.yml selbst wird versioniert)
 
-# OS
+# ── IDE / Editor ─────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
-docker-bmv/ 
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── PHP-Tools (nicht ins Repo) ────────────────────────────────────
+*.phar
+composer.lock
+
+# ── Screenshots / Playwright ─────────────────────────────────────
+.playwright-cli/
+screenshots/
+test-results/
+
+# ── Temporäre Dateien ─────────────────────────────────────────────
+*.tmp
+*.bak
+*.orig
+
+# ── Datenbank-Dumps ──────────────────────────────────────────────
+*.sql
+*.dump
+*.sqlite
+
+.vercel

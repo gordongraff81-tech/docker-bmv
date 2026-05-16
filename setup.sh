@@ -13,7 +13,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${BLUE}╔══════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║    BMV Menüdienst – Lokales Setup           ║${NC}"
+echo -e "${BLUE}║    BMV Menüdienst – Lokales Setup            ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -29,35 +29,19 @@ check_cmd() {
 
 echo "Prüfe Voraussetzungen..."
 check_cmd docker "https://docs.docker.com/get-docker/"
-check_cmd "docker" "docker compose plugin (Docker Desktop enthält es)"
-# Test ob compose plugin verfügbar
 if ! docker compose version &>/dev/null; then
   echo -e "${RED}✗ 'docker compose' nicht gefunden.${NC}"
   echo "  Bitte Docker Desktop oder das Compose-Plugin installieren."
   exit 1
 fi
+echo -e "${GREEN}✓ docker compose${NC}"
 echo ""
 
 # ── www-Verzeichnis prüfen ─────────────────────────────────────
-if [ ! -d "www" ]; then
-  echo -e "${YELLOW}⚠ Ordner 'www/' fehlt.${NC}"
-  echo "  Bitte die BMV-Projektdateien nach 'www/' kopieren:"
-  echo "  cp -r /pfad/zu/bmv-php/* www/"
+if [ ! -f "www/index.php" ]; then
+  echo -e "${YELLOW}⚠ www/index.php nicht gefunden.${NC}"
+  echo "  Sicherstellen dass die BMV-Projektdateien in www/ liegen."
   echo ""
-  echo "  Erwartete Struktur:"
-  echo "  www/"
-  echo "  ├── index.php (oder index.html)"
-  echo "  ├── api/"
-  echo "  ├── includes/"
-  echo "  ├── admin/"
-  echo "  ├── pdf/"
-  echo "  ├── data/speiseplaene/"
-  echo "  └── ..."
-  echo ""
-  read -p "  Jetzt trotzdem fortfahren? (j/N) " yn
-  if [[ "$yn" != "j" && "$yn" != "J" ]]; then
-    exit 0
-  fi
 fi
 
 # ── Datenordner anlegen ────────────────────────────────────────
@@ -69,16 +53,34 @@ echo ""
 
 # ── .env prüfen ────────────────────────────────────────────────
 if [ ! -f ".env" ]; then
-  echo -e "${YELLOW}⚠ .env nicht gefunden – erstelle Standard-.env${NC}"
-  cat > .env << 'EOF'
-BMV_ADMIN_KEY=bmv-admin-2025
-MAIL_HOST=mailhog
-MAIL_PORT=1025
-EOF
+  echo -e "${YELLOW}⚠ .env nicht gefunden – erstelle aus .env.example${NC}"
+  if [ -f ".env.example" ]; then
+    cp .env.example .env
+    echo -e "${GREEN}✓ .env angelegt${NC}"
+  else
+    echo -e "${RED}✗ .env.example fehlt – .env muss manuell angelegt werden.${NC}"
+    exit 1
+  fi
 fi
 
-echo -e "${BLUE}Admin-Passwort aus .env:${NC}"
-grep BMV_ADMIN_KEY .env
+# ── BMV_ADMIN_KEY prüfen ───────────────────────────────────────
+if ! grep -q '^BMV_ADMIN_KEY=.\+' .env 2>/dev/null; then
+  echo ""
+  echo -e "${YELLOW}⚠ BMV_ADMIN_KEY ist nicht gesetzt.${NC}"
+  echo "  Generiere sicheren Schlüssel..."
+  if command -v openssl &>/dev/null; then
+    GENERATED_KEY=$(openssl rand -hex 32)
+    sed -i "s/^BMV_ADMIN_KEY=.*/BMV_ADMIN_KEY=${GENERATED_KEY}/" .env
+    echo -e "${GREEN}✓ BMV_ADMIN_KEY automatisch gesetzt${NC}"
+    echo -e "  ${BLUE}Key:${NC} ${GENERATED_KEY}"
+    echo ""
+    echo -e "  ${YELLOW}Diesen Key sicher aufbewahren – er wird für den Admin-Zugang benötigt.${NC}"
+  else
+    echo -e "${RED}  openssl nicht verfügbar.${NC}"
+    echo "  Bitte manuell in .env setzen: BMV_ADMIN_KEY=<min-32-zeichen>"
+    exit 1
+  fi
+fi
 echo ""
 
 # ── Docker starten ─────────────────────────────────────────────
@@ -98,7 +100,7 @@ echo -e "  ${BLUE}Kantine-Plan:${NC}    http://localhost:8082"
 echo -e "  ${BLUE}Admin-Panel:${NC}     http://localhost:8083"
 echo -e "  ${BLUE}E-Mail-Vorschau:${NC} http://localhost:8025"
 echo ""
-echo -e "  ${YELLOW}Admin-Passwort:${NC}  $(grep BMV_ADMIN_KEY .env | cut -d= -f2)"
+echo -e "  ${BLUE}Admin-Key:${NC}       $(grep '^BMV_ADMIN_KEY=' .env | cut -d= -f2)"
 echo ""
 echo "  Logs:    docker compose logs -f"
 echo "  Stoppen: docker compose down"
