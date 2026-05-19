@@ -1,0 +1,42 @@
+{
+    "year": 2026,
+    "kw": 22,
+    "system": "essen_auf_raedern",
+    "published": true,
+    "week_start": "2026-05-25",
+    "saved_at": "2026-05-19T08:03:06+02:00",
+    "data": [
+        {
+            "vollkost": {
+                "name": "Brühnudelsuppe mit Hähnchenfleisch",
+                "allergens": "22, 9",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "2 gekochte Eier in Rahmspinat mit Frühlingspüree",
+                "allergens": "18, 13, 9",
+                "price": 0
+            },
+            "premium": {
+                "name": "Hacksteak mit Letscho und Reis",
+                "allergens": "13, 4, 18",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Wurstgulasch Jäger Art mit Spirelli",
+                "allergens": "13, 12, 18",
+                "price": 0
+            },
+            "rohkost": {
+                "name": "Chinakohl-Salat mit Pfirsich",
+                "allergens": "",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Götterspeise mit Sahne",
+                "allergens": "13, 9",
+                "price": 0
+            }
+        }
+    ]
+}

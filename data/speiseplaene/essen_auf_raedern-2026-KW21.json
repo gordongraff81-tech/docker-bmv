@@ -1,0 +1,64 @@
+{
+    "year": 2026,
+    "kw": 21,
+    "system": "essen_auf_raedern",
+    "published": true,
+    "week_start": "2026-05-18",
+    "saved_at": "2026-05-19T08:26:34+02:00",
+    "data": {
+        "1": {
+            "vollkost": {
+                "name": "Brühnudelsuppe mit Hähnchenfleisch",
+                "allergens": "22, 9",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "Geschnetzeltes mit Zwiebeln und Reis",
+                "allergens": "13, 18",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Quarkkeulchen mit Zucker und Apfelmus",
+                "allergens": "13, 9",
+                "price": 0
+            },
+            "premium": {
+                "name": "Hähnchenbrust mit Buttererbsen, Soße und Kartoffeln",
+                "allergens": "13, 9",
+                "price": 0
+            },
+            "dessert": {
+                "name": "Frischer Obstsalat",
+                "allergens": "",
+                "price": 0
+            },
+            "rohkost": {
+                "name": "Chinakohl-Salat mit Pfirsich",
+                "allergens": "",
+                "price": 0
+            },
+            "abendessen": {
+                "name": "2 kl. Wiener mit Brot und Butter, Senf und Salatbeilage",
+                "allergens": "12, 13, 9",
+                "price": 0
+            },
+            "salat": {
+                "name": "Gemischter Salat mit Tomaten, Mozzarella und Balsamico-Dressing",
+                "allergens": "13, 9",
+                "price": 0
+            }
+        },
+        "2": {
+            "vollkost": {
+                "name": "Möhren Eintopf mit Wiener",
+                "allergens": "22, 13, 11",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "Spaghetti-Pfanne mit Hackfleisch, Gemüse und Tomatensoße",
+                "allergens": "4, 18, 13",
+                "price": 0
+            }
+        }
+    }
+}

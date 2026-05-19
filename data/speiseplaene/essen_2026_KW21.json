@@ -1,0 +1,238 @@
+{
+  "year": 2026,
+  "kw": 21,
+  "updated_at": "2026-05-24",
+  "prices": {
+    "1": 6.20,
+    "2": 6.40,
+    "3": 7.20,
+    "4": 6.20
+  },
+  "days": [
+    {
+      "date": "2026-05-25",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Schweineschnitzel mit Kartoffelecken",
+          "description": "Knuspriges Schweineschnitzel mit Kartoffelecken und Kräuterbutter",
+          "price": 6.20,
+          "allergens": "G, L, Ei",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Hähnchenbrust mit Gemüse",
+          "description": "Zarte Hähnchenbrust mit saisonalem Gemüse und Reis",
+          "price": 6.40,
+          "allergens": "G",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Gemüselaibchen mit Joghurtsauce",
+          "description": "Selbstgemachte Gemüselaibchen mit Joghurtsauce und Salat",
+          "price": 7.20,
+          "allergens": "G, L, Ei",
+          "available": true
+        },
+        {
+          "menu_number": 4,
+          "label": "Schonkost",
+          "title": "Kartoffelpüree mit Hühnerfrikassee",
+          "description": "Cremiges Kartoffelpüree mit zartem Hühnerfrikassee",
+          "price": 6.20,
+          "allergens": "G, L, Ei",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch", "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Spaghetti mit Fleischsoße",
+          "description": "Hausgemachte Spaghetti mit kräftiger Fleischsoße und Parmesan",
+          "price": 6.20,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Zander-Filet mit Dillsoße",
+          "description": "Zarter Zander mit feiner Dillsoße und Kartoffeln",
+          "price": 6.40,
+          "allergens": "D, G",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Käse-Broccoli-Auflauf",
+          "description": "Cremiger Auflauf mit frischem Broccoli und drei Käsesorten",
+          "price": 7.20,
+          "allergens": "G, L, Ei",
+          "available": true
+        },
+        {
+          "menu_number": 4,
+          "label": "Schonkost",
+          "title": "Hähnchen-Ragout mit Kartoffeln",
+          "description": "Zartes Hähnchen-Ragout mit Kartoffeln und Gemüse",
+          "price": 6.20,
+          "allergens": "G",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch", "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Rinderbockwurst mit Sauerkraut",
+          "description": "Deftiger Klassiker mit Sauerkraut und Kartoffelpüree",
+          "price": 6.20,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Putenbrust mit Champignons",
+          "description": "Zarte Putenbrust mit feinen Champignons in leichter Soße",
+          "price": 6.40,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Grünkern-Bratlinge mit Gemüse",
+          "description": "Rustikale Bratlinge aus Grünkern mit gedünstetem Gemüse",
+          "price": 7.20,
+          "allergens": "G",
+          "available": true
+        },
+        {
+          "menu_number": 4,
+          "label": "Schonkost",
+          "title": "Kartoffelsuppe mit Würstchen",
+          "description": "Wärmende Kartoffelsuppe mit feinen Würstchen",
+          "price": 6.20,
+          "allergens": "G, L",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch", "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Lachssteak mit Hollandaise",
+          "description": "Gebratenes Lachssteak mit Hollandaise und Kartoffeln",
+          "price": 6.20,
+          "allergens": "D, G, L",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Hähnchen-Tandoori",
+          "description": "Mariniertes Hähnchen mit Joghurtsauce und Basmati-Reis",
+          "price": 6.40,
+          "allergens": "G",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Gemüse-Risotto mit Parmesan",
+          "description": "Cremiges Risotto mit Frühgemüse und Parmesan",
+          "price": 7.20,
+          "allergens": "G, L",
+          "available": true
+        },
+        {
+          "menu_number": 4,
+          "label": "Schonkost",
+          "title": "Gemüsesuppe mit Fleischbrühe",
+          "description": "Leichte Gemüsesuppe auf Fleischbrühe",
+          "price": 6.20,
+          "allergens": "G",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch", "price": 1.20 }
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "menus": [
+        {
+          "menu_number": 1,
+          "label": "Vollkost",
+          "title": "Kartoffelpuffer mit Apfelmus",
+          "description": "Knusprige Kartoffelpuffer mit selbstgemachtem Apfelmus",
+          "price": 6.20,
+          "allergens": "Ei, G",
+          "available": true
+        },
+        {
+          "menu_number": 2,
+          "label": "Leichte Kost",
+          "title": "Seelachs mit Remoulade",
+          "description": "Gebratener Seelachs mit würziger Remoulade und Kartoffeln",
+          "price": 6.40,
+          "allergens": "D, G, L",
+          "available": true
+        },
+        {
+          "menu_number": 3,
+          "label": "Vegetarisch",
+          "title": "Spinat-Gnocchi mit Tomatensoße",
+          "description": "Hausgemachte Spinat-Gnocchi mit würziger Tomatensoße",
+          "price": 7.20,
+          "allergens": "G, L, Ei",
+          "available": true
+        },
+        {
+          "menu_number": 4,
+          "label": "Schonkost",
+          "title": "Hähnchenfrikassee mit Reis",
+          "description": "Zartes Hähnchenfrikassee mit Reis und Gemüse",
+          "price": 6.20,
+          "allergens": "G, L, Ei",
+          "available": true
+        }
+      ],
+      "addons": [
+        { "code": "SUPPE", "name": "Tagessuppe", "price": 1.80 },
+        { "code": "NACHT", "name": "Nachtisch", "price": 1.20 }
+      ]
+    }
+  ]
+}

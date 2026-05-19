@@ -1,0 +1,44 @@
+{
+    "year": 2026,
+    "kw": 21,
+    "system": "kantine",
+    "published": true,
+    "week_start": "2026-05-18",
+    "saved_at": "2026-05-19T08:26:34+02:00",
+    "data": {
+        "1": {
+            "kantine_menu1": {
+                "name": "Schinkenknacker auf Grünkohl mit Kartoffeln",
+                "allergens": "13, 9, 4",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Jägerschnitzel mit Tomatensoße und Spirelli",
+                "allergens": "4, 13, 12, 18",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Kartoffelsuppe mit Bockwurst",
+                "allergens": "12, 22, 13",
+                "price": 0
+            }
+        },
+        "2": {
+            "kantine_menu1": {
+                "name": "Pikantes Hühnerfrikassee mit Beilage",
+                "allergens": "4, 3, 9, 13",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Blumenkohl-Käse-Medaillon mit Kräuterpüree und Hollandaise",
+                "allergens": "13, 18, 4",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Kartoffelsuppe mit Bockwurst",
+                "allergens": "12, 22, 13",
+                "price": 0
+            }
+        }
+    }
+}

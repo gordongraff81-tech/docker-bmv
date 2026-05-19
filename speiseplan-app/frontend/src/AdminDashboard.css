@@ -1,0 +1,229 @@
+.admin-dashboard {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #f5f5f5;
+}
+
+.admin-header {
+  background: #1e3a8a;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.admin-nav label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.admin-nav input {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 80px;
+}
+
+.publish-status {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.btn-success {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #15803d;
+}
+
+.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+.menu-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.category-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-section h3 {
+  margin: 0 0 16px 0;
+  color: #1e3a8a;
+  font-size: 18px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.weekdays-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.day-cell {
+  background: #f9fafb;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-label {
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.menu-item-edit {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item-input {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.item-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.item-input.small {
+  font-size: 11px;
+}
+
+.btn-add-item {
+  padding: 8px 12px;
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px dashed #93c5fd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-add-item:hover {
+  background: #bfdbfe;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+@media (max-width: 1024px) {
+  .admin-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .admin-nav {
+    margin-top: 12px;
+    justify-content: center;
+  }
+
+  .weekdays-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 10px;
+  }
+
+  .weekdays-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-controls {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "year": 2026,
+    "kw": 14,
+    "system": "essen_auf_raedern",
+    "published": true,
+    "week_start": "2026-03-30",
+    "saved_at": "2026-05-19T08:10:23+02:00",
+    "data": [
+        {
+            "vollkost": {
+                "name": "Brühnudelsuppe mit Hähnchenfleisch",
+                "allergens": "22, 9",
+                "price": 0
+            },
+            "leichte_kost": {
+                "name": "2 gekochte Eier in Rahmspinat mit Frühlingspüree",
+                "allergens": "18, 13, 9",
+                "price": 0
+            },
+            "premium": {
+                "name": "Schnitzel mit Porreerahm und Kartoffeln",
+                "allergens": "13, 4, 18",
+                "price": 0
+            },
+            "tagesmenu": {
+                "name": "Kartoffelsalat mit Schinkenröllchen und Bohnensalat",
+                "allergens": "9, 4, 2, 12",
+                "price": 0
+            }
+        }
+    ]
+}

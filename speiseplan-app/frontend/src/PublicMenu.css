@@ -1,0 +1,451 @@
+.public-menu {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: white;
+  color: #1f2937;
+}
+
+.public-menu.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #9ca3af;
+}
+
+.empty-state h2 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.print-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.print-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.menu-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  color: #1e3a8a;
+}
+
+.menu-subtitle {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.menu-table-wrapper {
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.menu-table thead {
+  background: #1e3a8a;
+  color: white;
+  font-weight: 600;
+}
+
+.menu-table th {
+  padding: 14px;
+  text-align: left;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #1e3a8a;
+}
+
+.category-col {
+  min-width: 160px;
+}
+
+.weekday-col {
+  text-align: center;
+  width: 20%;
+}
+
+.menu-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.menu-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.category-row {
+  background: #f9fafb;
+}
+
+.category-name {
+  padding: 12px 14px;
+  font-weight: 700;
+  color: #1e3a8a;
+  background: #eff6ff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.day-cell {
+  padding: 12px 14px;
+  vertical-align: top;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.item-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  background: white;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  page-break-inside: avoid;
+}
+
+.item-title {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.item-price {
+  font-weight: 700;
+  color: #059669;
+  white-space: nowrap;
+}
+
+.item-allergens {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.empty-cell {
+  color: #d1d5db;
+  text-align: center;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+.menu-footer {
+  text-align: center;
+  padding: 20px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  border-top: 2px solid #e5e7eb;
+}
+
+.menu-footer p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* ════════════════════ PRINT STYLES (A4 LANDSCAPE) ════════════════════ */
+
+@media print {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: #000;
+    font-size: 10pt;
+    line-height: 1.3;
+  }
+
+  .public-menu {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    page-break-after: avoid;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 0.5cm;
+  }
+
+  .menu-header {
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #000;
+    page-break-after: avoid;
+  }
+
+  .menu-header h1 {
+    font-size: 22pt;
+    margin-bottom: 3px;
+  }
+
+  .menu-subtitle {
+    font-size: 9pt;
+  }
+
+  .menu-table-wrapper {
+    box-shadow: none;
+    border: 1px solid #000;
+    border-radius: 0;
+  }
+
+  .menu-table {
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+
+  .menu-table thead {
+    background: #000;
+    color: white;
+    page-break-after: avoid;
+    display: table-header-group;
+  }
+
+  .menu-table th {
+    padding: 8px;
+    border: 1px solid #000;
+    font-size: 9pt;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .category-col {
+    min-width: 120px;
+    text-align: left;
+  }
+
+  .weekday-col {
+    width: 18%;
+  }
+
+  .menu-table tbody tr {
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  .category-row {
+    background: #f0f0f0;
+  }
+
+  .category-name {
+    padding: 6px 8px;
+    font-weight: 700;
+    background: #e0e0e0;
+    border: 1px solid #000;
+    font-size: 9pt;
+  }
+
+  .day-cell {
+    padding: 6px 4px;
+    font-size: 8.5pt;
+    border: 1px solid #ccc;
+    height: auto;
+    vertical-align: top;
+  }
+
+  .menu-item {
+    background: white;
+    padding: 4px;
+    margin-bottom: 3px;
+    border: 0.5pt solid #ccc;
+    page-break-inside: avoid;
+    font-size: 8pt;
+  }
+
+  .item-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 8.5pt;
+    line-height: 1.2;
+  }
+
+  .item-details {
+    font-size: 7pt;
+    margin-top: 2px;
+    padding-top: 2px;
+    gap: 4px;
+  }
+
+  .item-price {
+    font-weight: 700;
+  }
+
+  .item-allergens {
+    background: #fff3cd;
+    color: #333;
+    padding: 1px 3px;
+    border-radius: 2px;
+    font-size: 7pt;
+    font-weight: 600;
+  }
+
+  .empty-cell {
+    color: #999;
+    font-size: 7pt;
+  }
+
+  .menu-footer {
+    margin-top: 10px;
+    padding: 8px;
+    background: white;
+    border: 1px solid #000;
+    font-size: 8pt;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+
+  .menu-footer p {
+    line-height: 1.4;
+  }
+
+  /* Verhindere Hintergrundfarben beim Druck */
+  thead {
+    background-color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  tr:nth-child(even) {
+    background-color: transparent !important;
+  }
+}
+
+/* ════════════════════ RESPONSIVE ════════════════════ */
+
+@media (max-width: 1024px) {
+  .public-menu {
+    padding: 15px;
+  }
+
+  .menu-table th {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .day-cell {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .item-title {
+    font-size: 12px;
+  }
+
+  .print-button {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .print-button {
+    display: none !important;
+  }
+
+  .menu-header h1 {
+    font-size: 24px;
+  }
+
+  .menu-table-wrapper {
+    font-size: 11px;
+  }
+
+  .menu-table th {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .day-cell {
+    padding: 6px;
+    font-size: 11px;
+    min-width: 100px;
+  }
+
+  .item-title {
+    font-size: 11px;
+  }
+
+  .item-details {
+    font-size: 10px;
+  }
+
+  .category-name {
+    min-width: 100px;
+  }
+}

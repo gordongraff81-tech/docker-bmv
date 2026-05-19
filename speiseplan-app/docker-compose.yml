@@ -1,0 +1,109 @@
+version: '3.9'
+
+services:
+  # ════════════════════ PostgreSQL ════════════════════
+  postgres:
+    image: postgres:16-alpine
+    container_name: speiseplan_postgres
+    environment:
+      POSTGRES_USER: ${DB_USER:-speiseplan}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-speiseplan_secure_pass}
+      POSTGRES_DB: ${DB_NAME:-speiseplan}
+      POSTGRES_INITDB_ARGS: "-c max_connections=200"
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U speiseplan -d speiseplan"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - speiseplan_net
+
+  # ════════════════════ Node.js Backend ════════════════════
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: speiseplan_backend
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-speiseplan}
+      DB_PASSWORD: ${DB_PASSWORD:-speiseplan_secure_pass}
+      DB_NAME: ${DB_NAME:-speiseplan}
+      JWT_SECRET: ${JWT_SECRET:-your_jwt_secret_key_change_in_production}
+      CORS_ORIGIN: http://localhost:8080,http://localhost:8081,http://localhost:8082
+    volumes:
+      - ./volumes/uploads:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - speiseplan_net
+
+  # ════════════════════ React Frontend (Admin + Public) ════════════════════
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: speiseplan_frontend
+    environment:
+      REACT_APP_API_URL: http://localhost:3000
+      REACT_APP_SOCKET_URL: http://localhost:3000
+      NODE_ENV: production
+    volumes:
+      - ./volumes/uploads:/app/public/uploads:ro
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - speiseplan_net
+
+  # ════════════════════ Nginx Reverse Proxy ════════════════════
+  nginx:
+    image: nginx:alpine
+    container_name: speiseplan_nginx
+    ports:
+      - "8080:80"
+      - "8081:8081"
+      - "8082:8082"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - backend
+      - frontend
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - speiseplan_net
+
+networks:
+  speiseplan_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  uploads_data:

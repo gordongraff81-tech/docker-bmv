@@ -1,0 +1,27 @@
+{
+    "year": 2026,
+    "kw": 22,
+    "system": "kantine",
+    "published": true,
+    "week_start": "2026-05-25",
+    "saved_at": "2026-05-19T08:03:06+02:00",
+    "data": [
+        {
+            "kantine_menu1": {
+                "name": "Schinkenknacker auf Grünkohl mit Kartoffeln",
+                "allergens": "13, 9, 4",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "Blumenkohl-Käse-Medaillon mit Kräuterpüree und Hollandaise",
+                "allergens": "13, 18, 4",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Kartoffelsuppe mit Bockwurst",
+                "allergens": "12, 22, 13",
+                "price": 0
+            }
+        }
+    ]
+}

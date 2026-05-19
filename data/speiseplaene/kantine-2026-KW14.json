@@ -1,0 +1,27 @@
+{
+    "year": 2026,
+    "kw": 14,
+    "system": "kantine",
+    "published": true,
+    "week_start": "2026-03-30",
+    "saved_at": "2026-05-19T08:10:23+02:00",
+    "data": [
+        {
+            "kantine_menu1": {
+                "name": "Pikantes Hühnerfrikassee mit Beilage",
+                "allergens": "4, 3, 9, 13",
+                "price": 0
+            },
+            "kantine_menu2": {
+                "name": "XXL Bockwurst mit Kartoffelsalat",
+                "allergens": "12, 9, 4, 3, 2",
+                "price": 0
+            },
+            "kantine_menu3": {
+                "name": "Alt Deutsche Kartoffelsuppe",
+                "allergens": "11, 22",
+                "price": 0
+            }
+        }
+    ]
+}

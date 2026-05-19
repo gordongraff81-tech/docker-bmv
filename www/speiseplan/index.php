@@ -24,12 +24,18 @@ $feiertage = getFeiertage($year);
 
 // ── Daten laden ──────────────────────────────────────────────────
 $kwStr   = str_pad($kw, 2, '0', STR_PAD_LEFT);
-$docRoot = $_SERVER['DOCUMENT_ROOT'];
-$newFile = "$docRoot/data/speiseplaene/essen_{$year}_KW{$kwStr}.json";
+// Versuche zuerst das neue Format: essen_YYYY_KWxx.json
+$newFile = __DIR__ . "/../data/speiseplaene/essen_{$year}_KW{$kwStr}.json";
+// Fallback zum Admin-Format: essen_auf_raedern-YYYY-KWxx.json
+$adminFile = __DIR__ . "/../data/speiseplaene/essen_auf_raedern-{$year}-KW{$kwStr}.json";
 
 $plan = null;
 if (file_exists($newFile)) {
     $plan = json_decode(file_get_contents($newFile), true);
+} elseif (file_exists($adminFile)) {
+    $adminData = json_decode(file_get_contents($adminFile), true);
+    // Konvertiere Admin-Format zu Speiseplan-Format
+    $plan = convertAdminFormatToMenu($adminData, $year, $kw);
 }
 
 // Map für schnellen Zugriff
@@ -42,6 +48,63 @@ if ($plan && !empty($plan['days'])) {
     }
 }
 $prices = $plan['prices'] ?? [1=>6.20, 2=>6.40, 3=>7.20, 4=>6.20];
+
+// ── Konvertiere Admin-Format zu Menu-Format ──────────────────────────────────────
+function convertAdminFormatToMenu($adminData, $year, $kw) {
+    if (!$adminData || !is_array($adminData)) return null;
+    
+    $plan = [
+        'year' => $year,
+        'kw' => $kw,
+        'updated_at' => date('Y-m-d'),
+        'prices' => [1 => 6.20, 2 => 6.40, 3 => 7.20, 4 => 6.20],
+        'days' => []
+    ];
+    
+    // Admin-Format: { "Monday": { "M1": { "name": "...", "price": 7.5, ... }, ... }, ... }
+    $dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    $dateStart = (new DateTimeImmutable())->setISODate($year, $kw, 1);
+    
+    foreach ($dayOrder as $idx => $dayName) {
+        if ($idx > 4) break; // Nur Mo-Fr
+        
+        $dayData = $adminData[$dayName] ?? null;
+        if (!$dayData) continue;
+        
+        $date = $dateStart->modify("+$idx days");
+        $menus = [];
+        
+        // M1, M2, M3, M4 Menüs zusammenfassen
+        for ($n = 1; $n <= 4; $n++) {
+            $menuKey = "M$n";
+            $item = $dayData[$menuKey] ?? null;
+            if ($item && !empty($item['name'])) {
+                $menus[] = [
+                    'menu_number' => $n,
+                    'label' => "Menü $n",
+                    'title' => $item['name'],
+                    'description' => $item['name'],
+                    'price' => (float)($item['price'] ?? $plan['prices'][$n]),
+                    'allergens' => $item['allergens'] ?? null,
+                    'available' => true
+                ];
+            }
+        }
+        
+        if (!empty($menus)) {
+            $plan['days'][] = [
+                'date' => $date->format('Y-m-d'),
+                'menus' => $menus,
+                'addons' => [
+                    ['code' => 'SUPPE', 'name' => 'Tagessuppe', 'price' => 1.80],
+                    ['code' => 'NACHT', 'name' => 'Nachtisch', 'price' => 1.20]
+                ]
+            ];
+        }
+    }
+    
+    return !empty($plan['days']) ? $plan : null;
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
